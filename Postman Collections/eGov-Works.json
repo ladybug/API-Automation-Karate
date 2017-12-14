@@ -4601,7 +4601,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "b1aa93c4-bb6d-4c87-9ab3-49e01539200a",
+                    "id": "68aeb444-ddee-49b3-a058-898ce99e01be",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.floor((Math.random() * 10000) + 1);",
@@ -4611,7 +4611,8 @@
                       "var year = today.getFullYear();",
                       "",
                       "pm.environment.set(\"estimateNumber\", \"Spillover/DE/ENG/\"+num1);",
-                      "pm.environment.set(\"technicalSanctionNumber\", \"Spillover/DE/TS/\"+num1);"
+                      "pm.environment.set(\"technicalSanctionNumber\", \"Spillover/DE/TS/\"+num1);",
+                      "pm.globals.get(spilloverPC);"
                     ]
                   }
                 }
