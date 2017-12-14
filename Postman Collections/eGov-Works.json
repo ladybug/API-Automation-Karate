@@ -4654,13 +4654,11 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "a96468a8-8dc6-4eb3-bbdd-5f669a683a72",
+                    "type": "text/javascript",
                     "exec": [
-                      "pm.environment.set(\"variable_key\", \"variable_value\");",
-                      "",
-                      "pm.environment.set(\"variable_key\", \"variable_value\");"
-                    ],
-                    "id": "9aa3ec1e-dc82-4800-8d55-bf011b97c9cc",
-                    "type": "text/javascript"
+                      "var jsonData = JSON.parse(responseBody);"
+                    ]
                   }
                 }
               ],
@@ -4677,7 +4675,7 @@
                   "raw": "{\r\n\t\"RequestInfo\":{\r\n\t\"apiId\": \"works-masters\",\r\n\t\"ver\": \"1.0\",\r\n\t\"ts\": 0,\r\n\t\"action\": \"search\",\r\n\t\"did\": \"1\",\r\n\t\"key\": \"string\",\r\n\t\"msgId\": \"string\",\r\n\t\"requesterId\": \"clerk\",\r\n\t\"authToken\": \"{{access_token}}\"\r\n\t}\r\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-masters/v1/scheduleofrates/_search?tenantId={{tenantId}}&codes={{SOR_code}}",
+                  "raw": "{{url}}/works-masters/v1/scheduleofrates/_search?tenantId={{tenantId}}&sorCodes={{SOR_code}}",
                   "host": [
                     "{{url}}"
                   ],
@@ -4694,7 +4692,7 @@
                       "equals": true
                     },
                     {
-                      "key": "codes",
+                      "key": "sorCodes",
                       "value": "{{SOR_code}}",
                       "equals": true
                     }
