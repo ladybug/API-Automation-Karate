@@ -3228,6 +3228,72 @@
               "response": []
             },
             {
+              "_postman_id": "f6f9fca7-04fc-02d6-9bdc-31da547590c0",
+              "name": "Create ET with SOR",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "1711c7c5-e3e5-4ce2-a6b0-9cd3a1a87910",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var num1 = Math.round((Math.random() * 100));",
+                      "var num2 = pm.globals.get(\"j\");",
+                      "pm.environment.set(\"ET_code\", \"ET\"+(++num2));",
+                      "pm.globals.set(\"j\", num2);"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "0f831016-d4a1-45fc-8d07-069f0290abb9",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "if(pm.response.to.have.status(200)){",
+                      "tests[\"Status is success\"] = jsonData.ResponseInfo.status.has(\"SUCCESSFUL\");",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "pm.test(\"Successful POST request\", function () {",
+                      "    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+                      "});",
+                      "",
+                      "pm.environment.set(\"ET_id\", jsonData.estimateTemplates[0].id);",
+                      "pm.environment.set(\"ET_code\", jsonData.estimateTemplates[0].code);",
+                      "pm.environment.set(\"ETactivity_id\", jsonData.estimateTemplates[0].estimateTemplateActivities[0].id);",
+                      "pm.environment.set(\"nonSOR_id\", jsonData.estimateTemplates[0].estimateTemplateActivities[0].nonSOR.id);",
+                      "",
+                      "}else if(pm.response.to.have.status(400)){",
+                      "pm.test(\"Duplicate Estimate Template validation message matches\", function () {",
+                      "    pm.response.to.have.status(400);",
+                      "    pm.expect(\"Given Estimate Template already exists: \"+\"ET_code\").to.include(jsonData.Errors[0].message);",
+                      "});",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"emp\",\n    \"ver\": \"1.0\",\n    \"ts\": \"10032017\",\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"key\": \"abcdkey\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"authToken\": \"{{access_token}}\"\n  },\n  \"estimateTemplates\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"name\": \"ROADs Estimate Template\",\n      \"code\": \"{{ET_code}}\",\n      \"active\": true,\n      \"description\": \"Estimate Template for Road\",\n      \"typeOfWork\": \"ROADS\",\n      \"estimateTemplateActivities\": [\n         {\n          \"tenantId\": \"{{tenantId}}\",\n          \"estimateTemplate\": null,\n          \"scheduleOfRate\":{\n          \t\"code\": \"SOR63\"\n          },\n          \"uom\": {\n            \"code\": \"TON\"\n          },\n          \"nonSOR\": null,\n          \"unitRate\": 100.12,\n          \"deleted\": false          \n        }\n      ]\n    }\n  ]\n}"
+                },
+                "url": "{{url}}/works-masters/v1/estimatetemplates/_create",
+                "description": "Estimate Templates for work creation:\nWith only SOR as estimate activity"
+              },
+              "response": []
+            },
+            {
               "_postman_id": "19066a44-41a5-4eb2-b447-9d0c3f081c84",
               "name": "Create ET(SOR & NonSOR)",
               "event": [
@@ -3480,72 +3546,6 @@
                 },
                 "url": "{{url}}/works-masters/v1/estimatetemplates/_create",
                 "description": "Estimate Templates for work creation:\n\nWith only Non SOR as estimate activity"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "f6f9fca7-04fc-02d6-9bdc-31da547590c0",
-              "name": "Create ET with SOR",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "1711c7c5-e3e5-4ce2-a6b0-9cd3a1a87910",
-                    "type": "text/javascript",
-                    "exec": [
-                      "var num1 = Math.round((Math.random() * 100));",
-                      "var num2 = pm.globals.get(\"j\");",
-                      "pm.environment.set(\"ET_code\", \"ET\"+(++num2));",
-                      "pm.globals.set(\"j\", num2);"
-                    ]
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "0f831016-d4a1-45fc-8d07-069f0290abb9",
-                    "type": "text/javascript",
-                    "exec": [
-                      "var jsonData = JSON.parse(responseBody);",
-                      "",
-                      "if(pm.response.to.have.status(200)){",
-                      "tests[\"Status is success\"] = jsonData.ResponseInfo.status.has(\"SUCCESSFUL\");",
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "pm.test(\"Successful POST request\", function () {",
-                      "    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
-                      "});",
-                      "",
-                      "pm.environment.set(\"ET_id\", jsonData.estimateTemplates[0].id);",
-                      "pm.environment.set(\"ET_code\", jsonData.estimateTemplates[0].code);",
-                      "pm.environment.set(\"ETactivity_id\", jsonData.estimateTemplates[0].estimateTemplateActivities[0].id);",
-                      "pm.environment.set(\"nonSOR_id\", jsonData.estimateTemplates[0].estimateTemplateActivities[0].nonSOR.id);",
-                      "",
-                      "}else if(pm.response.to.have.status(400)){",
-                      "pm.test(\"Duplicate Estimate Template validation message matches\", function () {",
-                      "    pm.response.to.have.status(400);",
-                      "    pm.expect(\"Given Estimate Template already exists: \"+\"ET_code\").to.include(jsonData.Errors[0].message);",
-                      "});",
-                      "}"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"emp\",\n    \"ver\": \"1.0\",\n    \"ts\": \"10032017\",\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"key\": \"abcdkey\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"authToken\": \"{{access_token}}\"\n  },\n  \"estimateTemplates\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"name\": \"ROADs Estimate Template\",\n      \"code\": \"{{ET_code}}\",\n      \"active\": true,\n      \"description\": \"Estimate Template for Road\",\n      \"typeOfWork\": \"ROADS\",\n      \"estimateTemplateActivities\": [\n         {\n          \"tenantId\": \"{{tenantId}}\",\n          \"estimateTemplate\": null,\n          \"scheduleOfRate\":{\n          \t\"code\": \"SOR63\"\n          },\n          \"uom\": {\n            \"code\": \"TON\"\n          },\n          \"nonSOR\": null,\n          \"unitRate\": 100.12,\n          \"deleted\": false          \n        }\n      ]\n    }\n  ]\n}"
-                },
-                "url": "{{url}}/works-masters/v1/estimatetemplates/_create",
-                "description": "Estimate Templates for work creation:\nWith only SOR as estimate activity"
               },
               "response": []
             }
