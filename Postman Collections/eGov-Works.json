@@ -4768,7 +4768,7 @@
             },
             {
               "_postman_id": "7ca82064-5c58-2983-1902-914620aa5238",
-              "name": "Search DE",
+              "name": "Search sDE",
               "request": {
                 "method": "POST",
                 "header": [
