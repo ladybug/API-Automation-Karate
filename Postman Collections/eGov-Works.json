@@ -348,6 +348,684 @@
           "description": "",
           "item": [
             {
+              "_postman_id": "668ebecd-11a4-d6af-a9b6-7deb747b4992",
+              "name": "Search",
+              "description": null,
+              "item": [
+                {
+                  "_postman_id": "e9f7b46f-f683-a58c-293b-264260d98d03",
+                  "name": "Search by ids",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
+                    },
+                    "url": {
+                      "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&ids=35cea189c4f6426a839269f53a52ab1c",
+                      "host": [
+                        "egov-micro-dev",
+                        "egovernments",
+                        "org"
+                      ],
+                      "path": [
+                        "works-estimate",
+                        "v1",
+                        "abstractestimates",
+                        "_search"
+                      ],
+                      "query": [
+                        {
+                          "key": "tenantId",
+                          "value": "default",
+                          "equals": true
+                        },
+                        {
+                          "key": "ids",
+                          "value": "35cea189c4f6426a839269f53a52ab1c",
+                          "equals": true
+                        }
+                      ]
+                    },
+                    "description": null
+                  },
+                  "response": []
+                },
+                {
+                  "_postman_id": "17b3bfa8-520f-f090-055a-7643950df2c4",
+                  "name": "Search all",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
+                    },
+                    "url": {
+                      "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default",
+                      "host": [
+                        "egov-micro-dev",
+                        "egovernments",
+                        "org"
+                      ],
+                      "path": [
+                        "works-estimate",
+                        "v1",
+                        "abstractestimates",
+                        "_search"
+                      ],
+                      "query": [
+                        {
+                          "key": "tenantId",
+                          "value": "default",
+                          "equals": true
+                        }
+                      ]
+                    },
+                    "description": null
+                  },
+                  "response": []
+                },
+                {
+                  "_postman_id": "b6ee836a-e8ad-5ba6-6531-8b4792bd85e2",
+                  "name": "Search by abstractEstimateNumbers",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
+                    },
+                    "url": {
+                      "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&abstractEstimateNumbers=AE/AS/000047/11/2017-18",
+                      "host": [
+                        "egov-micro-dev",
+                        "egovernments",
+                        "org"
+                      ],
+                      "path": [
+                        "works-estimate",
+                        "v1",
+                        "abstractestimates",
+                        "_search"
+                      ],
+                      "query": [
+                        {
+                          "key": "tenantId",
+                          "value": "default",
+                          "equals": true
+                        },
+                        {
+                          "key": "abstractEstimateNumbers",
+                          "value": "AE/AS/000047/11/2017-18",
+                          "equals": true
+                        }
+                      ]
+                    },
+                    "description": null
+                  },
+                  "response": []
+                },
+                {
+                  "_postman_id": "31968f76-b19e-9b4c-b24f-86c50ba19a10",
+                  "name": "Search by adminSanctionNumbers",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"5824d35d-76e1-455a-b1af-e4f9c2c6317e\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
+                    },
+                    "url": {
+                      "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&adminSanctionNumbers=1234567",
+                      "host": [
+                        "egov-micro-dev",
+                        "egovernments",
+                        "org"
+                      ],
+                      "path": [
+                        "works-estimate",
+                        "v1",
+                        "abstractestimates",
+                        "_search"
+                      ],
+                      "query": [
+                        {
+                          "key": "tenantId",
+                          "value": "default",
+                          "equals": true
+                        },
+                        {
+                          "key": "adminSanctionNumbers",
+                          "value": "1234567",
+                          "equals": true
+                        }
+                      ]
+                    },
+                    "description": null
+                  },
+                  "response": []
+                },
+                {
+                  "_postman_id": "1d2d5983-7ec4-e45b-bcd1-eb3a8c5bd320",
+                  "name": "Search by departmentCodes",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
+                    },
+                    "url": {
+                      "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&departmentCodes=AS",
+                      "host": [
+                        "egov-micro-dev",
+                        "egovernments",
+                        "org"
+                      ],
+                      "path": [
+                        "works-estimate",
+                        "v1",
+                        "abstractestimates",
+                        "_search"
+                      ],
+                      "query": [
+                        {
+                          "key": "tenantId",
+                          "value": "default",
+                          "equals": true
+                        },
+                        {
+                          "key": "departmentCodes",
+                          "value": "AS",
+                          "equals": true
+                        }
+                      ]
+                    },
+                    "description": null
+                  },
+                  "response": []
+                },
+                {
+                  "_postman_id": "2bfd889a-2e71-c2f4-3ce2-4de0c2258e80",
+                  "name": "Search by fundCodes",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
+                    },
+                    "url": {
+                      "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&fundCodes=01",
+                      "host": [
+                        "egov-micro-dev",
+                        "egovernments",
+                        "org"
+                      ],
+                      "path": [
+                        "works-estimate",
+                        "v1",
+                        "abstractestimates",
+                        "_search"
+                      ],
+                      "query": [
+                        {
+                          "key": "tenantId",
+                          "value": "default",
+                          "equals": true
+                        },
+                        {
+                          "key": "fundCodes",
+                          "value": "01",
+                          "equals": true
+                        }
+                      ]
+                    },
+                    "description": null
+                  },
+                  "response": []
+                },
+                {
+                  "_postman_id": "c5378256-52e2-1637-d23a-acdac152c3a3",
+                  "name": "Search by functionCodes",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
+                    },
+                    "url": {
+                      "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&functionCodes=20",
+                      "host": [
+                        "egov-micro-dev",
+                        "egovernments",
+                        "org"
+                      ],
+                      "path": [
+                        "works-estimate",
+                        "v1",
+                        "abstractestimates",
+                        "_search"
+                      ],
+                      "query": [
+                        {
+                          "key": "tenantId",
+                          "value": "default",
+                          "equals": true
+                        },
+                        {
+                          "key": "functionCodes",
+                          "value": "20",
+                          "equals": true
+                        }
+                      ]
+                    },
+                    "description": null
+                  },
+                  "response": []
+                },
+                {
+                  "_postman_id": "317c04e7-165c-962b-2cd1-1d3280235988",
+                  "name": "Search by budgetHeadCodes",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
+                    },
+                    "url": {
+                      "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&budgetHeadCodes=4122001-CWIP-Office Buildings",
+                      "host": [
+                        "egov-micro-dev",
+                        "egovernments",
+                        "org"
+                      ],
+                      "path": [
+                        "works-estimate",
+                        "v1",
+                        "abstractestimates",
+                        "_search"
+                      ],
+                      "query": [
+                        {
+                          "key": "tenantId",
+                          "value": "default",
+                          "equals": true
+                        },
+                        {
+                          "key": "budgetHeadCodes",
+                          "value": "4122001-CWIP-Office Buildings",
+                          "equals": true
+                        }
+                      ]
+                    },
+                    "description": null
+                  },
+                  "response": []
+                },
+                {
+                  "_postman_id": "223bbd88-cac9-2bfc-e155-fe8532f0b364",
+                  "name": "Search by adminSanctionFromDate",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
+                    },
+                    "url": {
+                      "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&adminSanctionFromDate=1509088048",
+                      "host": [
+                        "egov-micro-dev",
+                        "egovernments",
+                        "org"
+                      ],
+                      "path": [
+                        "works-estimate",
+                        "v1",
+                        "abstractestimates",
+                        "_search"
+                      ],
+                      "query": [
+                        {
+                          "key": "tenantId",
+                          "value": "default",
+                          "equals": true
+                        },
+                        {
+                          "key": "adminSanctionFromDate",
+                          "value": "1509088048",
+                          "equals": true
+                        }
+                      ]
+                    },
+                    "description": null
+                  },
+                  "response": []
+                },
+                {
+                  "_postman_id": "ce979d35-608b-dda0-2462-6f1d3880428f",
+                  "name": "Search by adminSanctionToDate",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
+                    },
+                    "url": {
+                      "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&adminSanctionToDate=1509088047",
+                      "host": [
+                        "egov-micro-dev",
+                        "egovernments",
+                        "org"
+                      ],
+                      "path": [
+                        "works-estimate",
+                        "v1",
+                        "abstractestimates",
+                        "_search"
+                      ],
+                      "query": [
+                        {
+                          "key": "tenantId",
+                          "value": "default",
+                          "equals": true
+                        },
+                        {
+                          "key": "adminSanctionToDate",
+                          "value": "1509088047",
+                          "equals": true
+                        }
+                      ]
+                    },
+                    "description": null
+                  },
+                  "response": []
+                },
+                {
+                  "_postman_id": "7a34b566-b2e3-e9db-1ebd-fb40a2861b0f",
+                  "name": "Search by spillOverFlag",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
+                    },
+                    "url": {
+                      "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&spillOverFlag=true",
+                      "host": [
+                        "egov-micro-dev",
+                        "egovernments",
+                        "org"
+                      ],
+                      "path": [
+                        "works-estimate",
+                        "v1",
+                        "abstractestimates",
+                        "_search"
+                      ],
+                      "query": [
+                        {
+                          "key": "tenantId",
+                          "value": "default",
+                          "equals": true
+                        },
+                        {
+                          "key": "spillOverFlag",
+                          "value": "true",
+                          "equals": true
+                        }
+                      ]
+                    },
+                    "description": null
+                  },
+                  "response": []
+                },
+                {
+                  "_postman_id": "0706e585-3406-a50e-6775-acdceb8d09c4",
+                  "name": "Search by createdBy",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
+                    },
+                    "url": {
+                      "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&createdBy=10001",
+                      "host": [
+                        "egov-micro-dev",
+                        "egovernments",
+                        "org"
+                      ],
+                      "path": [
+                        "works-estimate",
+                        "v1",
+                        "abstractestimates",
+                        "_search"
+                      ],
+                      "query": [
+                        {
+                          "key": "tenantId",
+                          "value": "default",
+                          "equals": true
+                        },
+                        {
+                          "key": "createdBy",
+                          "value": "10001",
+                          "equals": true
+                        }
+                      ]
+                    },
+                    "description": null
+                  },
+                  "response": []
+                },
+                {
+                  "_postman_id": "57b1ee70-77cf-d53d-da5c-1eb469f508cc",
+                  "name": "Search by workIdentificationNumbers",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
+                    },
+                    "url": {
+                      "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&workIdentificationNumbers=000004/11/2017-18",
+                      "host": [
+                        "egov-micro-dev",
+                        "egovernments",
+                        "org"
+                      ],
+                      "path": [
+                        "works-estimate",
+                        "v1",
+                        "abstractestimates",
+                        "_search"
+                      ],
+                      "query": [
+                        {
+                          "key": "tenantId",
+                          "value": "default",
+                          "equals": true
+                        },
+                        {
+                          "key": "workIdentificationNumbers",
+                          "value": "000004/11/2017-18",
+                          "equals": true
+                        }
+                      ]
+                    },
+                    "description": null
+                  },
+                  "response": []
+                },
+                {
+                  "_postman_id": "513bce27-a53f-a7dd-40e5-90508bee8ad6",
+                  "name": "Search by statuses",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"e42089af-ec63-4744-b92b-2ac5450f9646\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
+                    },
+                    "url": {
+                      "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&statuses=CREATED",
+                      "host": [
+                        "egov-micro-dev",
+                        "egovernments",
+                        "org"
+                      ],
+                      "path": [
+                        "works-estimate",
+                        "v1",
+                        "abstractestimates",
+                        "_search"
+                      ],
+                      "query": [
+                        {
+                          "key": "tenantId",
+                          "value": "default",
+                          "equals": true
+                        },
+                        {
+                          "key": "statuses",
+                          "value": "CREATED",
+                          "equals": true
+                        }
+                      ]
+                    },
+                    "description": null
+                  },
+                  "response": []
+                },
+                {
+                  "_postman_id": "b4995ca8-956a-ad63-1c02-f5489d9e2b63",
+                  "name": "Search by nameOfWork",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"e42089af-ec63-4744-b92b-2ac5450f9646\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
+                    },
+                    "url": {
+                      "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&nameOfWork=Road Construction",
+                      "host": [
+                        "egov-micro-dev",
+                        "egovernments",
+                        "org"
+                      ],
+                      "path": [
+                        "works-estimate",
+                        "v1",
+                        "abstractestimates",
+                        "_search"
+                      ],
+                      "query": [
+                        {
+                          "key": "tenantId",
+                          "value": "default",
+                          "equals": true
+                        },
+                        {
+                          "key": "nameOfWork",
+                          "value": "Road Construction",
+                          "equals": true
+                        }
+                      ]
+                    },
+                    "description": null
+                  },
+                  "response": []
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
               "_postman_id": "2011808b-e9f4-9893-5857-972d39262f63",
               "name": "Login",
               "event": [
@@ -2690,684 +3368,6 @@
                 },
                 "url": "{{url}}/works-masters/v1/estimatetemplates/_update",
                 "description": "Update/Modify the ET created as per the requirement"
-              },
-              "response": []
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
-          "_postman_id": "668ebecd-11a4-d6af-a9b6-7deb747b4992",
-          "name": "Search",
-          "description": null,
-          "item": [
-            {
-              "_postman_id": "e9f7b46f-f683-a58c-293b-264260d98d03",
-              "name": "Search by ids",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
-                },
-                "url": {
-                  "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&ids=35cea189c4f6426a839269f53a52ab1c",
-                  "host": [
-                    "egov-micro-dev",
-                    "egovernments",
-                    "org"
-                  ],
-                  "path": [
-                    "works-estimate",
-                    "v1",
-                    "abstractestimates",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "default",
-                      "equals": true
-                    },
-                    {
-                      "key": "ids",
-                      "value": "35cea189c4f6426a839269f53a52ab1c",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": null
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "17b3bfa8-520f-f090-055a-7643950df2c4",
-              "name": "Search all",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
-                },
-                "url": {
-                  "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default",
-                  "host": [
-                    "egov-micro-dev",
-                    "egovernments",
-                    "org"
-                  ],
-                  "path": [
-                    "works-estimate",
-                    "v1",
-                    "abstractestimates",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "default",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": null
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "b6ee836a-e8ad-5ba6-6531-8b4792bd85e2",
-              "name": "Search by abstractEstimateNumbers",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
-                },
-                "url": {
-                  "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&abstractEstimateNumbers=AE/AS/000047/11/2017-18",
-                  "host": [
-                    "egov-micro-dev",
-                    "egovernments",
-                    "org"
-                  ],
-                  "path": [
-                    "works-estimate",
-                    "v1",
-                    "abstractestimates",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "default",
-                      "equals": true
-                    },
-                    {
-                      "key": "abstractEstimateNumbers",
-                      "value": "AE/AS/000047/11/2017-18",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": null
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "31968f76-b19e-9b4c-b24f-86c50ba19a10",
-              "name": "Search by adminSanctionNumbers",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"5824d35d-76e1-455a-b1af-e4f9c2c6317e\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
-                },
-                "url": {
-                  "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&adminSanctionNumbers=1234567",
-                  "host": [
-                    "egov-micro-dev",
-                    "egovernments",
-                    "org"
-                  ],
-                  "path": [
-                    "works-estimate",
-                    "v1",
-                    "abstractestimates",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "default",
-                      "equals": true
-                    },
-                    {
-                      "key": "adminSanctionNumbers",
-                      "value": "1234567",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": null
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "1d2d5983-7ec4-e45b-bcd1-eb3a8c5bd320",
-              "name": "Search by departmentCodes",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
-                },
-                "url": {
-                  "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&departmentCodes=AS",
-                  "host": [
-                    "egov-micro-dev",
-                    "egovernments",
-                    "org"
-                  ],
-                  "path": [
-                    "works-estimate",
-                    "v1",
-                    "abstractestimates",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "default",
-                      "equals": true
-                    },
-                    {
-                      "key": "departmentCodes",
-                      "value": "AS",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": null
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "2bfd889a-2e71-c2f4-3ce2-4de0c2258e80",
-              "name": "Search by fundCodes",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
-                },
-                "url": {
-                  "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&fundCodes=01",
-                  "host": [
-                    "egov-micro-dev",
-                    "egovernments",
-                    "org"
-                  ],
-                  "path": [
-                    "works-estimate",
-                    "v1",
-                    "abstractestimates",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "default",
-                      "equals": true
-                    },
-                    {
-                      "key": "fundCodes",
-                      "value": "01",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": null
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "c5378256-52e2-1637-d23a-acdac152c3a3",
-              "name": "Search by functionCodes",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
-                },
-                "url": {
-                  "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&functionCodes=20",
-                  "host": [
-                    "egov-micro-dev",
-                    "egovernments",
-                    "org"
-                  ],
-                  "path": [
-                    "works-estimate",
-                    "v1",
-                    "abstractestimates",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "default",
-                      "equals": true
-                    },
-                    {
-                      "key": "functionCodes",
-                      "value": "20",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": null
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "317c04e7-165c-962b-2cd1-1d3280235988",
-              "name": "Search by budgetHeadCodes",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
-                },
-                "url": {
-                  "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&budgetHeadCodes=4122001-CWIP-Office Buildings",
-                  "host": [
-                    "egov-micro-dev",
-                    "egovernments",
-                    "org"
-                  ],
-                  "path": [
-                    "works-estimate",
-                    "v1",
-                    "abstractestimates",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "default",
-                      "equals": true
-                    },
-                    {
-                      "key": "budgetHeadCodes",
-                      "value": "4122001-CWIP-Office Buildings",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": null
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "223bbd88-cac9-2bfc-e155-fe8532f0b364",
-              "name": "Search by adminSanctionFromDate",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
-                },
-                "url": {
-                  "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&adminSanctionFromDate=1509088048",
-                  "host": [
-                    "egov-micro-dev",
-                    "egovernments",
-                    "org"
-                  ],
-                  "path": [
-                    "works-estimate",
-                    "v1",
-                    "abstractestimates",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "default",
-                      "equals": true
-                    },
-                    {
-                      "key": "adminSanctionFromDate",
-                      "value": "1509088048",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": null
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "ce979d35-608b-dda0-2462-6f1d3880428f",
-              "name": "Search by adminSanctionToDate",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
-                },
-                "url": {
-                  "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&adminSanctionToDate=1509088047",
-                  "host": [
-                    "egov-micro-dev",
-                    "egovernments",
-                    "org"
-                  ],
-                  "path": [
-                    "works-estimate",
-                    "v1",
-                    "abstractestimates",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "default",
-                      "equals": true
-                    },
-                    {
-                      "key": "adminSanctionToDate",
-                      "value": "1509088047",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": null
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "7a34b566-b2e3-e9db-1ebd-fb40a2861b0f",
-              "name": "Search by spillOverFlag",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
-                },
-                "url": {
-                  "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&spillOverFlag=true",
-                  "host": [
-                    "egov-micro-dev",
-                    "egovernments",
-                    "org"
-                  ],
-                  "path": [
-                    "works-estimate",
-                    "v1",
-                    "abstractestimates",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "default",
-                      "equals": true
-                    },
-                    {
-                      "key": "spillOverFlag",
-                      "value": "true",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": null
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "0706e585-3406-a50e-6775-acdceb8d09c4",
-              "name": "Search by createdBy",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
-                },
-                "url": {
-                  "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&createdBy=10001",
-                  "host": [
-                    "egov-micro-dev",
-                    "egovernments",
-                    "org"
-                  ],
-                  "path": [
-                    "works-estimate",
-                    "v1",
-                    "abstractestimates",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "default",
-                      "equals": true
-                    },
-                    {
-                      "key": "createdBy",
-                      "value": "10001",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": null
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "57b1ee70-77cf-d53d-da5c-1eb469f508cc",
-              "name": "Search by workIdentificationNumbers",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"744b00cc-3309-423e-a330-02795c1a6f6a\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
-                },
-                "url": {
-                  "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&workIdentificationNumbers=000004/11/2017-18",
-                  "host": [
-                    "egov-micro-dev",
-                    "egovernments",
-                    "org"
-                  ],
-                  "path": [
-                    "works-estimate",
-                    "v1",
-                    "abstractestimates",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "default",
-                      "equals": true
-                    },
-                    {
-                      "key": "workIdentificationNumbers",
-                      "value": "000004/11/2017-18",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": null
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "513bce27-a53f-a7dd-40e5-90508bee8ad6",
-              "name": "Search by statuses",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"e42089af-ec63-4744-b92b-2ac5450f9646\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
-                },
-                "url": {
-                  "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&statuses=CREATED",
-                  "host": [
-                    "egov-micro-dev",
-                    "egovernments",
-                    "org"
-                  ],
-                  "path": [
-                    "works-estimate",
-                    "v1",
-                    "abstractestimates",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "default",
-                      "equals": true
-                    },
-                    {
-                      "key": "statuses",
-                      "value": "CREATED",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": null
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "b4995ca8-956a-ad63-1c02-f5489d9e2b63",
-              "name": "Search by nameOfWork",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"e42089af-ec63-4744-b92b-2ac5450f9646\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\",\n    \"userInfo\": {\n      \"id\": 73,\n      \"userName\": \"abc\"\n    \t}\n\t}\n}"
-                },
-                "url": {
-                  "raw": "egov-micro-dev.egovernments.org/works-estimate/v1/abstractestimates/_search?tenantId=default&nameOfWork=Road Construction",
-                  "host": [
-                    "egov-micro-dev",
-                    "egovernments",
-                    "org"
-                  ],
-                  "path": [
-                    "works-estimate",
-                    "v1",
-                    "abstractestimates",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "default",
-                      "equals": true
-                    },
-                    {
-                      "key": "nameOfWork",
-                      "value": "Road Construction",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": null
               },
               "response": []
             }
