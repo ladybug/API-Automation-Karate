@@ -4536,7 +4536,75 @@
           "_postman_id": "e028a984-232a-25f6-fba9-e49c4af6e5af",
           "name": "Detailed Estimate",
           "description": "",
-          "item": [],
+          "item": [
+            {
+              "_postman_id": "4054c1bf-de15-aa40-f4f2-aadc2a0aa182",
+              "name": "Login as Clerk",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "postman.setEnvironmentVariable(\"access_token\", jsonData.access_token);",
+                      "",
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Tenant ID is default\"] = jsonData.UserRequest.roles[0].tenantId;",
+                      "",
+                      "postman.setNextRequest(\"Create Estimate\");"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Basic ZWdvdi11c2VyLWNsaWVudDplZ292LXVzZXItc2VjcmV0"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "username",
+                      "value": "clerk",
+                      "type": "text"
+                    },
+                    {
+                      "key": "password",
+                      "value": "12345678",
+                      "type": "text"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "password",
+                      "type": "text"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "read",
+                      "type": "text"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "{{url}}/user/oauth/token",
+                "description": null
+              },
+              "response": []
+            }
+          ],
           "_postman_isSubFolder": true
         },
         {
