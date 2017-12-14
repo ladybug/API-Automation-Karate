@@ -4646,6 +4646,63 @@
                 "description": null
               },
               "response": []
+            },
+            {
+              "_postman_id": "dbf18364-b9e7-e749-4582-f0d145aba50f",
+              "name": "Search SOR",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.environment.set(\"variable_key\", \"variable_value\");",
+                      "",
+                      "pm.environment.set(\"variable_key\", \"variable_value\");"
+                    ],
+                    "id": "9aa3ec1e-dc82-4800-8d55-bf011b97c9cc",
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"RequestInfo\":{\r\n\t\"apiId\": \"works-masters\",\r\n\t\"ver\": \"1.0\",\r\n\t\"ts\": 0,\r\n\t\"action\": \"search\",\r\n\t\"did\": \"1\",\r\n\t\"key\": \"string\",\r\n\t\"msgId\": \"string\",\r\n\t\"requesterId\": \"clerk\",\r\n\t\"authToken\": \"{{access_token}}\"\r\n\t}\r\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/works-masters/v1/scheduleofrates/_search?tenantId={{tenantId}}&pageSize=500",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-masters",
+                    "v1",
+                    "scheduleofrates",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "500",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": "Search SOR master data"
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
