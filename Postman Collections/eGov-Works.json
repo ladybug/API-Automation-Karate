@@ -195,7 +195,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "5f7f0312-8daa-42fe-b923-bfee1a22624a",
+                    "id": "33ac1358-41ed-40cb-aab7-b3b00638c149",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
