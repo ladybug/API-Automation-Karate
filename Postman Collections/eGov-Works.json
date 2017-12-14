@@ -4499,7 +4499,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "eed5a2c0-c543-452e-818a-b3a788b9c12e",
+                    "id": "9ca798a1-dc3b-45bd-999a-d6e28201f47d",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -4509,7 +4509,8 @@
                       "var jsonData = JSON.parse(responseBody);",
                       "pm.environment.set(\"AE_id\", jsonData.abstractEstimates[0].id);",
                       "pm.environment.set(\"AEdetails_id\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].id);",
-                      "pm.environment.set(\"status\", jsonData.abstractEstimates[0].status);"
+                      "pm.environment.set(\"status\", jsonData.abstractEstimates[0].status);",
+                      "pm.globals.set(\"spilloverPC\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);"
                     ]
                   }
                 }
