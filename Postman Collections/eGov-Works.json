@@ -4546,6 +4546,43 @@
                 "description": "Create Detailed Estimate"
               },
               "response": []
+            },
+            {
+              "_postman_id": "7ca82064-5c58-2983-1902-914620aa5238",
+              "name": "Search DE",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"resMsgId\": \"placeholder\",\n    \"msgId\": \"123\",\n    \"status\": \"200\",\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.1\",\n    \"ts\": \"123456789456\",\n    \"key\": null,\n    \"action\":\"create\",\n    \"authToken\":\"6e11e0d7-1b34-4e57-8647-1e4d01f20abd\",\n    \"userInfo\":{\n   \t\"tenantId\" : \"default\",\n   \t\"userName\" : \"ritesh\",\n   \t\"id\":1,\n       \"roles\" : []\n   }\n    }\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/works-estimate/detailedestimates/_search?tenantId={{tenantId}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-estimate",
+                    "detailedestimates",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": "Search Detailed Estimate by using params:\ntenantId\nspillOverFlag\nstatuses\ndetailedEstimateNumbers\nworkIdentificationNumbers\nabstractEstimateNumbers\nids\nfromDate\ntoDate\ndepartments\ntypeOfWork\nsubTypeOfWork\nfromAmount\ntoAmount\nnameOfWork\nwards\ncreatedBy\ncurrentOwner\npageSize\npageNumber\nsortBy"
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
