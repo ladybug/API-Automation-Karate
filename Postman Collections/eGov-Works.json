@@ -4782,7 +4782,7 @@
                   "raw": "{\n  \"RequestInfo\": {\n    \"resMsgId\": \"placeholder\",\n    \"msgId\": \"123\",\n    \"status\": \"200\",\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.1\",\n    \"ts\": \"123456789456\",\n    \"key\": null,\n    \"action\":\"search\",\n    \"authToken\":\"{{access_token}}\"\n    }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-estimate/v1/detailedestimates/_search?tenantId={{tenantId}}&pageSize=500",
+                  "raw": "{{url}}/works-estimate/v1/detailedestimates/_search?tenantId={{tenantId}}&detailedEstimateNumber={{estimateNumber}}",
                   "host": [
                     "{{url}}"
                   ],
@@ -4799,8 +4799,8 @@
                       "equals": true
                     },
                     {
-                      "key": "pageSize",
-                      "value": "500",
+                      "key": "detailedEstimateNumber",
+                      "value": "{{estimateNumber}}",
                       "equals": true
                     }
                   ]
