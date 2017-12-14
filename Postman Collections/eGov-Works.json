@@ -171,6 +171,256 @@
       "description": "Works related Masters",
       "item": [
         {
+          "_postman_id": "dc5bacd5-78e9-51b2-4197-dacb040553db",
+          "name": "SOR",
+          "description": "",
+          "item": [
+            {
+              "_postman_id": "cef93241-7bc4-bcd7-4c6a-4a8e208eac8d",
+              "name": "Create SOR",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "1925975e-ed86-480b-9b99-f398e4722ea5",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var num1 = Math.round((Math.random() * 100));",
+                      "var num2 = pm.globals.get(\"i\");",
+                      "pm.environment.set(\"SOR_code\", \"SOR\"+(++num2));",
+                      "pm.globals.set(\"i\", num2);"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "5f7f0312-8daa-42fe-b923-bfee1a22624a",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "pm.environment.set(\"SOR_id\", jsonData.scheduleOfRates[0].id);",
+                      "pm.environment.set(\"SOR_code\", jsonData.scheduleOfRates[0].code);",
+                      "",
+                      "tests[\"Status is success\"] = jsonData.ResponseInfo.status.has(\"SUCCESSFUL\");",
+                      "",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "pm.test(\"Successful POST request\", function () {",
+                      "    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"RequestInfo\": {\r\n    \"apiId\": \"string\",\r\n    \"ver\": \"string\",\r\n    \"ts\": 0,\r\n    \"action\": \"string\",\r\n    \"did\": \"string\",\r\n    \"key\": \"string\",\r\n    \"msgId\": \"string\",\r\n    \"requesterId\": \"string\",\r\n    \"authToken\": \"{{access_token}}\"\r\n  },\r\n  \"scheduleOfRates\": [\r\n    {\r\n      \"tenantId\": \"{{tenantId}}\",\r\n      \"code\": \"{{SOR_code}}\",\r\n      \"description\": \"Desilting of Storm Water Drain \",\r\n      \"scheduleCategory\": {\r\n        \"tenantId\": \"{{tenantId}}\",\r\n        \"name\": \"Black top roads - FAKE\",\r\n        \"code\": \"BTR - FAKE\"\r\n      },\r\n      \"uom\": {\r\n        \"tenantId\": \"{{tenantId}}\",\r\n        \"code\": \"MTR\"\r\n      },\r\n      \"sorRates\": [\r\n        {\r\n          \"tenantId\": \"{{tenantId}}\",\r\n          \"fromDate\": 1491026235000,\r\n          \"toDate\": 1585634235000,\r\n          \"rate\": 78.6,\r\n          \"deleted\": false\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
+                },
+                "url": "{{url}}/works-masters/v1/scheduleofrates/_create",
+                "description": "Create SOR as works master data"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "a8700bef-773e-70a6-2e14-e25d4ec31335",
+              "name": "Search SOR",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "9aa3ec1e-dc82-4800-8d55-bf011b97c9cc",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.environment.set(\"variable_key\", \"variable_value\");",
+                      "",
+                      "pm.environment.set(\"variable_key\", \"variable_value\");"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"RequestInfo\":{\r\n\t\"apiId\": \"works-masters\",\r\n\t\"ver\": \"1.0\",\r\n\t\"ts\": 0,\r\n\t\"action\": \"search\",\r\n\t\"did\": \"1\",\r\n\t\"key\": \"string\",\r\n\t\"msgId\": \"string\",\r\n\t\"requesterId\": \"clerk\",\r\n\t\"authToken\": \"{{access_token}}\"\r\n\t}\r\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/works-masters/v1/scheduleofrates/_search?tenantId={{tenantId}}&sorCodes={{SOR_code}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-masters",
+                    "v1",
+                    "scheduleofrates",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "sorCodes",
+                      "value": "{{SOR_code}}",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": "Search SOR master data"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "d4e05487-50b5-783a-18b3-ac79ee666aee",
+              "name": "Update SOR",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"RequestInfo\": {\r\n    \"apiId\": \"string\",\r\n    \"ver\": \"string\",\r\n    \"ts\": 0,\r\n    \"action\": \"string\",\r\n    \"did\": \"string\",\r\n    \"key\": \"string\",\r\n    \"msgId\": \"string\",\r\n    \"requesterId\": \"string\",\r\n    \"authToken\": \"{{access_token}}\"\r\n  },\r\n  \"scheduleOfRates\": [\r\n    {\r\n      \"id\": \"{{id}}\",\r\n      \"tenantId\": \"{{tenantId}}\",\r\n      \"code\": \"{{code}}\",\r\n      \"description\": \"string\",\r\n      \"scheduleCategory\": {\r\n        \"id\": \"string\",\r\n        \"tenantId\": \"string\",\r\n        \"name\": \"string\",\r\n        \"code\": \"string\"\r\n      },\r\n      \"uom\": {\r\n        \"id\": 0,\r\n        \"code\": \"string\",\r\n        \"description\": \"string\",\r\n        \"category\": {},\r\n        \"active\": true,\r\n        \"coversionFactor\": 0,\r\n        \"baseuom\": false,\r\n        \"createdBy\": \"string\",\r\n        \"createdDate\": \"string\",\r\n        \"lastModifiedBy\": \"string\",\r\n        \"lastModifiedDate\": \"string\"\r\n      },\r\n      \"sorRates\": [\r\n        {\r\n          \"id\": \"string\",\r\n          \"tenantId\": \"string\",\r\n          \"scheduleOfRate\": \"string\",\r\n          \"fromDate\": 0,\r\n          \"toDate\": 0,\r\n          \"rate\": 0,\r\n          \"deleted\": false\r\n        }\r\n      ],\r\n      \"marketRates\": [\r\n        {\r\n          \"id\": \"string\",\r\n          \"tenantId\": \"string\",\r\n          \"scheduleOfRate\": \"string\",\r\n          \"fromDate\": 0,\r\n          \"toDate\": 0,\r\n          \"rate\": 0,\r\n          \"deleted\": false\r\n        }\r\n      ],\r\n      \"deleted\": false\r\n    }\r\n  ]\r\n}"
+                },
+                "url": "{{url}}/works-masters/v1/scheduleofrates/_update",
+                "description": "Update SOR"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "cb669d02-266c-aa38-ee6e-0a5208141fd0",
+              "name": "SOR_Without_Mandatory",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "83889621-5c97-4b07-9c8c-13993e124cb8",
+                    "type": "text/javascript",
+                    "exec": [
+                      ""
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "cc645e07-a6aa-4c0d-9745-dc97f45a2b84",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 400\", function () {",
+                      "    pm.response.to.have.status(400);",
+                      "});",
+                      "",
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "tests[\"Tenant Id Mandatory check Matches\"] = jsonData.Errors[0].message;",
+                      "",
+                      "pm.test(\"Tenant Id Mandatory validation message matches\", function () {",
+                      "    pm.expect(\"may not be null\").to.include(jsonData.Errors[0].message);",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"RequestInfo\": {\r\n    \"apiId\": \"string\",\r\n    \"ver\": \"string\",\r\n    \"ts\": 0,\r\n    \"action\": \"string\",\r\n    \"did\": \"string\",\r\n    \"key\": \"string\",\r\n    \"msgId\": \"string\",\r\n    \"requesterId\": \"string\",\r\n    \"authToken\": \"{{access_token}}\"\r\n  },\r\n  \"scheduleOfRates\": [\r\n    {\r\n      \"tenantId\": null,\r\n      \"code\": null,\r\n      \"description\": null,\r\n      \"scheduleCategory\": {\r\n        \"id\": 2,\r\n        \"tenantId\": null,\r\n        \"name\": null,\r\n        \"code\": null\r\n      },\r\n      \"uom\": {\r\n        \"id\": 7,\r\n        \"tenantId\": null,\r\n        \"code\": null\r\n      },\r\n      \"sorRates\": [\r\n        {\r\n          \"tenantId\": null,\r\n          \"fromDate\": null,\r\n          \"toDate\": 1491034943000,\r\n          \"rate\": null,\r\n          \"deleted\": false\r\n        }\r\n    ],\r\n      \"marketRates\":[\r\n        {\r\n          \"tenantId\": null,\r\n          \"fromDate\": null,\r\n          \"toDate\": 1491034943000,\r\n          \"rate\": null,\r\n          \"deleted\": false\r\n        }\r\n   \t],\r\n      \"deleted\": false\r\n    }\r\n  ]\r\n}"
+                },
+                "url": "{{url}}/works-masters/v1/scheduleofrates/_create",
+                "description": "Create SOR as works master data without any mandatory"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "fa7d890c-8633-cc37-c313-248dd51fd2dc",
+              "name": "M1",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "3f6a19ae-9081-4fd2-a0a3-f5897c59275b",
+                    "type": "text/javascript",
+                    "exec": [
+                      ""
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "9fc5a5c1-93be-4536-954a-df1ae7189f4c",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 400\", function () {",
+                      "    pm.response.to.have.status(400);",
+                      "});",
+                      "",
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "tests[\"SOR code Mandatory check Matches\"] = jsonData.Errors[0].message;",
+                      "tests[\"SOR description Mandatory check Matches\"] = jsonData.Errors[1].message;",
+                      "",
+                      "pm.test(\"SOR description Mandatory validation message matches\", function () {",
+                      "    pm.expect(\"may not be null\").to.include(jsonData.Errors[0].message);",
+                      "});",
+                      "pm.test(\"SOR description Mandatory validation message matches\", function () {",
+                      "    pm.expect(\"may not be null\").to.include(jsonData.Errors[1].message);",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"RequestInfo\": {\r\n    \"apiId\": \"string\",\r\n    \"ver\": \"string\",\r\n    \"ts\": 0,\r\n    \"action\": \"string\",\r\n    \"did\": \"string\",\r\n    \"key\": \"string\",\r\n    \"msgId\": \"string\",\r\n    \"requesterId\": \"string\",\r\n    \"authToken\": \"{{access_token}}\"\r\n  },\r\n  \"scheduleOfRates\": [\r\n    {\r\n      \"tenantId\": \"{{tenantId}}\",\r\n      \"code\": null,\r\n      \"description\": null,\r\n      \"scheduleCategory\": {\r\n        \"id\": 2,\r\n        \"tenantId\": \"{{tenantId}}\",\r\n        \"name\": \"Concrete roads - FAKE\",\r\n        \"code\": \"CCR - FAKE\"\r\n      },\r\n      \"uom\": {\r\n        \"id\": 7,\r\n        \"tenantId\": \"{{tenantId}}\",\r\n        \"code\": \"MTR\"\r\n      },\r\n      \"sorRates\": [\r\n        {\r\n          \"tenantId\": \"{{tenantId}}\",\r\n          \"fromDate\": 1459412543000,\r\n          \"toDate\": 1491034943000,\r\n          \"rate\": 124.63,\r\n          \"deleted\": false\r\n        }\r\n    ],\r\n      \"marketRates\":[\r\n        {\r\n          \"tenantId\": \"{{tenantId}}\",\r\n          \"fromDate\": 1459412543000,\r\n          \"toDate\": 1491034943000,\r\n          \"rate\": 124.63,\r\n          \"deleted\": false\r\n        }\r\n   \t],\r\n      \"deleted\": false\r\n    }\r\n  ]\r\n}"
+                },
+                "url": "{{url}}/works-masters/v1/scheduleofrates/_create",
+                "description": "Create SOR as works master data"
+              },
+              "response": []
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
           "_postman_id": "13fd7fa8-fa8d-2aab-250e-fb2a9821965d",
           "name": "Search DocumentDetails",
           "request": {
@@ -2899,256 +3149,6 @@
                 },
                 "url": "{{url}}/works-estimate/v1/detailedestimates/_create",
                 "description": "Create Detailed Estimate:\nrequired:\n      - tenantId\n      - nameOfWork\n      - estimateDate\n      - worksType\n      - natureOfWork\n      - ward\n      - status\n      - department\n      - description"
-              },
-              "response": []
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
-          "_postman_id": "dc5bacd5-78e9-51b2-4197-dacb040553db",
-          "name": "SOR",
-          "description": "",
-          "item": [
-            {
-              "_postman_id": "cef93241-7bc4-bcd7-4c6a-4a8e208eac8d",
-              "name": "Create SOR",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "1925975e-ed86-480b-9b99-f398e4722ea5",
-                    "type": "text/javascript",
-                    "exec": [
-                      "var num1 = Math.round((Math.random() * 100));",
-                      "var num2 = pm.globals.get(\"i\");",
-                      "pm.environment.set(\"SOR_code\", \"SOR\"+(++num2));",
-                      "pm.globals.set(\"i\", num2);"
-                    ]
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "5f7f0312-8daa-42fe-b923-bfee1a22624a",
-                    "type": "text/javascript",
-                    "exec": [
-                      "var jsonData = JSON.parse(responseBody);",
-                      "pm.environment.set(\"SOR_id\", jsonData.scheduleOfRates[0].id);",
-                      "pm.environment.set(\"SOR_code\", jsonData.scheduleOfRates[0].code);",
-                      "",
-                      "tests[\"Status is success\"] = jsonData.ResponseInfo.status.has(\"SUCCESSFUL\");",
-                      "",
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "pm.test(\"Successful POST request\", function () {",
-                      "    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
-                      "});"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"RequestInfo\": {\r\n    \"apiId\": \"string\",\r\n    \"ver\": \"string\",\r\n    \"ts\": 0,\r\n    \"action\": \"string\",\r\n    \"did\": \"string\",\r\n    \"key\": \"string\",\r\n    \"msgId\": \"string\",\r\n    \"requesterId\": \"string\",\r\n    \"authToken\": \"{{access_token}}\"\r\n  },\r\n  \"scheduleOfRates\": [\r\n    {\r\n      \"tenantId\": \"{{tenantId}}\",\r\n      \"code\": \"{{SOR_code}}\",\r\n      \"description\": \"Desilting of Storm Water Drain \",\r\n      \"scheduleCategory\": {\r\n        \"tenantId\": \"{{tenantId}}\",\r\n        \"name\": \"Black top roads - FAKE\",\r\n        \"code\": \"BTR - FAKE\"\r\n      },\r\n      \"uom\": {\r\n        \"tenantId\": \"{{tenantId}}\",\r\n        \"code\": \"MTR\"\r\n      },\r\n      \"sorRates\": [\r\n        {\r\n          \"tenantId\": \"{{tenantId}}\",\r\n          \"fromDate\": 1491026235000,\r\n          \"toDate\": 1585634235000,\r\n          \"rate\": 78.6,\r\n          \"deleted\": false\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
-                },
-                "url": "{{url}}/works-masters/v1/scheduleofrates/_create",
-                "description": "Create SOR as works master data"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "a8700bef-773e-70a6-2e14-e25d4ec31335",
-              "name": "Search SOR",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "9aa3ec1e-dc82-4800-8d55-bf011b97c9cc",
-                    "type": "text/javascript",
-                    "exec": [
-                      "pm.environment.set(\"variable_key\", \"variable_value\");",
-                      "",
-                      "pm.environment.set(\"variable_key\", \"variable_value\");"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"RequestInfo\":{\r\n\t\"apiId\": \"works-masters\",\r\n\t\"ver\": \"1.0\",\r\n\t\"ts\": 0,\r\n\t\"action\": \"search\",\r\n\t\"did\": \"1\",\r\n\t\"key\": \"string\",\r\n\t\"msgId\": \"string\",\r\n\t\"requesterId\": \"clerk\",\r\n\t\"authToken\": \"{{access_token}}\"\r\n\t}\r\n}"
-                },
-                "url": {
-                  "raw": "{{url}}/works-masters/v1/scheduleofrates/_search?tenantId={{tenantId}}&sorCodes={{SOR_code}}",
-                  "host": [
-                    "{{url}}"
-                  ],
-                  "path": [
-                    "works-masters",
-                    "v1",
-                    "scheduleofrates",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "{{tenantId}}",
-                      "equals": true
-                    },
-                    {
-                      "key": "sorCodes",
-                      "value": "{{SOR_code}}",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": "Search SOR master data"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "d4e05487-50b5-783a-18b3-ac79ee666aee",
-              "name": "Update SOR",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"RequestInfo\": {\r\n    \"apiId\": \"string\",\r\n    \"ver\": \"string\",\r\n    \"ts\": 0,\r\n    \"action\": \"string\",\r\n    \"did\": \"string\",\r\n    \"key\": \"string\",\r\n    \"msgId\": \"string\",\r\n    \"requesterId\": \"string\",\r\n    \"authToken\": \"{{access_token}}\"\r\n  },\r\n  \"scheduleOfRates\": [\r\n    {\r\n      \"id\": \"{{id}}\",\r\n      \"tenantId\": \"{{tenantId}}\",\r\n      \"code\": \"{{code}}\",\r\n      \"description\": \"string\",\r\n      \"scheduleCategory\": {\r\n        \"id\": \"string\",\r\n        \"tenantId\": \"string\",\r\n        \"name\": \"string\",\r\n        \"code\": \"string\"\r\n      },\r\n      \"uom\": {\r\n        \"id\": 0,\r\n        \"code\": \"string\",\r\n        \"description\": \"string\",\r\n        \"category\": {},\r\n        \"active\": true,\r\n        \"coversionFactor\": 0,\r\n        \"baseuom\": false,\r\n        \"createdBy\": \"string\",\r\n        \"createdDate\": \"string\",\r\n        \"lastModifiedBy\": \"string\",\r\n        \"lastModifiedDate\": \"string\"\r\n      },\r\n      \"sorRates\": [\r\n        {\r\n          \"id\": \"string\",\r\n          \"tenantId\": \"string\",\r\n          \"scheduleOfRate\": \"string\",\r\n          \"fromDate\": 0,\r\n          \"toDate\": 0,\r\n          \"rate\": 0,\r\n          \"deleted\": false\r\n        }\r\n      ],\r\n      \"marketRates\": [\r\n        {\r\n          \"id\": \"string\",\r\n          \"tenantId\": \"string\",\r\n          \"scheduleOfRate\": \"string\",\r\n          \"fromDate\": 0,\r\n          \"toDate\": 0,\r\n          \"rate\": 0,\r\n          \"deleted\": false\r\n        }\r\n      ],\r\n      \"deleted\": false\r\n    }\r\n  ]\r\n}"
-                },
-                "url": "{{url}}/works-masters/v1/scheduleofrates/_update",
-                "description": "Update SOR"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "cb669d02-266c-aa38-ee6e-0a5208141fd0",
-              "name": "SOR_Without_Mandatory",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "83889621-5c97-4b07-9c8c-13993e124cb8",
-                    "type": "text/javascript",
-                    "exec": [
-                      ""
-                    ]
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "cc645e07-a6aa-4c0d-9745-dc97f45a2b84",
-                    "type": "text/javascript",
-                    "exec": [
-                      "pm.test(\"Status code is 400\", function () {",
-                      "    pm.response.to.have.status(400);",
-                      "});",
-                      "",
-                      "var jsonData = JSON.parse(responseBody);",
-                      "",
-                      "tests[\"Tenant Id Mandatory check Matches\"] = jsonData.Errors[0].message;",
-                      "",
-                      "pm.test(\"Tenant Id Mandatory validation message matches\", function () {",
-                      "    pm.expect(\"may not be null\").to.include(jsonData.Errors[0].message);",
-                      "});"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"RequestInfo\": {\r\n    \"apiId\": \"string\",\r\n    \"ver\": \"string\",\r\n    \"ts\": 0,\r\n    \"action\": \"string\",\r\n    \"did\": \"string\",\r\n    \"key\": \"string\",\r\n    \"msgId\": \"string\",\r\n    \"requesterId\": \"string\",\r\n    \"authToken\": \"{{access_token}}\"\r\n  },\r\n  \"scheduleOfRates\": [\r\n    {\r\n      \"tenantId\": null,\r\n      \"code\": null,\r\n      \"description\": null,\r\n      \"scheduleCategory\": {\r\n        \"id\": 2,\r\n        \"tenantId\": null,\r\n        \"name\": null,\r\n        \"code\": null\r\n      },\r\n      \"uom\": {\r\n        \"id\": 7,\r\n        \"tenantId\": null,\r\n        \"code\": null\r\n      },\r\n      \"sorRates\": [\r\n        {\r\n          \"tenantId\": null,\r\n          \"fromDate\": null,\r\n          \"toDate\": 1491034943000,\r\n          \"rate\": null,\r\n          \"deleted\": false\r\n        }\r\n    ],\r\n      \"marketRates\":[\r\n        {\r\n          \"tenantId\": null,\r\n          \"fromDate\": null,\r\n          \"toDate\": 1491034943000,\r\n          \"rate\": null,\r\n          \"deleted\": false\r\n        }\r\n   \t],\r\n      \"deleted\": false\r\n    }\r\n  ]\r\n}"
-                },
-                "url": "{{url}}/works-masters/v1/scheduleofrates/_create",
-                "description": "Create SOR as works master data without any mandatory"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "fa7d890c-8633-cc37-c313-248dd51fd2dc",
-              "name": "M1",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "3f6a19ae-9081-4fd2-a0a3-f5897c59275b",
-                    "type": "text/javascript",
-                    "exec": [
-                      ""
-                    ]
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "9fc5a5c1-93be-4536-954a-df1ae7189f4c",
-                    "type": "text/javascript",
-                    "exec": [
-                      "pm.test(\"Status code is 400\", function () {",
-                      "    pm.response.to.have.status(400);",
-                      "});",
-                      "",
-                      "var jsonData = JSON.parse(responseBody);",
-                      "",
-                      "tests[\"SOR code Mandatory check Matches\"] = jsonData.Errors[0].message;",
-                      "tests[\"SOR description Mandatory check Matches\"] = jsonData.Errors[1].message;",
-                      "",
-                      "pm.test(\"SOR description Mandatory validation message matches\", function () {",
-                      "    pm.expect(\"may not be null\").to.include(jsonData.Errors[0].message);",
-                      "});",
-                      "pm.test(\"SOR description Mandatory validation message matches\", function () {",
-                      "    pm.expect(\"may not be null\").to.include(jsonData.Errors[1].message);",
-                      "});"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"RequestInfo\": {\r\n    \"apiId\": \"string\",\r\n    \"ver\": \"string\",\r\n    \"ts\": 0,\r\n    \"action\": \"string\",\r\n    \"did\": \"string\",\r\n    \"key\": \"string\",\r\n    \"msgId\": \"string\",\r\n    \"requesterId\": \"string\",\r\n    \"authToken\": \"{{access_token}}\"\r\n  },\r\n  \"scheduleOfRates\": [\r\n    {\r\n      \"tenantId\": \"{{tenantId}}\",\r\n      \"code\": null,\r\n      \"description\": null,\r\n      \"scheduleCategory\": {\r\n        \"id\": 2,\r\n        \"tenantId\": \"{{tenantId}}\",\r\n        \"name\": \"Concrete roads - FAKE\",\r\n        \"code\": \"CCR - FAKE\"\r\n      },\r\n      \"uom\": {\r\n        \"id\": 7,\r\n        \"tenantId\": \"{{tenantId}}\",\r\n        \"code\": \"MTR\"\r\n      },\r\n      \"sorRates\": [\r\n        {\r\n          \"tenantId\": \"{{tenantId}}\",\r\n          \"fromDate\": 1459412543000,\r\n          \"toDate\": 1491034943000,\r\n          \"rate\": 124.63,\r\n          \"deleted\": false\r\n        }\r\n    ],\r\n      \"marketRates\":[\r\n        {\r\n          \"tenantId\": \"{{tenantId}}\",\r\n          \"fromDate\": 1459412543000,\r\n          \"toDate\": 1491034943000,\r\n          \"rate\": 124.63,\r\n          \"deleted\": false\r\n        }\r\n   \t],\r\n      \"deleted\": false\r\n    }\r\n  ]\r\n}"
-                },
-                "url": "{{url}}/works-masters/v1/scheduleofrates/_create",
-                "description": "Create SOR as works master data"
               },
               "response": []
             }
