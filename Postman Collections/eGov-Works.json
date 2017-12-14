@@ -4735,6 +4735,49 @@
                 "description": "Create Detailed Estimate with workflow"
               },
               "response": []
+            },
+            {
+              "_postman_id": "192a75ce-c7bc-752d-d217-fe1fa164c328",
+              "name": "Search DE Normal",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"search\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\"\n\t}\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/works-estimate/v1/detailedestimates/_search?tenantId={{tenantId}}&pageSize=500",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-estimate",
+                    "v1",
+                    "detailedestimates",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "500",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": null
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
