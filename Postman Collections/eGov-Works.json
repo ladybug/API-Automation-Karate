@@ -4886,6 +4886,26 @@
                 "description": "Search LOA"
               },
               "response": []
+            },
+            {
+              "_postman_id": "9ac0a1a4-ff57-a85f-cf8a-bf5e66dcd5c8",
+              "name": "Upldate sLOA",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.0\",\n    \"ts\": 1511171897140,\n    \"action\": \"update\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"access_token\"\n  },\n  \"letterofacceptances\": [\n    {\n      \"id\": \"c3726635d6b144ae98b4920e616622d3\",\n      \"tenantId\": \"default\",\n      \"contractor\": {\n        \"code\": \"priya\",\n        \"tenantId\": \"default\"\n      },\n      \"loaDate\": 1511436672,\n      \"loaNumber\": \"LOA/123\",\n      \"contractPeriod\": \"5\",\n      \"emdAmountDeposited\": \"200\",\n      \"stampPaperAmount\": \"100\",\n      \"engineerIncharge\": \"ritesh\",\n      \"defectLiabilityPeriod\": \"10\",\n      \"loaAmount\": \"300\",\n      \"status\": \"APPROVED\",\n      \"tenderFinalizedPercentage\": \"2\",\n      \"approvedDate\": 1511436672,\n      \"fileNumber\": 1235,\n      \"fileDate\": 1511436672,\n      \"spillOverFlag\": false,\n      \"letterOfAcceptanceEstimates\": [{\n        \"id\": \"c3726635d6b144ae98b4920e616622d3\",\n        \"tenantId\": \"default\",\n        \"detailedEstimate\": {\n          \"estimateNumber\": \"ENG/123\"\n        },\n        \"workCompletionDate\": 1511436672,\n        \"estimateLOAAmount\": \"300\"\n      }],\n      \"securityDeposits\": [\n        {\n        \t\"id\": \"1\",\n    \t\"letterOfAcceptance\": \"c3726635d6b144ae98b4920e616622d3\",\n        \"tenantId\": \"default\",\n        \"collectionMode\":\"CASH\",\n        \"percentage\":\"100\",\n        \"amount\":\"1000\"\n        \n        },\n        {\n        \t\"id\": \"2\",\n    \t\"letterOfAcceptance\": \"c3726635d6b144ae98b4920e616622d3\",\n        \"tenantId\": \"default\",\n        \"collectionMode\":\"CASH\",\n        \"percentage\":\"101\",\n        \"amount\":\"1001\"\n        \n        },\n        {\n        \t\"id\": \"\",\n    \t\"letterOfAcceptance\": \"c3726635d6b144ae98b4920e616622d3\",\n        \"tenantId\": \"default\",\n        \"collectionMode\":\"CASH\",\n        \"percentage\":\"101\",\n        \"amount\":\"1001\"\n        \n        }\n      ]\n    }\n  ]\n}"
+                },
+                "url": "{{url}}/works-workorder/v1/letterofacceptances/_update",
+                "description": "Update LOA"
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
