@@ -4617,10 +4617,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"requestInfo\":{\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.0\",\n    \"ts\" : \"12345678\",\n    \"action\": \"search\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\"\n    }\n }"
+                  "raw": "{\n  \"requestInfo\":{\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.0\",\n    \"ts\" : \"12345678\",\n    \"action\": \"search\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\"\n    }\n }"
                 },
                 "url": {
-                  "raw": "{{url}}/works-estimate/v1/projectcodes/_search?tenantId={{tenantId}}&pageSize=500",
+                  "raw": "{{url}}/works-estimate/v1/projectcodes/_search?tenantId={{tenantId}}&codes={{projectCode}}",
                   "host": [
                     "{{url}}"
                   ],
@@ -4637,8 +4637,8 @@
                       "equals": true
                     },
                     {
-                      "key": "pageSize",
-                      "value": "500",
+                      "key": "codes",
+                      "value": "{{projectCode}}",
                       "equals": true
                     }
                   ]
