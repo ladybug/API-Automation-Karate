@@ -4709,10 +4709,12 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "84ff913f-8c39-47b4-b462-a77c6d47502f",
+                    "id": "f5a744bf-8ab3-495c-a572-628684e08fd3",
                     "type": "text/javascript",
                     "exec": [
-                      "pm.globals.get(\"projectCode\");"
+                      "pm.globals.get(\"projectCode\");",
+                      "pm.globals.get(\"SOR_id\");",
+                      "pm.globals.get(\"SOR_code\");"
                     ]
                   }
                 }
