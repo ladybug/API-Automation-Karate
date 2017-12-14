@@ -12,178 +12,6 @@
       "description": "",
       "item": [
         {
-          "_postman_id": "42118331-8307-15e3-6471-9231339cfefe",
-          "name": "Common Masters",
-          "description": "Works related Masters",
-          "item": [
-            {
-              "_postman_id": "13fd7fa8-fa8d-2aab-250e-fb2a9821965d",
-              "name": "Search DocumentDetails",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\":{\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.0\",\n    \"ts\" : \"12345678\",\n    \"action\": \"asd\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\"\n    }\n }"
-                },
-                "url": {
-                  "raw": "{{url}}/works-services/documentdetails/_search?tenantId={{tenantId}}",
-                  "host": [
-                    "{{url}}"
-                  ],
-                  "path": [
-                    "works-services",
-                    "documentdetails",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "{{tenantId}}",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": ""
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "7f53d958-7731-ca00-3df4-11fc2d2cc176",
-              "name": "Search Project Code",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\":{\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.0\",\n    \"ts\" : \"12345678\",\n    \"action\": \"search\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\"\n    }\n }"
-                },
-                "url": {
-                  "raw": "{{url}}/works-estimate/v1/projectcodes/_search?tenantId={{tenantId}}",
-                  "host": [
-                    "{{url}}"
-                  ],
-                  "path": [
-                    "works-estimate",
-                    "v1",
-                    "projectcodes",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "{{tenantId}}"
-                    }
-                  ]
-                },
-                "description": ""
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "40476709-a53c-d747-c5f0-59e1ae62b425",
-              "name": "Works MDMS",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"works-services\",\n    \"ver\": null,\n    \"ts\": null,\n    \"action\": \"Search\",\n    \"did\": null,\n    \"key\": null,\n    \"msgId\": \"search with from and to values\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"MdmsCriteria\": {\n    \"tenantId\": \"{{tenantId}}\",\n    \"moduleDetails\": [\n      {\n        \"moduleName\": \"Works\",\n        \"masterDetails\": [\n          {\n            \"name\": \"ModeOfAllotment\"\n          }\n        ]\n      }\n    ]\n  }\n}"
-                },
-                "url": "{{url}}/egov-mdms-service/v1/_search",
-                "description": ""
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "8e44f590-9544-3630-aae5-0bce2555710d",
-              "name": "ScheduleOfCategory",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "var jsonData = JSON.parse(responseBody);",
-                      "",
-                      "pm.environment.set(\"EXCAVATION\", jsonData.MdmsRes.Works.ScheduleCategory[0].code);",
-                      "pm.environment.set(\"ConcreteRoads\", jsonData.MdmsRes.Works.ScheduleCategory[1].code);",
-                      "pm.environment.set(\"BtRoads\", jsonData.MdmsRes.Works.ScheduleCategory[2].code);"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"works-services\",\n    \"ver\": null,\n    \"ts\": null,\n    \"action\": \"Search\",\n    \"did\": null,\n    \"key\": null,\n    \"msgId\": \"search with from and to values\",\n    \"authToken\": \"{{access_token}}\"\n  },\n  \"MdmsCriteria\": {\n    \"tenantId\": \"{{tenantId}}\",\n    \"moduleDetails\": [\n      {\n        \"moduleName\": \"Works\",\n        \"masterDetails\": [\n          {\n            \"name\": \"ScheduleCategory\"\n          }\n        ]\n      }\n    ]\n  }\n}"
-                },
-                "url": "{{url}}/egov-mdms-service/v1/_search",
-                "description": "Search Schedule Of Category"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "91dd406d-19bc-498c-3eb5-9d732c0f9f44",
-              "name": "UOM",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "type": "text/javascript",
-                    "exec": [
-                      "var jsonData = JSON.parse(responseBody);",
-                      "",
-                      "// pm.environment.set(\"Kilograms\", jsonData.MdmsRes.common-masters.Uom[0].code);",
-                      "// pm.environment.set(\"Ton\", jsonData.MdmsRes.common-masters.Uom[1].code);",
-                      "// pm.environment.set(\"Numbers\", jsonData.MdmsRes.common-masters.Uom[3].code);"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"common-services\",\n    \"ver\": null,\n    \"ts\": null,\n    \"action\": \"Search\",\n    \"did\": null,\n    \"key\": null,\n    \"msgId\": \"search with from and to values\",\n    \"authToken\": \"{{access_token}}\"\n  },\n  \"MdmsCriteria\": {\n    \"tenantId\": \"{{tenantId}}\",\n    \"moduleDetails\": [\n      {\n        \"moduleName\": \"common-masters\",\n        \"masterDetails\": [\n          {\n            \"name\": \"Uom\"\n          }\n        ]\n      }\n    ]\n  }\n}"
-                },
-                "url": "{{url}}/egov-mdms-service/v1/_search",
-                "description": "Search Unit of Measurement"
-              },
-              "response": []
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
           "_postman_id": "098043d4-6053-dc84-55ab-12925653dd4d",
           "name": "Login",
           "event": [
@@ -5340,6 +5168,177 @@
             }
           ],
           "_postman_isSubFolder": true
+        }
+      ]
+    },
+    {
+      "_postman_id": "42118331-8307-15e3-6471-9231339cfefe",
+      "name": "Common Masters",
+      "description": "Works related Masters",
+      "item": [
+        {
+          "_postman_id": "13fd7fa8-fa8d-2aab-250e-fb2a9821965d",
+          "name": "Search DocumentDetails",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requestInfo\":{\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.0\",\n    \"ts\" : \"12345678\",\n    \"action\": \"asd\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\"\n    }\n }"
+            },
+            "url": {
+              "raw": "{{url}}/works-services/documentdetails/_search?tenantId={{tenantId}}",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "works-services",
+                "documentdetails",
+                "_search"
+              ],
+              "query": [
+                {
+                  "key": "tenantId",
+                  "value": "{{tenantId}}",
+                  "equals": true
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "7f53d958-7731-ca00-3df4-11fc2d2cc176",
+          "name": "Search Project Code",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requestInfo\":{\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.0\",\n    \"ts\" : \"12345678\",\n    \"action\": \"search\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\"\n    }\n }"
+            },
+            "url": {
+              "raw": "{{url}}/works-estimate/v1/projectcodes/_search?tenantId={{tenantId}}",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "works-estimate",
+                "v1",
+                "projectcodes",
+                "_search"
+              ],
+              "query": [
+                {
+                  "key": "tenantId",
+                  "value": "{{tenantId}}"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "40476709-a53c-d747-c5f0-59e1ae62b425",
+          "name": "Works MDMS",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"works-services\",\n    \"ver\": null,\n    \"ts\": null,\n    \"action\": \"Search\",\n    \"did\": null,\n    \"key\": null,\n    \"msgId\": \"search with from and to values\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"MdmsCriteria\": {\n    \"tenantId\": \"{{tenantId}}\",\n    \"moduleDetails\": [\n      {\n        \"moduleName\": \"Works\",\n        \"masterDetails\": [\n          {\n            \"name\": \"ModeOfAllotment\"\n          }\n        ]\n      }\n    ]\n  }\n}"
+            },
+            "url": "{{url}}/egov-mdms-service/v1/_search",
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "8e44f590-9544-3630-aae5-0bce2555710d",
+          "name": "ScheduleOfCategory",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var jsonData = JSON.parse(responseBody);",
+                  "",
+                  "pm.environment.set(\"EXCAVATION\", jsonData.MdmsRes.Works.ScheduleCategory[0].code);",
+                  "pm.environment.set(\"ConcreteRoads\", jsonData.MdmsRes.Works.ScheduleCategory[1].code);",
+                  "pm.environment.set(\"BtRoads\", jsonData.MdmsRes.Works.ScheduleCategory[2].code);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"works-services\",\n    \"ver\": null,\n    \"ts\": null,\n    \"action\": \"Search\",\n    \"did\": null,\n    \"key\": null,\n    \"msgId\": \"search with from and to values\",\n    \"authToken\": \"{{access_token}}\"\n  },\n  \"MdmsCriteria\": {\n    \"tenantId\": \"{{tenantId}}\",\n    \"moduleDetails\": [\n      {\n        \"moduleName\": \"Works\",\n        \"masterDetails\": [\n          {\n            \"name\": \"ScheduleCategory\"\n          }\n        ]\n      }\n    ]\n  }\n}"
+            },
+            "url": "{{url}}/egov-mdms-service/v1/_search",
+            "description": "Search Schedule Of Category"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "91dd406d-19bc-498c-3eb5-9d732c0f9f44",
+          "name": "UOM",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var jsonData = JSON.parse(responseBody);",
+                  "",
+                  "// pm.environment.set(\"Kilograms\", jsonData.MdmsRes.common-masters.Uom[0].code);",
+                  "// pm.environment.set(\"Ton\", jsonData.MdmsRes.common-masters.Uom[1].code);",
+                  "// pm.environment.set(\"Numbers\", jsonData.MdmsRes.common-masters.Uom[3].code);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"common-services\",\n    \"ver\": null,\n    \"ts\": null,\n    \"action\": \"Search\",\n    \"did\": null,\n    \"key\": null,\n    \"msgId\": \"search with from and to values\",\n    \"authToken\": \"{{access_token}}\"\n  },\n  \"MdmsCriteria\": {\n    \"tenantId\": \"{{tenantId}}\",\n    \"moduleDetails\": [\n      {\n        \"moduleName\": \"common-masters\",\n        \"masterDetails\": [\n          {\n            \"name\": \"Uom\"\n          }\n        ]\n      }\n    ]\n  }\n}"
+            },
+            "url": "{{url}}/egov-mdms-service/v1/_search",
+            "description": "Search Unit of Measurement"
+          },
+          "response": []
         }
       ]
     }
