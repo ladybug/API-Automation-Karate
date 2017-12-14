@@ -4601,7 +4601,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "68aeb444-ddee-49b3-a058-898ce99e01be",
+                    "id": "93555dab-c32d-4ff4-b491-372de947849e",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.floor((Math.random() * 10000) + 1);",
@@ -4612,7 +4612,7 @@
                       "",
                       "pm.environment.set(\"estimateNumber\", \"Spillover/DE/ENG/\"+num1);",
                       "pm.environment.set(\"technicalSanctionNumber\", \"Spillover/DE/TS/\"+num1);",
-                      "pm.globals.get(spilloverPC);"
+                      "pm.globals.get(\"spilloverPC\");"
                     ]
                   }
                 }
