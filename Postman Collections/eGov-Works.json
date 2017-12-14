@@ -4811,7 +4811,7 @@
             },
             {
               "_postman_id": "c393113d-8e68-0804-0def-ad2f0ba4e00b",
-              "name": "Create Spillover LOA",
+              "name": "Create sLOA",
               "request": {
                 "method": "POST",
                 "header": [
