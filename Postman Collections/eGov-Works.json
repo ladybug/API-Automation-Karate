@@ -4906,6 +4906,26 @@
                 "description": "Update LOA"
               },
               "response": []
+            },
+            {
+              "_postman_id": "fea651e3-d2e0-8b07-3eba-8c33f28c4ef9",
+              "name": "Create sWorkOrder",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.0\",\n    \"ts\": 1511171897140,\n    \"action\": \"create\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"access_token\"\n  },\n\t\n  \"workOrders\": [\n    {\n      \"id\": \"\",\n      \"tenantId\": \"default\",\n      \"letterOfAcceptance\": {\n        \"id\": \"123\",\n        \"tenantId\": \"default\",\n        \"spillOverFlag\": false\n      },\n      \"workOrderDate\": 1511431286,\n      \"workOrderNumber\": \"WO/123\",\n      \"status\": \"APPROVED\",\n      \"stateId\": \"2\",\n      \"workOrderDetails\": [\n        {\n        \"id\": \"\",\n        \"tenantId\": \"default\",\n        \"remarks\":\"CASH1\",\n        \"editable\":true\n        }    ],\n      \"documentDetails\":[]\n    }\n  ]\n}"
+                },
+                "url": "{{url}}/works-workorder/v1/workorders/_create",
+                "description": "Work Order for the spillover work"
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
