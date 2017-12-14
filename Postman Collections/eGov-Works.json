@@ -4492,14 +4492,12 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "59240b63-3c9f-4099-90a7-519398c498da",
+                    "id": "7d017402-bdcd-485d-a30b-25875102d0c0",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "postman.setNextRequest(\"Logout as Clerk\");"
+                      "});"
                     ]
                   }
                 }
