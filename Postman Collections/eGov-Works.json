@@ -4703,6 +4703,38 @@
                 "description": "Search SOR master data"
               },
               "response": []
+            },
+            {
+              "_postman_id": "74180e48-a5de-7645-cbd7-981f712138fd",
+              "name": "Create DE Normal",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "84ff913f-8c39-47b4-b462-a77c6d47502f",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.globals.get(\"projectCode\");"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"detailedEstimates\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"estimateDate\": 1491034943000,\n      \"nameOfWork\": \"Detailed Estimation for the proposed work\",\n      \"description\": \"Detailed estimate create\",\n      \"department\": {\n        \"code\": \"ENG\"\n      },\n      \"abstractEstimateDetail\": {\n        \"projectCode\": {\n          \"code\": \"{{projectCode}}\"\n        },\n        \"tenantId\": \"{{tenantId}}\"\n      },\n      \"workValue\": 9000,\n      \"estimateValue\": 10000,\n      \"beneficiary\": \"GENERAL\",\n      \"modeOfAllotment\": {\n        \"code\": \"EProcurement\"\n      },\n      \"worksType\": {\n        \"code\": \"Buildings\"\n      },\n      \"worksSubtype\": {\n        \"code\": \"OFFICEBUILDINGS\"\n      },\n      \"natureOfWork\": {\n        \"code\": \"New\"\n      },\n      \"ward\": {\n        \"code\": \"172\"\n      },\n      \"location\": \"Sarjapur Road\",\n      \"workCategory\": \"NON_SLUM\",\n      \"workOrderCreated\": false,\n      \"detailedEstimateDeductions\": [\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"chartOfAccounts\": {\n          \t\"glcode\": \"1234\"\n          },\n          \"amount\": 1\n        }\n      ],\n      \"documentDetails\": [],\n      \"assets\": [],\n      \"estimateOverheads\": [\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"overhead\": {\n            \"id\": 1,\n            \"code\": \"TAXFake\",\n            \"tenantId\": \"{{tenantId}}\",\n            \"name\": \"test\",\n            \"accountCode\": \"test\"\n          },\n          \"amount\": 1000\n        }\n      ],\n      \"estimateActivities\": [\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"scheduleOfRate\": {\n            \"id\": \"0893c2e14f7d437f958a4586dacab305\",\n            \"tenantId\": \"{{tenantId}}\",\n            \"code\": \"SOR15\"\n          },\n          \"uom\": {\n            \"code\": \"NOS\"\n          },\n          \"unitRate\": 1000,\n          \"estimateRate\": 10000,\n          \"quantity\": 10\n        }\n      ],\n      \"function\": {\n        \"code\": \"2\"\n      },\n      \"scheme\": {\n        \"code\": \"2906\"\n      },\n      \"subScheme\": {\n        \"code\": \"BSUP\"\n      },\n      \"budgetGroup\": {\n        \"name\": \"4122001-CWIP-Office Buildings\"\n      }\n    }\n  ]\n}"
+                },
+                "url": "{{url}}/works-estimate/v1/detailedestimates/_create",
+                "description": "Create Detailed Estimate with workflow"
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
