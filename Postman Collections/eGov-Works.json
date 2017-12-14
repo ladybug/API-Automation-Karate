@@ -4453,7 +4453,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "f0ac2f91-d6af-436f-b532-134d1c3c5819",
+                    "id": "eed5a2c0-c543-452e-818a-b3a788b9c12e",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -4461,12 +4461,9 @@
                       "});",
                       "",
                       "var jsonData = JSON.parse(responseBody);",
-                      "pm.environment.set(\"response\", jsonData);",
                       "pm.environment.set(\"AE_id\", jsonData.abstractEstimates[0].id);",
                       "pm.environment.set(\"AEdetails_id\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].id);",
-                      "pm.environment.set(\"AE_workflow\", jsonData.abstractEstimates[0].abstractEstimateNumber);",
-                      "pm.environment.set(\"status\", jsonData.abstractEstimates[0].status);",
-                      "pm.environment.set(\"stateId\", jsonData.abstractEstimates[0].stateId);"
+                      "pm.environment.set(\"status\", jsonData.abstractEstimates[0].status);"
                     ]
                   }
                 }
