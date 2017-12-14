@@ -4609,7 +4609,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "e5ce53de-df5c-4a91-9a81-43ba27946903",
+                    "id": "0d998343-461f-4c34-ac35-98499c863f23",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.floor((Math.random() * 10000) + 1);",
@@ -4622,7 +4622,7 @@
                       "pm.environment.set(\"referenceNumber\", \"RefNum\"+num1);",
                       "pm.environment.set(\"epochDate\", epoch);",
                       "pm.environment.set(\"adminSanctionNumber\", \"ADN-\"+year+\"-\"+num1);",
-                      "pm.environment.set(\"financialSanctionNumber\", \"FS-ENG-NS-\"+year+\"-\"+num1);",
+                      "pm.environment.set(\"financialSanctionNumber\", \"FS-\"+year+\"-\"+num1);",
                       "pm.environment.set(\"councilResolutionNumber\", \"CRN-\"+year+\"-\"+num1);",
                       "pm.environment.set(\"spilloverPC\", \"WIN-\"+year+\"-\"+num1);"
                     ]
