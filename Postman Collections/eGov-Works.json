@@ -5250,6 +5250,20 @@
             {
               "_postman_id": "ed353ca4-c3d4-aa76-aa4c-2b14ef2cfad9",
               "name": "Search sLOA",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "1d288a70-d69a-4d14-a521-a9f4fe8cec8e",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "pm.environment.set(\"loaId\", jsonData.letterOfAcceptances[0].id);",
+                      "pm.environment.set(\"loaNumber\", jsonData.letterOfAcceptances[0].loaNumber);"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
