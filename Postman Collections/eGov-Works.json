@@ -5401,6 +5401,22 @@
             {
               "_postman_id": "8588e420-1334-8760-fe45-43f573413ace",
               "name": "Search sWO",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "7a0600e5-893d-43de-9159-e56333704fd0",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "postman.setNextRequest(\"Logout\");"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
