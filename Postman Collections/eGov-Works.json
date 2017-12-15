@@ -5115,6 +5115,21 @@
                       "// pm.globals.get(\"spilloverPC\");"
                     ]
                   }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "affa764b-3416-4143-96bb-f623c6cfa1d1",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "var workValue = jsonData.detailedEstimates[0].workValue;",
+                      "var estimateValue = jsonData.detailedEstimates[0].estimateValue;",
+                      "var activityAmount = jsonData.detailedEstimates[0].estimateActivities[0].estimateRate;",
+                      ""
+                    ]
+                  }
                 }
               ],
               "request": {
