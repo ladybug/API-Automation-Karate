@@ -4980,12 +4980,17 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "7d017402-bdcd-485d-a30b-25875102d0c0",
+                    "id": "87bc7dfd-7fe3-43ec-b702-4d76a901dfd3",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
-                      "});"
+                      "});",
+                      "",
+                      "var jsonData = JSON.parse(responseBody);",
+                      "pm.environment.set(\"sEstimateAmount\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].estimateAmount);",
+                      "pm.environment.set(\"sProjectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
+                      "pm.environment.set(\"sNameOfWork\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].nameOfWork);"
                     ]
                   }
                 }
