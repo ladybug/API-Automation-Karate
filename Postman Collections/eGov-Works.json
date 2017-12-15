@@ -5100,7 +5100,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "b68d2fee-4c57-4cd5-b652-f01982579233",
+                    "id": "bc0f423f-47cb-403a-ae1e-d18460beb2f9",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.floor((Math.random() * 10000) + 1);",
@@ -5112,7 +5112,7 @@
                       "pm.environment.set(\"sEstimateNum\", \"Spillover/DE/ENG/\"+num1);",
                       "pm.environment.set(\"sTechSanctionNum\", \"Spillover/DE/TS/\"+num1);",
                       "pm.environment.set(\"sAdminSanctionNum\", \"Spillover/DE/ADN/\"+num1);",
-                      "pm.globals.get(\"spilloverPC\");"
+                      "// pm.globals.get(\"spilloverPC\");"
                     ]
                   }
                 }
