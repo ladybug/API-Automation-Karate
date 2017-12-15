@@ -4918,7 +4918,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "0d998343-461f-4c34-ac35-98499c863f23",
+                    "id": "56f12182-52f5-47bc-911a-814260dff413",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.floor((Math.random() * 10000) + 1);",
@@ -4926,6 +4926,7 @@
                       "var today = new Date();",
                       "var epoch = Math.round(today.getTime()/1000);",
                       "var year = today.getFullYear();",
+                      "var estimateAmount = [1000, 10000, 100000];",
                       "",
                       "pm.environment.set(\"abstractEstimateNumber\", \"AE/ENG/\"+num1);",
                       "pm.environment.set(\"referenceNumber\", \"RefNum\"+num1);",
