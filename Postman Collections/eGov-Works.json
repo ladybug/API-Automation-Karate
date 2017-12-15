@@ -5124,9 +5124,12 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "bb181356-0ce7-429f-bc93-6ad4304f0e26",
+                    "id": "cdab4ab9-3199-4ca7-b407-3159b9bc393e",
                     "type": "text/javascript",
                     "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
                       "var jsonData = JSON.parse(responseBody);",
                       "",
                       "var workValue = jsonData.detailedEstimates[0].workValue;",
