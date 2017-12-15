@@ -5036,7 +5036,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "87bc7dfd-7fe3-43ec-b702-4d76a901dfd3",
+                    "id": "903e0a73-c193-4cde-9a2d-496fc1bf4221",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -5046,7 +5046,9 @@
                       "var jsonData = JSON.parse(responseBody);",
                       "pm.environment.set(\"sEstimateAmount\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].estimateAmount);",
                       "pm.environment.set(\"sProjectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
-                      "pm.environment.set(\"sNameOfWork\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].nameOfWork);"
+                      "pm.environment.set(\"sNameOfWork\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].nameOfWork);",
+                      "",
+                      "postman.setNextRequest(\"Create sDE\");"
                     ]
                   }
                 }
