@@ -5313,6 +5313,24 @@
             {
               "_postman_id": "fea651e3-d2e0-8b07-3eba-8c33f28c4ef9",
               "name": "Create sWorkOrder",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "239540d5-d8d9-4973-ad24-99f80fead0d8",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var num1 = Math.floor((Math.random() * 10000) + 1);",
+                      "var name2 = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;",
+                      "var today = new Date();",
+                      "var epoch = Math.round(today.getTime()/1000);",
+                      "var year = today.getFullYear();",
+                      "pm.environment.set(\"workOrderNumber\", \"WO-\"+num1);",
+                      "pm.environment.get(\"loaId\");"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
@@ -5323,7 +5341,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.0\",\n    \"ts\": 1511171897140,\n    \"action\": \"create\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"access_token\"\n  },\n\t\n  \"workOrders\": [\n    {\n      \"id\": \"\",\n      \"tenantId\": \"default\",\n      \"letterOfAcceptance\": {\n        \"id\": \"123\",\n        \"tenantId\": \"default\",\n        \"spillOverFlag\": false\n      },\n      \"workOrderDate\": 1511431286,\n      \"workOrderNumber\": \"WO/123\",\n      \"status\": \"APPROVED\",\n      \"stateId\": \"2\",\n      \"workOrderDetails\": [\n        {\n        \"id\": \"\",\n        \"tenantId\": \"default\",\n        \"remarks\":\"CASH1\",\n        \"editable\":true\n        }    ],\n      \"documentDetails\":[]\n    }\n  ]\n}"
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.0\",\n    \"ts\": 1511171897140,\n    \"action\": \"create\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"clerk\",\n    \"authToken\": \"{{access_token}}\"\n  },\n\t\n  \"workOrders\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"letterOfAcceptance\": {\n        \"id\": \"{{loaId}}\",\n        \"tenantId\": \"{{tenantId}}\",\n        \"spillOverFlag\": true\n      },\n      \"workOrderDate\": 1427784646000,\n      \"workOrderNumber\": \"{{workOrderNumber}}\",\n      \"status\": \"APPROVED\",\n      \"workOrderDetails\": [\n        {\n        \"tenantId\": \"{{tenantId}}\",\n        \"remarks\":\"CASH\",\n        \"editable\":true\n        }    ],\n      \"documentDetails\":[]\n    }\n  ]\n}"
                 },
                 "url": "{{url}}/works-workorder/v1/workorders/_create",
                 "description": "Work Order for the spillover work"
