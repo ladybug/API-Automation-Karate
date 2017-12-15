@@ -5435,7 +5435,7 @@
                   "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"search\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n    }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-workorder/v1/workorders/_search?tenantId={{tenantId}}&ids=e93c1bade78642b6820393039ca3c6b6",
+                  "raw": "{{url}}/works-workorder/v1/workorders/_search?tenantId={{tenantId}}&ids={{woID}}&workOrderNumbers={{woNum}}",
                   "host": [
                     "{{url}}"
                   ],
@@ -5453,7 +5453,12 @@
                     },
                     {
                       "key": "ids",
-                      "value": "e93c1bade78642b6820393039ca3c6b6",
+                      "value": "{{woID}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "workOrderNumbers",
+                      "value": "{{woNum}}",
                       "equals": true
                     }
                   ]
