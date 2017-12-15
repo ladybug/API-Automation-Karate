@@ -5119,7 +5119,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "affa764b-3416-4143-96bb-f623c6cfa1d1",
+                    "id": "d4600daf-8d70-43b4-87c3-e8f3d726fbe9",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -5127,7 +5127,10 @@
                       "var workValue = jsonData.detailedEstimates[0].workValue;",
                       "var estimateValue = jsonData.detailedEstimates[0].estimateValue;",
                       "var activityAmount = jsonData.detailedEstimates[0].estimateActivities[0].estimateRate;",
-                      ""
+                      "",
+                      "console.log(workValue);",
+                      "console.log(estimateValue);",
+                      "console.log(activityAmount);"
                     ]
                   }
                 }
