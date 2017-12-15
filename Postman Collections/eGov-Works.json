@@ -5275,7 +5275,25 @@
                   "mode": "raw",
                   "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.0\",\n    \"ts\": 1511171897140,\n    \"action\": \"create\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\"\n  },\n  \n  \"letterofacceptances\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"contractor\": {\n        \"code\": \"GRADE-A1\",\n        \"tenantId\": \"{{tenantId}}\"\n      },\n      \"loaDate\": 1427784646000,\n      \"loaNumber\": \"{{loaNumber}}\",\n      \"contractPeriod\": 5,\n      \"emdAmountDeposited\": 200,\n      \"stampPaperAmount\": 100,\n      \"engineerIncharge\": \"Ritesh\",\n      \"defectLiabilityPeriod\": 10,\n      \"tenderFinalizedPercentage\": 0,\n      \"loaAmount\": 900,\n      \"approvedDate\": 1427784646000,\n      \"fileNumber\": \"{{fileNumber}}\",\n      \"fileDate\": 1427784646000,\n      \"councilResolutionNumber\": \"{{loaCRN}}\",\n      \"councilResolutionDate\": 1427784646000,\n      \"spillOverFlag\": true,\n      \"status\": \"APPROVED\",\n      \"letterOfAcceptanceEstimates\":[\n      \t{\n        \t\"tenantId\": \"{{tenantId}}\",\n        \t\"detailedEstimate\": {\n        \t\"estimateNumber\": \"{{sEstimateNum}}\"\n        \t},\n        \t\"workCompletionDate\": 1427784646000,\n        \t\"loaActivities\": [],\n        \t\"estimateLOAAmount\": 900\n    \t}\n      ],\n      \"securityDeposits\": []\n    }\n  ]\n}"
                 },
-                "url": "{{url}}/works-workorder/v1/letterofacceptances/_create",
+                "url": {
+                  "raw": "{{url}}/works-workorder/v1/letterofacceptances/_create?isRevision=false",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-workorder",
+                    "v1",
+                    "letterofacceptances",
+                    "_create"
+                  ],
+                  "query": [
+                    {
+                      "key": "isRevision",
+                      "value": "false",
+                      "equals": true
+                    }
+                  ]
+                },
                 "description": "LOA for the spillover estimates"
               },
               "response": []
