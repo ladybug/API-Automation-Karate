@@ -4995,7 +4995,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "a372f12e-4994-45cf-824d-1a8ad9e7b4ba",
+                    "id": "6a7dff82-4d7d-4698-a450-2b943cf275dd",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -5006,7 +5006,8 @@
                       "pm.environment.set(\"AE_id\", jsonData.abstractEstimates[0].id);",
                       "pm.environment.set(\"AEdetails_id\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].id);",
                       "pm.environment.set(\"status\", jsonData.abstractEstimates[0].status);",
-                      "// pm.globals.set(\"spilloverPC\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);"
+                      "// pm.globals.set(\"spilloverPC\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
+                      "postman.setNextRequest(\"Search sEstimate\");"
                     ]
                   }
                 }
@@ -5035,7 +5036,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "87bc7dfd-7fe3-43ec-b702-4d76a901dfd3",
+                    "id": "903e0a73-c193-4cde-9a2d-496fc1bf4221",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -5045,7 +5046,9 @@
                       "var jsonData = JSON.parse(responseBody);",
                       "pm.environment.set(\"sEstimateAmount\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].estimateAmount);",
                       "pm.environment.set(\"sProjectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
-                      "pm.environment.set(\"sNameOfWork\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].nameOfWork);"
+                      "pm.environment.set(\"sNameOfWork\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].nameOfWork);",
+                      "",
+                      "postman.setNextRequest(\"Create sDE\");"
                     ]
                   }
                 }
@@ -5121,7 +5124,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "d4600daf-8d70-43b4-87c3-e8f3d726fbe9",
+                    "id": "bb181356-0ce7-429f-bc93-6ad4304f0e26",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -5132,7 +5135,9 @@
                       "",
                       "console.log(workValue);",
                       "console.log(estimateValue);",
-                      "console.log(activityAmount);"
+                      "console.log(activityAmount);",
+                      "",
+                      "postman.setNextRequest(\"Search sDE\");"
                     ]
                   }
                 }
@@ -5157,6 +5162,22 @@
             {
               "_postman_id": "7ca82064-5c58-2983-1902-914620aa5238",
               "name": "Search sDE",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "234ce9fc-a96d-4f3d-ae8d-c1bf3e47501c",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "postman.setNextRequest(\"Create sLOA\");"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
