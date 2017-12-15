@@ -5217,6 +5217,17 @@
                       "pm.environment.get(\"sEstimateNum\");"
                     ]
                   }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "a5b7d6f7-7ab8-438d-b017-b538dc5035cc",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "pm.environment.set(\"loaId\", jsonData.letterOfAcceptances[0].id);"
+                    ]
+                  }
                 }
               ],
               "request": {
