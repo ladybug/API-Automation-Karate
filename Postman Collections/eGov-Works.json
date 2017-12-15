@@ -5304,26 +5304,6 @@
               "response": []
             },
             {
-              "_postman_id": "86b0a31a-0d80-8869-e547-7a17510950bf",
-              "name": "Update sWorkOrder",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.0\",\n    \"ts\": 1511171897140,\n    \"action\": \"update\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\"\n  },\n\t\n  \"workOrders\": [\n    {\n      \"id\": \"46291902aeba4e96be20c644f80da38c\",\n      \"tenantId\": \"default\",\n      \"letterOfAcceptance\": {\n        \"id\": \"123\",\n        \"tenantId\": \"default\",\n        \"spillOverFlag\": false\n      },\n      \"workOrderDate\": 1511431286,\n      \"workOrderNumber\": \"WO/123\",\n      \"status\": \"APPROVED\",\n      \"stateId\": \"2\",\n      \"workOrderDetails\": [\n        {\n        \"id\": \"db201adde32d4c0cbdfb2eb69a6edd2e\",\n        \"tenantId\": \"default\",\n        \"remarks\":\"CASH1\",\n        \"editable\":true\n        },  {\n        \"id\": \"\",\n        \"tenantId\": \"default\",\n        \"remarks\":\"CASH2\",\n        \"editable\":false\n        }      ],\n      \"documentDetails\":[]\n    }\n  ]\n}"
-                },
-                "url": "{{url}}/works-workorder/v1/workorders/_update",
-                "description": "update work order for the spillover"
-              },
-              "response": []
-            },
-            {
               "_postman_id": "36162a53-9a4e-14c6-dab2-c9388477e338",
               "name": "Logout",
               "event": [
