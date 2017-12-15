@@ -5184,7 +5184,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "e3cefa88-4179-4be5-afcd-7188b1f2ea5e",
+                    "id": "e01b86cf-2f16-47a1-9dfd-f757aa9e4415",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.floor((Math.random() * 10000) + 1);",
@@ -5196,7 +5196,7 @@
                       "pm.environment.set(\"loaNumber\", \"LOA-\"+num1);",
                       "pm.environment.set(\"fileNumber\", \"FN-\"+num1);",
                       "pm.environment.set(\"loaCRN\", \"CRN-LOA-\"+num1);",
-                      "pm.environment.get(\"estimateNumber\");"
+                      "pm.environment.get(\"sEstimateNum\");"
                     ]
                   }
                 }
@@ -5211,7 +5211,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.0\",\n    \"ts\": 1511171897140,\n    \"action\": \"create\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\"\n  },\n  \n  \"letterofacceptances\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"contractor\": {\n        \"code\": \"GRADE-A1\",\n        \"tenantId\": \"{{tenantId}}\"\n      },\n      \"loaDate\": 1427784646000,\n      \"loaNumber\": \"{{loaNumber}}\",\n      \"contractPeriod\": 5,\n      \"emdAmountDeposited\": 200,\n      \"stampPaperAmount\": 100,\n      \"engineerIncharge\": \"Ritesh\",\n      \"defectLiabilityPeriod\": 10,\n      \"tenderFinalizedPercentage\": 0,\n      \"loaAmount\": 1000,\n      \"approvedDate\": 1427784646000,\n      \"fileNumber\": \"{{fileNumber}}\",\n      \"fileDate\": 1427784646000,\n      \"councilResolutionNumber\": \"{{loaCRN}}\",\n      \"councilResolutionDate\": 1427784646000,\n      \"spillOverFlag\": true,\n      \"status\": \"APPROVED\",\n      \"letterOfAcceptanceEstimates\":[\n      \t{\n        \t\"tenantId\": \"{{tenantId}}\",\n        \t\"detailedEstimate\": {\n        \t\"estimateNumber\": \"{{estimateNumber}}\"\n        \t},\n        \t\"workCompletionDate\": 1427784646000,\n        \t\"loaActivities\": [],\n        \t\"estimateLOAAmount\": 1000\n    \t}\n      ],\n      \"securityDeposits\": [\n        {\n        \t\"tenantId\": \"{{tenantId}}\",\n        \t\"collectionMode\":\"CASH\",\n        \t\"percentage\": 10,\n        \t\"amount\": 100\n        }\n      ]\n    }\n  ]\n}"
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.0\",\n    \"ts\": 1511171897140,\n    \"action\": \"create\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\"\n  },\n  \n  \"letterofacceptances\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"contractor\": {\n        \"code\": \"GRADE-A1\",\n        \"tenantId\": \"{{tenantId}}\"\n      },\n      \"loaDate\": 1427784646000,\n      \"loaNumber\": \"{{loaNumber}}\",\n      \"contractPeriod\": 5,\n      \"emdAmountDeposited\": 200,\n      \"stampPaperAmount\": 100,\n      \"engineerIncharge\": \"Ritesh\",\n      \"defectLiabilityPeriod\": 10,\n      \"tenderFinalizedPercentage\": 0,\n      \"loaAmount\": 1000,\n      \"approvedDate\": 1427784646000,\n      \"fileNumber\": \"{{fileNumber}}\",\n      \"fileDate\": 1427784646000,\n      \"councilResolutionNumber\": \"{{loaCRN}}\",\n      \"councilResolutionDate\": 1427784646000,\n      \"spillOverFlag\": true,\n      \"status\": \"APPROVED\",\n      \"letterOfAcceptanceEstimates\":[\n      \t{\n        \t\"tenantId\": \"{{tenantId}}\",\n        \t\"detailedEstimate\": {\n        \t\"estimateNumber\": \"{{sEstimateNum}}\"\n        \t},\n        \t\"workCompletionDate\": 1427784646000,\n        \t\"loaActivities\": [],\n        \t\"estimateLOAAmount\": 1000\n    \t}\n      ],\n      \"securityDeposits\": [\n        {\n        \t\"tenantId\": \"{{tenantId}}\",\n        \t\"collectionMode\":\"CASH\",\n        \t\"percentage\": 10,\n        \t\"amount\": 100\n        }\n      ]\n    }\n  ]\n}"
                 },
                 "url": "{{url}}/works-workorder/v1/letterofacceptances/_create",
                 "description": "LOA for the spillover estimates"
