@@ -5342,7 +5342,7 @@
             },
             {
               "_postman_id": "fea651e3-d2e0-8b07-3eba-8c33f28c4ef9",
-              "name": "Create sWorkOrder",
+              "name": "Create sWO",
               "event": [
                 {
                   "listen": "prerequest",
