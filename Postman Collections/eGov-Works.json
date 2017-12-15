@@ -5284,13 +5284,19 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "935a2be7-a2dd-4825-abaf-6ba0a91b0bbd",
+                    "id": "fa9836dc-c57e-49bf-bc89-d39be316d4bd",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "pm.environment.set(\"loaId\", jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].letterOfAcceptance);",
                       "pm.environment.set(\"loaNumber\", jsonData.letterOfAcceptances[0].loaNumber);",
-                      "pm.environment.set(\"loaStatus\", jsonData.letterOfAcceptances[0].status);"
+                      "pm.environment.set(\"loaStatus\", jsonData.letterOfAcceptances[0].status);",
+                      "",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "postman.setNextRequest(\"Create sWo\");"
                     ]
                   }
                 }
