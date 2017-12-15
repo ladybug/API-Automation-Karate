@@ -5124,7 +5124,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "d4600daf-8d70-43b4-87c3-e8f3d726fbe9",
+                    "id": "bb181356-0ce7-429f-bc93-6ad4304f0e26",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -5135,7 +5135,9 @@
                       "",
                       "console.log(workValue);",
                       "console.log(estimateValue);",
-                      "console.log(activityAmount);"
+                      "console.log(activityAmount);",
+                      "",
+                      "postman.setNextRequest(\"Search sDE\");"
                     ]
                   }
                 }
