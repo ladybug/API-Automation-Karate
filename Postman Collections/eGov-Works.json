@@ -5254,11 +5254,11 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "1d288a70-d69a-4d14-a521-a9f4fe8cec8e",
+                    "id": "49c553d5-2cab-47cf-adb1-35d328ea55d2",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
-                      "pm.environment.set(\"loaId\", jsonData.letterOfAcceptances[0].id);",
+                      "pm.environment.set(\"loaId\", jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].letterOfAcceptance);",
                       "pm.environment.set(\"loaNumber\", jsonData.letterOfAcceptances[0].loaNumber);"
                     ]
                   }
