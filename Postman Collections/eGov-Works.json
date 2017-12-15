@@ -5244,11 +5244,18 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "a5b7d6f7-7ab8-438d-b017-b538dc5035cc",
+                    "id": "24c53c58-fd02-453f-a3da-8e3beef9797c",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
-                      "pm.environment.set(\"loaId\", jsonData.letterOfAcceptances[0].id);"
+                      "pm.environment.set(\"loaId\", jsonData.letterOfAcceptances[0].id);",
+                      "",
+                      "",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "postman.setNextRequest(\"Search sLOA\");"
                     ]
                   }
                 }
