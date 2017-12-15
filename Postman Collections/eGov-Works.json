@@ -5263,7 +5263,7 @@
                   "raw": "{ \"RequestInfo\": {\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.0\",\n    \"ts\": 1511171897140,\n    \"action\": \"search\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\"\n  }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-workorder/v1/letterofacceptances/_search?tenantId={{tenantId}}&loaNumbers={{loaNumber}}",
+                  "raw": "{{url}}/works-workorder/v1/letterofacceptances/_search?tenantId={{tenantId}}&loaNumbers={{loaNumber}}&ids={{loaId}}",
                   "host": [
                     "{{url}}"
                   ],
@@ -5282,6 +5282,11 @@
                     {
                       "key": "loaNumbers",
                       "value": "{{loaNumber}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "ids",
+                      "value": "{{loaId}}",
                       "equals": true
                     }
                   ]
