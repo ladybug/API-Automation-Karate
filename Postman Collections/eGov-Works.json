@@ -5287,7 +5287,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "fa9836dc-c57e-49bf-bc89-d39be316d4bd",
+                    "id": "e79b0a01-3748-46e2-9c58-5a3fa49e952d",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -5299,7 +5299,7 @@
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
-                      "postman.setNextRequest(\"Create sWo\");"
+                      "postman.setNextRequest(\"Create sWO\");"
                     ]
                   }
                 }
