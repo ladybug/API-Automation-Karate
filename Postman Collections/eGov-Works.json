@@ -5372,13 +5372,15 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "7f50fe3d-af5b-4af9-9f1f-62dda2880726",
+                    "id": "07ed84b7-989d-48ed-84a2-4c10cf7c3c3c",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
-                      "",
+                      "var jsonData = JSON.parse(responseBody);",
+                      "pm.environment.set(\"woID\", jsonData.workOrders[0].id);",
+                      "pm.environment.set(\"woNum\", jsonData.workOrders[0].workOrderNumber);",
                       "postman.setNextRequest(\"Search sWO\");"
                     ]
                   }
