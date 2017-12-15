@@ -5365,6 +5365,20 @@
                       "pm.environment.get(\"loaId\");"
                     ]
                   }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "7f50fe3d-af5b-4af9-9f1f-62dda2880726",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "postman.setNextRequest(\"Search sWO\");"
+                    ]
+                  }
                 }
               ],
               "request": {
