@@ -3547,6 +3547,58 @@
                 "description": "Create Detailed Estimate:\nrequired:\n      - tenantId\n      - nameOfWork\n      - estimateDate\n      - worksType\n      - natureOfWork\n      - ward\n      - status\n      - department\n      - description"
               },
               "response": []
+            },
+            {
+              "_postman_id": "39803b2e-45ba-29b0-5792-a2ceb707e3d6",
+              "name": "Create spilloverDE",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "b68d2fee-4c57-4cd5-b652-f01982579233",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var num1 = Math.floor((Math.random() * 10000) + 1);",
+                      "var name2 = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;",
+                      "var today = new Date();",
+                      "var epoch = Math.round(today.getTime()/1000);",
+                      "var year = today.getFullYear();",
+                      "",
+                      "pm.environment.set(\"sEstimateNum\", \"Spillover/DE/ENG/\"+num1);",
+                      "pm.environment.set(\"sTechSanctionNum\", \"Spillover/DE/TS/\"+num1);",
+                      "pm.environment.set(\"sAdminSanctionNum\", \"Spillover/DE/ADN/\"+num1);",
+                      "pm.globals.get(\"spilloverPC\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "e65ead77-70f3-46f6-96ec-d7271c5e0054",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      ""
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"1427784646000\",\n    \"requesterId\": \"clerk\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"detailedEstimates\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"estimateNumber\": \"{{sEstimateNum}}\",\n      \"estimateDate\": 1427784646000,\n      \"nameOfWork\": \"Spillover DE\",\n      \"description\": \"Spillover Detailed Estimation for the proposed work\",\n      \"department\": {\n        \"code\": \"ENG\"\n      },\n      \"adminSanctionNumber\": \"{{sAdminSanctionNum}}\",\n      \"adminSanctionDate\": 1427784646000,\n      \"workValue\": 900,\n      \"estimateValue\": 1000,\n      \"projectCode\": {\n          \"code\": \"{{spilloverPC}}\"\n        },\n      \"beneficiary\": \"GENERAL\",\n      \"modeOfAllotment\": {\n        \"code\": \"EProcurement\"\n      },\n      \"worksType\": {\n        \"code\": \"Buildings\"\n      },\n      \"worksSubtype\": {\n        \"code\": \"OFFICEBUILDINGS\"\n      },\n      \"natureOfWork\": {\n        \"code\": \"New\"\n      },\n      \"ward\": {\n        \"code\": \"172\"\n      },\n      \"location\": \"Sarjapur Road\",\n      \"workCategory\": \"NON_SLUM\",\n      \"workOrderCreated\": false,\n      \"billsCreated\": false,\n      \"spillOverFlag\": true,\n      \"abstractEstimateDetail\": {\n      \t\"nameOfWork\": \"{{sNameOfWork}}\",\n      \t\"estimateAmount\": \"{{sEstimateAmount}}\",\n        \"projectCode\": {\n          \"code\": \"{{sProjectCode}}\"\n        },\n        \"tenantId\": \"{{tenantId}}\"\n      },\n      \"documentDetails\": [],\n      \"assets\": [],\n      \"multiYearEstimates\": [],\n      \"estimateActivities\": [\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"scheduleOfRate\": {\n            \"id\": \"8476e765666a43489f0029eefbd42072\",\n            \"tenantId\": \"{{tenantId}}\",\n            \"code\": \"SOR65\"\n          },\n          \"uom\": {\n            \"code\": \"MTR\"\n          },\n          \"unitRate\": 300,\n          \"quantity\": 3,\n          \"estimateRate\": 900\n        }\n      ],\n      \"estimateOverheads\": [\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"overhead\": {\n          \t\"accountCode\": \"123\",\n          \t\"name\": \"TAXFake\",\n            \"code\": \"TAXFake\",\n            \"tenantId\": \"{{tenantId}}\"\n          },\n          \"amount\": 100\n        }\n      ],\n      \"detailedEstimateDeductions\": [\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"chartOfAccounts\":{\n          \t\"glcode\": \"1981\"\n          },\n          \"amount\": 50\n        }\n      ],\n      \"estimateTechnicalSanctions\": [\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"technicalSanctionNumber\": \"{{sTechSanctionNum}}\",\n          \"technicalSanctionDate\": 1427784646000,\n          \"technicalSanctionBy\": {\n            \"userName\": \"clerk\"\n          }\n        }\n      ],\n      \"function\": {\n        \"code\": \"00\"\n      },\n      \"scheme\": {\n        \"code\": \"2906\"\n      },\n      \"subScheme\": {\n        \"code\": \"BSUP\"\n      },\n      \"budgetGroup\": {\n        \"name\": \"4122001-CWIP-Office Buildings\"\n      },\n      \"workFlowDetails\": {\n        \"action\": \"Create\"\n      }\n    }\n  ]\n}"
+                },
+                "url": "{{url}}/works-estimate/v1/detailedestimates/_create",
+                "description": "Create Detailed Estimate"
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
@@ -5205,26 +5257,6 @@
               "response": []
             },
             {
-              "_postman_id": "9ac0a1a4-ff57-a85f-cf8a-bf5e66dcd5c8",
-              "name": "Upldate sLOA",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.0\",\n    \"ts\": 1511171897140,\n    \"action\": \"update\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"access_token\"\n  },\n  \"letterofacceptances\": [\n    {\n      \"id\": \"c3726635d6b144ae98b4920e616622d3\",\n      \"tenantId\": \"default\",\n      \"contractor\": {\n        \"code\": \"priya\",\n        \"tenantId\": \"default\"\n      },\n      \"loaDate\": 1511436672,\n      \"loaNumber\": \"LOA/123\",\n      \"contractPeriod\": \"5\",\n      \"emdAmountDeposited\": \"200\",\n      \"stampPaperAmount\": \"100\",\n      \"engineerIncharge\": \"ritesh\",\n      \"defectLiabilityPeriod\": \"10\",\n      \"loaAmount\": \"300\",\n      \"status\": \"APPROVED\",\n      \"tenderFinalizedPercentage\": \"2\",\n      \"approvedDate\": 1511436672,\n      \"fileNumber\": 1235,\n      \"fileDate\": 1511436672,\n      \"spillOverFlag\": false,\n      \"letterOfAcceptanceEstimates\": [{\n        \"id\": \"c3726635d6b144ae98b4920e616622d3\",\n        \"tenantId\": \"default\",\n        \"detailedEstimate\": {\n          \"estimateNumber\": \"ENG/123\"\n        },\n        \"workCompletionDate\": 1511436672,\n        \"estimateLOAAmount\": \"300\"\n      }],\n      \"securityDeposits\": [\n        {\n        \t\"id\": \"1\",\n    \t\"letterOfAcceptance\": \"c3726635d6b144ae98b4920e616622d3\",\n        \"tenantId\": \"default\",\n        \"collectionMode\":\"CASH\",\n        \"percentage\":\"100\",\n        \"amount\":\"1000\"\n        \n        },\n        {\n        \t\"id\": \"2\",\n    \t\"letterOfAcceptance\": \"c3726635d6b144ae98b4920e616622d3\",\n        \"tenantId\": \"default\",\n        \"collectionMode\":\"CASH\",\n        \"percentage\":\"101\",\n        \"amount\":\"1001\"\n        \n        },\n        {\n        \t\"id\": \"\",\n    \t\"letterOfAcceptance\": \"c3726635d6b144ae98b4920e616622d3\",\n        \"tenantId\": \"default\",\n        \"collectionMode\":\"CASH\",\n        \"percentage\":\"101\",\n        \"amount\":\"1001\"\n        \n        }\n      ]\n    }\n  ]\n}"
-                },
-                "url": "{{url}}/works-workorder/v1/letterofacceptances/_update",
-                "description": "Update LOA"
-              },
-              "response": []
-            },
-            {
               "_postman_id": "fea651e3-d2e0-8b07-3eba-8c33f28c4ef9",
               "name": "Create sWorkOrder",
               "request": {
@@ -5279,26 +5311,6 @@
                   ]
                 },
                 "description": "Search work order for the spillover"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "86b0a31a-0d80-8869-e547-7a17510950bf",
-              "name": "Update sWorkOrder",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.0\",\n    \"ts\": 1511171897140,\n    \"action\": \"update\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\"\n  },\n\t\n  \"workOrders\": [\n    {\n      \"id\": \"46291902aeba4e96be20c644f80da38c\",\n      \"tenantId\": \"default\",\n      \"letterOfAcceptance\": {\n        \"id\": \"123\",\n        \"tenantId\": \"default\",\n        \"spillOverFlag\": false\n      },\n      \"workOrderDate\": 1511431286,\n      \"workOrderNumber\": \"WO/123\",\n      \"status\": \"APPROVED\",\n      \"stateId\": \"2\",\n      \"workOrderDetails\": [\n        {\n        \"id\": \"db201adde32d4c0cbdfb2eb69a6edd2e\",\n        \"tenantId\": \"default\",\n        \"remarks\":\"CASH1\",\n        \"editable\":true\n        },  {\n        \"id\": \"\",\n        \"tenantId\": \"default\",\n        \"remarks\":\"CASH2\",\n        \"editable\":false\n        }      ],\n      \"documentDetails\":[]\n    }\n  ]\n}"
-                },
-                "url": "{{url}}/works-workorder/v1/workorders/_update",
-                "description": "update work order for the spillover"
               },
               "response": []
             },
