@@ -4905,13 +4905,15 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "00ab05ad-a3c9-426f-9bfe-8b0042eaa765",
+                    "id": "cbca48d7-56f4-4c0d-9dd6-c00d2c0e3a45",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "postman.setEnvironmentVariable(\"access_token\", jsonData.access_token);",
                       "pm.globals.set(\"userName\", jsonData.UserRequest.userName);",
-                      "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "",
+                      "postman.setNextRequest(\"Create sEstimate\");"
                     ]
                   }
                 }
@@ -4993,7 +4995,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "a372f12e-4994-45cf-824d-1a8ad9e7b4ba",
+                    "id": "6a7dff82-4d7d-4698-a450-2b943cf275dd",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -5004,7 +5006,8 @@
                       "pm.environment.set(\"AE_id\", jsonData.abstractEstimates[0].id);",
                       "pm.environment.set(\"AEdetails_id\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].id);",
                       "pm.environment.set(\"status\", jsonData.abstractEstimates[0].status);",
-                      "// pm.globals.set(\"spilloverPC\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);"
+                      "// pm.globals.set(\"spilloverPC\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
+                      "postman.setNextRequest(\"Search sEstimate\");"
                     ]
                   }
                 }
