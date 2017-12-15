@@ -5254,12 +5254,13 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "49c553d5-2cab-47cf-adb1-35d328ea55d2",
+                    "id": "935a2be7-a2dd-4825-abaf-6ba0a91b0bbd",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "pm.environment.set(\"loaId\", jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].letterOfAcceptance);",
-                      "pm.environment.set(\"loaNumber\", jsonData.letterOfAcceptances[0].loaNumber);"
+                      "pm.environment.set(\"loaNumber\", jsonData.letterOfAcceptances[0].loaNumber);",
+                      "pm.environment.set(\"loaStatus\", jsonData.letterOfAcceptances[0].status);"
                     ]
                   }
                 }
