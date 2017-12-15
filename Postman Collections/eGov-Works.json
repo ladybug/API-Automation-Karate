@@ -5162,6 +5162,18 @@
             {
               "_postman_id": "7ca82064-5c58-2983-1902-914620aa5238",
               "name": "Search sDE",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "6569d485-36ce-4a49-bd51-0b11485b77e7",
+                    "type": "text/javascript",
+                    "exec": [
+                      "postman.setNextRequest(\"Create sLOA\");"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
