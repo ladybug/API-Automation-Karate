@@ -3550,7 +3550,7 @@
             },
             {
               "_postman_id": "39803b2e-45ba-29b0-5792-a2ceb707e3d6",
-              "name": "Create sDE",
+              "name": "Create spilloverDE",
               "event": [
                 {
                   "listen": "prerequest",
