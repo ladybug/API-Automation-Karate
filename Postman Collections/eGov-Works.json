@@ -3604,6 +3604,13 @@
           "_postman_isSubFolder": true
         },
         {
+          "_postman_id": "9303a492-6bd1-d6cc-758a-fe5c00664978",
+          "name": "Letter of Acceptance",
+          "description": "",
+          "item": [],
+          "_postman_isSubFolder": true
+        },
+        {
           "_postman_id": "a3165523-8b1c-26ee-f703-06f940801ba4",
           "name": "Mandatory Check",
           "event": [
