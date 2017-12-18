@@ -242,12 +242,13 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "9aa3ec1e-dc82-4800-8d55-bf011b97c9cc",
+                    "id": "f6e27a25-0ff5-4ff9-9dad-0d54eafe8419",
                     "type": "text/javascript",
                     "exec": [
-                      "pm.environment.set(\"variable_key\", \"variable_value\");",
+                      "var sorResponse = JSON.parse(responseBody);",
+                      "var sorCreate = JSON.parse(environment.sorCreate);",
                       "",
-                      "pm.environment.set(\"variable_key\", \"variable_value\");"
+                      "console.log(sorCreate);"
                     ]
                   }
                 }
