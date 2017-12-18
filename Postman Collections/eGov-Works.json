@@ -427,6 +427,66 @@
                 "description": "Create SOR as works master data"
               },
               "response": []
+            },
+            {
+              "_postman_id": "bf3fde37-aa73-403e-d9dd-9f28e63b515d",
+              "name": "validate MDMS data",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "1925975e-ed86-480b-9b99-f398e4722ea5",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var num1 = Math.round((Math.random() * 100));",
+                      "var num2 = pm.globals.get(\"i\");",
+                      "pm.environment.set(\"SOR_code\", \"SOR\"+(++num2));",
+                      "pm.globals.set(\"i\", num2);"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "2b3ceb61-a3f1-42b4-b655-81da0d6994ee",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var createSorResponse = JSON.parse(responseBody);",
+                      "",
+                      "pm.environment.set(\"SOR_id\", createSorResponse.scheduleOfRates[0].id);",
+                      "pm.environment.set(\"SOR_code\", createSorResponse.scheduleOfRates[0].code);",
+                      "",
+                      "tests[\"Status is success\"] = createSorResponse.ResponseInfo.status.has(\"SUCCESSFUL\");",
+                      "",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "pm.test(\"Successful POST request\", function () {",
+                      "    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+                      "});",
+                      "",
+                      "pm.environment.set(\"sorCreate\", JSON.stringify(createSorResponse));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"RequestInfo\": {\r\n    \"apiId\": \"works-masters\",\r\n    \"ver\": \"string\",\r\n    \"ts\": 0,\r\n    \"action\": \"create\",\r\n    \"did\": \"string\",\r\n    \"key\": \"string\",\r\n    \"msgId\": \"string\",\r\n    \"requesterId\": \"string\",\r\n    \"authToken\": \"{{access_token}}\"\r\n  },\r\n  \"scheduleOfRates\": [\r\n    {\r\n      \"tenantId\": null,\r\n      \"code\": \"{{SOR_code}}\",\r\n      \"description\": \"Rates for CC-ash Road work\",\r\n      \"scheduleCategory\": null,\r\n      \"uom\": null,\r\n      \"sorRates\": [\r\n        {\r\n          \"tenantId\": \"{{tenantId}}\",\r\n          \"fromDate\": 1427884148000,\r\n          \"toDate\": 1459420148000,\r\n          \"rate\": 88.88,\r\n          \"deleted\": false\r\n        }\r\n      ],\r\n      \"marketRates\": []\r\n    }\r\n  ]\r\n}"
+                },
+                "url": "{{url}}/works-masters/v1/scheduleofrates/_create",
+                "description": "Create SOR as works master data with validate MDMS data"
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
