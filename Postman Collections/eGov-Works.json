@@ -435,13 +435,10 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "1925975e-ed86-480b-9b99-f398e4722ea5",
+                    "id": "188a1c12-4640-4f64-a425-5cf235be6d45",
                     "type": "text/javascript",
                     "exec": [
-                      "var num1 = Math.round((Math.random() * 100));",
-                      "var num2 = pm.globals.get(\"i\");",
-                      "pm.environment.set(\"SOR_code\", \"SOR\"+(++num2));",
-                      "pm.globals.set(\"i\", num2);"
+                      ""
                     ]
                   }
                 },
