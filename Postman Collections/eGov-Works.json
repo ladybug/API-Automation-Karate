@@ -195,14 +195,15 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "33ac1358-41ed-40cb-aab7-b3b00638c149",
+                    "id": "2b3ceb61-a3f1-42b4-b655-81da0d6994ee",
                     "type": "text/javascript",
                     "exec": [
-                      "var jsonData = JSON.parse(responseBody);",
-                      "pm.environment.set(\"SOR_id\", jsonData.scheduleOfRates[0].id);",
-                      "pm.environment.set(\"SOR_code\", jsonData.scheduleOfRates[0].code);",
+                      "var createSorResponse = JSON.parse(responseBody);",
                       "",
-                      "tests[\"Status is success\"] = jsonData.ResponseInfo.status.has(\"SUCCESSFUL\");",
+                      "pm.environment.set(\"SOR_id\", createSorResponse.scheduleOfRates[0].id);",
+                      "pm.environment.set(\"SOR_code\", createSorResponse.scheduleOfRates[0].code);",
+                      "",
+                      "tests[\"Status is success\"] = createSorResponse.ResponseInfo.status.has(\"SUCCESSFUL\");",
                       "",
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -210,7 +211,9 @@
                       "",
                       "pm.test(\"Successful POST request\", function () {",
                       "    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
-                      "});"
+                      "});",
+                      "",
+                      "pm.environment.set(\"sorCreate\", JSON.stringify(createSorResponse));"
                     ]
                   }
                 }
@@ -225,7 +228,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"RequestInfo\": {\r\n    \"apiId\": \"works-masters\",\r\n    \"ver\": \"string\",\r\n    \"ts\": 0,\r\n    \"action\": \"create\",\r\n    \"did\": \"string\",\r\n    \"key\": \"string\",\r\n    \"msgId\": \"string\",\r\n    \"requesterId\": \"string\",\r\n    \"authToken\": \"{{access_token}}\"\r\n  },\r\n  \"scheduleOfRates\": [\r\n    {\r\n      \"tenantId\": \"{{tenantId}}\",\r\n      \"code\": \"{{SOR_code}}\",\r\n      \"description\": \"Rates for Concrete Road work\",\r\n      \"scheduleCategory\": {\r\n        \"tenantId\": \"{{tenantId}}\",\r\n        \"name\": \"Concrete roads - FAKE\",\r\n        \"code\": \"CCR - FAKE\"\r\n      },\r\n      \"uom\": {\r\n        \"tenantId\": \"{{tenantId}}\",\r\n        \"code\": \"MTR\"\r\n      },\r\n      \"sorRates\": [\r\n        {\r\n          \"tenantId\": \"{{tenantId}}\",\r\n          \"fromDate\": 1396248646000,\r\n          \"toDate\": 1585634235000,\r\n          \"rate\": 88.88,\r\n          \"deleted\": false\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
+                  "raw": "{\r\n  \"RequestInfo\": {\r\n    \"apiId\": \"works-masters\",\r\n    \"ver\": \"string\",\r\n    \"ts\": 0,\r\n    \"action\": \"create\",\r\n    \"did\": \"string\",\r\n    \"key\": \"string\",\r\n    \"msgId\": \"string\",\r\n    \"requesterId\": \"string\",\r\n    \"authToken\": \"{{access_token}}\"\r\n  },\r\n  \"scheduleOfRates\": [\r\n    {\r\n      \"tenantId\": \"{{tenantId}}\",\r\n      \"code\": \"{{SOR_code}}\",\r\n      \"description\": \"Rates for CC-ash Road work\",\r\n      \"scheduleCategory\": {\r\n        \"tenantId\": \"{{tenantId}}\",\r\n        \"name\": \"Concrete roads - FAKE\",\r\n        \"code\": \"CCR - FAKE\"\r\n      },\r\n      \"uom\": {\r\n        \"tenantId\": \"{{tenantId}}\",\r\n        \"code\": \"MTR\"\r\n      },\r\n      \"sorRates\": [\r\n        {\r\n          \"tenantId\": \"{{tenantId}}\",\r\n          \"fromDate\": 1427884148000,\r\n          \"toDate\": 1459420148000,\r\n          \"rate\": 88.88,\r\n          \"deleted\": false\r\n        }\r\n      ],\r\n      \"marketRates\": []\r\n    }\r\n  ]\r\n}"
                 },
                 "url": "{{url}}/works-masters/v1/scheduleofrates/_create",
                 "description": "Create SOR as works master data"
