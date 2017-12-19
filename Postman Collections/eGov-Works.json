@@ -880,6 +880,26 @@
                 "description": "Mandatory check for create Estimate Template"
               },
               "response": []
+            },
+            {
+              "_postman_id": "e946d8a6-da75-453f-8f6a-7143a22fb488",
+              "name": "typeOfWork_MDMS",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"works-services\",\n    \"ver\": null,\n    \"ts\": null,\n    \"action\": \"Search\",\n    \"did\": null,\n    \"key\": null,\n    \"msgId\": \"search with from and to values\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"MdmsCriteria\": {\n    \"tenantId\": \"{{tenantId}}\",\n    \"moduleDetails\": [\n      {\n        \"moduleName\": \"Works\",\n        \"masterDetails\": [\n          {\n            \"name\": \"TypeOfWork\"\n          }\n        ]\n      }\n    ]\n  }\n}"
+                },
+                "url": "{{url}}/egov-mdms-service/v1/_search",
+                "description": null
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
