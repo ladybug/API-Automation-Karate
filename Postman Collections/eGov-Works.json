@@ -5443,7 +5443,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "03274fcf-6ec6-4576-9a18-821e7fd1dccf",
+                    "id": "5c40d41c-1b19-41a0-bb49-c83bbf5cb27a",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -5454,6 +5454,7 @@
                       "    pm.expect(\"TECHNICAL_SANCTIONED\").to.include(jsonData.detailedEstimates[0].status);",
                       "    pm.environment.set(\"sDEstatus\", jsonData.detailedEstimates[0].status);",
                       "});",
+                      "pm.environment.set(\"sDEid\", jsonData.detailedEstimates[0].id);",
                       "postman.setNextRequest(\"Create sLOA\");"
                     ]
                   }
