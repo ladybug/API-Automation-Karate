@@ -5754,6 +5754,44 @@
               "response": []
             },
             {
+              "_postman_id": "0742eb36-9702-3116-e5a4-dfcc9f2d954f",
+              "name": "Search sMB",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"resMsgId\": \"placeholder\",\n    \"msgId\": \"123\",\n    \"status\": \"200\",\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.1\",\n    \"ts\": \"123456789456\",\n    \"key\": null,\n    \"action\":\"search\",\n    \"authToken\":\"{{access_token}}\"\n    }\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/works-measurementbook/v1/measurementbooks/_search?tenantId={{tenantId}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-measurementbook",
+                    "v1",
+                    "measurementbooks",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": "Search spillover MB"
+              },
+              "response": []
+            },
+            {
               "_postman_id": "36162a53-9a4e-14c6-dab2-c9388477e338",
               "name": "Logout",
               "event": [
@@ -5797,44 +5835,6 @@
                   ]
                 },
                 "description": null
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "0742eb36-9702-3116-e5a4-dfcc9f2d954f",
-              "name": "Search sMB",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"resMsgId\": \"placeholder\",\n    \"msgId\": \"123\",\n    \"status\": \"200\",\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.1\",\n    \"ts\": \"123456789456\",\n    \"key\": null,\n    \"action\":\"search\",\n    \"authToken\":\"{{access_token}}\"\n    }\n}"
-                },
-                "url": {
-                  "raw": "{{url}}/works-measurementbook/v1/measurementbooks/_search?tenantId={{tenantId}}",
-                  "host": [
-                    "{{url}}"
-                  ],
-                  "path": [
-                    "works-measurementbook",
-                    "v1",
-                    "measurementbooks",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "{{tenantId}}",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": "Search spillover MB"
               },
               "response": []
             }
