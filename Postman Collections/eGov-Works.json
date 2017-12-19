@@ -618,7 +618,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"emp\",\n    \"ver\": \"1.0\",\n    \"ts\": \"10032017\",\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"key\": \"abcdkey\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"authToken\": \"{{access_token}}\"\n  },\n  \"estimateTemplates\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"name\": \"ROADs Estimate Template\",\n      \"code\": \"{{ET_code}}\",\n      \"active\": true,\n      \"description\": \"Estimate Template for Road\",\n      \"typeOfWork\": {\n      \t\"code\": \"ROADS\"\n      },\n      \"estimateTemplateActivities\": [\n         {\n          \"tenantId\": \"{{tenantId}}\",\n          \"estimateTemplate\": null,\n          \"scheduleOfRate\":{\n          \t\"code\": \"SOR63\"\n          },\n          \"uom\": {\n            \"code\": \"TON\"\n          },\n          \"nonSOR\": null,\n          \"unitRate\": 100.12,\n          \"deleted\": false          \n        }\n      ]\n    }\n  ]\n}"
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"emp\",\n    \"ver\": \"1.0\",\n    \"ts\": \"10032017\",\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"key\": \"abcdkey\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"authToken\": \"{{access_token}}\"\n  },\n  \"estimateTemplates\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"name\": \"ROADs Estimate Template\",\n      \"code\": \"{{ET_code}}\",\n      \"active\": true,\n      \"description\": \"Estimate Template for Road\",\n      \"typeOfWork\": {\n      \t\"code\": \"{{typeCode}}\"\n      },\n      \"estimateTemplateActivities\": [\n         {\n          \"tenantId\": \"{{tenantId}}\",\n          \"estimateTemplate\": null,\n          \"scheduleOfRate\":{\n          \t\"id\": \"{{SOR_id}}\"\n          },\n          \"uom\": {\n            \"code\": \"TON\"\n          },\n          \"nonSOR\": null,\n          \"deleted\": false          \n        }\n      ]\n    }\n  ]\n}"
                 },
                 "url": "{{url}}/works-masters/v1/estimatetemplates/_create",
                 "description": "Estimate Templates for work creation:\nWith only SOR as estimate activity"
@@ -773,7 +773,7 @@
                   "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"emp\",\n        \"ver\": \"1.0\",\n        \"ts\": \"10032017\",\n        \"action\": \"search\",\n        \"did\": \"1\",\n        \"key\": \"abcdkey\",\n        \"msgId\": \"20170310130900\",\n        \"requesterId\": \"\",\n        \"authToken\": \"{{access_token}}\"\n    }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-masters/v1/estimatetemplates/_search?tenantId={{tenantId}}&code={{ET_code}}",
+                  "raw": "{{url}}/works-masters/v1/estimatetemplates/_search?tenantId={{tenantId}}&code={{ET_code}}&ids={{ET_id}}",
                   "host": [
                     "{{url}}"
                   ],
@@ -792,6 +792,11 @@
                     {
                       "key": "code",
                       "value": "{{ET_code}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "ids",
+                      "value": "{{ET_id}}",
                       "equals": true
                     }
                   ]
@@ -874,7 +879,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"emp\",\n        \"ver\": \"1.0\",\n        \"ts\": \"10032017\",\n        \"action\": \"create\",\n        \"did\": \"1\",\n        \"key\": \"abcdkey\",\n        \"msgId\": \"20170310130900\",\n        \"requesterId\": \"\",\n        \"authToken\": \"{{access_token}}\"\n    },\n    \"estimateTemplates\":[{\n      \"tenantId\": null,\n      \"name\": null,\n      \"code\": null,\n      \"active\": null,\n      \"description\":\" Template for laying CC road for 100 metres \",\n      \"typeOfWork\": {\n      \t\"code\": null\n      },\n      \"estimateTemplateActivities\":[\n      \t{  \n         \"tenantId\": null,\n         \"scheduleOfRate\": {\n         \t\"code\": \"{{SOR_id}}\"\n         },\n         \"uom\": {\n         \t\"code\": null\n         },\n         \"nonSOR\":\n        \t{\n         \t\"tenantId\": null,\n         \t\"description\": null,\n         \t\"uom\": {\n         \t\t\"code\": null\n         \t}\n        }\n    }\n    \t\t]\n\t\t}\n\t]\n}"
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"emp\",\n    \"ver\": \"1.0\",\n    \"ts\": \"10032017\",\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"key\": \"abcdkey\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\"\n  },\n  \"estimateTemplates\": [\n    {\n      \"tenantId\": null,\n      \"name\": null,\n      \"code\": null,\n      \"active\": null,\n      \"description\": \" Template for laying CC road for 100 metres \",\n      \"typeOfWork\": {\n        \"code\": null\n      },\n      \"estimateTemplateActivities\": [\n        {\n          \"tenantId\": null,\n          \"scheduleOfRate\": {\n            \"code\": \"{{SOR_id}}\"\n          },\n          \"uom\": {\n            \"code\": null\n          },\n          \"nonSOR\": {\n            \"tenantId\": null,\n            \"description\": null,\n            \"uom\": {\n              \"code\": null\n            }\n          }\n        }\n      ]\n    }\n  ]\n}"
                 },
                 "url": "{{url}}/works-masters/v1/estimatetemplates/_create",
                 "description": "Mandatory check for create Estimate Template"
