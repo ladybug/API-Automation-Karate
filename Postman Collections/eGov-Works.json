@@ -5804,6 +5804,18 @@
             {
               "_postman_id": "0742eb36-9702-3116-e5a4-dfcc9f2d954f",
               "name": "Search sMB",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "06f4ec09-d385-4509-aa04-ddd1c6535f92",
+                    "type": "text/javascript",
+                    "exec": [
+                      "postman.setNextRequest(\"Logout\");"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
