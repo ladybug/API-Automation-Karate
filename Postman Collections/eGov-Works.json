@@ -5382,7 +5382,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "b6c2aa59-cb3e-4923-8678-b01108abb03d",
+                    "id": "9c2f89bb-3a8a-4627-9c42-7fdd70850a8f",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.floor((Math.random() * 10000) + 1);",
@@ -5392,10 +5392,10 @@
                       "var year = today.getFullYear();",
                       "",
                       "pm.environment.get(\"sEstimateNum\");",
+                      "pm.environment.get(\"sProjectCode\");",
                       "pm.environment.set(\"sEstimateNum\", \"Spillover/DE/ENG/\"+num1);",
                       "pm.environment.set(\"sTechSanctionNum\", \"Spillover/DE/TS/\"+num1);",
-                      "pm.environment.set(\"sAdminSanctionNum\", \"Spillover/DE/ADN/\"+num1);",
-                      "pm.environment.set(\"sProjectCode\", \"WIN-\"+num1);"
+                      "pm.environment.set(\"sAdminSanctionNum\", \"Spillover/DE/ADN/\"+num1);"
                     ]
                   }
                 },
