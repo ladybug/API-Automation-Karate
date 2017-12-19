@@ -5694,13 +5694,19 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "58dc7416-729e-4567-80b9-62d6de7635d3",
+                    "id": "b940479e-1691-4682-a555-bb490b027ec8",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
+                      "var jsonData = JSON.parse(responseBody);",
+                      "pm.environment.get(\"loaNumber\");",
+                      "pm.environment.set(\"loaId\", jsonData.workOrders[0].letterOfAcceptanceEstimates[0].letterOfAcceptance);",
+                      "pm.environment.set(\"loaEstimateId\", jsonData.workOrders[0].letterOfAcceptanceEstimates[0].id);",
+                      "pm.environment.set(\"sDEid\", jsonData.workOrders[0].letterOfAcceptanceEstimates[0].detailedEstimate.id);",
+                      "pm.environment.set(\"loaActId\", jsonData.workOrders[0].letterOfAcceptanceEstimates[0].loaActivities[0].id);",
                       "postman.setNextRequest(\"Create sMB\");"
                     ]
                   }
