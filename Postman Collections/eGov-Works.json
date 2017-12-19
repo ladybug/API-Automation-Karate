@@ -5705,6 +5705,24 @@
             {
               "_postman_id": "788170d7-2d7e-4e21-f9e9-437bf4e621b1",
               "name": "Create sMB",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "d0265855-2463-4354-9cdd-31af8f1340c1",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var num1 = Math.floor((Math.random() * 10000) + 1);",
+                      "var today = new Date();",
+                      "var epoch = Math.round(today.getTime()/1000);",
+                      "var year = today.getFullYear();",
+                      "",
+                      "pm.environment.set(\"mbRef\", \"MBref-\"+num1);",
+                      "pm.environment.set(\"mbRef\", \"MBref-\"+num1);"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
@@ -5715,10 +5733,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"default\"\n  },\n  \"measurementBooks\": [\n    {\n      \"tenantId\": \"default\",\n      \"mbRefNo\": \"1234\",\n      \"contractorComments\": \"abcd\",\n      \"mbDate\": \"1450434548000\",\n      \"mbIssuedDate\": \"1450434548000\",\n      \"mbAbstract\": \"dvsd\",\n      \"fromPageNo\": \"1\",\n      \"toPageNo\": \"2\",\n      \"letterOfAcceptanceEstimate\": {\n        \"tenantId\": \"default\",\n        \"id\": \"c74147ecb2e640f889ee23ce94c82d32\",\n        \"letterOfAcceptance\": \"7cba0fac92874630bd3e7e0a31412e4f\",\n        \"detailedEstimate\":{\n        \t\"id\": \"04c5ab14fb35464dad81e67b47cadbcf\",\n        \t\"tenantId\": \"default\"\n        }\n      },\n      \"status\": \"APPROVED\",\n      \"measurementBookDetails\": [\n        {\n          \"tenantId\": \"default\",\n          \"loaActivity\": {\n            \"tenantId\": \"default\",\n            \"id\": \"c0d000643f7f42bfaf86cb7177292d3a\"\n          },\n          \"quantity\": \"10\",\n          \"rate\": \"100\",\n          \"remarks\": \"remarks\",\n          \"amount\": 1000,\n          \"measurementSheets\": [\n            {\n              \"tenantId\": \"default\",\n              \"remarks\": \"sheet remarks\",\n              \"number\": 1,\n              \"length\": 10,\n              \"width\": 1,\n              \"depthOrHeight\": 1,\n              \"quantity\": 10,\n              \"loaMeasurementSheet\": null\n            }\n          ]\n        }\n      ],\n      \"isLegacyMB\": \"true\",\n      \"mbAmount\": \"1000\",\n      \"approvedDate\": \"1450434548000\",\n      \"documentDetails\": [],\n      \"workFlowDetails\": null\n    }\n  ]\n}"
+                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"authToken\": \"{{access_token}}\"\n  },\n  \"measurementBooks\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"mbRefNo\": \"{{mbRef}}\",\n      \"contractorComments\": \"First MB\",\n      \"mbDate\": \"1450434548000\",\n      \"mbIssuedDate\": \"1450434548000\",\n      \"mbAbstract\": \"Abstract MB\",\n      \"fromPageNo\": \"1\",\n      \"toPageNo\": \"100\",\n      \"letterOfAcceptanceEstimate\": {\n        \"tenantId\": \"{{tenantId}}\",\n        \"id\": \"0a6dc1fcb5694224ba8f4915a63864e0\",\n        \"letterOfAcceptance\": \"6ed57296787d4d92a5fc2678eaba2cb8\",\n        \"detailedEstimate\": {\n        \t\"id\": \"99c9cd02e0f64589a68ac404acb28fe5\",\n        \t\"tenantId\": \"{{tenantId}}\",\n        \t\"estimateNumber\": \"Spillover/DE/ENG/7513\"\n        }\n      },\n      \"revisionLOA\": null,\n      \"status\": \"APPROVED\",\n      \"measurementBookDetails\": [\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"measurementBook\": null,\n          \"quantity\": \"10\",\n          \"rate\": \"100\",\n          \"remarks\": \"remarks\",\n          \"amount\": 1000,\n          \"loaActivity\": {\n          \t\"id\":\"1a4dc1fcb5634124ba8f4915a63864e1\"\n          },\n          \"measurementSheets\": [\n            {\n              \"tenantId\": \"{{tenantId}}\",\n              \"remarks\": \"Sheet 1\",\n              \"number\": 1,\n              \"length\": 10,\n              \"width\": 1,\n              \"depthOrHeight\": 1,\n              \"quantity\": 10,\n              \"measurementBookDetail\": null,\n              \"loaMeasurementSheet\": {\n              \t\"id\": \"9ec9cd02e0f64589a68ac404acb28fea\"\n              }\n            }\n          ]\n        }\n      ],\n      \"isLegacyMB\": true,\n      \"mbAmount\": \"1000\",\n      \"approvedDate\": \"1450434548000\",\n      \"documentDetails\": []\n    }\n  ]\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-measurementbook/v1/measurementbooks/_create?tenantId=default",
+                  "raw": "{{url}}/works-measurementbook/v1/measurementbooks/_create?tenantId={{tenantId}}",
                   "host": [
                     "{{url}}"
                   ],
@@ -5731,7 +5749,7 @@
                   "query": [
                     {
                       "key": "tenantId",
-                      "value": "default",
+                      "value": "{{tenantId}}",
                       "equals": true
                     }
                   ]
