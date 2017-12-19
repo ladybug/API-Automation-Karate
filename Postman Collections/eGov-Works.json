@@ -5694,7 +5694,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "b940479e-1691-4682-a555-bb490b027ec8",
+                    "id": "4f474365-c2a1-4cd5-af63-7b151e3629e3",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -5703,10 +5703,10 @@
                       "",
                       "var jsonData = JSON.parse(responseBody);",
                       "pm.environment.get(\"loaNumber\");",
-                      "pm.environment.set(\"loaId\", jsonData.workOrders[0].letterOfAcceptanceEstimates[0].letterOfAcceptance);",
-                      "pm.environment.set(\"loaEstimateId\", jsonData.workOrders[0].letterOfAcceptanceEstimates[0].id);",
-                      "pm.environment.set(\"sDEid\", jsonData.workOrders[0].letterOfAcceptanceEstimates[0].detailedEstimate.id);",
-                      "pm.environment.set(\"loaActId\", jsonData.workOrders[0].letterOfAcceptanceEstimates[0].loaActivities[0].id);",
+                      "pm.environment.set(\"loaId\", jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].letterOfAcceptance);",
+                      "pm.environment.set(\"loaEstimateId\", jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].id);",
+                      "pm.environment.set(\"sDEid\", jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].detailedEstimate.id);",
+                      "pm.environment.set(\"loaActId\", jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].loaActivities[0].id);",
                       "postman.setNextRequest(\"Create sMB\");"
                     ]
                   }
