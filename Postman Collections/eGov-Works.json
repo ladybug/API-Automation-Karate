@@ -5245,7 +5245,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "6a39e4d7-09ac-437c-8574-9f148b849837",
+                    "id": "2aee983f-24d8-4c41-9b7e-915d8deb02b8",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.floor((Math.random() * 10000) + 1);",
@@ -5257,7 +5257,6 @@
                       "",
                       "pm.environment.set(\"abstractEstimateNumber\", \"AE/ENG/\"+num1);",
                       "pm.environment.set(\"referenceNumber\", \"RefNum\"+num1);",
-                      "pm.environment.set(\"epochDate\", epoch);",
                       "pm.environment.set(\"adminSanctionNumber\", \"ADN-\"+year+\"-\"+num1);",
                       "pm.environment.set(\"financialSanctionNumber\", \"FS-\"+year+\"-\"+num1);",
                       "pm.environment.set(\"councilResolutionNumber\", \"CRN-\"+year+\"-\"+num1);",
