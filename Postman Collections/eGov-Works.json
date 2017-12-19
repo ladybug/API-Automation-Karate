@@ -5382,7 +5382,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "9c2f89bb-3a8a-4627-9c42-7fdd70850a8f",
+                    "id": "c323fc52-4353-498f-b3b7-52e22785145a",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.floor((Math.random() * 10000) + 1);",
@@ -5393,6 +5393,8 @@
                       "",
                       "pm.environment.get(\"sEstimateNum\");",
                       "pm.environment.get(\"sProjectCode\");",
+                      "pm.environment.get(\"sEstimateAmount\");",
+                      "pm.environment.get(\"sNameOfWork\");",
                       "pm.environment.set(\"sEstimateNum\", \"Spillover/DE/ENG/\"+num1);",
                       "pm.environment.set(\"sTechSanctionNum\", \"Spillover/DE/TS/\"+num1);",
                       "pm.environment.set(\"sAdminSanctionNum\", \"Spillover/DE/ADN/\"+num1);"
