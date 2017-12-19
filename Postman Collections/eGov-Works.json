@@ -5309,7 +5309,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "a372bf32-c727-4f97-bc10-a41ddead9654",
+                    "id": "df354e5f-f234-46ad-9933-ee8f01c95666",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
