@@ -5443,16 +5443,13 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "77807a2c-4075-4b34-995c-d5dcb79493d7",
+                    "id": "234ce9fc-a96d-4f3d-ae8d-c1bf3e47501c",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
-                      "pm.test(\"Spillover AE status is Technical Sanctioned\", function () {",
-                      "    pm.expect(\"TECHNICAL_SANCTIONED\").to.include(jsonData.detailedEstimates[0].status);",
-                      "    pm.environment.set(\"sDEstatus\", jsonData.detailedEstimates[0].status);",
-                      "});",
+                      "",
                       "postman.setNextRequest(\"Create sLOA\");"
                     ]
                   }
