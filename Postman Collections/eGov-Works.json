@@ -5309,7 +5309,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "903e0a73-c193-4cde-9a2d-496fc1bf4221",
+                    "id": "92e85531-bd14-4c19-b643-1f9f3d24edf9",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -5320,6 +5320,11 @@
                       "pm.environment.set(\"sEstimateAmount\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].estimateAmount);",
                       "pm.environment.set(\"sProjectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
                       "pm.environment.set(\"sNameOfWork\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].nameOfWork);",
+                      "",
+                      "pm.test(\"Spillover AE status\", function () {",
+                      "    pm.expect(\"ADMIN_SANCTIONED\").to.include(abstractEstimates[0].status);",
+                      "    pm.environment.set(\"sAEstatus\", abstractEstimates[0].status);",
+                      "});",
                       "",
                       "postman.setNextRequest(\"Create sDE\");"
                     ]
