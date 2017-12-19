@@ -5402,7 +5402,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "2cce1662-52bd-4f34-a978-c5f6eb83d655",
+                    "id": "d42dc570-fdf2-4f55-b912-f6c1ec5e146e",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -5413,7 +5413,6 @@
                       "var estimateValue = jsonData.detailedEstimates[0].estimateValue;",
                       "var activityAmount = jsonData.detailedEstimates[0].estimateActivities[0].estimateRate;",
                       "",
-                      "pm.environment.set(\"sDEstatus\", jsonData.detailedEstimates[0].status);",
                       "postman.setNextRequest(\"Search sDE\");"
                     ]
                   }
@@ -5443,17 +5442,13 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "03274fcf-6ec6-4576-9a18-821e7fd1dccf",
+                    "id": "234ce9fc-a96d-4f3d-ae8d-c1bf3e47501c",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
-                      "var jsonData = JSON.parse(responseBody);",
-                      "pm.test(\"Spillover AE status is Technical Sanctioned\", function () {",
-                      "    pm.expect(\"TECHNICAL_SANCTIONED\").to.include(jsonData.detailedEstimates[0].status);",
-                      "    pm.environment.set(\"sDEstatus\", jsonData.detailedEstimates[0].status);",
-                      "});",
+                      "",
                       "postman.setNextRequest(\"Create sLOA\");"
                     ]
                   }
@@ -5472,7 +5467,7 @@
                   "raw": "{\n  \"RequestInfo\": {\n    \"resMsgId\": \"placeholder\",\n    \"msgId\": \"123\",\n    \"status\": \"200\",\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.1\",\n    \"ts\": \"123456789456\",\n    \"key\": null,\n    \"action\":\"search\",\n    \"authToken\":\"{{access_token}}\"\n    }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-estimate/v1/detailedestimates/_search?tenantId={{tenantId}}&detailedEstimateNumbers={{sDENum}}&statuses=TECHNICAL_SANCTIONED",
+                  "raw": "{{url}}/works-estimate/v1/detailedestimates/_search?tenantId={{tenantId}}&detailedEstimateNumbers={{sDENum}}",
                   "host": [
                     "{{url}}"
                   ],
@@ -5491,11 +5486,6 @@
                     {
                       "key": "detailedEstimateNumbers",
                       "value": "{{sDENum}}",
-                      "equals": true
-                    },
-                    {
-                      "key": "statuses",
-                      "value": "TECHNICAL_SANCTIONED",
                       "equals": true
                     }
                   ]
