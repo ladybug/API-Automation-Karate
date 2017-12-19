@@ -5189,7 +5189,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "56f12182-52f5-47bc-911a-814260dff413",
+                    "id": "260c9bf9-89c8-4705-bd6d-a3b7cc99aa4c",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.floor((Math.random() * 10000) + 1);",
@@ -5204,8 +5204,7 @@
                       "pm.environment.set(\"epochDate\", epoch);",
                       "pm.environment.set(\"adminSanctionNumber\", \"ADN-\"+year+\"-\"+num1);",
                       "pm.environment.set(\"financialSanctionNumber\", \"FS-\"+year+\"-\"+num1);",
-                      "pm.environment.set(\"councilResolutionNumber\", \"CRN-\"+year+\"-\"+num1);",
-                      "pm.environment.set(\"spilloverPC\", \"WIN-\"+year+\"-\"+num1);"
+                      "pm.environment.set(\"councilResolutionNumber\", \"CRN-\"+year+\"-\"+num1);"
                     ]
                   }
                 },
