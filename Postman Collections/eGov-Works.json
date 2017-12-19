@@ -5709,15 +5709,10 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "d0265855-2463-4354-9cdd-31af8f1340c1",
+                    "id": "e164fb59-8c9d-46fe-95ae-d8e3a77c2016",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.floor((Math.random() * 10000) + 1);",
-                      "var today = new Date();",
-                      "var epoch = Math.round(today.getTime()/1000);",
-                      "var year = today.getFullYear();",
-                      "",
-                      "pm.environment.set(\"mbRef\", \"MBref-\"+num1);",
                       "pm.environment.set(\"mbRef\", \"MBref-\"+num1);"
                     ]
                   }
