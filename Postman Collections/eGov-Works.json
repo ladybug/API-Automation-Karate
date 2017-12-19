@@ -5402,21 +5402,16 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "cdab4ab9-3199-4ca7-b407-3159b9bc393e",
+                    "id": "176af53d-4ce5-4fe1-8a89-6b546492c5a1",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "var jsonData = JSON.parse(responseBody);",
-                      "",
                       "var workValue = jsonData.detailedEstimates[0].workValue;",
                       "var estimateValue = jsonData.detailedEstimates[0].estimateValue;",
                       "var activityAmount = jsonData.detailedEstimates[0].estimateActivities[0].estimateRate;",
-                      "",
-                      "console.log(workValue);",
-                      "console.log(estimateValue);",
-                      "console.log(activityAmount);",
                       "",
                       "postman.setNextRequest(\"Search sDE\");"
                     ]
