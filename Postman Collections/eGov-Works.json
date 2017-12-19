@@ -884,6 +884,23 @@
             {
               "_postman_id": "e946d8a6-da75-453f-8f6a-7143a22fb488",
               "name": "typeOfWork_MDMS",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "8145a730-ad71-4b80-ba9a-127e0d6d55cc",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "var typeOfWork = jsonData.MdmsRes.Works.TypeOfWork;",
+                      "var typeOfWorkCode = [];",
+                      "var code = typeOfWorkCode[Math.floor(Math.random() * typeOfWork.length)];",
+                      "pm.environment.set(\"typeCode\", code);"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
