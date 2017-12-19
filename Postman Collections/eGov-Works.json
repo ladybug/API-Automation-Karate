@@ -5268,7 +5268,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "6a7dff82-4d7d-4698-a450-2b943cf275dd",
+                    "id": "9d626ca8-c6c1-45da-955a-92e67a68470e",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -5278,8 +5278,7 @@
                       "var jsonData = JSON.parse(responseBody);",
                       "pm.environment.set(\"AE_id\", jsonData.abstractEstimates[0].id);",
                       "pm.environment.set(\"AEdetails_id\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].id);",
-                      "pm.environment.set(\"status\", jsonData.abstractEstimates[0].status);",
-                      "// pm.globals.set(\"spilloverPC\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
+                      "pm.environment.set(\"sAEstatus\", jsonData.abstractEstimates[0].status);",
                       "postman.setNextRequest(\"Search sEstimate\");"
                     ]
                   }
