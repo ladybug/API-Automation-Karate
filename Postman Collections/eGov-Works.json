@@ -5772,6 +5772,16 @@
                       "pm.environment.set(\"mbRef\", \"MBref-\"+num1);"
                     ]
                   }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "6e054a3b-899b-410e-a3d4-ea841998f3d2",
+                    "type": "text/javascript",
+                    "exec": [
+                      "postman.setNextRequest(\"Search sMB\");"
+                    ]
+                  }
                 }
               ],
               "request": {
