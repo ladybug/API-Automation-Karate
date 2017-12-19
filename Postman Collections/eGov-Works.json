@@ -888,13 +888,17 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "8145a730-ad71-4b80-ba9a-127e0d6d55cc",
+                    "id": "1bc53973-4445-4f2f-8573-938198877760",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "",
                       "var typeOfWork = jsonData.MdmsRes.Works.TypeOfWork;",
                       "var typeOfWorkCode = [];",
+                      "",
+                      "for(var i=0;i<typeOfWork.length; i++){",
+                      "    typeOfWorkCode[i] = jsonData.MdmsRes.Works.TypeOfWork[i].code;",
+                      "}",
                       "var code = typeOfWorkCode[Math.floor(Math.random() * typeOfWork.length)];",
                       "pm.environment.set(\"typeCode\", code);"
                     ]
