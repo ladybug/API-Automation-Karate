@@ -5382,7 +5382,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "c5605d93-9a7f-4258-a374-ec079a94e29b",
+                    "id": "b6c2aa59-cb3e-4923-8678-b01108abb03d",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.floor((Math.random() * 10000) + 1);",
@@ -5395,7 +5395,7 @@
                       "pm.environment.set(\"sEstimateNum\", \"Spillover/DE/ENG/\"+num1);",
                       "pm.environment.set(\"sTechSanctionNum\", \"Spillover/DE/TS/\"+num1);",
                       "pm.environment.set(\"sAdminSanctionNum\", \"Spillover/DE/ADN/\"+num1);",
-                      "// pm.globals.get(\"spilloverPC\");"
+                      "pm.environment.set(\"sProjectCode\", \"WIN-\"+num1);"
                     ]
                   }
                 },
