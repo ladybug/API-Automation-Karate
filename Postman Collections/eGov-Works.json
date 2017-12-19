@@ -5775,9 +5775,13 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "6e054a3b-899b-410e-a3d4-ea841998f3d2",
+                    "id": "e5abba31-7138-4034-aeec-d4ce271a5208",
                     "type": "text/javascript",
                     "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "pm.environment.set(\"MBid\", jsonData.measurementBooks[0].id);",
+                      "pm.environment.set(\"MBrefNo\", jsonData.measurementBooks[0].mbRefNo);",
+                      "",
                       "postman.setNextRequest(\"Search sMB\");"
                     ]
                   }
