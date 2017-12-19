@@ -5402,7 +5402,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "d42dc570-fdf2-4f55-b912-f6c1ec5e146e",
+                    "id": "2cce1662-52bd-4f34-a978-c5f6eb83d655",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -5413,6 +5413,7 @@
                       "var estimateValue = jsonData.detailedEstimates[0].estimateValue;",
                       "var activityAmount = jsonData.detailedEstimates[0].estimateActivities[0].estimateRate;",
                       "",
+                      "pm.environment.set(\"sDEstatus\", jsonData.detailedEstimates[0].status);",
                       "postman.setNextRequest(\"Search sDE\");"
                     ]
                   }
@@ -5442,13 +5443,17 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "234ce9fc-a96d-4f3d-ae8d-c1bf3e47501c",
+                    "id": "03274fcf-6ec6-4576-9a18-821e7fd1dccf",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
-                      "",
+                      "var jsonData = JSON.parse(responseBody);",
+                      "pm.test(\"Spillover AE status is Technical Sanctioned\", function () {",
+                      "    pm.expect(\"TECHNICAL_SANCTIONED\").to.include(jsonData.detailedEstimates[0].status);",
+                      "    pm.environment.set(\"sDEstatus\", jsonData.detailedEstimates[0].status);",
+                      "});",
                       "postman.setNextRequest(\"Create sLOA\");"
                     ]
                   }
@@ -5467,7 +5472,7 @@
                   "raw": "{\n  \"RequestInfo\": {\n    \"resMsgId\": \"placeholder\",\n    \"msgId\": \"123\",\n    \"status\": \"200\",\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.1\",\n    \"ts\": \"123456789456\",\n    \"key\": null,\n    \"action\":\"search\",\n    \"authToken\":\"{{access_token}}\"\n    }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-estimate/v1/detailedestimates/_search?tenantId={{tenantId}}&detailedEstimateNumbers={{sDENum}}",
+                  "raw": "{{url}}/works-estimate/v1/detailedestimates/_search?tenantId={{tenantId}}&detailedEstimateNumbers={{sDENum}}&statuses=TECHNICAL_SANCTIONED",
                   "host": [
                     "{{url}}"
                   ],
@@ -5486,6 +5491,11 @@
                     {
                       "key": "detailedEstimateNumbers",
                       "value": "{{sDENum}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "TECHNICAL_SANCTIONED",
                       "equals": true
                     }
                   ]
@@ -5546,27 +5556,9 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.0\",\n    \"ts\": 1511171897140,\n    \"action\": \"create\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\"\n  },\n  \n  \"letterofacceptances\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"contractor\": {\n        \"code\": \"GRADE-A1\",\n        \"tenantId\": \"{{tenantId}}\"\n      },\n      \"loaDate\": 1427784646000,\n      \"loaNumber\": \"{{loaNumber}}\",\n      \"contractPeriod\": 5,\n      \"emdAmountDeposited\": 200,\n      \"stampPaperAmount\": 100,\n      \"engineerIncharge\": \"Ritesh\",\n      \"defectLiabilityPeriod\": 10,\n      \"tenderFinalizedPercentage\": 0,\n      \"loaAmount\": 900,\n      \"approvedDate\": 1427784646000,\n      \"fileNumber\": \"{{fileNumber}}\",\n      \"fileDate\": 1427784646000,\n      \"councilResolutionNumber\": \"{{loaCRN}}\",\n      \"councilResolutionDate\": 1427784646000,\n      \"spillOverFlag\": true,\n      \"status\": \"APPROVED\",\n      \"letterOfAcceptanceEstimates\":[\n      \t{\n        \t\"tenantId\": \"{{tenantId}}\",\n        \t\"detailedEstimate\": {\n        \t\"estimateNumber\": \"{{sEstimateNum}}\"\n        \t},\n        \t\"workCompletionDate\": 1427784646000,\n        \t\"loaActivities\": [\n        \t\t{\n       \t\t\t\t\"tenantId\": \"{{tenantId}}\",\n       \t\t\t\t\"collectionMode\":\"CASH\",\n       \t\t\t\t\"percentage\": 10,\n       \t\t\t\t\"amount\": 100\n    \t\t\t}\n      \t\t],\n        \t\"estimateLOAAmount\": 900\n    \t}\n      ],\n      \"securityDeposits\": []\n    }\n  ]\n}"
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.0\",\n    \"ts\": 1511171897140,\n    \"action\": \"create\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \n  \"letterofacceptances\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"contractor\": {\n        \"code\": \"GRADE-A1\",\n        \"tenantId\": \"{{tenantId}}\"\n      },\n      \"loaDate\": 1427784646000,\n      \"loaNumber\": \"{{loaNumber}}\",\n      \"contractPeriod\": 5,\n      \"emdAmountDeposited\": 200,\n      \"stampPaperAmount\": 100,\n      \"engineerIncharge\": \"Ritesh\",\n      \"defectLiabilityPeriod\": 10,\n      \"tenderFinalizedPercentage\": 0,\n      \"loaAmount\": 900,\n      \"approvedDate\": 1427784646000,\n      \"fileNumber\": \"{{fileNumber}}\",\n      \"fileDate\": 1427784646000,\n      \"councilResolutionNumber\": \"{{loaCRN}}\",\n      \"councilResolutionDate\": 1427784646000,\n      \"spillOverFlag\": true,\n      \"status\": \"APPROVED\",\n      \"letterOfAcceptanceEstimates\":[\n      \t{\n        \t\"tenantId\": \"{{tenantId}}\",\n        \t\"detailedEstimate\": {\n        \t\"estimateNumber\": \"{{sDENum}}\"\n        \t},\n        \t\"workCompletionDate\": 1427784646000,\n        \t\"loaActivities\": [\n        \t\t{\n       \t\t\t\t\"tenantId\": \"{{tenantId}}\",\n       \t\t\t\t\"collectionMode\":\"CASH\",\n       \t\t\t\t\"percentage\": 10,\n       \t\t\t\t\"amount\": 100\n    \t\t\t}\n      \t\t],\n        \t\"estimateLOAAmount\": 900\n    \t}\n      ],\n      \"securityDeposits\": []\n    }\n  ]\n}"
                 },
-                "url": {
-                  "raw": "{{url}}/works-workorder/v1/letterofacceptances/_create?isRevision=false",
-                  "host": [
-                    "{{url}}"
-                  ],
-                  "path": [
-                    "works-workorder",
-                    "v1",
-                    "letterofacceptances",
-                    "_create"
-                  ],
-                  "query": [
-                    {
-                      "key": "isRevision",
-                      "value": "false",
-                      "equals": true
-                    }
-                  ]
-                },
+                "url": "{{url}}/works-workorder/v1/letterofacceptances/_create",
                 "description": "LOA for the spillover estimates"
               },
               "response": []
