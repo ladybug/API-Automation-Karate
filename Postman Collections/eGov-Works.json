@@ -5443,13 +5443,16 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "234ce9fc-a96d-4f3d-ae8d-c1bf3e47501c",
+                    "id": "77807a2c-4075-4b34-995c-d5dcb79493d7",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
-                      "",
+                      "pm.test(\"Spillover AE status is Technical Sanctioned\", function () {",
+                      "    pm.expect(\"TECHNICAL_SANCTIONED\").to.include(jsonData.detailedEstimates[0].status);",
+                      "    pm.environment.set(\"sDEstatus\", jsonData.detailedEstimates[0].status);",
+                      "});",
                       "postman.setNextRequest(\"Create sLOA\");"
                     ]
                   }
@@ -5468,7 +5471,7 @@
                   "raw": "{\n  \"RequestInfo\": {\n    \"resMsgId\": \"placeholder\",\n    \"msgId\": \"123\",\n    \"status\": \"200\",\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.1\",\n    \"ts\": \"123456789456\",\n    \"key\": null,\n    \"action\":\"search\",\n    \"authToken\":\"{{access_token}}\"\n    }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-estimate/v1/detailedestimates/_search?tenantId={{tenantId}}&detailedEstimateNumbers={{sDENum}}",
+                  "raw": "{{url}}/works-estimate/v1/detailedestimates/_search?tenantId={{tenantId}}&detailedEstimateNumbers={{sDENum}}&statuses=TECHNICAL_SANCTIONED",
                   "host": [
                     "{{url}}"
                   ],
@@ -5487,6 +5490,11 @@
                     {
                       "key": "detailedEstimateNumbers",
                       "value": "{{sDENum}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "TECHNICAL_SANCTIONED",
                       "equals": true
                     }
                   ]
