@@ -5255,7 +5255,7 @@
             },
             {
               "_postman_id": "3738dac9-cce5-48ce-aded-1ecfd7a3bd49",
-              "name": "Create sEstimate copy",
+              "name": "Create sEstimate",
               "event": [
                 {
                   "listen": "prerequest",
