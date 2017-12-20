@@ -3842,14 +3842,15 @@
           "_postman_id": "9303a492-6bd1-d6cc-758a-fe5c00664978",
           "name": "Letter of Acceptance",
           "description": "",
-          "item": [],
-          "_postman_isSubFolder": true
-        },
-        {
-          "_postman_id": "4492abc3-4cf9-16bd-971a-20b537f7ed22",
-          "name": "Work Order",
-          "description": "",
-          "item": [],
+          "item": [
+            {
+              "_postman_id": "4492abc3-4cf9-16bd-971a-20b537f7ed22",
+              "name": "Work Order",
+              "description": "",
+              "item": [],
+              "_postman_isSubFolder": true
+            }
+          ],
           "_postman_isSubFolder": true
         },
         {
