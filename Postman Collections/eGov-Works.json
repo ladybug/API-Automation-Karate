@@ -793,7 +793,7 @@
                   "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"emp\",\n        \"ver\": \"1.0\",\n        \"ts\": \"10032017\",\n        \"action\": \"search\",\n        \"did\": \"1\",\n        \"key\": \"abcdkey\",\n        \"msgId\": \"20170310130900\",\n        \"requesterId\": \"\",\n        \"authToken\": \"{{access_token}}\"\n    }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-masters/v1/estimatetemplates/_search?tenantId={{tenantId}}&code={{ET_code}}&ids={{ET_id}}",
+                  "raw": "{{url}}/works-masters/v1/estimatetemplates/_search?tenantId={{tenantId}}",
                   "host": [
                     "{{url}}"
                   ],
@@ -807,16 +807,6 @@
                     {
                       "key": "tenantId",
                       "value": "{{tenantId}}",
-                      "equals": true
-                    },
-                    {
-                      "key": "code",
-                      "value": "{{ET_code}}",
-                      "equals": true
-                    },
-                    {
-                      "key": "ids",
-                      "value": "{{ET_id}}",
                       "equals": true
                     }
                   ]
