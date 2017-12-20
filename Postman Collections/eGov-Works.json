@@ -599,7 +599,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "675273c8-b9ef-4016-8f2a-d11359f93ab2",
+                    "id": "107fbbeb-2bd0-4bba-8629-af29b7b6088a",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -613,10 +613,9 @@
                       "//     pm.expect(pm.response.code).to.be.oneOf([201,202]);",
                       "// });",
                       "",
-                      "pm.environment.set(\"ET_id\", jsonData.estimateTemplates[0].estimateTemplateActivities[0].id);",
+                      "pm.environment.set(\"ET_id\", jsonData.estimateTemplates[0].id);",
                       "pm.environment.set(\"ET_code\", jsonData.estimateTemplates[0].code);",
                       "pm.environment.set(\"ETactivity_id\", jsonData.estimateTemplates[0].estimateTemplateActivities[0].estimateTemplate);",
-                      "pm.environment.set(\"nonSOR_id\", jsonData.estimateTemplates[0].estimateTemplateActivities[0].nonSOR.id);",
                       "",
                       "}else if(pm.response.to.have.status(400)){",
                       "pm.test(\"Duplicate Estimate Template validation message matches\", function () {",
