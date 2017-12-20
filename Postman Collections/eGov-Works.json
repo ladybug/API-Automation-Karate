@@ -5254,6 +5254,75 @@
               "response": []
             },
             {
+              "_postman_id": "3738dac9-cce5-48ce-aded-1ecfd7a3bd49",
+              "name": "Create sEstimate copy",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "2aee983f-24d8-4c41-9b7e-915d8deb02b8",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var num1 = Math.floor((Math.random() * 10000) + 1);",
+                      "var name2 = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;",
+                      "var today = new Date();",
+                      "var epoch = Math.round(today.getTime()/1000);",
+                      "var year = today.getFullYear();",
+                      "var estimateAmount = [1000, 10000, 100000];",
+                      "",
+                      "pm.environment.set(\"abstractEstimateNumber\", \"AE/ENG/\"+num1);",
+                      "pm.environment.set(\"referenceNumber\", \"RefNum\"+num1);",
+                      "pm.environment.set(\"adminSanctionNumber\", \"ADN-\"+year+\"-\"+num1);",
+                      "pm.environment.set(\"financialSanctionNumber\", \"FS-\"+year+\"-\"+num1);",
+                      "pm.environment.set(\"councilResolutionNumber\", \"CRN-\"+year+\"-\"+num1);",
+                      "pm.environment.set(\"sProjectCode\", \"WIN-\"+year+\"-\"+num1);"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "30414b01-84e2-47c4-8990-63aecedb47c4",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "var jsonData = JSON.parse(responseBody);",
+                      "pm.environment.set(\"sAEId\", jsonData.abstractEstimates[0].id);",
+                      "pm.environment.set(\"sAEdetailsId\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].id);",
+                      "pm.environment.set(\"sAEstatus\", jsonData.abstractEstimates[0].status);",
+                      "",
+                      "pm.test(\"Abstract Estimae Number matches\", function () {",
+                      "pm.expect(pm.environment.get(\"abstractEstimateNumber\")).to.include(jsonData.abstractEstimates[0].abstractEstimateNumber);",
+                      "});",
+                      "pm.test(\"Abstract Estimae ID matches\", function () {",
+                      "pm.expect(pm.environment.get(\"sAEId\")).to.include(jsonData.abstractEstimates[0].id);",
+                      "});",
+                      "postman.setNextRequest(\"Search sEstimate\");"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"abstractEstimates\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"abstractEstimateNumber\": \"{{abstractEstimateNumber}}\",\n      \"dateOfProposal\": 1427784646000,\n      \"subject\": \"Spillover AE - Project Estimation\",\n      \"referenceType\": {\n      \t\"code\":\"Demandfrompublic\"\n      },\n      \"referenceNumber\": \"{{referenceNumber}}\",\n      \"function\": {\n        \"code\": \"00\"\n      },\n      \"description\": \"Spillover AE Project Estimation for the proposed work\",\n      \"documentDetails\": [],\n      \"assetDetails\": [],      \n      \"budgetGroup\": {\n        \"name\": \"4122001-CWIP-Office Buildings\"\n      },\n      \"department\": {\n        \"code\": \"ENG\"\n      },\n      \"beneficiary\": \"GENERAL\",\n      \"modeOfAllotment\": {\n        \"code\": \"Tendering\"\n      },\n      \"fund\": {\n        \"code\": \"1\"\n      },\n      \"scheme\": {\n        \"code\": \"2906\"\n      },\n      \"subScheme\": {\n        \"code\": \"BSUP\"\n      },\n      \"adminSanctionNumber\": \"{{adminSanctionNumber}}\",\n      \"adminSanctionDate\": 1427784646000,\n      \"adminSanctionBy\": {\n        \"userName\": \"clerk\"\n      },\n      \"financialSanctionNumber\": \"{{financialSanctionNumber}}\",\n      \"financialSanctionDate\": 1427784646000,\n      \"financialSanctionBy\": {\n      \t\"userName\": \"clerk\"\n      },\n      \"typeOfWork\": {\n        \"code\": \"Buildings\"\n      },\n      \"subTypeOfWork\": {\n        \"code\": \"OFFICEBUILDINGS\"\n      },\n      \"natureOfWork\": {\n        \"code\": \"New\"\n      },\n      \"ward\": {\n        \"code\": \"172\"\n      },\n      \"locality\": {\n        \"code\": \"locality_1\"\n      },\n      \"workCategory\": \"NON_SLUM\",\n      \"councilResolutionNumber\": \"{{councilResolutionNumber}}\",\n      \"councilResolutionDate\": 1427784646000,\n      \"spillOverFlag\": true,\n      \"detailedEstimateCreated\": true,\n      \"workOrderCreated\": true,\n      \"billsCreated\": true,\n      \"implementationPeriod\": 5,\n      \"fundAvailable\": true,\n      \"fundSanctioningAuthority\": \"Municipal\",\n      \"pmcRequired\": false,\n      \"pmcType\":\"pmc type\",\n      \"pmcName\":\"pmc Name\",\n      \"workProposedAsPerDP\": false,\n      \"dpRemarks\": \"Dp remarks\",\n      \"landAssetRequired\": true,\n      \"noOfLands\": 10,\n      \"otherAssetSpecificationRemarks\": \"Other remarks\",\n      \"abstractEstimateDetails\": [\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"nameOfWork\": \"Hospital Building Construction\",\n          \"estimateAmount\": 1000,\n          \"grossAmountBilled\": 900,\n\t\t  \"projectCode\": {\n        \t\t\"code\": \"{{sProjectCode}}\"\n    \t\t }          \n        }\n      ]\n    }\n  ]\n}"
+                },
+                "url": "{{url}}/works-estimate/v1/abstractestimates/_create",
+                "description": "Create APi for Data entry type of work estimation"
+              },
+              "response": []
+            },
+            {
               "_postman_id": "9331d23c-231f-6f77-174c-c4f53c464de7",
               "name": "Search sEstimate",
               "event": [
@@ -5856,75 +5925,6 @@
                   ]
                 },
                 "description": null
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "3738dac9-cce5-48ce-aded-1ecfd7a3bd49",
-              "name": "Create sEstimate copy",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "2aee983f-24d8-4c41-9b7e-915d8deb02b8",
-                    "type": "text/javascript",
-                    "exec": [
-                      "var num1 = Math.floor((Math.random() * 10000) + 1);",
-                      "var name2 = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;",
-                      "var today = new Date();",
-                      "var epoch = Math.round(today.getTime()/1000);",
-                      "var year = today.getFullYear();",
-                      "var estimateAmount = [1000, 10000, 100000];",
-                      "",
-                      "pm.environment.set(\"abstractEstimateNumber\", \"AE/ENG/\"+num1);",
-                      "pm.environment.set(\"referenceNumber\", \"RefNum\"+num1);",
-                      "pm.environment.set(\"adminSanctionNumber\", \"ADN-\"+year+\"-\"+num1);",
-                      "pm.environment.set(\"financialSanctionNumber\", \"FS-\"+year+\"-\"+num1);",
-                      "pm.environment.set(\"councilResolutionNumber\", \"CRN-\"+year+\"-\"+num1);",
-                      "pm.environment.set(\"sProjectCode\", \"WIN-\"+year+\"-\"+num1);"
-                    ]
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "30414b01-84e2-47c4-8990-63aecedb47c4",
-                    "type": "text/javascript",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "var jsonData = JSON.parse(responseBody);",
-                      "pm.environment.set(\"sAEId\", jsonData.abstractEstimates[0].id);",
-                      "pm.environment.set(\"sAEdetailsId\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].id);",
-                      "pm.environment.set(\"sAEstatus\", jsonData.abstractEstimates[0].status);",
-                      "",
-                      "pm.test(\"Abstract Estimae Number matches\", function () {",
-                      "pm.expect(pm.environment.get(\"abstractEstimateNumber\")).to.include(jsonData.abstractEstimates[0].abstractEstimateNumber);",
-                      "});",
-                      "pm.test(\"Abstract Estimae ID matches\", function () {",
-                      "pm.expect(pm.environment.get(\"sAEId\")).to.include(jsonData.abstractEstimates[0].id);",
-                      "});",
-                      "postman.setNextRequest(\"Search sEstimate\");"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"abstractEstimates\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"abstractEstimateNumber\": \"{{abstractEstimateNumber}}\",\n      \"dateOfProposal\": 1427784646000,\n      \"subject\": \"Spillover AE - Project Estimation\",\n      \"referenceType\": {\n      \t\"code\":\"Demandfrompublic\"\n      },\n      \"referenceNumber\": \"{{referenceNumber}}\",\n      \"function\": {\n        \"code\": \"00\"\n      },\n      \"description\": \"Spillover AE Project Estimation for the proposed work\",\n      \"documentDetails\": [],\n      \"assetDetails\": [],      \n      \"budgetGroup\": {\n        \"name\": \"4122001-CWIP-Office Buildings\"\n      },\n      \"department\": {\n        \"code\": \"ENG\"\n      },\n      \"beneficiary\": \"GENERAL\",\n      \"modeOfAllotment\": {\n        \"code\": \"Tendering\"\n      },\n      \"fund\": {\n        \"code\": \"1\"\n      },\n      \"scheme\": {\n        \"code\": \"2906\"\n      },\n      \"subScheme\": {\n        \"code\": \"BSUP\"\n      },\n      \"adminSanctionNumber\": \"{{adminSanctionNumber}}\",\n      \"adminSanctionDate\": 1427784646000,\n      \"adminSanctionBy\": {\n        \"userName\": \"clerk\"\n      },\n      \"financialSanctionNumber\": \"{{financialSanctionNumber}}\",\n      \"financialSanctionDate\": 1427784646000,\n      \"financialSanctionBy\": {\n      \t\"userName\": \"clerk\"\n      },\n      \"typeOfWork\": {\n        \"code\": \"Buildings\"\n      },\n      \"subTypeOfWork\": {\n        \"code\": \"OFFICEBUILDINGS\"\n      },\n      \"natureOfWork\": {\n        \"code\": \"New\"\n      },\n      \"ward\": {\n        \"code\": \"172\"\n      },\n      \"locality\": {\n        \"code\": \"locality_1\"\n      },\n      \"workCategory\": \"NON_SLUM\",\n      \"councilResolutionNumber\": \"{{councilResolutionNumber}}\",\n      \"councilResolutionDate\": 1427784646000,\n      \"spillOverFlag\": true,\n      \"detailedEstimateCreated\": true,\n      \"workOrderCreated\": true,\n      \"billsCreated\": true,\n      \"implementationPeriod\": 5,\n      \"fundAvailable\": true,\n      \"fundSanctioningAuthority\": \"Municipal\",\n      \"pmcRequired\": false,\n      \"pmcType\":\"pmc type\",\n      \"pmcName\":\"pmc Name\",\n      \"workProposedAsPerDP\": false,\n      \"dpRemarks\": \"Dp remarks\",\n      \"landAssetRequired\": true,\n      \"noOfLands\": 10,\n      \"otherAssetSpecificationRemarks\": \"Other remarks\",\n      \"abstractEstimateDetails\": [\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"nameOfWork\": \"Hospital Building Construction\",\n          \"estimateAmount\": 1000,\n          \"grossAmountBilled\": 900,\n\t\t  \"projectCode\": {\n        \t\t\"code\": \"{{sProjectCode}}\"\n    \t\t }          \n        }\n      ]\n    }\n  ]\n}"
-                },
-                "url": "{{url}}/works-estimate/v1/abstractestimates/_create",
-                "description": "Create APi for Data entry type of work estimation"
               },
               "response": []
             }
