@@ -5260,7 +5260,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "0ba59895-0c9f-487a-8f2c-b13af973c00a",
+                    "id": "455573dd-13d6-40ff-9bf7-f621c9f7cfc7",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.floor((Math.random() * 10000) + 1);",
@@ -5269,11 +5269,13 @@
                       "var epoch = Math.round(today.getTime()/1000);",
                       "var year = today.getFullYear();",
                       "var estimateAmount = [1000, 10000, 100000];",
-                      "var reqBody = JSON.parse(request.Data);",
-                      "var spillOverFlag = reqBody.abstractEstimates[0].spillOverFlag;",
-                      "var detailedEstimateCreated = reqBody.abstractEstimates[0].detailedEstimateCreated;",
-                      "var workOrderCreated = reqBody.abstractEstimates[0].workOrderCreated;",
-                      "",
+                      "// var reqBody = JSON.parse(request.Data);",
+                      "// var spillOverFlag = reqBody.abstractEstimates[0].spillOverFlag;",
+                      "// var detailedEstimateCreated = reqBody.abstractEstimates[0].detailedEstimateCreated;",
+                      "// var workOrderCreated = reqBody.abstractEstimates[0].workOrderCreated;",
+                      "pm.environment.set(\"spillOverFlag\", \"true\");",
+                      "pm.environment.set(\"detailedEstimateCreated\", \"true\");",
+                      "pm.environment.set(\"workOrderCreated\", \"true\");    ",
                       "if(spillOverFlag === true && detailedEstimateCreated === true && workOrderCreated === true){",
                       "    pm.environment.set(\"billsCreated\", \"true\");",
                       "    pm.environment.set(\"grossAmountBilled\", \"900\");",
