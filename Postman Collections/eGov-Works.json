@@ -5282,7 +5282,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "30414b01-84e2-47c4-8990-63aecedb47c4",
+                    "id": "d0d52334-6b9e-4fe0-a2ec-e6a8d96edcc9",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -5294,10 +5294,10 @@
                       "pm.environment.set(\"sAEdetailsId\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].id);",
                       "pm.environment.set(\"sAEstatus\", jsonData.abstractEstimates[0].status);",
                       "",
-                      "pm.test(\"Abstract Estimae Number matches\", function () {",
+                      "pm.test(\"Abstract Estimate Number generated\", function () {",
                       "pm.expect(pm.environment.get(\"abstractEstimateNumber\")).to.include(jsonData.abstractEstimates[0].abstractEstimateNumber);",
                       "});",
-                      "pm.test(\"Abstract Estimae ID matches\", function () {",
+                      "pm.test(\"Abstract Estimate ID\", function () {",
                       "pm.expect(pm.environment.get(\"sAEId\")).to.include(jsonData.abstractEstimates[0].id);",
                       "});",
                       "postman.setNextRequest(\"Search sEstimate\");"
