@@ -5329,7 +5329,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "0b83f012-aef8-4b7c-8bb6-cdfbb04def75",
+                    "id": "37e12cbb-6a9e-451d-83a6-dc8a09571e04",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -5345,10 +5345,10 @@
                       "    pm.expect(\"ADMIN_SANCTIONED\").to.include(jsonData.abstractEstimates[0].status);",
                       "    pm.environment.set(\"sAEstatus\", jsonData.abstractEstimates[0].status);",
                       "});",
-                      "pm.test(\"Abstract Estimae Number matches\", function () {",
+                      "pm.test(\"Abstract Estimate Number matches\", function () {",
                       "pm.expect(pm.environment.get(\"abstractEstimateNumber\")).to.include(jsonData.abstractEstimates[0].abstractEstimateNumber);",
                       "});",
-                      "pm.test(\"Abstract Estimae ID matches\", function () {",
+                      "pm.test(\"Abstract Estimate ID matches\", function () {",
                       "pm.expect(pm.environment.get(\"sAEId\")).to.include(jsonData.abstractEstimates[0].id);",
                       "});",
                       "postman.setNextRequest(\"Create sDE\");"
@@ -5369,7 +5369,7 @@
                   "raw": "{\n  \"requestInfo\": {\n    \"action\": \"search\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\"\n\t}\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-estimate/v1/abstractestimates/_search?tenantId={{tenantId}}&ids={{sAEId}}&statuses=ADMIN_SANCTIONED",
+                  "raw": "{{url}}/works-estimate/v1/abstractestimates/_search?tenantId={{tenantId}}&ids={{sAEId}}",
                   "host": [
                     "{{url}}"
                   ],
@@ -5388,11 +5388,6 @@
                     {
                       "key": "ids",
                       "value": "{{sAEId}}",
-                      "equals": true
-                    },
-                    {
-                      "key": "statuses",
-                      "value": "ADMIN_SANCTIONED",
                       "equals": true
                     }
                   ]
