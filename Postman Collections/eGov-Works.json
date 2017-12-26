@@ -5502,7 +5502,7 @@
                   "raw": "{\n  \"RequestInfo\": {\n    \"resMsgId\": \"placeholder\",\n    \"msgId\": \"123\",\n    \"status\": \"200\",\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.1\",\n    \"ts\": \"123456789456\",\n    \"key\": null,\n    \"action\":\"search\",\n    \"authToken\":\"{{access_token}}\"\n    }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-estimate/v1/detailedestimates/_search?tenantId={{tenantId}}&detailedEstimateNumbers={{sDENum}}&statuses=TECHNICAL_SANCTIONED",
+                  "raw": "{{url}}/works-estimate/v1/detailedestimates/_search?tenantId={{tenantId}}&ids={{sDEId}}",
                   "host": [
                     "{{url}}"
                   ],
@@ -5519,13 +5519,8 @@
                       "equals": true
                     },
                     {
-                      "key": "detailedEstimateNumbers",
-                      "value": "{{sDENum}}",
-                      "equals": true
-                    },
-                    {
-                      "key": "statuses",
-                      "value": "TECHNICAL_SANCTIONED",
+                      "key": "ids",
+                      "value": "{{sDEId}}",
                       "equals": true
                     }
                   ]
