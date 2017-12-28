@@ -6294,7 +6294,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "f4cd70d3-70ef-4efc-8b9f-ccfd13dff9b6",
+                    "id": "1bc1fbb7-eb9b-4bca-8744-c66bcccfe1ac",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -6315,7 +6315,8 @@
                       "pm.expect(pm.environment.get(\"loaEstimateId\")).to.include(jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].id);",
                       "});",
                       "pm.test(\"LOA Activity ID matches\", function () {",
-                      "pm.expect(pm.environment.get(\"loaActId\")).to.include(jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].loaActivities[0].id);",
+                      "pm.expect(pm.environment.get(\"loaActId1\")).to.include(jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].loaActivities[0].id);",
+                      "pm.expect(pm.environment.get(\"loaActId2\")).to.include(jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].loaActivities[1].id);",
                       "});",
                       "pm.test(\"Detailed Estimate ID matches\", function () {",
                       "pm.expect(pm.environment.get(\"sDEid\")).to.include(jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].detailedEstimate.id);",
