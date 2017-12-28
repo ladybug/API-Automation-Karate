@@ -5735,14 +5735,15 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "d9e1e87e-459e-4d50-90f4-f27c22f82598",
+                    "id": "414f13b6-0cbb-4597-a25c-653eb2f9f1c9",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "pm.environment.set(\"loaId\", jsonData.letterOfAcceptances[0].id);",
                       "pm.environment.set(\"loaMBSheet1\", jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].loaActivities[0].loaMeasurements[0].id);",
-                      "pm.environment.set(\"loaMBSheet2\",jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].loaActivities[1].loaMeasurements[0].id);",
-                      "",
+                      "pm.environment.set(\"loaMBSheet2\", jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].loaActivities[0].loaMeasurements[1].id);",
+                      "pm.environment.set(\"loaMBSheet3\",jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].loaActivities[1].loaMeasurements[0].id);",
+                      "pm.environment.set(\"loaMBSheet4\",jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].loaActivities[1].loaMeasurements[1].id);",
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
