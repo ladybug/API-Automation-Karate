@@ -4198,15 +4198,16 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "c5d45f98-fbdb-47a9-a9b3-86b7fb82d982",
+                    "id": "96762262-bcdb-403d-9986-ecfd9b039f1f",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "pm.environment.set(\"MBid\", jsonData.measurementBooks[0].id);",
                       "pm.environment.set(\"MBrefNo\", jsonData.measurementBooks[0].mbRefNo);",
-                      "1. MB date should not accept future date",
-                      "2. MB date  >= WO and LOA date",
-                      "3. If offline status is mandatory for regular then we need to check MB date >= work commencement date",
+                      "",
+                      "// while(MBdate !== futureDate){",
+                      "//  MBdate = WO and LOA date   ",
+                      "// }",
                       "",
                       "postman.setNextRequest(\"Search sMB\");"
                     ]
