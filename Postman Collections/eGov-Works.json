@@ -4179,6 +4179,56 @@
                 "description": "MDMS data validation"
               },
               "response": []
+            },
+            {
+              "_postman_id": "5912f109-7a55-2e9c-8f6c-d7205307939f",
+              "name": "MB:99",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "e164fb59-8c9d-46fe-95ae-d8e3a77c2016",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var num1 = Math.floor((Math.random() * 10000) + 1);",
+                      "pm.environment.set(\"mbRef\", \"MBref-\"+num1);"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c5d45f98-fbdb-47a9-a9b3-86b7fb82d982",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "pm.environment.set(\"MBid\", jsonData.measurementBooks[0].id);",
+                      "pm.environment.set(\"MBrefNo\", jsonData.measurementBooks[0].mbRefNo);",
+                      "1. MB date should not accept future date",
+                      "2. MB date  >= WO and LOA date",
+                      "3. If offline status is mandatory for regular then we need to check MB date >= work commencement date",
+                      "",
+                      "postman.setNextRequest(\"Search sMB\");"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"measurementBooks\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"mbRefNo\": \"{{mbRef}}\",\n      \"contractorComments\": \"Measurement Book\",\n      \"mbDate\": \"1450434548000\",\n      \"mbIssuedDate\": \"1450434548000\",\n      \"mbAbstract\": \"Abstract MB\",\n      \"fromPageNo\": \"1\",\n      \"toPageNo\": \"100\",\n      \"letterOfAcceptanceEstimate\": {\n        \"tenantId\": \"{{tenantId}}\",\n        \"id\": \"{{loaEstimateId}}\",\n        \"letterOfAcceptance\": \"{{loaId}}\",\n        \"detailedEstimate\": {\n          \"id\": \"{{sDEid}}\",\n          \"tenantId\": \"{{tenantId}}\",\n          \"estimateNumber\": \"{{sDENum}}\"\n        }\n      },\n      \"status\": \"APPROVED\",\n      \"measurementBookDetails\": [\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"quantity\": \"4\",\n          \"rate\": \"900\",\n          \"remarks\": \"Remarks\",\n          \"amount\": 900,\n          \"loaActivity\": {\n            \"id\": \"{{loaActId}}\"\n          },\n          \"measurementSheets\": [\n            {\n              \"tenantId\": \"{{tenantId}}\",\n              \"identifier\": \"A\",\n              \"remarks\": \"Sheet remarks\",\n              \"number\": 1,\n              \"length\": 1,\n              \"width\": 1,\n              \"depthOrHeight\": 1,\n              \"quantity\": 1,\n              \"loaMeasurementSheet\": {\n                \"id\": \"{{loaMBSheet1}}\"\n              }\n            },\n            {\n              \"tenantId\": \"{{tenantId}}\",\n              \"remarks\": \"Sheet remarks\",\n              \"identifier\": \"A\",\n              \"number\": 1,\n              \"length\": 1,\n              \"width\": 1,\n              \"depthOrHeight\": 1,\n              \"quantity\": 1,\n              \"loaMeasurementSheet\": {\n                \"id\": \"{{loaMBSheet2}}\"\n              }\n            },\n            {\n              \"tenantId\": \"{{tenantId}}\",\n              \"identifier\": \"A\",\n              \"remarks\": \"Sheet remarks\",\n              \"number\": 1,\n              \"length\": 1,\n              \"width\": 1,\n              \"depthOrHeight\": 1,\n              \"quantity\": 1,\n              \"loaMeasurementSheet\": {\n                \"id\": \"{{loaMBSheet3}}\"\n              }\n            },\n            {\n              \"tenantId\": \"{{tenantId}}\",\n              \"identifier\": \"A\",\n              \"remarks\": \"Sheet remarks\",\n              \"number\": 1,\n              \"length\": 1,\n              \"width\": 1,\n              \"depthOrHeight\": 1,\n              \"quantity\": 1,\n              \"loaMeasurementSheet\": {\n                \"id\": \"{{loaMBSheet4}}\"\n              }\n            }            \n          ]\n        }\n      ],\n      \"isLegacyMB\": \"true\",\n      \"mbAmount\": \"900\",\n      \"approvedDate\": \"1450434548000\",\n      \"documentDetails\": []\n    }\n  ]\n}"
+                },
+                "url": "{{url}}/works-measurementbook/v1/measurementbooks/_create",
+                "description": "1. MB date should not accept future date\r\n2. MB date  >= WO and LOA date\r\n3. If offline status is mandatory for regular then we need to check MB date >= work commencement date"
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
