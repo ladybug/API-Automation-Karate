@@ -5954,7 +5954,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "f65655d1-4e39-481d-9cb0-09aad4f43ec3",
+                    "id": "f4cd70d3-70ef-4efc-8b9f-ccfd13dff9b6",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -5979,6 +5979,9 @@
                       "});",
                       "pm.test(\"Detailed Estimate ID matches\", function () {",
                       "pm.expect(pm.environment.get(\"sDEid\")).to.include(jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].detailedEstimate.id);",
+                      "});",
+                      "pm.test(\"WO status as Approved matches\", function () {",
+                      "    pm.expect(\"APPROVED\").to.include(jsonData.workOrders[0].status);",
                       "});",
                       "postman.setNextRequest(\"Create sMB\");"
                     ]
