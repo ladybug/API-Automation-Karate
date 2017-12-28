@@ -5824,7 +5824,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "b16e68fb-0238-4bc9-949e-6aea9599dc8d",
+                    "id": "9d51e46f-a246-4110-b138-70dc0b2dc4bd",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -5842,6 +5842,9 @@
                       "});",
                       "pm.test(\"LOA Number matches\", function () {",
                       "pm.expect(pm.environment.get(\"loaNumber\")).to.include(jsonData.letterOfAcceptances[0].loaNumber);",
+                      "});",
+                      "pm.test(\"LOA status as Approved matches\", function () {",
+                      "    pm.expect(\"APPROVED\").to.include(jsonData.letterOfAcceptances[0].status);",
                       "});",
                       "postman.setNextRequest(\"Create sWO\");"
                     ]
