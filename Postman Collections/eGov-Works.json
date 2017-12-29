@@ -5979,7 +5979,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "06574568-a197-4aff-8cb1-297423415af1",
+                    "id": "4fe15700-d00a-47fc-ba4e-b4d675b0d06e",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -5987,8 +5987,8 @@
                       "});",
                       "var jsonData = JSON.parse(responseBody);",
                       "pm.test(\"Spillover AE status is Technical Sanctioned\", function () {",
-                      "    pm.expect(\"TECHNICAL_SANCTIONED\").to.include(jsonData.detailedEstimates[0].status);",
-                      "    pm.environment.set(\"sDEstatus\", jsonData.detailedEstimates[0].status);",
+                      "    pm.expect(\"TECHNICAL_SANCTIONED\").to.include(jsonData.detailedEstimates[0].status.code);",
+                      "    pm.environment.set(\"sDEstatus\", jsonData.detailedEstimates[0].status.code);",
                       "});",
                       "pm.environment.set(\"sDEid\", jsonData.detailedEstimates[0].id);",
                       "pm.test(\"Detailed Estimae Number matches\", function () {",
