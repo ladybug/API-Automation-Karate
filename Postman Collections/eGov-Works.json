@@ -5842,7 +5842,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "936ef933-97e8-46e0-88b5-b27d0d6b0a62",
+                    "id": "eb790392-c00e-4416-821d-430aaa86d65a",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -5855,7 +5855,7 @@
                       "pm.environment.set(\"sNameOfWork\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].nameOfWork);",
                       "",
                       "pm.test(\"Spillover AE status is Admin Sanctioned\", function () {",
-                      "    pm.expect(\"ADMIN_SANCTIONED\").to.include(jsonData.abstractEstimates[0].status);",
+                      "    pm.expect(\"ADMINISTRATIVE_SANCTIONED\").to.include(jsonData.abstractEstimates[0].status);",
                       "    pm.environment.set(\"sAEstatus\", jsonData.abstractEstimates[0].status.code);",
                       "});",
                       "pm.test(\"Abstract Estimate Number matches\", function () {",
