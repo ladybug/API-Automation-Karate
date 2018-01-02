@@ -166,6 +166,32 @@
         {
           "_postman_id": "3184a2b7-51ca-7aaf-5c9a-5dec5ef1b5da",
           "name": "mdmsData",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "60dce2d7-1aa5-40e2-bac2-0fefadf904fc",
+                "type": "text/javascript",
+                "exec": [
+                  "var jsonData = JSON.parse(responseBody);",
+                  "var uom = jsonData.MdmsRes[\"common-masters\"].Uom;",
+                  "var dep = jsonData.MdmsRes[\"common-masters\"].Department;",
+                  "var typeOfWork = jsonData.MdmsRes.Works.TypeOfWork;",
+                  "var scheduleCategory = jsonData.MdmsRes.Works.ScheduleCategory;",
+                  "",
+                  "var uomCode = uom[Math.floor(Math.random() * typeOfWork.length)];",
+                  "var depCode = dep[Math.floor(Math.random() * typeOfWork.length)];",
+                  "var typeOfWorkCode = typeOfWork[Math.floor(Math.random() * typeOfWork.length)];",
+                  "var scheduleCategoryCode = scheduleCategory[Math.floor(Math.random() * typeOfWork.length)];",
+                  "",
+                  "pm.environment.set(\"uom\", uomCode.code);",
+                  "pm.environment.set(\"dep\", depCode.code);",
+                  "pm.environment.set(\"typeCode\", typeOfWorkCode.code);",
+                  "pm.environment.set(\"scheduleCategory\", scheduleCategoryCode.code);"
+                ]
+              }
+            }
+          ],
           "request": {
             "method": "POST",
             "header": [
