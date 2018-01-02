@@ -337,6 +337,62 @@
             "description": ""
           },
           "response": []
+        },
+        {
+          "_postman_id": "9d45f138-ce73-bbd9-ed49-33e42df3626e",
+          "name": "Department MDMS",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "59935d7c-579d-4d26-a280-af846f9e8f81",
+                "type": "text/javascript",
+                "exec": [
+                  "var obj = JSON.parse(responseBody);",
+                  "var commonMasters = obj.MdmsRes[\"common-masters\"].Department;",
+                  "// var code = commonMasters[Math.floor(Math.random() * obj.MdmsRes[\"common-masters\"].Department.length)];",
+                  "",
+                  "for( var k in commonMasters){",
+                  "    var dep = commonMasters[k].code;",
+                  "        console.log(dep);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{  \n  \"RequestInfo\":{  \n     \"apiId\":\"swm-services\",\n      \"ver\":null,\n      \"ts\":null,\n      \"action\":null,\n      \"did\":null,\n      \"key\":null,\n      \"msgId\":\"search with from and to values\",\n      \"authToken\":\"{{access_token}}\"\n   },\n   \"MdmsCriteria\":{  \n     \"tenantId\":\"{{tenantId}}\",\n      \"moduleDetails\":[  \n        {  \n           \"moduleName\":\"inventory\",\n            \"masterDetails\":[  \n              {  \n                 \"name\":\"Material\"\n               },\n                {  \n                 \"name\":\"MaterialType\"\n               },\n               {\n                  \"name\":\"Uom\"\n               }\n            ]\n         },\n         {  \n           \"moduleName\":\"common-masters\",\n            \"masterDetails\":[  \n              {  \n                 \"name\":\"Department\"\n               }\n            ]\n         }\n      ]\n   }\n}"
+            },
+            "url": {
+              "raw": "{{url}}/egov-mdms-service/v1/_search?tenantId={{tenantId}}",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "egov-mdms-service",
+                "v1",
+                "_search"
+              ],
+              "query": [
+                {
+                  "key": "tenantId",
+                  "value": "{{tenantId}}",
+                  "equals": true
+                }
+              ]
+            },
+            "description": null
+          },
+          "response": []
         }
       ]
     },
@@ -1337,62 +1393,6 @@
             },
             "url": "{{url}}/egov-mdms-service/v1/_search",
             "description": "Search Schedule Of Category"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "9d45f138-ce73-bbd9-ed49-33e42df3626e",
-          "name": "Department MDMS",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "59935d7c-579d-4d26-a280-af846f9e8f81",
-                "type": "text/javascript",
-                "exec": [
-                  "var obj = JSON.parse(responseBody);",
-                  "var commonMasters = obj.MdmsRes[\"common-masters\"].Department;",
-                  "// var code = commonMasters[Math.floor(Math.random() * obj.MdmsRes[\"common-masters\"].Department.length)];",
-                  "",
-                  "for( var k in commonMasters){",
-                  "    var dep = commonMasters[k].code;",
-                  "        console.log(dep);",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{  \n  \"RequestInfo\":{  \n     \"apiId\":\"swm-services\",\n      \"ver\":null,\n      \"ts\":null,\n      \"action\":null,\n      \"did\":null,\n      \"key\":null,\n      \"msgId\":\"search with from and to values\",\n      \"authToken\":\"{{access_token}}\"\n   },\n   \"MdmsCriteria\":{  \n     \"tenantId\":\"{{tenantId}}\",\n      \"moduleDetails\":[  \n        {  \n           \"moduleName\":\"inventory\",\n            \"masterDetails\":[  \n              {  \n                 \"name\":\"Material\"\n               },\n                {  \n                 \"name\":\"MaterialType\"\n               },\n               {\n                  \"name\":\"Uom\"\n               }\n            ]\n         },\n         {  \n           \"moduleName\":\"common-masters\",\n            \"masterDetails\":[  \n              {  \n                 \"name\":\"Department\"\n               }\n            ]\n         }\n      ]\n   }\n}"
-            },
-            "url": {
-              "raw": "{{url}}/egov-mdms-service/v1/_search?tenantId={{tenantId}}",
-              "host": [
-                "{{url}}"
-              ],
-              "path": [
-                "egov-mdms-service",
-                "v1",
-                "_search"
-              ],
-              "query": [
-                {
-                  "key": "tenantId",
-                  "value": "{{tenantId}}",
-                  "equals": true
-                }
-              ]
-            },
-            "description": null
           },
           "response": []
         }
