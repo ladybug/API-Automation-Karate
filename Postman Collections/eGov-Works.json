@@ -1129,6 +1129,49 @@
                 "description": null
               },
               "response": []
+            },
+            {
+              "_postman_id": "73240ec0-ea15-a517-40f0-6112cbbb42b8",
+              "name": "Search Contractor copy",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"emp\",\n        \"ver\": \"1.0\",\n        \"ts\": \"10032017\",\n        \"action\": \"search\",\n        \"did\": \"1\",\n        \"key\": \"abcdkey\",\n        \"msgId\": \"20170310130900\",\n        \"requesterId\": \"\",\n        \"authToken\": \"{{access_token}}\"\n    }\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/works-masters/v1/contractors/_search?tenantId={{tenantId}}&ids={{contractorId}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-masters",
+                    "v1",
+                    "contractors",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "ids",
+                      "value": "{{contractorId}}",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": null
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
