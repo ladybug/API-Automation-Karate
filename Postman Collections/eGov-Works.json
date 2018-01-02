@@ -1238,12 +1238,12 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "276097ca-a34e-497c-a033-482054f20039",
+                    "id": "1278f3ad-650b-422c-861e-e239394edda6",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.round((Math.random() * 100));",
                       "pm.environment.set(\"contractorCode\", \"Grade-\"+num1);",
-                      "pm.environment.set(\"contractorName\", \"Contractor/\"+num1);",
+                      "pm.environment.set(\"contractorName\", \"Contractor-\"+num1);",
                       "pm.environment.set(\"contractorEmail\", \"pro\"+num1+\"@mULB.com\");"
                     ]
                   }
