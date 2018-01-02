@@ -170,7 +170,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "60dce2d7-1aa5-40e2-bac2-0fefadf904fc",
+                "id": "4a642269-b089-42ce-8e00-1622e073b9ba",
                 "type": "text/javascript",
                 "exec": [
                   "var jsonData = JSON.parse(responseBody);",
@@ -179,10 +179,10 @@
                   "var typeOfWork = jsonData.MdmsRes.Works.TypeOfWork;",
                   "var scheduleCategory = jsonData.MdmsRes.Works.ScheduleCategory;",
                   "",
-                  "var uomCode = uom[Math.floor(Math.random() * typeOfWork.length)];",
-                  "var depCode = dep[Math.floor(Math.random() * typeOfWork.length)];",
+                  "var uomCode = uom[Math.floor(Math.random() * uom.length)];",
+                  "var depCode = dep[Math.floor(Math.random() * dep.length)];",
                   "var typeOfWorkCode = typeOfWork[Math.floor(Math.random() * typeOfWork.length)];",
-                  "var scheduleCategoryCode = scheduleCategory[Math.floor(Math.random() * typeOfWork.length)];",
+                  "var scheduleCategoryCode = scheduleCategory[Math.floor(Math.random() * scheduleCategory.length)];",
                   "",
                   "pm.environment.set(\"uom\", uomCode.code);",
                   "pm.environment.set(\"dep\", depCode.code);",
