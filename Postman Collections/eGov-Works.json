@@ -5937,7 +5937,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "02b8a130-493d-4b72-8314-9d11df543371",
+                    "id": "fd60a11d-ad06-46c8-b72c-b12b967365dc",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -5948,7 +5948,7 @@
                       "var estimateValue = jsonData.detailedEstimates[0].estimateValue;",
                       "var activityAmount = jsonData.detailedEstimates[0].estimateActivities[0].estimateRate;",
                       "",
-                      "pm.environment.set(\"sDEstatus\", jsonData.detailedEstimates[0].status);",
+                      "pm.environment.set(\"sDEstatus\", jsonData.detailedEstimates[0].status.code);",
                       "pm.environment.set(\"sDEId\", jsonData.detailedEstimates[0].id);",
                       "postman.setNextRequest(\"Search sDE\");"
                     ]
