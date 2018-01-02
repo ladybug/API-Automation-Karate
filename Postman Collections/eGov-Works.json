@@ -1276,7 +1276,7 @@
             },
             {
               "_postman_id": "d1c3d021-acd4-6060-21b6-4a140fdae474",
-              "name": "Create Contractor copy",
+              "name": "Create Contractor",
               "event": [
                 {
                   "listen": "prerequest",
