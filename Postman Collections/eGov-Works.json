@@ -1238,24 +1238,21 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "4a642269-b089-42ce-8e00-1622e073b9ba",
+                    "id": "9db851e5-3c36-46d8-9116-58e23d16aeb6",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "var uom = jsonData.MdmsRes[\"common-masters\"].Uom;",
                       "var dep = jsonData.MdmsRes[\"common-masters\"].Department;",
-                      "var typeOfWork = jsonData.MdmsRes.Works.TypeOfWork;",
-                      "var scheduleCategory = jsonData.MdmsRes.Works.ScheduleCategory;",
+                      "var contractor = jsonData.MdmsRes.Works.ContractorClass;",
                       "",
                       "var uomCode = uom[Math.floor(Math.random() * uom.length)];",
                       "var depCode = dep[Math.floor(Math.random() * dep.length)];",
-                      "var typeOfWorkCode = typeOfWork[Math.floor(Math.random() * typeOfWork.length)];",
-                      "var scheduleCategoryCode = scheduleCategory[Math.floor(Math.random() * scheduleCategory.length)];",
+                      "var contractorClass = contractor[Math.floor(Math.random() * typeOfWork.length)];",
                       "",
                       "pm.environment.set(\"uom\", uomCode.code);",
                       "pm.environment.set(\"dep\", depCode.code);",
-                      "pm.environment.set(\"typeCode\", typeOfWorkCode.code);",
-                      "pm.environment.set(\"scheduleCategory\", scheduleCategoryCode.code);"
+                      "pm.environment.set(\"contractorClass\", contractorClass.class);"
                     ]
                   }
                 }
