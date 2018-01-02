@@ -228,6 +228,41 @@
             "description": ""
           },
           "response": []
+        },
+        {
+          "_postman_id": "91dd406d-19bc-498c-3eb5-9d732c0f9f44",
+          "name": "UOM",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var jsonData = JSON.parse(responseBody);",
+                  "",
+                  "// pm.environment.set(\"Kilograms\", jsonData.MdmsRes.common-masters.Uom[0].code);",
+                  "// pm.environment.set(\"Ton\", jsonData.MdmsRes.common-masters.Uom[1].code);",
+                  "// pm.environment.set(\"Numbers\", jsonData.MdmsRes.common-masters.Uom[3].code);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"common-services\",\n    \"ver\": null,\n    \"ts\": null,\n    \"action\": \"Search\",\n    \"did\": null,\n    \"key\": null,\n    \"msgId\": \"search with from and to values\",\n    \"authToken\": \"{{access_token}}\"\n  },\n  \"MdmsCriteria\": {\n    \"tenantId\": \"{{tenantId}}\",\n    \"moduleDetails\": [\n      {\n        \"moduleName\": \"common-masters\",\n        \"masterDetails\": [\n          {\n            \"name\": \"Uom\"\n          }\n        ]\n      }\n    ]\n  }\n}"
+            },
+            "url": "{{url}}/egov-mdms-service/v1/_search",
+            "description": "Search Unit of Measurement"
+          },
+          "response": []
         }
       ]
     },
@@ -1228,41 +1263,6 @@
             },
             "url": "{{url}}/egov-mdms-service/v1/_search",
             "description": "Search Schedule Of Category"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "91dd406d-19bc-498c-3eb5-9d732c0f9f44",
-          "name": "UOM",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "var jsonData = JSON.parse(responseBody);",
-                  "",
-                  "// pm.environment.set(\"Kilograms\", jsonData.MdmsRes.common-masters.Uom[0].code);",
-                  "// pm.environment.set(\"Ton\", jsonData.MdmsRes.common-masters.Uom[1].code);",
-                  "// pm.environment.set(\"Numbers\", jsonData.MdmsRes.common-masters.Uom[3].code);"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"common-services\",\n    \"ver\": null,\n    \"ts\": null,\n    \"action\": \"Search\",\n    \"did\": null,\n    \"key\": null,\n    \"msgId\": \"search with from and to values\",\n    \"authToken\": \"{{access_token}}\"\n  },\n  \"MdmsCriteria\": {\n    \"tenantId\": \"{{tenantId}}\",\n    \"moduleDetails\": [\n      {\n        \"moduleName\": \"common-masters\",\n        \"masterDetails\": [\n          {\n            \"name\": \"Uom\"\n          }\n        ]\n      }\n    ]\n  }\n}"
-            },
-            "url": "{{url}}/egov-mdms-service/v1/_search",
-            "description": "Search Unit of Measurement"
           },
           "response": []
         },
