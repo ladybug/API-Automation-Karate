@@ -1238,7 +1238,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "9db851e5-3c36-46d8-9116-58e23d16aeb6",
+                    "id": "e4d52dfe-ec38-4031-8055-2836ea36bbd6",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -1248,7 +1248,7 @@
                       "",
                       "var uomCode = uom[Math.floor(Math.random() * uom.length)];",
                       "var depCode = dep[Math.floor(Math.random() * dep.length)];",
-                      "var contractorClass = contractor[Math.floor(Math.random() * typeOfWork.length)];",
+                      "var contractorClass = contractor[Math.floor(Math.random() * contractor.length)];",
                       "",
                       "pm.environment.set(\"uom\", uomCode.code);",
                       "pm.environment.set(\"dep\", depCode.code);",
