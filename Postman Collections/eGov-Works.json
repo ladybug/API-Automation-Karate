@@ -6247,7 +6247,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "1bc1fbb7-eb9b-4bca-8744-c66bcccfe1ac",
+                    "id": "f353aa21-5a32-4351-8f07-104c93acef2f",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -6275,7 +6275,7 @@
                       "pm.expect(pm.environment.get(\"sDEid\")).to.include(jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].detailedEstimate.id);",
                       "});",
                       "pm.test(\"WO status as Approved matches\", function () {",
-                      "    pm.expect(\"APPROVED\").to.include(jsonData.workOrders[0].status);",
+                      "    pm.expect(\"APPROVED\").to.include(jsonData.workOrders[0].status.code);",
                       "});",
                       "postman.setNextRequest(\"Create sMB\");"
                     ]
