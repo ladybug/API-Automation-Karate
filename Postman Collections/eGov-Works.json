@@ -1322,7 +1322,7 @@
             },
             {
               "_postman_id": "2c88ef3c-c81b-ffa9-b37d-d1a9f320e85c",
-              "name": "Update Contractor copy",
+              "name": "Update Contractor",
               "request": {
                 "method": "POST",
                 "header": [
