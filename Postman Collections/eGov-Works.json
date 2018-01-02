@@ -1045,7 +1045,54 @@
           "_postman_id": "378899db-3e21-8b05-821e-1108fc09ede8",
           "name": "Contractor Master",
           "description": "",
-          "item": [],
+          "item": [
+            {
+              "_postman_id": "d1c3d021-acd4-6060-21b6-4a140fdae474",
+              "name": "Create Contractor copy",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "8c6e72e6-3120-4b32-ba33-0b64fa7f0cba",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var num1 = Math.round((Math.random() * 100));",
+                      "",
+                      "pm.environment.set(\"contractorCode\", \"Contractor-\"+num1);",
+                      "pm.environment.set(\"contractorEmail\", \"pro\"+num1+\"@mULB.com\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "cb44ea42-cb66-4b06-9486-45404c138076",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "pm.environment.set(\"contractorId\", jsonData.contractors[0].id);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n \"requestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n   },\n   \"contractors\": [\n     {\n       \"tenantId\": \"{{tenantId}}\",\n       \"name\": \"Contractor Three\",\n       \"code\": \"{{contractorCode}}\",\n       \"correspondenceAddress\": \"Roha, Maharastra\",\n       \"paymentAddress\": \"ULB - Roha, Maharastra\",\n       \"contactPerson\": \"Public Relationship Officer\",\n       \"email\": \"{{contractorEmail}}\",\n       \"narration\": \"Contractor for the work\",\n       \"mobileNumber\": \"9876543210\",\n       \"panNumber\": \"AAAPL1234C\",\n       \"tinNumber\": \"1234567890\",\n       \"bank\": null,\n       \"bankAccountNumber\": \"123456789012\",\n       \"pwdApprovalCode\": \"PWD-001\",\n       \"exemptedFrom\": \"VAT\",\n       \"pwdApprovalValidTill\": \"1509088047\",\n       \"epfRegistrationNumber\": \"PF-123\",\n       \"accountCode\":{\n        \"glcode\": \"dummy code\"\n        },\n       \"ifscCode\": \"1234567890\",\n       \"contractorClass\": {\n         \"class\": null\n       },\n       \"pmc\": true,\n       \"status\":{\n         \"code\": \"INACTIVE\"\n       }\n     }\n    ]\n}"
+                },
+                "url": "{{url}}/works-masters/v1/contractors/_create",
+                "description": null
+              },
+              "response": []
+            }
+          ],
           "_postman_isSubFolder": true
         },
         {
