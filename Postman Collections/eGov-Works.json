@@ -352,14 +352,21 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "8db43edd-2af1-4ee2-bf94-eb968e8e7d11",
+                    "id": "976df9cc-1744-4f59-a22f-e88715872a45",
                     "type": "text/javascript",
                     "exec": [
                       "var sorResponse = JSON.parse(responseBody);",
                       "var sorCreate = JSON.parse(environment.sorCreate);",
                       "",
-                      "console.log(sorCreate);",
+                      "pm.test(\"SOR code matches\", function () {",
+                      "pm.expect(pm.environment.get(\"SOR_code\")).to.include(jsonData.scheduleOfRates[0].code);",
+                      "});",
                       "",
+                      "pm.test(\"SOR ID matches\", function () {",
+                      "pm.expect(pm.environment.get(\"SOR_id\")).to.include(jsonData.scheduleOfRates[0].id);",
+                      "});",
+                      "",
+                      "console.log(sorCreate);",
                       ""
                     ]
                   }
