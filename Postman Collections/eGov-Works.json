@@ -1374,7 +1374,7 @@
                   "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"emp\",\n        \"ver\": \"1.0\",\n        \"ts\": \"10032017\",\n        \"action\": \"search\",\n        \"did\": \"1\",\n        \"key\": \"abcdkey\",\n        \"msgId\": \"20170310130900\",\n        \"requesterId\": \"\",\n        \"authToken\": \"{{access_token}}\"\n    }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-masters/v1/contractors/_search?tenantId={{tenantId}}&ids={{contractorId}}",
+                  "raw": "{{url}}/works-masters/v1/contractors/_search?tenantId={{tenantId}}&code={{contractorCode}}",
                   "host": [
                     "{{url}}"
                   ],
@@ -1391,8 +1391,8 @@
                       "equals": true
                     },
                     {
-                      "key": "ids",
-                      "value": "{{contractorId}}",
+                      "key": "code",
+                      "value": "{{contractorCode}}",
                       "equals": true
                     }
                   ]
