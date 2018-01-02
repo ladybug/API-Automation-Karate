@@ -208,6 +208,26 @@
             "description": null
           },
           "response": []
+        },
+        {
+          "_postman_id": "40476709-a53c-d747-c5f0-59e1ae62b425",
+          "name": "Works MDMS",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"works-services\",\n    \"ver\": null,\n    \"ts\": null,\n    \"action\": \"Search\",\n    \"did\": null,\n    \"key\": null,\n    \"msgId\": \"search with from and to values\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"MdmsCriteria\": {\n    \"tenantId\": \"{{tenantId}}\",\n    \"moduleDetails\": [\n      {\n        \"moduleName\": \"Works\",\n        \"masterDetails\": [\n          {\n            \"name\": \"ModeOfAllotment\"\n          }\n        ]\n      }\n    ]\n  }\n}"
+            },
+            "url": "{{url}}/egov-mdms-service/v1/_search",
+            "description": ""
+          },
+          "response": []
         }
       ]
     },
@@ -1175,26 +1195,6 @@
             }
           ],
           "_postman_isSubFolder": true
-        },
-        {
-          "_postman_id": "40476709-a53c-d747-c5f0-59e1ae62b425",
-          "name": "Works MDMS",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"works-services\",\n    \"ver\": null,\n    \"ts\": null,\n    \"action\": \"Search\",\n    \"did\": null,\n    \"key\": null,\n    \"msgId\": \"search with from and to values\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"MdmsCriteria\": {\n    \"tenantId\": \"{{tenantId}}\",\n    \"moduleDetails\": [\n      {\n        \"moduleName\": \"Works\",\n        \"masterDetails\": [\n          {\n            \"name\": \"ModeOfAllotment\"\n          }\n        ]\n      }\n    ]\n  }\n}"
-            },
-            "url": "{{url}}/egov-mdms-service/v1/_search",
-            "description": ""
-          },
-          "response": []
         },
         {
           "_postman_id": "8e44f590-9544-3630-aae5-0bce2555710d",
