@@ -287,7 +287,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "9522bcfe-2877-4414-8b88-45667baf7174",
+                    "id": "217a2ff8-bc90-426e-8215-b75ef343a68b",
                     "type": "text/javascript",
                     "exec": [
                       "var createSorResponse = JSON.parse(responseBody);",
@@ -300,7 +300,7 @@
                       "",
                       "if(sorRates.length !== 0){",
                       "    for(var i=0; i<sorRates.length; i++){",
-                      "        pm.environment.set(\"sorRatesId\", sorRates[i].id);",
+                      "        pm.environment.set(\"sorRatesId\"+i, sorRates[i].id);",
                       "    }    ",
                       "}",
                       "",
