@@ -611,6 +611,47 @@
           "description": "",
           "item": [
             {
+              "_postman_id": "e946d8a6-da75-453f-8f6a-7143a22fb488",
+              "name": "typeOfWork_MDMS",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "1bc53973-4445-4f2f-8573-938198877760",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "var typeOfWork = jsonData.MdmsRes.Works.TypeOfWork;",
+                      "var typeOfWorkCode = [];",
+                      "",
+                      "for(var i=0;i<typeOfWork.length; i++){",
+                      "    typeOfWorkCode[i] = jsonData.MdmsRes.Works.TypeOfWork[i].code;",
+                      "}",
+                      "var code = typeOfWorkCode[Math.floor(Math.random() * typeOfWork.length)];",
+                      "pm.environment.set(\"typeCode\", code);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"works-services\",\n    \"ver\": null,\n    \"ts\": null,\n    \"action\": \"Search\",\n    \"did\": null,\n    \"key\": null,\n    \"msgId\": \"search with from and to values\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"MdmsCriteria\": {\n    \"tenantId\": \"{{tenantId}}\",\n    \"moduleDetails\": [\n      {\n        \"moduleName\": \"Works\",\n        \"masterDetails\": [\n          {\n            \"name\": \"TypeOfWork\"\n          }\n        ]\n      }\n    ]\n  }\n}"
+                },
+                "url": "{{url}}/egov-mdms-service/v1/_search",
+                "description": null
+              },
+              "response": []
+            },
+            {
               "_postman_id": "0392d6ed-6b11-dfcd-308a-5abf3b82d074",
               "name": "Create ET",
               "event": [
@@ -994,47 +1035,6 @@
                 },
                 "url": "{{url}}/works-masters/v1/estimatetemplates/_create",
                 "description": "Mandatory check for create Estimate Template"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "e946d8a6-da75-453f-8f6a-7143a22fb488",
-              "name": "typeOfWork_MDMS",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "1bc53973-4445-4f2f-8573-938198877760",
-                    "type": "text/javascript",
-                    "exec": [
-                      "var jsonData = JSON.parse(responseBody);",
-                      "",
-                      "var typeOfWork = jsonData.MdmsRes.Works.TypeOfWork;",
-                      "var typeOfWorkCode = [];",
-                      "",
-                      "for(var i=0;i<typeOfWork.length; i++){",
-                      "    typeOfWorkCode[i] = jsonData.MdmsRes.Works.TypeOfWork[i].code;",
-                      "}",
-                      "var code = typeOfWorkCode[Math.floor(Math.random() * typeOfWork.length)];",
-                      "pm.environment.set(\"typeCode\", code);"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"works-services\",\n    \"ver\": null,\n    \"ts\": null,\n    \"action\": \"Search\",\n    \"did\": null,\n    \"key\": null,\n    \"msgId\": \"search with from and to values\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"MdmsCriteria\": {\n    \"tenantId\": \"{{tenantId}}\",\n    \"moduleDetails\": [\n      {\n        \"moduleName\": \"Works\",\n        \"masterDetails\": [\n          {\n            \"name\": \"TypeOfWork\"\n          }\n        ]\n      }\n    ]\n  }\n}"
-                },
-                "url": "{{url}}/egov-mdms-service/v1/_search",
-                "description": null
               },
               "response": []
             }
