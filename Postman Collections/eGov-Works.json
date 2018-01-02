@@ -300,6 +300,43 @@
             "description": ""
           },
           "response": []
+        },
+        {
+          "_postman_id": "7f53d958-7731-ca00-3df4-11fc2d2cc176",
+          "name": "Search Project Code",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requestInfo\":{\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.0\",\n    \"ts\" : \"12345678\",\n    \"action\": \"search\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\"\n    }\n }"
+            },
+            "url": {
+              "raw": "{{url}}/works-estimate/v1/projectcodes/_search?tenantId={{tenantId}}",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "works-estimate",
+                "v1",
+                "projectcodes",
+                "_search"
+              ],
+              "query": [
+                {
+                  "key": "tenantId",
+                  "value": "{{tenantId}}"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": []
         }
       ]
     },
@@ -1300,43 +1337,6 @@
             },
             "url": "{{url}}/egov-mdms-service/v1/_search",
             "description": "Search Schedule Of Category"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "7f53d958-7731-ca00-3df4-11fc2d2cc176",
-          "name": "Search Project Code",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"requestInfo\":{\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.0\",\n    \"ts\" : \"12345678\",\n    \"action\": \"search\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\"\n    }\n }"
-            },
-            "url": {
-              "raw": "{{url}}/works-estimate/v1/projectcodes/_search?tenantId={{tenantId}}",
-              "host": [
-                "{{url}}"
-              ],
-              "path": [
-                "works-estimate",
-                "v1",
-                "projectcodes",
-                "_search"
-              ],
-              "query": [
-                {
-                  "key": "tenantId",
-                  "value": "{{tenantId}}"
-                }
-              ]
-            },
-            "description": ""
           },
           "response": []
         },
