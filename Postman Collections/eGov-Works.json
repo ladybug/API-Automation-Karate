@@ -263,6 +263,43 @@
             "description": "Search Unit of Measurement"
           },
           "response": []
+        },
+        {
+          "_postman_id": "13fd7fa8-fa8d-2aab-250e-fb2a9821965d",
+          "name": "Search DocumentDetails",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requestInfo\":{\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.0\",\n    \"ts\" : \"12345678\",\n    \"action\": \"asd\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\"\n    }\n }"
+            },
+            "url": {
+              "raw": "{{url}}/works-services/documentdetails/_search?tenantId={{tenantId}}",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "works-services",
+                "documentdetails",
+                "_search"
+              ],
+              "query": [
+                {
+                  "key": "tenantId",
+                  "value": "{{tenantId}}",
+                  "equals": true
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": []
         }
       ]
     },
@@ -1263,43 +1300,6 @@
             },
             "url": "{{url}}/egov-mdms-service/v1/_search",
             "description": "Search Schedule Of Category"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "13fd7fa8-fa8d-2aab-250e-fb2a9821965d",
-          "name": "Search DocumentDetails",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"requestInfo\":{\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.0\",\n    \"ts\" : \"12345678\",\n    \"action\": \"asd\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\"\n    }\n }"
-            },
-            "url": {
-              "raw": "{{url}}/works-services/documentdetails/_search?tenantId={{tenantId}}",
-              "host": [
-                "{{url}}"
-              ],
-              "path": [
-                "works-services",
-                "documentdetails",
-                "_search"
-              ],
-              "query": [
-                {
-                  "key": "tenantId",
-                  "value": "{{tenantId}}",
-                  "equals": true
-                }
-              ]
-            },
-            "description": ""
           },
           "response": []
         },
