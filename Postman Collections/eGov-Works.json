@@ -1510,6 +1510,20 @@
             {
               "_postman_id": "15a3efc6-ed3c-1160-19e4-ad7467c02911",
               "name": "MT_Search",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "50e6a50d-8e3d-4edf-98ee-7fbdb6a0be21",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "var mtResponse = jsonData.milestoneTemplates;",
+                      "pm.environment.set(\"milestoneTemplates\", JSON.stringify(mtResponse));"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
