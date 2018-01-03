@@ -1458,6 +1458,20 @@
             {
               "_postman_id": "807aae58-e781-fa84-69f4-bcb8225e8b3f",
               "name": "MT_Create",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "e8ba8d04-6b29-4838-be13-77f13394f848",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var num1 = Math.round((Math.random() * 100));",
+                      "",
+                      "pm.environment.set(\"MT_code\", \"MT \"+num1);"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
