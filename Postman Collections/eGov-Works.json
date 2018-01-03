@@ -1470,6 +1470,24 @@
                       "pm.environment.set(\"MT_code\", \"MT\"+num1);"
                     ]
                   }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "a33ea8ed-a8d9-4fb1-9382-a3ed3d8710b9",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "pm.environment.set(\"MT_id\", jsonData.milestoneTemplates[0].id);",
+                      "pm.environment.set(\"MT_code\", jsonData.milestoneTemplates[0].code);",
+                      "pm.environment.set(\"MT_activities\",jsonData.milestoneTemplates[0].milestoneTemplateActivities[0].id);"
+                    ]
+                  }
                 }
               ],
               "request": {
