@@ -1462,12 +1462,12 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "e8ba8d04-6b29-4838-be13-77f13394f848",
+                    "id": "66460d41-15f3-4a4c-9123-df0ed24681ca",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.round((Math.random() * 100));",
                       "",
-                      "pm.environment.set(\"MT_code\", \"MT \"+num1);"
+                      "pm.environment.set(\"MT_code\", \"MT\"+num1);"
                     ]
                   }
                 }
@@ -1482,7 +1482,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"works-masters\",\n    \"ver\": \"1.0\",\n    \"ts\": \"10032017\",\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"key\": \"abcdkey\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"milestoneTemplates\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"name\": \"Road milestone Template\",\n      \"code\": \"{{MT_code}}\",\n      \"active\": true,\n      \"description\": \"First milestone Template for Road\",\n      \"typeOfWork\": {\n        \"code\": \"{{typeCode}}\"\n      },\n      \"milestoneTemplateActivities\": [\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"stageOrderNumber\": 001,\n          \"stageDescription\": \"First Milestone Template\",\n          \"percentage\": 25\n        }\n      ]\n    }\n  ]\n}"
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"works-masters\",\n    \"ver\": \"1.0\",\n    \"ts\": \"10032017\",\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"key\": \"abcdkey\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"milestoneTemplates\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"name\": \"Road milestone Template\",\n      \"code\": \"{{MT_code}}\",\n      \"active\": true,\n      \"description\": \"First milestone Template for Road\",\n      \"typeOfWork\": {\n        \"code\": \"{{typeCode}}\"\n      },\n      \"milestoneTemplateActivities\": [\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"stageOrderNumber\": 876,\n          \"stageDescription\": \"First Milestone Template\",\n          \"percentage\": 25\n        }\n      ]\n    }\n  ]\n}"
                 },
                 "url": "{{url}}/works-masters/v1/milestonetemplates/_create",
                 "description": null
