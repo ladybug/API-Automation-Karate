@@ -1408,7 +1408,28 @@
           "_postman_id": "b6cf5d44-1bee-a7a0-98b2-aeabdde9e71e",
           "name": "Milestone Template",
           "description": "",
-          "item": [],
+          "item": [
+            {
+              "_postman_id": "807aae58-e781-fa84-69f4-bcb8225e8b3f",
+              "name": "MT_Create",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"emp\",\n        \"ver\": \"1.0\",\n        \"ts\": \"10032017\",\n        \"action\": \"create\",\n        \"did\": \"1\",\n        \"key\": \"abcdkey\",\n        \"msgId\": \"20170310130900\",\n        \"requesterId\": \"rajesh\",\n        \"authToken\": \"66d3aa78-bfd3-4698-bc56-3d5ce2c8cbd5\",\n        \"userInfo\":{\n          \"tenantId\":\"default\",\n          \"userName\":\"ramki\"\n        }\n    },\n    \"milestoneTemplates\":[{\n      \"tenantId\":\"default\",\n      \"name\":\"Road milestone Template\",\n      \"code\":\"MT1\",\n      \"active\":true,\n      \"description\":\"First milestone Template for Road\",\n      \"typeOfWork\":{\n      \t\"code\":\"Buildings\"\n      \t},\n      \"milestoneTemplateActivities\":[{  \n         \"tenantId\":\"default\",\n         \"stageOrderNumber\":7893843,\n         \"stageDescription\":\"First Milestone Template\",\n         \"percentage\":25\n      }]\n        \n    }]\n}"
+                },
+                "url": "http://localhost:8280/works-masters/v1/milestonetemplates/_create",
+                "description": null
+              },
+              "response": []
+            }
+          ],
           "_postman_isSubFolder": true
         },
         {
