@@ -6387,7 +6387,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "38931558-24c5-4a56-9459-c0f7fa87ffc7",
+                    "id": "532c25a2-440f-431e-9ab0-0e4566355448",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -6409,7 +6409,7 @@
                       "pm.expect(pm.environment.get(\"loaNumber\")).to.include(jsonData.letterOfAcceptances[0].loaNumber);",
                       "});",
                       "pm.test(\"LOA status as Approved matches\", function () {",
-                      "    pm.expect(\"APPROVED\").to.include(jsonData.letterOfAcceptances[0].status);",
+                      "    pm.expect(\"APPROVED\").to.include(jsonData.letterOfAcceptances[0].status.code);",
                       "});",
                       "postman.setNextRequest(\"Create sWO\");"
                     ]
