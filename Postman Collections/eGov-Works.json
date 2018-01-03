@@ -1428,6 +1428,51 @@
                 "description": null
               },
               "response": []
+            },
+            {
+              "_postman_id": "15a3efc6-ed3c-1160-19e4-ad7467c02911",
+              "name": "MT_Search",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"emp\",\n        \"ver\": \"1.0\",\n        \"ts\": \"10032017\",\n        \"action\": \"create\",\n        \"did\": \"1\",\n        \"key\": \"abcdkey\",\n        \"msgId\": \"20170310130900\",\n        \"requesterId\": \"rajesh\",\n        \"authToken\": \"6f17d2da-f576-41c2-a506-5656a9214d9f\"\n    }\n}\n"
+                },
+                "url": {
+                  "raw": "http://localhost:8280/works-masters/v1/milestonetemplates/_search?tenantId=default&codes=MT1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8280",
+                  "path": [
+                    "works-masters",
+                    "v1",
+                    "milestonetemplates",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "default",
+                      "equals": true
+                    },
+                    {
+                      "key": "codes",
+                      "value": "MT1",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": null
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
