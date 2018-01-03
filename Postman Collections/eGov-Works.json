@@ -1462,10 +1462,10 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "66460d41-15f3-4a4c-9123-df0ed24681ca",
+                    "id": "b429a7a9-eba8-415d-b6b9-247f830833c2",
                     "type": "text/javascript",
                     "exec": [
-                      "var num1 = Math.round((Math.random() * 100));",
+                      "var num1 = Math.round((Math.random() * 10));",
                       "",
                       "pm.environment.set(\"MT_code\", \"MT\"+num1);"
                     ]
