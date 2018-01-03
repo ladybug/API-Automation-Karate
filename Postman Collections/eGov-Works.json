@@ -439,6 +439,38 @@
             "description": "WMS related MDMS data's"
           },
           "response": []
+        },
+        {
+          "_postman_id": "0cfb40df-9ed5-2f50-b3ca-944892875845",
+          "name": "WMS_rolesData",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "16f08512-1531-4c02-8da8-964748c8c276",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"works-services\",\n    \"ver\": null,\n    \"ts\": null,\n    \"action\": null,\n    \"did\": null,\n    \"key\": null,\n    \"msgId\": \"search with from and to values\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"MdmsCriteria\": {\n    \"tenantId\": \"{{tenantId}}\",\n    \"moduleDetails\": [\n      {\n        \"moduleName\": \"ACCESSCONTROL-ROLES\",\n        \"masterDetails\": [\n          {\n            \"name\": \"roles\"\n          }\n        ]\n      }\n    ]\n  }\n}"
+            },
+            "url": "{{url}}/egov-mdms-service/v1/_search",
+            "description": "WMS roles related MDMS data's"
+          },
+          "response": []
         }
       ]
     },
