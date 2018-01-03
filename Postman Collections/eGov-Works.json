@@ -1502,15 +1502,13 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"emp\",\n        \"ver\": \"1.0\",\n        \"ts\": \"10032017\",\n        \"action\": \"create\",\n        \"did\": \"1\",\n        \"key\": \"abcdkey\",\n        \"msgId\": \"20170310130900\",\n        \"requesterId\": \"rajesh\",\n        \"authToken\": \"6f17d2da-f576-41c2-a506-5656a9214d9f\"\n    }\n}\n"
+                  "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"works-master\",\n        \"ver\": \"1.0\",\n        \"ts\": \"10032017\",\n        \"action\": \"search\",\n        \"did\": \"1\",\n        \"key\": \"abcdkey\",\n        \"msgId\": \"20170310130900\",\n        \"requesterId\": \"clerk\",\n        \"authToken\": \"{{access_token}}\"\n    }\n}"
                 },
                 "url": {
-                  "raw": "http://localhost:8280/works-masters/v1/milestonetemplates/_search?tenantId=default&codes=MT1",
-                  "protocol": "http",
+                  "raw": "{{url}}/works-masters/v1/milestonetemplates/_search?tenantId={{tenantId}}",
                   "host": [
-                    "localhost"
+                    "{{url}}"
                   ],
-                  "port": "8280",
                   "path": [
                     "works-masters",
                     "v1",
@@ -1520,12 +1518,7 @@
                   "query": [
                     {
                       "key": "tenantId",
-                      "value": "default",
-                      "equals": true
-                    },
-                    {
-                      "key": "codes",
-                      "value": "MT1",
+                      "value": "{{tenantId}}",
                       "equals": true
                     }
                   ]
