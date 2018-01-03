@@ -1572,6 +1572,18 @@
             {
               "_postman_id": "27bb32f7-6827-04c5-a731-47754836032d",
               "name": "MT_Update",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "8ea58898-8045-4f93-b49e-f760a0e39a62",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var mt = pm.environment.get(\"milestoneTemplates\");"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
@@ -1582,7 +1594,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"works-master\",\n        \"ver\": \"1.0\",\n        \"ts\": \"10032017\",\n        \"action\": \"update\",\n        \"did\": \"1\",\n        \"key\": \"abcdkey\",\n        \"msgId\": \"20170310130900\",\n        \"requesterId\": \"clerk\",\n        \"tenantId\": \"{{tenantId}}\",\n        \"authToken\": \"{{access_token}}\"\n    },\n       \"milestoneTemplates\": \"{{milestoneTemplates}}\"\n}"
+                  "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"works-master\",\n        \"ver\": \"1.0\",\n        \"ts\": \"10032017\",\n        \"action\": \"update\",\n        \"did\": \"1\",\n        \"key\": \"abcdkey\",\n        \"msgId\": \"20170310130900\",\n        \"requesterId\": \"clerk\",\n        \"tenantId\": \"{{tenantId}}\",\n        \"authToken\": \"{{access_token}}\"\n    },\n       \"milestoneTemplates\": {{milestoneTemplates}}\n}"
                 },
                 "url": "{{url}}/works-masters/v1/milestonetemplates/_update",
                 "description": null
