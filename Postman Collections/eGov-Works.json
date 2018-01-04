@@ -1649,6 +1649,395 @@
           "_postman_isSubFolder": true
         },
         {
+          "_postman_id": "2493030b-0b07-b389-1c2e-d042617380bc",
+          "name": "SOR copy",
+          "description": "",
+          "item": [
+            {
+              "_postman_id": "51df429c-efd1-d22f-eefb-5a5bd8058c36",
+              "name": "SOR_mdmsData",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "4a642269-b089-42ce-8e00-1622e073b9ba",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "var uom = jsonData.MdmsRes[\"common-masters\"].Uom;",
+                      "var dep = jsonData.MdmsRes[\"common-masters\"].Department;",
+                      "var typeOfWork = jsonData.MdmsRes.Works.TypeOfWork;",
+                      "var scheduleCategory = jsonData.MdmsRes.Works.ScheduleCategory;",
+                      "",
+                      "var uomCode = uom[Math.floor(Math.random() * uom.length)];",
+                      "var depCode = dep[Math.floor(Math.random() * dep.length)];",
+                      "var typeOfWorkCode = typeOfWork[Math.floor(Math.random() * typeOfWork.length)];",
+                      "var scheduleCategoryCode = scheduleCategory[Math.floor(Math.random() * scheduleCategory.length)];",
+                      "",
+                      "pm.environment.set(\"uom\", uomCode.code);",
+                      "pm.environment.set(\"dep\", depCode.code);",
+                      "pm.environment.set(\"typeCode\", typeOfWorkCode.code);",
+                      "pm.environment.set(\"scheduleCategory\", scheduleCategoryCode.code);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"works-services\",\n    \"ver\": null,\n    \"ts\": null,\n    \"action\": null,\n    \"did\": null,\n    \"key\": null,\n    \"msgId\": \"search with from and to values\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"MdmsCriteria\": {\n    \"tenantId\": \"{{tenantId}}\",\n    \"moduleDetails\": [\n      {\n        \"moduleName\": \"Works\",\n        \"masterDetails\": [\n          {\n            \"name\": \"ScheduleCategory\"\n          },\n          {\n            \"name\": \"TypeOfWork\"\n          },\n          {\n            \"name\": \"Overhead\"\n          },\n          {\n            \"name\": \"Remarks\"\n          },\n          {\n            \"name\": \"ReferenceType\"\n          },\n          {\n            \"name\": \"BudgetGroup\"\n          },\n          {\n            \"name\": \"NatureOfWork\"\n          },\n          {\n            \"name\": \"ModeOfAllotment\"\n          },\n          {\n            \"name\": \"ContractorClass\"\n          },\n          {\n            \"name\": \"WorksStatus\"\n          }\n        ]\n      },\n      {\n        \"moduleName\": \"common-masters\",\n        \"masterDetails\": [\n          {\n            \"name\": \"Department\"\n          },\n          {\n            \"name\": \"Uom\"\n          }\n        ]\n      }\n    ]\n  }\n}"
+                },
+                "url": "{{url}}/egov-mdms-service/v1/_search",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "d042bf08-ab7d-ab32-83b7-045117fb4fdd",
+              "name": "Create SOR",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "1925975e-ed86-480b-9b99-f398e4722ea5",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var num1 = Math.round((Math.random() * 100));",
+                      "var num2 = pm.globals.get(\"i\");",
+                      "pm.environment.set(\"SOR_code\", \"SOR\"+(++num2));",
+                      "pm.globals.set(\"i\", num2);"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "217a2ff8-bc90-426e-8215-b75ef343a68b",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var createSorResponse = JSON.parse(responseBody);",
+                      "",
+                      "pm.environment.set(\"SOR_id\", createSorResponse.scheduleOfRates[0].id);",
+                      "pm.environment.set(\"SOR_code\", createSorResponse.scheduleOfRates[0].code);",
+                      "",
+                      "var sorRates = createSorResponse.scheduleOfRates[0].sorRates;",
+                      "var marketRates = createSorResponse.scheduleOfRates[0].marketRates;",
+                      "",
+                      "if(sorRates.length !== 0){",
+                      "    for(var i=0; i<sorRates.length; i++){",
+                      "        pm.environment.set(\"sorRatesId\"+i, sorRates[i].id);",
+                      "    }    ",
+                      "}",
+                      "",
+                      "if(marketRates.length !== 0){",
+                      "    for(var i=0; i<sorRates.length; i++){",
+                      "        pm.environment.set(\"sorRatesId\", sorRates[i].id);",
+                      "    }    ",
+                      "}",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "tests[\"Status is success\"] = createSorResponse.ResponseInfo.status.has(\"SUCCESSFUL\");",
+                      "",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "pm.test(\"Successful POST request\", function () {",
+                      "    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+                      "});",
+                      "",
+                      "pm.environment.set(\"sorCreate\", JSON.stringify(createSorResponse));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"RequestInfo\": {\r\n    \"apiId\": \"works-masters\",\r\n    \"ver\": \"string\",\r\n    \"ts\": 0,\r\n    \"action\": \"create\",\r\n    \"did\": \"string\",\r\n    \"key\": \"string\",\r\n    \"msgId\": \"string\",\r\n    \"requesterId\": \"string\",\r\n    \"authToken\": \"{{access_token}}\"\r\n  },\r\n  \"scheduleOfRates\": [\r\n    {\r\n      \"tenantId\": \"{{tenantId}}\",\r\n      \"code\": \"{{SOR_code}}\",\r\n      \"description\": \"Rates for CC-ash Road work\",\r\n      \"scheduleCategory\": {\r\n        \"tenantId\": \"{{tenantId}}\",\r\n        \"code\": \"{{scheduleCategory}}\"\r\n      },\r\n      \"uom\": {\r\n        \"tenantId\": \"{{tenantId}}\",\r\n        \"code\": \"{{uom}}\"\r\n      },\r\n      \"sorRates\": [\r\n        {\r\n          \"tenantId\": \"{{tenantId}}\",\r\n          \"fromDate\": 1425200691000,\r\n          \"toDate\": 1427879091000,\r\n          \"rate\": 54.32,\r\n          \"deleted\": false\r\n        },\r\n        {\r\n          \"tenantId\": \"{{tenantId}}\",\r\n          \"fromDate\": 1430384691000,\r\n          \"toDate\": 1430471091000,\r\n          \"rate\": 87.65,\r\n          \"deleted\": false\r\n        }\r\n      ],\r\n      \"marketRates\": []\r\n    }\r\n  ]\r\n}"
+                },
+                "url": "{{url}}/works-masters/v1/scheduleofrates/_create",
+                "description": "Create SOR as works master data"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "bdad992a-5217-1eb0-a0b9-bc22318813ae",
+              "name": "Search SOR",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "8000b670-97aa-4b39-aa26-33f6f9ed4c8e",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var sorResponse = JSON.parse(responseBody);",
+                      "var sorCreate = JSON.parse(environment.sorCreate);",
+                      "",
+                      "pm.test(\"SOR code matches\", function () {",
+                      "pm.expect(pm.environment.get(\"SOR_code\")).to.include(sorResponse.scheduleOfRates[0].code);",
+                      "});",
+                      "",
+                      "pm.test(\"SOR ID matches\", function () {",
+                      "pm.expect(pm.environment.get(\"SOR_id\")).to.include(sorResponse.scheduleOfRates[0].id);",
+                      "});",
+                      "",
+                      "console.log(sorCreate);",
+                      ""
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"RequestInfo\":{\r\n  \"apiId\": \"works-masters\",\r\n  \"ver\": \"1.0\",\r\n  \"ts\": 0,\r\n  \"action\": \"search\",\r\n  \"did\": \"1\",\r\n  \"key\": \"string\",\r\n  \"msgId\": \"string\",\r\n  \"requesterId\": \"clerk\",\r\n  \"authToken\": \"{{access_token}}\"\r\n  }\r\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/works-masters/v1/scheduleofrates/_search?tenantId={{tenantId}}&sorCodes={{SOR_code}}&ids={{SOR_id}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-masters",
+                    "v1",
+                    "scheduleofrates",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "sorCodes",
+                      "value": "{{SOR_code}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "ids",
+                      "value": "{{SOR_id}}",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": "Search SOR master data"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "bc29d9c0-15e0-61bb-8f9c-8ede4b3b1585",
+              "name": "Update SOR",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"RequestInfo\": {\r\n    \"apiId\": \"string\",\r\n    \"ver\": \"string\",\r\n    \"ts\": 0,\r\n    \"action\": \"string\",\r\n    \"did\": \"string\",\r\n    \"key\": \"string\",\r\n    \"msgId\": \"string\",\r\n    \"requesterId\": \"string\",\r\n    \"authToken\": \"{{access_token}}\"\r\n  },\r\n    \"scheduleOfRates\": [\r\n        {\r\n            \"id\": \"SOR_id\",\r\n            \"tenantId\": \"{{tenantId}}\",\r\n            \"code\": \"{{SOR_code}}\",\r\n            \"description\": \"Rates for CC-ash Road work\",\r\n            \"scheduleCategory\": {\r\n                \"code\": \"{{scheduleCategory}}\"\r\n            },\r\n            \"uom\": {\r\n                \"code\": \"{{uom}}\"\r\n            },\r\n            \"sorRates\": [\r\n                {\r\n                    \"id\": \"{{sorRatesId0}}\",\r\n                    \"tenantId\": \"{{tenantId}}\",\r\n                    \"scheduleOfRate\": \"{{SOR_id}}\",\r\n                    \"fromDate\": 1425200691000,\r\n                    \"toDate\": 1427879091000,\r\n                    \"rate\": 54.32,\r\n                    \"deleted\": false,\r\n                    \"isMigrated\": false,\r\n                    \"auditDetails\": null\r\n                },\r\n                {\r\n                    \"id\": \"{{sorRatesId1}}\",\r\n                    \"tenantId\": \"{{tenantId}}\",\r\n                    \"scheduleOfRate\": \"{{SOR_id}}\",\r\n                    \"fromDate\": 1430384691000,\r\n                    \"toDate\": 1430471091000,\r\n                    \"rate\": 87.65,\r\n                    \"deleted\": false,\r\n                    \"isMigrated\": false,\r\n                    \"auditDetails\": null\r\n                }\r\n            ],\r\n            \"marketRates\": [],\r\n            \"deleted\": false,\r\n            \"auditDetails\": null\r\n        }\r\n    ]\r\n  \r\n}"
+                },
+                "url": "{{url}}/works-masters/v1/scheduleofrates/_update",
+                "description": "Update SOR"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "ec18a26b-93c6-869c-fb29-8c35ac4bf689",
+              "name": "SOR_Without_Mandatory",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "83889621-5c97-4b07-9c8c-13993e124cb8",
+                    "type": "text/javascript",
+                    "exec": [
+                      ""
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "cc645e07-a6aa-4c0d-9745-dc97f45a2b84",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 400\", function () {",
+                      "    pm.response.to.have.status(400);",
+                      "});",
+                      "",
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "tests[\"Tenant Id Mandatory check Matches\"] = jsonData.Errors[0].message;",
+                      "",
+                      "pm.test(\"Tenant Id Mandatory validation message matches\", function () {",
+                      "    pm.expect(\"may not be null\").to.include(jsonData.Errors[0].message);",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"RequestInfo\": {\r\n    \"apiId\": \"string\",\r\n    \"ver\": \"string\",\r\n    \"ts\": 0,\r\n    \"action\": \"string\",\r\n    \"did\": \"string\",\r\n    \"key\": \"string\",\r\n    \"msgId\": \"string\",\r\n    \"requesterId\": \"string\",\r\n    \"authToken\": \"{{access_token}}\"\r\n  },\r\n  \"scheduleOfRates\": [\r\n    {\r\n      \"tenantId\": null,\r\n      \"code\": null,\r\n      \"description\": null,\r\n      \"scheduleCategory\": {\r\n        \"id\": 2,\r\n        \"tenantId\": null,\r\n        \"name\": null,\r\n        \"code\": null\r\n      },\r\n      \"uom\": {\r\n        \"id\": 7,\r\n        \"tenantId\": null,\r\n        \"code\": null\r\n      },\r\n      \"sorRates\": [\r\n        {\r\n          \"tenantId\": null,\r\n          \"fromDate\": null,\r\n          \"toDate\": 1491034943000,\r\n          \"rate\": null,\r\n          \"deleted\": false\r\n        }\r\n    ],\r\n      \"marketRates\":[\r\n        {\r\n          \"tenantId\": null,\r\n          \"fromDate\": null,\r\n          \"toDate\": 1491034943000,\r\n          \"rate\": null,\r\n          \"deleted\": false\r\n        }\r\n     ],\r\n      \"deleted\": false\r\n    }\r\n  ]\r\n}"
+                },
+                "url": "{{url}}/works-masters/v1/scheduleofrates/_create",
+                "description": "Create SOR as works master data without any mandatory"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "49596081-114b-0608-af2e-76f42adcc6a7",
+              "name": "M1",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "3f6a19ae-9081-4fd2-a0a3-f5897c59275b",
+                    "type": "text/javascript",
+                    "exec": [
+                      ""
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "9fc5a5c1-93be-4536-954a-df1ae7189f4c",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 400\", function () {",
+                      "    pm.response.to.have.status(400);",
+                      "});",
+                      "",
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "tests[\"SOR code Mandatory check Matches\"] = jsonData.Errors[0].message;",
+                      "tests[\"SOR description Mandatory check Matches\"] = jsonData.Errors[1].message;",
+                      "",
+                      "pm.test(\"SOR description Mandatory validation message matches\", function () {",
+                      "    pm.expect(\"may not be null\").to.include(jsonData.Errors[0].message);",
+                      "});",
+                      "pm.test(\"SOR description Mandatory validation message matches\", function () {",
+                      "    pm.expect(\"may not be null\").to.include(jsonData.Errors[1].message);",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"RequestInfo\": {\r\n    \"apiId\": \"string\",\r\n    \"ver\": \"string\",\r\n    \"ts\": 0,\r\n    \"action\": \"string\",\r\n    \"did\": \"string\",\r\n    \"key\": \"string\",\r\n    \"msgId\": \"string\",\r\n    \"requesterId\": \"string\",\r\n    \"authToken\": \"{{access_token}}\"\r\n  },\r\n  \"scheduleOfRates\": [\r\n    {\r\n      \"tenantId\": \"{{tenantId}}\",\r\n      \"code\": null,\r\n      \"description\": null,\r\n      \"scheduleCategory\": {\r\n        \"id\": 2,\r\n        \"tenantId\": \"{{tenantId}}\",\r\n        \"name\": \"Concrete roads - FAKE\",\r\n        \"code\": \"CCR - FAKE\"\r\n      },\r\n      \"uom\": {\r\n        \"id\": 7,\r\n        \"tenantId\": \"{{tenantId}}\",\r\n        \"code\": \"MTR\"\r\n      },\r\n      \"sorRates\": [\r\n        {\r\n          \"tenantId\": \"{{tenantId}}\",\r\n          \"fromDate\": 1459412543000,\r\n          \"toDate\": 1491034943000,\r\n          \"rate\": 124.63,\r\n          \"deleted\": false\r\n        }\r\n    ],\r\n      \"marketRates\":[\r\n        {\r\n          \"tenantId\": \"{{tenantId}}\",\r\n          \"fromDate\": 1459412543000,\r\n          \"toDate\": 1491034943000,\r\n          \"rate\": 124.63,\r\n          \"deleted\": false\r\n        }\r\n     ],\r\n      \"deleted\": false\r\n    }\r\n  ]\r\n}"
+                },
+                "url": "{{url}}/works-masters/v1/scheduleofrates/_create",
+                "description": "Create SOR as works master data"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "be81a962-4ad0-353c-747a-855661b516dc",
+              "name": "validate MDMS data",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "188a1c12-4640-4f64-a425-5cf235be6d45",
+                    "type": "text/javascript",
+                    "exec": [
+                      ""
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "2b3ceb61-a3f1-42b4-b655-81da0d6994ee",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var createSorResponse = JSON.parse(responseBody);",
+                      "",
+                      "pm.environment.set(\"SOR_id\", createSorResponse.scheduleOfRates[0].id);",
+                      "pm.environment.set(\"SOR_code\", createSorResponse.scheduleOfRates[0].code);",
+                      "",
+                      "tests[\"Status is success\"] = createSorResponse.ResponseInfo.status.has(\"SUCCESSFUL\");",
+                      "",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "pm.test(\"Successful POST request\", function () {",
+                      "    pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+                      "});",
+                      "",
+                      "pm.environment.set(\"sorCreate\", JSON.stringify(createSorResponse));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"RequestInfo\": {\r\n    \"apiId\": \"works-masters\",\r\n    \"ver\": \"string\",\r\n    \"ts\": 0,\r\n    \"action\": \"create\",\r\n    \"did\": \"string\",\r\n    \"key\": \"string\",\r\n    \"msgId\": \"string\",\r\n    \"requesterId\": \"string\",\r\n    \"authToken\": \"{{access_token}}\"\r\n  },\r\n  \"scheduleOfRates\": [\r\n    {\r\n      \"tenantId\": null,\r\n      \"code\": \"{{SOR_code}}\",\r\n      \"description\": \"Rates for CC-ash Road work\",\r\n      \"scheduleCategory\": null,\r\n      \"uom\": null,\r\n      \"sorRates\": [\r\n        {\r\n          \"tenantId\": \"{{tenantId}}\",\r\n          \"fromDate\": 1427884148000,\r\n          \"toDate\": 1459420148000,\r\n          \"rate\": 88.88,\r\n          \"deleted\": false\r\n        }\r\n      ],\r\n      \"marketRates\": []\r\n    }\r\n  ]\r\n}"
+                },
+                "url": "{{url}}/works-masters/v1/scheduleofrates/_create",
+                "description": "Create SOR as works master data with validate MDMS data"
+              },
+              "response": []
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
           "_postman_id": "8e44f590-9544-3630-aae5-0bce2555710d",
           "name": "ScheduleOfCategory",
           "event": [
