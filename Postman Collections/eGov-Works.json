@@ -1597,7 +1597,7 @@
             },
             {
               "_postman_id": "15a3efc6-ed3c-1160-19e4-ad7467c02911",
-              "name": "MT_Search",
+              "name": "MT_Search_byID",
               "event": [
                 {
                   "listen": "test",
@@ -1625,7 +1625,7 @@
                   "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"works-master\",\n        \"ver\": \"1.0\",\n        \"ts\": \"10032017\",\n        \"action\": \"search\",\n        \"did\": \"1\",\n        \"key\": \"abcdkey\",\n        \"msgId\": \"20170310130900\",\n        \"requesterId\": \"clerk\",\n        \"authToken\": \"{{access_token}}\"\n    }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-masters/v1/milestonetemplates/_search?tenantId={{tenantId}}&ids={{MT_id}}&code={{MT_code}}",
+                  "raw": "{{url}}/works-masters/v1/milestonetemplates/_search?tenantId={{tenantId}}&ids={{MT_id}}",
                   "host": [
                     "{{url}}"
                   ],
@@ -1644,11 +1644,6 @@
                     {
                       "key": "ids",
                       "value": "{{MT_id}}",
-                      "equals": true
-                    },
-                    {
-                      "key": "code",
-                      "value": "{{MT_code}}",
                       "equals": true
                     }
                   ]
