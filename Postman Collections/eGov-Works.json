@@ -6474,7 +6474,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "f9a3c074-1e78-4b21-afb5-0f8e09f1e7c2",
+                    "id": "e66e82af-b8d7-4d6b-a73b-de371323bb05",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -6492,7 +6492,7 @@
                       "pm.test(\"Abstract Estimate ID\", function () {",
                       "pm.expect(pm.environment.get(\"sAEId\")).to.include(jsonData.abstractEstimates[0].id);",
                       "});",
-                      "postman.setNextRequest(\"Search sEstimate\");"
+                      "postman.setNextRequest(\"Search sAE\");"
                     ]
                   }
                 }
