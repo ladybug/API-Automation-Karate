@@ -6397,7 +6397,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "78360802-727e-4f9f-9c8c-da18a23e75b6",
+                    "id": "d25dbacd-bbba-4706-9f40-d20c1a36693f",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -6405,7 +6405,7 @@
                       "pm.globals.set(\"userName\", jsonData.UserRequest.userName);",
                       "tests[\"Status code is 200\"] = responseCode.code === 200;",
                       "",
-                      "postman.setNextRequest(\"Create sAE\");"
+                      "postman.setNextRequest(\"WorksMdmsData\");"
                     ]
                   }
                 }
