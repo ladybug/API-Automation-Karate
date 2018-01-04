@@ -1359,7 +1359,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "00c45df9-be08-4d57-a321-845dffd9994b",
+                    "id": "034aedbe-0f24-44b0-aedf-157205e63628",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.round((Math.random() * 100));",
@@ -1368,11 +1368,11 @@
                       "pm.environment.set(\"contractorEmail\", \"pro\"+num1+\"@mULB.com\");",
                       "var efList = [\"INCOME_TAX\", \"EARNEST_MONEY_DEPOSIT\", \"VAT\"];",
                       "pm.environment.set(\"exemptedFrom\", efList[Math.floor(Math.random() * efList.length)]);",
+                      "pm.environment.set(\"pwdApprovalCode\", \"PWD-A\"+num1);",
                       "",
                       "// pm.environment.set(\"PAN\",",
                       "// pm.environment.set(\"TIN\"",
                       "// pm.environment.set(\"BankAcc\"",
-                      "pm.environment.set(\"pwdApprovalCode\", \"PWD-A\"+num1);",
                       "",
                       "// pwdApprovalValidTill",
                       "// epfRegistrationNumber",
