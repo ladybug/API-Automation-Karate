@@ -1359,7 +1359,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "05eb1afa-19e1-442a-b4c2-63b8625b12c7",
+                    "id": "00c45df9-be08-4d57-a321-845dffd9994b",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.round((Math.random() * 100));",
@@ -1368,10 +1368,11 @@
                       "pm.environment.set(\"contractorEmail\", \"pro\"+num1+\"@mULB.com\");",
                       "var efList = [\"INCOME_TAX\", \"EARNEST_MONEY_DEPOSIT\", \"VAT\"];",
                       "pm.environment.set(\"exemptedFrom\", efList[Math.floor(Math.random() * efList.length)]);",
+                      "",
                       "// pm.environment.set(\"PAN\",",
                       "// pm.environment.set(\"TIN\"",
                       "// pm.environment.set(\"BankAcc\"",
-                      "// pm.environment.set(\"pwdApprovalCode\"",
+                      "pm.environment.set(\"pwdApprovalCode\", \"PWD-A\"+num1);",
                       "",
                       "// pwdApprovalValidTill",
                       "// epfRegistrationNumber",
@@ -1403,7 +1404,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n \"requestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n   },\n   \"contractors\": [\n     {\n       \"tenantId\": \"{{tenantId}}\",\n       \"name\": \"contractorName\",\n       \"code\": \"{{contractorCode}}\",\n       \"correspondenceAddress\": \"Roha, Maharastra\",\n       \"paymentAddress\": \"ULB - Roha, Maharastra\",\n       \"contactPerson\": \"Public Relationship Officer\",\n       \"email\": \"{{contractorEmail}}\",\n       \"narration\": \"Contractor for the work\",\n       \"mobileNumber\": \"9876543210\",\n       \"panNumber\": \"AAAPL1234C\",\n       \"tinNumber\": \"1234567890\",\n       \"bankAccountNumber\": \"123456789012\",\n       \"pwdApprovalCode\": \"PWD-001\",\n       \"exemptedFrom\": \"{{exemptedFrom}}\",\n       \"pwdApprovalValidTill\": \"1509088047\",\n       \"epfRegistrationNumber\": \"PF-123\",\n       \"accountCode\":{\n        \"glcode\": \"dummy code\"\n        },\n       \"ifscCode\": \"1234567890\",\n       \"contractorClass\": {\n         \"class\": \"{{contractorClass}}\"\n       },\n       \"pmc\": true,\n       \"status\":{\n         \"code\": \"ACTIVE\"\n       }\n     }\n    ]\n}"
+                  "raw": "{\n \"requestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"yosadhara\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n   },\n   \"contractors\": [\n     {\n       \"tenantId\": \"{{tenantId}}\",\n       \"name\": \"contractorName\",\n       \"code\": \"{{contractorCode}}\",\n       \"correspondenceAddress\": \"Roha, Maharastra\",\n       \"paymentAddress\": \"ULB - Roha, Maharastra\",\n       \"contactPerson\": \"Public Relationship Officer\",\n       \"email\": \"{{contractorEmail}}\",\n       \"narration\": \"Contractor for the work\",\n       \"mobileNumber\": \"9876543210\",\n       \"panNumber\": \"AAAPL1234C\",\n       \"tinNumber\": null,\n       \"bankAccountNumber\": \"123456789012\",\n       \"ifscCode\": \"1234567890\",\n       \"pwdApprovalCode\": \"{{pwdApprovalCode}}\",\n       \"exemptedFrom\": \"{{exemptedFrom}}\",\n       \"pwdApprovalValidTill\": \"1509088047\",\n       \"epfRegistrationNumber\": null,\n       \"accountCode\":{\n        \"glcode\": \"dummy code\"\n        },\n       \"contractorClass\": {\n         \"class\": \"{{contractorClass}}\"\n       },\n       \"pmc\": true,\n       \"status\":{\n         \"code\": \"ACTIVE\"\n       }\n     }\n    ]\n}"
                 },
                 "url": "{{url}}/works-masters/v1/contractors/_create",
                 "description": null
