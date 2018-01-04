@@ -170,7 +170,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "4a642269-b089-42ce-8e00-1622e073b9ba",
+                "id": "4b5e157c-3df9-4de2-aad7-94117a052fa5",
                 "type": "text/javascript",
                 "exec": [
                   "var jsonData = JSON.parse(responseBody);",
@@ -178,16 +178,19 @@
                   "var dep = jsonData.MdmsRes[\"common-masters\"].Department;",
                   "var typeOfWork = jsonData.MdmsRes.Works.TypeOfWork;",
                   "var scheduleCategory = jsonData.MdmsRes.Works.ScheduleCategory;",
+                  "var referenceType = jsonData.MdmsRes.Works.ReferenceType;",
                   "",
                   "var uomCode = uom[Math.floor(Math.random() * uom.length)];",
                   "var depCode = dep[Math.floor(Math.random() * dep.length)];",
                   "var typeOfWorkCode = typeOfWork[Math.floor(Math.random() * typeOfWork.length)];",
                   "var scheduleCategoryCode = scheduleCategory[Math.floor(Math.random() * scheduleCategory.length)];",
+                  "var referenceTypeCode = referenceType[Math.floor(Math.random() * referenceType.length)];",
                   "",
                   "pm.environment.set(\"uom\", uomCode.code);",
                   "pm.environment.set(\"dep\", depCode.code);",
                   "pm.environment.set(\"typeCode\", typeOfWorkCode.code);",
-                  "pm.environment.set(\"scheduleCategory\", scheduleCategoryCode.code);"
+                  "pm.environment.set(\"scheduleCategory\", scheduleCategoryCode.code);",
+                  "pm.environment.set(\"referenceType\", referenceTypeCode.code);"
                 ]
               }
             }
