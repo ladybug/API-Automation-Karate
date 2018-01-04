@@ -1665,6 +1665,18 @@
                       "var mt = pm.environment.get(\"milestoneTemplates\");"
                     ]
                   }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c2318caa-f12e-4717-ae88-84341cea78d0",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "pm.environment.set(\"MT_code\", jsonData.milestoneTemplates[0].code);"
+                    ]
+                  }
                 }
               ],
               "request": {
@@ -1677,7 +1689,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"works-master\",\n    \"ver\": \"1.0\",\n    \"ts\": \"10032017\",\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"key\": \"abcdkey\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"authToken\": \"{{access_token}}\"\n  },\n  \"milestoneTemplates\": [\n    {\n      \"id\": \"82cecf90144b45009dbf41945b915e81\",\n      \"tenantId\": \"default\",\n      \"name\": \"Builings Milestone Template\",\n      \"code\": \"MT3\",\n      \"active\": true,\n      \"description\": \"First Phase milestone Template for PWD\",\n      \"typeOfWork\": {\n        \"id\": null,\n        \"tenantId\": null,\n        \"name\": null,\n        \"code\": \"Buildings\",\n        \"description\": null,\n        \"active\": null,\n        \"parent\": null\n      },\n      \"milestoneTemplateActivities\": [\n        {\n          \"id\": \"1bd7f7a3da884096bdc347d72fcb46d2\",\n          \"tenantId\": \"default\",\n          \"milestoneTemplate\": \"82cecf90144b45009dbf41945b915e81\",\n          \"stageOrderNumber\": 1.1,\n          \"stageDescription\": \"Phase One\",\n          \"percentage\": 25,\n          \"auditDetails\": null,\n          \"deleted\": false\n        },\n        {\n          \"id\": \"965a435282bd4776815273b887f6b7a7\",\n          \"tenantId\": \"default\",\n          \"milestoneTemplate\": \"82cecf90144b45009dbf41945b915e81\",\n          \"stageOrderNumber\": 1.11,\n          \"stageDescription\": \"Phase One: First Stage\",\n          \"percentage\": 25,\n          \"auditDetails\": null,\n          \"deleted\": false\n        },\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"stageOrderNumber\": 1.12,\n          \"stageDescription\": \"Phase One: Second Stage\",\n          \"percentage\": 25\n        },\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"stageOrderNumber\": 1.13,\n          \"stageDescription\": \"Phase One: Third Stage\",\n          \"percentage\": 25\n        }\n      ],\n      \"auditDetails\": null,\n      \"deleted\": false\n    }\n  ]\n}"
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"works-master\",\n    \"ver\": \"1.0\",\n    \"ts\": \"10032017\",\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"key\": \"abcdkey\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"authToken\": \"{{access_token}}\"\n  },\n    \"milestoneTemplates\": [\n        {\n            \"id\": \"b429cf56646043a8bafaddaa6c59f3f2\",\n            \"tenantId\": \"default\",\n            \"name\": \"Builings Milestone Template\",\n            \"code\": \"MT8.1\",\n            \"active\": true,\n            \"description\": \"Milestone Template for PWD Building works\",\n            \"typeOfWork\": {\n                \"code\": \"Buildings\"\n            },\n            \"milestoneTemplateActivities\": [\n                {\n                    \"id\": \"c04c67ad722f4bd48a76098cb87c67b1\",\n                    \"tenantId\": \"default\",\n                    \"milestoneTemplate\": \"b429cf56646043a8bafaddaa6c59f3f2\",\n                    \"stageOrderNumber\": 1,\n                    \"stageDescription\": \"Phase One\",\n                    \"percentage\": 50,\n                    \"auditDetails\": null,\n                    \"deleted\": false\n                },\n                {\n                    \"id\": \"4fdfa318d7b34cf79dd61785ef92e425\",\n                    \"tenantId\": \"default\",\n                    \"milestoneTemplate\": \"b429cf56646043a8bafaddaa6c59f3f2\",\n                    \"stageOrderNumber\": 2,\n                    \"stageDescription\": \"Phase Two\",\n                    \"percentage\": 50,\n                    \"auditDetails\": null,\n                    \"deleted\": false\n                }\n            ],\n            \"auditDetails\": null,\n            \"deleted\": false\n        }\n    ]\n}"
                 },
                 "url": "{{url}}/works-masters/v1/milestonetemplates/_update",
                 "description": ""
