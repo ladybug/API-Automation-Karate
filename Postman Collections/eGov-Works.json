@@ -6464,7 +6464,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "17510e35-2335-472c-94d6-1c55978039cc",
+                    "id": "f463dbec-2c83-47bf-8ab9-eea6f4ee0ec6",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -6493,7 +6493,9 @@
                       "pm.environment.set(\"referenceType\", referenceTypeCode.code);",
                       "pm.environment.set(\"budgetGroup\", budgetGroupCode.name);",
                       "pm.environment.set(\"modeOfAllotment\", modeOfAllotmentCode.code);",
-                      "pm.environment.set(\"natureOfWork\", natureOfWorkCode.name);"
+                      "pm.environment.set(\"natureOfWork\", natureOfWorkCode.name);",
+                      "",
+                      "postman.setNextRequest(\"Create sAE\");"
                     ]
                   }
                 }
