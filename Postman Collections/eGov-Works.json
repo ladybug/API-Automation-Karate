@@ -1348,7 +1348,7 @@
                   "raw": "{  \n  \"RequestInfo\":{  \n     \"apiId\":\"works-services\",\n      \"ver\":null,\n      \"ts\":null,\n      \"action\":null,\n      \"did\":null,\n      \"key\":null,\n      \"msgId\":\"search with from and to values\",\n      \"authToken\":\"{{access_token}}\",\n      \"tenantId\": \"{{tenantId}}\"\n   },\n   \"MdmsCriteria\":{  \n     \"tenantId\":\"{{tenantId}}\",\n      \"moduleDetails\":[  \n        {  \n           \"moduleName\":\"Works\",\n            \"masterDetails\":[  \n               {\n                 \"name\": \"Remarks\"\n               },\n               {\n                 \"name\": \"ContractorClass\"\n               },\n               {\n                 \"name\": \"WorksStatus\"\n               }\n            ]\n         },\n         {  \n           \"moduleName\":\"common-masters\",\n            \"masterDetails\":[  \n              {  \n                 \"name\":\"Department\"\n               },\n               {\n                  \"name\":\"Uom\"\n               }\n            ]\n         }\n      ]\n   }\n}"
                 },
                 "url": "{{url}}/egov-mdms-service/v1/_search",
-                "description": null
+                "description": ""
               },
               "response": []
             },
@@ -1547,7 +1547,7 @@
                   "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"works-masters\",\n    \"ver\": \"1.0\",\n    \"ts\": \"10032017\",\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"key\": \"abcdkey\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"milestoneTemplates\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"name\": \"Otherbuilings Milestone Template\",\n      \"code\": \"{{MT_code}}\",\n      \"active\": true,\n      \"description\": \"First Phase milestone Template for PWD\",\n      \"typeOfWork\": {\n        \"code\": \"{{typeCode}}\"\n      },\n      \"milestoneTemplateActivities\": [\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"stageOrderNumber\": 1.10,\n          \"stageDescription\": \"Phase One\",\n          \"percentage\": 50\n        },\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"stageOrderNumber\": 1.11,\n          \"stageDescription\": \"Phase One: First Stage\",\n          \"percentage\": 50\n        }\n      ]\n    }\n  ]\n}"
                 },
                 "url": "{{url}}/works-masters/v1/milestonetemplates/_create",
-                "description": null
+                "description": ""
               },
               "response": []
             },
@@ -1695,7 +1695,7 @@
                   "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"works-services\",\n    \"ver\": null,\n    \"ts\": null,\n    \"action\": null,\n    \"did\": null,\n    \"key\": null,\n    \"msgId\": \"search with from and to values\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"MdmsCriteria\": {\n    \"tenantId\": \"{{tenantId}}\",\n    \"moduleDetails\": [\n      {\n        \"moduleName\": \"Works\",\n        \"masterDetails\": [\n          {\n            \"name\": \"ScheduleCategory\"\n          },\n          {\n            \"name\": \"TypeOfWork\"\n          },\n          {\n            \"name\": \"Overhead\"\n          },\n          {\n            \"name\": \"Remarks\"\n          },\n          {\n            \"name\": \"ReferenceType\"\n          },\n          {\n            \"name\": \"BudgetGroup\"\n          },\n          {\n            \"name\": \"NatureOfWork\"\n          },\n          {\n            \"name\": \"ModeOfAllotment\"\n          },\n          {\n            \"name\": \"ContractorClass\"\n          },\n          {\n            \"name\": \"WorksStatus\"\n          }\n        ]\n      },\n      {\n        \"moduleName\": \"common-masters\",\n        \"masterDetails\": [\n          {\n            \"name\": \"Department\"\n          },\n          {\n            \"name\": \"Uom\"\n          }\n        ]\n      }\n    ]\n  }\n}"
                 },
                 "url": "{{url}}/egov-mdms-service/v1/_search",
-                "description": null
+                "description": ""
               },
               "response": []
             },
