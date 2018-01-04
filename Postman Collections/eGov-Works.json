@@ -7166,6 +7166,64 @@
                 "description": null
               },
               "response": []
+            },
+            {
+              "_postman_id": "05407eff-65d9-c119-dcfd-654c7d063a5e",
+              "name": "WorksMdmsData",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "17510e35-2335-472c-94d6-1c55978039cc",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "var uom = jsonData.MdmsRes[\"common-masters\"].Uom;",
+                      "var dep = jsonData.MdmsRes[\"common-masters\"].Department;",
+                      "var typeOfWork = jsonData.MdmsRes.Works.TypeOfWork;",
+                      "var scheduleCategory = jsonData.MdmsRes.Works.ScheduleCategory;",
+                      "var referenceType = jsonData.MdmsRes.Works.ReferenceType;",
+                      "var budgetGroup = jsonData.MdmsRes.Works.BudgetGroup;",
+                      "var modeOfAllotment = jsonData.MdmsRes.Works.ModeOfAllotment;",
+                      "var natureOfWork = jsonData.MdmsRes.Works.NatureOfWork;",
+                      "",
+                      "var uomCode = uom[Math.floor(Math.random() * uom.length)];",
+                      "var depCode = dep[Math.floor(Math.random() * dep.length)];",
+                      "var typeOfWorkCode = typeOfWork[Math.floor(Math.random() * typeOfWork.length)];",
+                      "var scheduleCategoryCode = scheduleCategory[Math.floor(Math.random() * scheduleCategory.length)];",
+                      "var referenceTypeCode = referenceType[Math.floor(Math.random() * referenceType.length)];",
+                      "var budgetGroupCode = budgetGroup[Math.floor(Math.random() * budgetGroup.length)];",
+                      "var modeOfAllotmentCode = modeOfAllotment[Math.floor(Math.random() * modeOfAllotment.length)];",
+                      "var natureOfWorkCode = natureOfWork[Math.floor(Math.random() * natureOfWork.length)];",
+                      "",
+                      "pm.environment.set(\"uom\", uomCode.code);",
+                      "pm.environment.set(\"dep\", depCode.code);",
+                      "pm.environment.set(\"typeCode\", typeOfWorkCode.code);",
+                      "pm.environment.set(\"scheduleCategory\", scheduleCategoryCode.code);",
+                      "pm.environment.set(\"referenceType\", referenceTypeCode.code);",
+                      "pm.environment.set(\"budgetGroup\", budgetGroupCode.name);",
+                      "pm.environment.set(\"modeOfAllotment\", modeOfAllotmentCode.code);",
+                      "pm.environment.set(\"natureOfWork\", natureOfWorkCode.name);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{  \n  \"RequestInfo\":{  \n     \"apiId\":\"works-services\",\n      \"ver\":null,\n      \"ts\":null,\n      \"action\":null,\n      \"did\":null,\n      \"key\":null,\n      \"msgId\":\"search with from and to values\",\n      \"authToken\":\"{{access_token}}\",\n      \"tenantId\": \"{{tenantId}}\"\n   },\n   \"MdmsCriteria\":{  \n     \"tenantId\":\"{{tenantId}}\",\n      \"moduleDetails\":[  \n        {  \n           \"moduleName\":\"Works\",\n            \"masterDetails\":[  \n              {  \n                 \"name\":\"ScheduleCategory\"\n               },\n                {  \n                 \"name\":\"TypeOfWork\"\n               },\n               {\n               \"name\": \"Overhead\"\n               },\n               {\n                 \"name\": \"Remarks\"\n               },\n               {\n                 \"name\": \"ReferenceType\"\n               },\n               {\n                 \"name\": \"BudgetGroup\"\n               },\n               {\n                 \"name\": \"NatureOfWork\"\n               },\n               {\n                 \"name\": \"ModeOfAllotment\"\n               },\n               {\n                 \"name\": \"ContractorClass\"\n               },\n               {\n                 \"name\": \"WorksStatus\"\n               }\n            ]\n         },\n         {  \n           \"moduleName\":\"common-masters\",\n            \"masterDetails\":[  \n              {  \n                 \"name\":\"Department\"\n               },\n               {\n                  \"name\":\"Uom\"\n               }\n            ]\n         }\n      ]\n   }\n}"
+                },
+                "url": "{{url}}/egov-mdms-service/v1/_search",
+                "description": null
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
