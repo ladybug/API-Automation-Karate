@@ -1609,7 +1609,7 @@
                     }
                   ]
                 },
-                "description": null
+                "description": ""
               },
               "response": []
             },
@@ -1641,7 +1641,7 @@
                   "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"works-master\",\n        \"ver\": \"1.0\",\n        \"ts\": \"10032017\",\n        \"action\": \"update\",\n        \"did\": \"1\",\n        \"key\": \"abcdkey\",\n        \"msgId\": \"20170310130900\",\n        \"requesterId\": \"clerk\",\n        \"tenantId\": \"{{tenantId}}\",\n        \"authToken\": \"{{access_token}}\"\n    },\n       \"milestoneTemplates\": {{milestoneTemplates}}\n}"
                 },
                 "url": "{{url}}/works-masters/v1/milestonetemplates/_update",
-                "description": null
+                "description": ""
               },
               "response": []
             }
