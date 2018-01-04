@@ -170,7 +170,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "54eccc7e-7951-4dd3-aa4e-5e161e953d33",
+                "id": "17510e35-2335-472c-94d6-1c55978039cc",
                 "type": "text/javascript",
                 "exec": [
                   "var jsonData = JSON.parse(responseBody);",
@@ -181,6 +181,7 @@
                   "var referenceType = jsonData.MdmsRes.Works.ReferenceType;",
                   "var budgetGroup = jsonData.MdmsRes.Works.BudgetGroup;",
                   "var modeOfAllotment = jsonData.MdmsRes.Works.ModeOfAllotment;",
+                  "var natureOfWork = jsonData.MdmsRes.Works.NatureOfWork;",
                   "",
                   "var uomCode = uom[Math.floor(Math.random() * uom.length)];",
                   "var depCode = dep[Math.floor(Math.random() * dep.length)];",
@@ -189,6 +190,7 @@
                   "var referenceTypeCode = referenceType[Math.floor(Math.random() * referenceType.length)];",
                   "var budgetGroupCode = budgetGroup[Math.floor(Math.random() * budgetGroup.length)];",
                   "var modeOfAllotmentCode = modeOfAllotment[Math.floor(Math.random() * modeOfAllotment.length)];",
+                  "var natureOfWorkCode = natureOfWork[Math.floor(Math.random() * natureOfWork.length)];",
                   "",
                   "pm.environment.set(\"uom\", uomCode.code);",
                   "pm.environment.set(\"dep\", depCode.code);",
@@ -196,7 +198,8 @@
                   "pm.environment.set(\"scheduleCategory\", scheduleCategoryCode.code);",
                   "pm.environment.set(\"referenceType\", referenceTypeCode.code);",
                   "pm.environment.set(\"budgetGroup\", budgetGroupCode.name);",
-                  "pm.environment.set(\"modeOfAllotment\", modeOfAllotmentCode.code);"
+                  "pm.environment.set(\"modeOfAllotment\", modeOfAllotmentCode.code);",
+                  "pm.environment.set(\"natureOfWork\", natureOfWorkCode.name);"
                 ]
               }
             }
