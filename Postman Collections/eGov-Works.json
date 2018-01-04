@@ -170,7 +170,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "4b5e157c-3df9-4de2-aad7-94117a052fa5",
+                "id": "5c51f56f-b439-4bff-a541-81ef7b0ad00a",
                 "type": "text/javascript",
                 "exec": [
                   "var jsonData = JSON.parse(responseBody);",
@@ -179,18 +179,21 @@
                   "var typeOfWork = jsonData.MdmsRes.Works.TypeOfWork;",
                   "var scheduleCategory = jsonData.MdmsRes.Works.ScheduleCategory;",
                   "var referenceType = jsonData.MdmsRes.Works.ReferenceType;",
+                  "var budgetGroup = jsonData.MdmsRes.Works.BudgetGroup;",
                   "",
                   "var uomCode = uom[Math.floor(Math.random() * uom.length)];",
                   "var depCode = dep[Math.floor(Math.random() * dep.length)];",
                   "var typeOfWorkCode = typeOfWork[Math.floor(Math.random() * typeOfWork.length)];",
                   "var scheduleCategoryCode = scheduleCategory[Math.floor(Math.random() * scheduleCategory.length)];",
                   "var referenceTypeCode = referenceType[Math.floor(Math.random() * referenceType.length)];",
+                  "var budgetGroupCode = budgetGroup[Math.floor(Math.random() * budgetGroup.length)];",
                   "",
                   "pm.environment.set(\"uom\", uomCode.code);",
                   "pm.environment.set(\"dep\", depCode.code);",
                   "pm.environment.set(\"typeCode\", typeOfWorkCode.code);",
                   "pm.environment.set(\"scheduleCategory\", scheduleCategoryCode.code);",
-                  "pm.environment.set(\"referenceType\", referenceTypeCode.code);"
+                  "pm.environment.set(\"referenceType\", referenceTypeCode.code);",
+                  "pm.environment.set(\"budgetGroup\", budgetGroupCode.name);"
                 ]
               }
             }
