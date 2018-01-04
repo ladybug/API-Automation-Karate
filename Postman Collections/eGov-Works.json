@@ -170,7 +170,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "408a5ac6-808b-4772-a0dc-6469fc844743",
+                "id": "54eccc7e-7951-4dd3-aa4e-5e161e953d33",
                 "type": "text/javascript",
                 "exec": [
                   "var jsonData = JSON.parse(responseBody);",
@@ -195,7 +195,8 @@
                   "pm.environment.set(\"typeCode\", typeOfWorkCode.code);",
                   "pm.environment.set(\"scheduleCategory\", scheduleCategoryCode.code);",
                   "pm.environment.set(\"referenceType\", referenceTypeCode.code);",
-                  "pm.environment.set(\"budgetGroup\", budgetGroupCode.name);"
+                  "pm.environment.set(\"budgetGroup\", budgetGroupCode.name);",
+                  "pm.environment.set(\"modeOfAllotment\", modeOfAllotmentCode.code);"
                 ]
               }
             }
