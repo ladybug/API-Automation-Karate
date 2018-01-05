@@ -1932,6 +1932,53 @@
             "description": "User with role as Works Master Creator"
           },
           "response": []
+        },
+        {
+          "_postman_id": "e939a626-9068-21d7-7d60-f881b37bf5df",
+          "name": "Logout as Master Creator",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"org.egov.pgr\",\n    \"ver\": \"1.0\",\n    \"ts\": \"13-04-2017 12:13:30\",\n    \"action\": \"POST\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{url}}/user/_logout?access_token={{access_token}}",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "user",
+                "_logout"
+              ],
+              "query": [
+                {
+                  "key": "access_token",
+                  "value": "{{access_token}}",
+                  "equals": true
+                }
+              ]
+            },
+            "description": null
+          },
+          "response": []
         }
       ]
     },
