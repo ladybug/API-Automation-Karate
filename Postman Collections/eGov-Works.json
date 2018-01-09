@@ -486,7 +486,7 @@
         },
         {
           "_postman_id": "98f184a0-69c6-73fa-d943-b88049c335e1",
-          "name": "Login as SuperUser",
+          "name": "Login as WorksSuperUser",
           "event": [
             {
               "listen": "test",
