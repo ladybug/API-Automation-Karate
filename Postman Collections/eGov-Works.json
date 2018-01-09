@@ -13,7 +13,7 @@
       "item": [
         {
           "_postman_id": "098043d4-6053-dc84-55ab-12925653dd4d",
-          "name": "Login",
+          "name": "Login as HOD",
           "event": [
             {
               "listen": "test",
@@ -547,7 +547,7 @@
               ]
             },
             "url": "{{url}}/user/oauth/token",
-            "description": null
+            "description": ""
           },
           "response": []
         }
