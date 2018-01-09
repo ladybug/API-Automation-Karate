@@ -5554,7 +5554,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "88b4db79-f715-4368-b6fd-c66e8e8fc06c",
+                    "id": "fd1dacba-cd64-42cc-98bb-42ce375ebd6c",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -5576,9 +5576,14 @@
                       "var modeOfAllotmentCode = modeOfAllotment[Math.floor(Math.random() * modeOfAllotment.length)];",
                       "var natureOfWorkCode = natureOfWork[Math.floor(Math.random() * natureOfWork.length)];",
                       "",
+                      "if(typeOfWorkCode.parent === null){",
+                      "    pm.environment.set(\"typeWork\", typeOfWorkCode.code);",
+                      "}else if(typeOfWorkCode.parent === typeOfWorkCode.code){",
+                      "    pm.environment.set(\"subTypeWork\", typeOfWorkCode.code);",
+                      "}",
+                      "",
                       "pm.environment.set(\"uom\", uomCode.code);",
                       "pm.environment.set(\"dep\", depCode.code);",
-                      "pm.environment.set(\"typeWork\", typeOfWorkCode.code);",
                       "pm.environment.set(\"scheduleCategory\", scheduleCategoryCode.code);",
                       "pm.environment.set(\"referenceType\", referenceTypeCode.code);",
                       "pm.environment.set(\"budgetGroup\", budgetGroupCode.name);",
