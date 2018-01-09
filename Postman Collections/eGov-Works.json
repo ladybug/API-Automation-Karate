@@ -1995,7 +1995,7 @@
             },
             {
               "_postman_id": "a22d7054-208b-1ae2-0011-30f3dd709e06",
-              "name": "Update",
+              "name": "Update Remarks",
               "request": {
                 "method": "POST",
                 "header": [
