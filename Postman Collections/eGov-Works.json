@@ -5549,7 +5549,7 @@
             },
             {
               "_postman_id": "f2173e96-28a5-4a9a-fec3-48fb5b0ea383",
-              "name": "WorksMdmsData copy",
+              "name": "WorksMdmsData",
               "event": [
                 {
                   "listen": "test",
