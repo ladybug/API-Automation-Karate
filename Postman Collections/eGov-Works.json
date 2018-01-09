@@ -5647,7 +5647,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "7a3dc42e-af35-40fc-ae78-2e285d2ad77d",
+                    "id": "374ff266-cc28-4f1e-bb8d-f16ba8ed9afb",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -5660,7 +5660,7 @@
                       "pm.environment.set(\"AEdetails_id\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].id);",
                       "pm.environment.set(\"AE_workflow\", jsonData.abstractEstimates[0].abstractEstimateNumber);",
                       "pm.globals.set(\"AE_workflow\", jsonData.abstractEstimates[0].abstractEstimateNumber);",
-                      "pm.environment.set(\"status\", jsonData.abstractEstimates[0].status);",
+                      "pm.environment.set(\"status\", jsonData.abstractEstimates[0].status.code);",
                       "pm.environment.set(\"stateId\", jsonData.abstractEstimates[0].stateId);",
                       "",
                       "postman.setNextRequest(\"Search Estimate\");"
