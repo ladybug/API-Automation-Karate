@@ -5554,7 +5554,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "fd1dacba-cd64-42cc-98bb-42ce375ebd6c",
+                    "id": "5036afe2-389f-46a3-8fb2-a59923ad7566",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -5577,9 +5577,15 @@
                       "var natureOfWorkCode = natureOfWork[Math.floor(Math.random() * natureOfWork.length)];",
                       "",
                       "if(typeOfWorkCode.parent === null){",
-                      "    pm.environment.set(\"typeWork\", typeOfWorkCode.code);",
-                      "}else if(typeOfWorkCode.parent === typeOfWorkCode.code){",
-                      "    pm.environment.set(\"subTypeWork\", typeOfWorkCode.code);",
+                      "    var tW = pm.environment.set(\"typeOfWork\", typeOfWorkCode.code);",
+                      "}",
+                      "console.log(tW);",
+                      "for (var i=0; i<typeOfWork.length; i++){",
+                      "    // console.log(typeOfWork[i].parent);",
+                      "    if(typeOfWork[i].parent !== null && typeOfWork[i].parent === tW){",
+                      "    pm.environment.set(\"subTypeWork\", typeOfWork.code);",
+                      "    break;",
+                      "    }",
                       "}",
                       "",
                       "pm.environment.set(\"uom\", uomCode.code);",
