@@ -5554,7 +5554,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "5036afe2-389f-46a3-8fb2-a59923ad7566",
+                    "id": "5a3c2ee9-e306-409f-aec3-b4629b1c9b3f",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -5583,7 +5583,7 @@
                       "for (var i=0; i<typeOfWork.length; i++){",
                       "    // console.log(typeOfWork[i].parent);",
                       "    if(typeOfWork[i].parent !== null && typeOfWork[i].parent === tW){",
-                      "    pm.environment.set(\"subTypeWork\", typeOfWork.code);",
+                      "    pm.environment.set(\"subTypeOfWork\", typeOfWork.code);",
                       "    break;",
                       "    }",
                       "}",
