@@ -78,7 +78,7 @@
         },
         {
           "_postman_id": "3c047c91-6d5b-5aad-7424-4f15474b2ea7",
-          "name": "Logout",
+          "name": "Logout as WorksSuperUser",
           "event": [
             {
               "listen": "test",
