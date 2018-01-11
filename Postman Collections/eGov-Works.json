@@ -7842,7 +7842,7 @@
                   "raw": "{\n  \"requestInfo\": {\n    \"action\": \"search\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"works master creator\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"userInfo\": {\n      \"userName\": \"clerk\"\n    \t}\n\t}\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-workorder/v1/notices/_search?tenantId={{tenantId}}",
+                  "raw": "{{url}}/works-workorder/v1/notices/_search?tenantId={{tenantId}}&ids=6832137950d24abb87411541cd314b71",
                   "host": [
                     "{{url}}"
                   ],
@@ -7856,6 +7856,11 @@
                     {
                       "key": "tenantId",
                       "value": "{{tenantId}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "ids",
+                      "value": "6832137950d24abb87411541cd314b71",
                       "equals": true
                     }
                   ]
