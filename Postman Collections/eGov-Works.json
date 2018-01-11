@@ -7559,7 +7559,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "965219b2-7b3b-433b-b9d4-0ead254b9449",
+                    "id": "c5b0d604-217d-4471-a12a-e9e50a810d99",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -7576,6 +7576,8 @@
                       "pm.environment.set(\"milestoneActivitiesId1\", jsonData.milestones[0].milestoneActivities[0].id);",
                       "pm.environment.set(\"milestoneActivitiesId2\", jsonData.milestones[0].milestoneActivities[1].id);",
                       "pm.environment.set(\"milestoneActivitiesId3\", jsonData.milestones[0].milestoneActivities[2].id);",
+                      "pm.environment.set(\"milestoneActivitiesId4\", jsonData.milestones[0].milestoneActivities[3].id);",
+                      "",
                       "",
                       "pm.test(\"tenant ID matches\", function (){",
                       "   pm.expect(pm.environment.get(\"tenantId\")).to.include(jsonData.milestones[0].tenantId); ",
