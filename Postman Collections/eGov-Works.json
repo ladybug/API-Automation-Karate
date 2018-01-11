@@ -7531,6 +7531,34 @@
             {
               "_postman_id": "860248be-ad1a-af14-b73d-c2955bd3ad78",
               "name": "Search Milestone",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "a3ee6922-7f5e-43ad-9945-199b02516571",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(ressponseBody);",
+                      "",
+                      "pm.test(\"Milestone ID matches\", function () {",
+                      "pm.expect(pm.environment.get(\"milestoneId\")).to.include(jsonData.milestones[0].id);",
+                      "});",
+                      "",
+                      "pm.test(\"tenant ID matches\", function (){",
+                      "   pm.expect(pm.environment.get(\"tenantId\")).to.include(jsonData.milestones[0].tenantId); ",
+                      "});",
+                      "",
+                      "pm.test(\"Milestone status matches as Approved\", function (){",
+                      "   pm.expect(pm.environment.get(\"milestoneStatus\")).to.include(jsonData.milestones[0].status.code); ",
+                      "});",
+                      "",
+                      "pm.test(\"Milestone activities ID matches\", function (){",
+                      "   pm.expect(pm.environment.get(\"milestoneActivitiyId\")).to.include(jsonData.milestones[0].milestoneActivities[0].id); ",
+                      "});"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
