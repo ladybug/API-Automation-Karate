@@ -1934,13 +1934,17 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "38ea380d-da3c-4a14-a63a-c27fffb9ce63",
+                    "id": "5294b144-fc32-46fc-b22b-63cf2031f0f3",
                     "type": "text/javascript",
                     "exec": [
-                      "var remarksType = [\"Approval\", \"Show Cause\", \"Rejection\"];",
-                      "var typeOfDocument = [\"Work Order\", \"Notice\"];",
+                      "var RemarksType = [\"Approval\", \"Show Cause\", \"Rejection\"];",
+                      "var TypeOfDocument = [\"Work Order\", \"Notice\"];",
                       "",
-                      "RemarksType[Math.floor(remarksType.length)]"
+                      "var remarksType = RemarksType[Math.floor(RemarksType.length)];",
+                      "var typeOfDocument = TypeOfDocument[Math.floor(TypeOfDocument.length)];",
+                      "",
+                      "pm.environment.set(\"remarksType\", remarksType);",
+                      "pm.environment.set(\"typeOfDocument\", typeOfDocument);"
                     ]
                   }
                 }
