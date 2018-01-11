@@ -7483,6 +7483,44 @@
               "response": []
             },
             {
+              "_postman_id": "860248be-ad1a-af14-b73d-c2955bd3ad78",
+              "name": "Search Milestone",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requestInfo\": {\n    \"resMsgId\": \"placeholder\",\n    \"msgId\": \"123\",\n    \"status\": \"200\",\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.1\",\n    \"ts\": \"123456789456\",\n    \"key\": null,\n    \"action\":\"search\",\n    \"authToken\":\"{{access_token}}\",\n    \"userInfo\":{\n     \"tenantId\" : \"default\",\n     \"userName\" : \"clerk\"\n   }\n    }\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/works-workorder/v1/milestones/_search?tenantId=default",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-workorder",
+                    "v1",
+                    "milestones",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "default",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": "search milestone created for the work order"
+              },
+              "response": []
+            },
+            {
               "_postman_id": "e6d7ce0a-9d4b-822b-ef11-6bacd0569f51",
               "name": "Create sMB",
               "event": [
@@ -7686,44 +7724,6 @@
                   ]
                 },
                 "description": "Search Notice Generated for the LOA"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "860248be-ad1a-af14-b73d-c2955bd3ad78",
-              "name": "Search Milestone",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"resMsgId\": \"placeholder\",\n    \"msgId\": \"123\",\n    \"status\": \"200\",\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.1\",\n    \"ts\": \"123456789456\",\n    \"key\": null,\n    \"action\":\"search\",\n    \"authToken\":\"{{access_token}}\",\n    \"userInfo\":{\n     \"tenantId\" : \"default\",\n     \"userName\" : \"clerk\"\n   }\n    }\n}"
-                },
-                "url": {
-                  "raw": "{{url}}/works-workorder/v1/milestones/_search?tenantId=default",
-                  "host": [
-                    "{{url}}"
-                  ],
-                  "path": [
-                    "works-workorder",
-                    "v1",
-                    "milestones",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "default",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": "search milestone created for the work order"
               },
               "response": []
             },
