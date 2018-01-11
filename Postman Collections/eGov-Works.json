@@ -6848,18 +6848,18 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "f463dbec-2c83-47bf-8ab9-eea6f4ee0ec6",
+                    "id": "25ac6a1f-4414-4bf5-9016-40dc821e7cc7",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "var uom = jsonData.MdmsRes[\"common-masters\"].Uom;",
                       "var dep = jsonData.MdmsRes[\"common-masters\"].Department;",
-                      "var typeOfWork = jsonData.MdmsRes.Works.TypeOfWork;",
-                      "var scheduleCategory = jsonData.MdmsRes.Works.ScheduleCategory;",
-                      "var referenceType = jsonData.MdmsRes.Works.ReferenceType;",
-                      "var budgetGroup = jsonData.MdmsRes.Works.BudgetGroup;",
-                      "var modeOfAllotment = jsonData.MdmsRes.Works.ModeOfAllotment;",
-                      "var natureOfWork = jsonData.MdmsRes.Works.NatureOfWork;",
+                      "var typeOfWork = jsonData.MdmsRes.works.TypeOfWork;",
+                      "var scheduleCategory = jsonData.MdmsRes.works.ScheduleCategory;",
+                      "var referenceType = jsonData.MdmsRes.works.ReferenceType;",
+                      "var budgetGroup = jsonData.MdmsRes.works.BudgetGroup;",
+                      "var modeOfAllotment = jsonData.MdmsRes.works.ModeOfAllotment;",
+                      "var natureOfWork = jsonData.MdmsRes.works.NatureOfWork;",
                       "",
                       "var uomCode = uom[Math.floor(Math.random() * uom.length)];",
                       "var depCode = dep[Math.floor(Math.random() * dep.length)];",
@@ -6894,7 +6894,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{  \n  \"RequestInfo\":{  \n     \"apiId\":\"works-services\",\n      \"ver\":null,\n      \"ts\":null,\n      \"action\":null,\n      \"did\":null,\n      \"key\":null,\n      \"msgId\":\"search with from and to values\",\n      \"authToken\":\"{{access_token}}\",\n      \"tenantId\": \"{{tenantId}}\"\n   },\n   \"MdmsCriteria\":{  \n     \"tenantId\":\"{{tenantId}}\",\n      \"moduleDetails\":[  \n        {  \n           \"moduleName\":\"Works\",\n            \"masterDetails\":[  \n              {  \n                 \"name\":\"ScheduleCategory\"\n               },\n                {  \n                 \"name\":\"TypeOfWork\"\n               },\n               {\n               \"name\": \"Overhead\"\n               },\n               {\n                 \"name\": \"Remarks\"\n               },\n               {\n                 \"name\": \"ReferenceType\"\n               },\n               {\n                 \"name\": \"BudgetGroup\"\n               },\n               {\n                 \"name\": \"NatureOfWork\"\n               },\n               {\n                 \"name\": \"ModeOfAllotment\"\n               },\n               {\n                 \"name\": \"ContractorClass\"\n               },\n               {\n                 \"name\": \"WorksStatus\"\n               }\n            ]\n         },\n         {  \n           \"moduleName\":\"common-masters\",\n            \"masterDetails\":[  \n              {  \n                 \"name\":\"Department\"\n               },\n               {\n                  \"name\":\"Uom\"\n               }\n            ]\n         }\n      ]\n   }\n}"
+                  "raw": "{  \n  \"RequestInfo\":{  \n     \"apiId\":\"works-services\",\n      \"ver\":null,\n      \"ts\":null,\n      \"action\":null,\n      \"did\":null,\n      \"key\":null,\n      \"msgId\":\"search with from and to values\",\n      \"authToken\":\"{{access_token}}\",\n      \"tenantId\": \"{{tenantId}}\"\n   },\n   \"MdmsCriteria\":{  \n     \"tenantId\":\"{{tenantId}}\",\n      \"moduleDetails\":[  \n        {  \n           \"moduleName\":\"works\",\n            \"masterDetails\":[  \n              {  \n                 \"name\":\"ScheduleCategory\"\n               },\n                {  \n                 \"name\":\"TypeOfWork\"\n               },\n               {\n               \"name\": \"Overhead\"\n               },\n               {\n                 \"name\": \"Remarks\"\n               },\n               {\n                 \"name\": \"ReferenceType\"\n               },\n               {\n                 \"name\": \"BudgetGroup\"\n               },\n               {\n                 \"name\": \"NatureOfWork\"\n               },\n               {\n                 \"name\": \"ModeOfAllotment\"\n               },\n               {\n                 \"name\": \"ContractorClass\"\n               },\n               {\n                 \"name\": \"WorksStatus\"\n               }\n            ]\n         },\n         {  \n           \"moduleName\":\"common-masters\",\n            \"masterDetails\":[  \n              {  \n                 \"name\":\"Department\"\n               },\n               {\n                  \"name\":\"Uom\"\n               }\n            ]\n         }\n      ]\n   }\n}"
                 },
                 "url": "{{url}}/egov-mdms-service/v1/_search",
                 "description": ""
