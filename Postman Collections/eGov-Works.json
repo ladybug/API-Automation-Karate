@@ -1934,7 +1934,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "73b57c3c-bfca-4cdd-9e92-844711e4ab62",
+                    "id": "5bd03f0f-1ab5-4bec-a14f-86a84cf0012a",
                     "type": "text/javascript",
                     "exec": [
                       "var RemarksType = [\"Approval\", \"Show Cause\", \"Rejection\"];",
@@ -1942,9 +1942,14 @@
                       "",
                       "var remarksType = RemarksType[Math.floor(Math.random() * RemarksType.length)];",
                       "var typeOfDocument = TypeOfDocument[Math.floor(Math.random() * TypeOfDocument.length)];",
+                      "pm.environment.set(\"typeOfDocument\", typeOfDocument);",
                       "",
-                      "pm.environment.set(\"remarksType\", remarksType);",
-                      "pm.environment.set(\"typeOfDocument\", typeOfDocument);"
+                      "if( typeOfDocument == \"Work Order\"){",
+                      "    pm.environment.set(\"remarksType\", \"Approval\");",
+                      "}else if(typeOfDocument == \"Notice\"){",
+                      "    pm.environment.set(\"remarksType\", \"Show Cause\");",
+                      "}else",
+                      "    pm.environment.set(\"remarksType\", \"Rejection\");"
                     ]
                   }
                 }
