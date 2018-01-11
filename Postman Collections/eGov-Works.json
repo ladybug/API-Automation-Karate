@@ -7511,6 +7511,22 @@
             {
               "_postman_id": "061224ac-f81f-8676-8717-e53956a2e667",
               "name": "Create Milestone",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "3a1ddf5a-29f1-4901-8949-5c159035c2be",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "pm.environment.set(\"milestoneId\", jsonData);",
+                      "pm.environment.set(\"milestoneStatus\", jsonData);",
+                      "pm.environment.set(\"milestoneActivitiyId\", jsonData);"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
