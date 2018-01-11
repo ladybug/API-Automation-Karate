@@ -2018,6 +2018,30 @@
             {
               "_postman_id": "a22d7054-208b-1ae2-0011-30f3dd709e06",
               "name": "Update Remarks",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "ab6c241d-d2a9-438a-b78a-d2cf06d3a0f1",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var RemarksType = [\"Approval\", \"Show Cause\", \"Rejection\"];",
+                      "var TypeOfDocument = [\"Work Order\", \"Notice\"];",
+                      "",
+                      "var remarksType = RemarksType[Math.floor(Math.random() * RemarksType.length)];",
+                      "var typeOfDocument = TypeOfDocument[Math.floor(Math.random() * TypeOfDocument.length)];",
+                      "pm.environment.set(\"typeOfDocument\", typeOfDocument);",
+                      "",
+                      "if( typeOfDocument == \"Work Order\"){",
+                      "    pm.environment.set(\"remarksType\", \"Approval\");",
+                      "}else if(typeOfDocument == \"Notice\"){",
+                      "    pm.environment.set(\"remarksType\", \"Show Cause\");",
+                      "}else",
+                      "    pm.environment.set(\"remarksType\", \"Rejection\");"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
@@ -2028,7 +2052,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"HOD\",\n    \"apiId\": \"works-master\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"userInfo\": {\n      \"userName\": \"HOD\",\n      \"tenantId\": \"{{tenantId}}\"\n    }\n  },\n    \"remarks\": [\n        {\n            \"id\": \"99cde750bdee4255a80852862eb35c25\",\n            \"tenantId\": \"default\",\n            \"typeOfDocument\": \"Work Order\",\n            \"remarksType\": \"Approval\",\n            \"remarksDetails\": [\n                {\n                    \"id\": \"9271222376594be2974e85e92441d9e1\",\n                    \"tenantId\": \"default\",\n                    \"remarks\": \"99cde750bdee4255a80852862eb35c25\",\n                    \"remarksDescription\": \"Remarks Description for Approved Work order\",\n                    \"editable\": true,\n                    \"deleted\": false,\n                    \"auditDetails\": null\n                }\n            ],\n            \"deleted\": false,\n            \"auditDetails\": null\n        }\n    ]\n}"
+                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"HOD\",\n    \"apiId\": \"works-master\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"userInfo\": {\n      \"userName\": \"HOD\",\n      \"tenantId\": \"{{tenantId}}\"\n    }\n  },\n    \"remarks\": [\n        {\n            \"id\": \"8272cc1f131c49d9862a82829acf7e27\",\n            \"tenantId\": \"default\",\n            \"typeOfDocument\": {\n                \"tenantId\": \"{{tenantId}}\",\n                \"name\": \"{{typeOfDocument}}\"\n            },\n            \"remarksType\": {\n                \"tenantId\": \"{{tenantId}}\",\n                \"name\": \"{{remarksType}}\"\n            },\n            \"remarksDetails\": [\n                {\n                    \"id\": \"7340f4cc435d4c4cbf1028175c18dd1d\",\n                    \"tenantId\": \"default\",\n                    \"remarks\": \"8272cc1f131c49d9862a82829acf7e27\",\n                    \"remarksDescription\": \"Remarks Description for Approved Work order\",\n                    \"editable\": true,\n                    \"deleted\": false,\n                    \"auditDetails\": null\n                }\n            ],\n            \"deleted\": false,\n            \"auditDetails\": null\n        }\n    ]\n}"
                 },
                 "url": "{{url}}/works-masters/v1/remarks/_update",
                 "description": null
