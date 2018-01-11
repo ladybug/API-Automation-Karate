@@ -7523,14 +7523,14 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "3a1ddf5a-29f1-4901-8949-5c159035c2be",
+                    "id": "aa280e28-72ba-440a-8fab-eedc50fcd8c3",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "",
-                      "pm.environment.set(\"milestoneId\", jsonData);",
-                      "pm.environment.set(\"milestoneStatus\", jsonData);",
-                      "pm.environment.set(\"milestoneActivitiyId\", jsonData);"
+                      "pm.environment.set(\"milestoneId\", jsonData.milestones[0].id);",
+                      "pm.environment.set(\"milestoneStatus\", jsonData.milestones[0].status.code);",
+                      "pm.environment.set(\"milestoneActivitiyId\", jsonData.milestones[0].milestoneActivities[0].id);"
                     ]
                   }
                 }
