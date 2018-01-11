@@ -1912,7 +1912,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "d72e1e0e-1411-4939-a22e-419537c7da41",
+                    "id": "182aa6e2-9351-449e-98b2-3d276f3dffa4",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -1924,7 +1924,7 @@
                       "for (var i=0; i<remarks.length; i++){",
                       "    if(remarks.length == i+1){",
                       "        remarksIds += remarks[i].id;",
-                      "        remarksDetails += jsonData.remarks[i].remarksDetails;",
+                      "        remarksDetailsIds += jsonData.remarks[i].remarksDetails[i];",
                       "    }",
                       "    else{",
                       "        remarksIds += remarks[i].id  + \",\" ;",
