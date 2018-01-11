@@ -7535,17 +7535,17 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "a3ee6922-7f5e-43ad-9945-199b02516571",
+                    "id": "f346e8d9-625e-4d76-b968-287e459f3cd0",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(ressponseBody);",
                       "",
-                      "pm.test(\"Milestone ID matches\", function () {",
-                      "pm.expect(pm.environment.get(\"milestoneId\")).to.include(jsonData.milestones[0].id);",
-                      "});",
-                      "",
                       "pm.test(\"tenant ID matches\", function (){",
                       "   pm.expect(pm.environment.get(\"tenantId\")).to.include(jsonData.milestones[0].tenantId); ",
+                      "});",
+                      "",
+                      "pm.test(\"Milestone ID matches\", function () {",
+                      "pm.expect(pm.environment.get(\"milestoneId\")).to.include(jsonData.milestones[0].id);",
                       "});",
                       "",
                       "pm.test(\"Milestone status matches as Approved\", function (){",
