@@ -1934,19 +1934,17 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "9c4e0bde-6845-4cdc-9a57-a364a7ef8f8c",
+                    "id": "73b57c3c-bfca-4cdd-9e92-844711e4ab62",
                     "type": "text/javascript",
                     "exec": [
                       "var RemarksType = [\"Approval\", \"Show Cause\", \"Rejection\"];",
                       "var TypeOfDocument = [\"Work Order\", \"Notice\"];",
                       "",
-                      "var remarksType = RemarksType[Math.floor(RemarksType.length)];",
+                      "var remarksType = RemarksType[Math.floor(Math.random() * RemarksType.length)];",
                       "var typeOfDocument = TypeOfDocument[Math.floor(Math.random() * TypeOfDocument.length)];",
                       "",
-                      "console.log(RemarksType.length);",
-                      "",
-                      "// pm.environment.set(\"remarksType\", remarksType);",
-                      "// pm.environment.set(\"typeOfDocument\", typeOfDocument);"
+                      "pm.environment.set(\"remarksType\", remarksType);",
+                      "pm.environment.set(\"typeOfDocument\", typeOfDocument);"
                     ]
                   }
                 }
