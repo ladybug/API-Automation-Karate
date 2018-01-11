@@ -1912,22 +1912,30 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "f7e32455-e67e-4924-8ec8-d7f1a0e17e21",
+                    "id": "d72e1e0e-1411-4939-a22e-419537c7da41",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "var remarks = jsonData.remarks;",
                       "var remarksIds = \"\";",
+                      "var remarksDetails;",
+                      "var remarksDetailsIds = \"\";",
                       "",
                       "for (var i=0; i<remarks.length; i++){",
-                      "    console.log(remarks.length);",
-                      "    if(remarks.length == i+1)",
+                      "    if(remarks.length == i+1){",
                       "        remarksIds += remarks[i].id;",
-                      "    else",
+                      "        remarksDetails += jsonData.remarks[i].remarksDetails;",
+                      "    }",
+                      "    else{",
                       "        remarksIds += remarks[i].id  + \",\" ;",
+                      "        remarksDetailsIds += jsonData.remarks[i].remarksDetails[i].id + \",\";",
+                      "    }",
                       "    pm.environment.set(\"remarksIds\", remarksIds);",
+                      "    pm.environment.set(\"remarksDetailsIds\", remarksDetailsIds);",
                       "}",
-                      "    "
+                      "",
+                      "pm.environment.set(\"typeOfDocument\", jsonData.remarks[0].typeOfDocument.name);",
+                      "pm.environment.set(\"remarksType\", jsonData.remarks[0].remarksType.name);"
                     ]
                   }
                 },
