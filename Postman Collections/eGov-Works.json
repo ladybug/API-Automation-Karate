@@ -1438,11 +1438,12 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "a39f7aa5-5722-4d34-8525-398c8ca05b09",
+                    "id": "565627af-1e20-4b6f-8cc5-7b32018ac3db",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.round((Math.random() * 100));",
-                      "pm.environment.set(\"contractorCode\", \"{{tenantId}}\"+\"/Grade-\"+num1);",
+                      "var ulbCode = pm.environment.get(\"tenantId\");",
+                      "pm.environment.set(\"contractorCode\", ulbCode+\"-Grade-\"+num1);",
                       "pm.environment.set(\"contractorName\", \"Contractor\"+\"One\");",
                       "pm.environment.set(\"contractorEmail\", \"pro\"+num1+\"@mULB.com\");",
                       "var efList = [\"INCOME_TAX\", \"EARNEST_MONEY_DEPOSIT\", \"VAT\"];",
