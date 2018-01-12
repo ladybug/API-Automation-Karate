@@ -7638,26 +7638,6 @@
               "response": []
             },
             {
-              "_postman_id": "b6e1faf0-d190-9f64-d056-3a0c74de6715",
-              "name": "Update Milestone",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"emp\",\n        \"ver\": \"1.0\",\n        \"ts\": \"10032017\",\n        \"action\": \"create\",\n        \"did\": \"1\",\n        \"key\": \"abcdkey\",\n        \"msgId\": \"20170310130900\",\n        \"requesterId\": \"rajesh\",\n        \"authToken\": \"{{access_token}}\",\n        \"userInfo\":{\n          \"tenantId\":\"default\",\n          \"userName\":\"ramki\"\n        }\n    },\n    \"milestones\": [\n        {\n            \"id\": \"ce5a1562e0af4529931593cbf5f14bae\",\n            \"tenantId\": \"default\",\n            \"letterOfAcceptanceEstimate\": {\n                \"id\": \"7a823ccd452c4f7fb3195bf5727df830\",\n                \"tenantId\": null,\n                \"letterOfAcceptance\": null,\n                \"detailedEstimate\": null,\n                \"workCompletionDate\": null,\n                \"estimateLOAAmount\": null,\n                \"assetForLOAs\": null,\n                \"loaActivities\": null,\n                \"auditDetails\": null,\n                \"deleted\": false\n            },\n            \"status\": {\n                \"tenantId\": null,\n                \"code\": \"APPROVED\",\n                \"description\": null,\n                \"moduleType\": null,\n                \"orderNumber\": null\n            },\n            \"milestoneActivities\": [\n                {\n                    \"id\": \"32bc602878ac4d9bbc575d50822e0928\",\n                    \"tenantId\": \"default\",\n                    \"milestone\": \"ce5a1562e0af4529931593cbf5f14bae\",\n                    \"scheduleStartDate\": 1483261200000,\n                    \"scheduleEndDate\": 1485939600000,\n                    \"percentage\": 10,\n                    \"description\": \"Evacuation\",\n                    \"stageOrderNumber\": \"1\",\n                    \"deleted\": false,\n                    \"auditDetails\": null\n                },\n                {\n                    \"id\": \"679bd599cbe445349edccbd6cb89dc74\",\n                    \"tenantId\": \"default\",\n                    \"milestone\": \"ce5a1562e0af4529931593cbf5f14bae\",\n                    \"scheduleStartDate\": 1485939600000,\n                    \"scheduleEndDate\": 1488358800000,\n                    \"percentage\": 30,\n                    \"description\": \"Road Widening\",\n                    \"stageOrderNumber\": \"2\",\n                    \"deleted\": false,\n                    \"auditDetails\": null\n                },\n                {\n                    \"id\": \"e647c2e079f04579896565bf6a677dd8\",\n                    \"tenantId\": \"default\",\n                    \"milestone\": \"ce5a1562e0af4529931593cbf5f14bae\",\n                    \"scheduleStartDate\": 1488358800000,\n                    \"scheduleEndDate\": 1512205200000,\n                    \"percentage\": 60,\n                    \"description\": \"Bridge Construction\",\n                    \"stageOrderNumber\": \"3\",\n                    \"deleted\": false,\n                    \"auditDetails\": null\n                }\n            ],\n            \"trackMilestones\": null,\n            \"cancellationReason\": null,\n            \"cancellationRemarks\": null,\n            \"deleted\": false,\n            \"auditDetails\": null\n        }\n    ]\n}"
-                },
-                "url": "{{url}}/works-workorder/v1/milestones/_update",
-                "description": "Update/Modify the milestone created for the work order"
-              },
-              "response": []
-            },
-            {
               "_postman_id": "e6d7ce0a-9d4b-822b-ef11-6bacd0569f51",
               "name": "Create sMB",
               "event": [
