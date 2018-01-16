@@ -695,7 +695,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "8000b670-97aa-4b39-aa26-33f6f9ed4c8e",
+                    "id": "90db05ca-95b2-4797-b8d8-6148e2d02d15",
                     "type": "text/javascript",
                     "exec": [
                       "var sorResponse = JSON.parse(responseBody);",
@@ -709,8 +709,8 @@
                       "pm.expect(pm.environment.get(\"SOR_id\")).to.include(sorResponse.scheduleOfRates[0].id);",
                       "});",
                       "",
-                      "console.log(sorCreate);",
-                      ""
+                      "pm.globals.set(\"sorCode\", sorResponse.scheduleOfRates[0].code);",
+                      "pm.globals.set(\"sorId\", sorResponse.scheduleOfRates[0].id);"
                     ]
                   }
                 }
