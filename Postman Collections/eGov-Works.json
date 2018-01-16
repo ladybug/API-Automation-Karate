@@ -7870,6 +7870,25 @@
             {
               "_postman_id": "766c68c0-aa93-7579-758b-63bc7cc9ee26",
               "name": "Search Project Code",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "235773a8-0766-4aef-bdda-975f66ec0829",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "var projectCode = pm.variables.get(\"sProjectCode\");",
+                      "",
+                      "pm.test(\"Project code matches\", function () {",
+                      "    if(jsonData.projectCodes[0].code === projectCode){",
+                      "     pm.expect(jsonData.projectCodes[0].code).to.eql(projectCode);",
+                      "    }",
+                      "});"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
