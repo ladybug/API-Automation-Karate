@@ -7874,16 +7874,20 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "235773a8-0766-4aef-bdda-975f66ec0829",
+                    "id": "f29a79d9-3f0f-4120-b0a1-99a8df3a10c3",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "var projectCode = pm.variables.get(\"sProjectCode\");",
                       "",
                       "pm.test(\"Project code matches\", function () {",
-                      "    if(jsonData.projectCodes[0].code === projectCode){",
+                      "    if(jsonData.projectCodes !== null){",
                       "     pm.expect(jsonData.projectCodes[0].code).to.eql(projectCode);",
-                      "    }",
+                      "    } else{",
+                      "   pm.test(\"Status code is 400\", function () {",
+                      "    pm.response.to.have.status(400);",
+                      "    });",
+                      "}",
                       "});"
                     ]
                   }
