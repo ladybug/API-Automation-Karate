@@ -1495,6 +1495,20 @@
             {
               "_postman_id": "4ab99ce0-8665-6b3e-c13f-b1d2e628ade6",
               "name": "Search Contractor_byID",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "f21820f0-be30-402d-87fc-677aec74e9b2",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "pm.environment.set(\"contractorCode\", jsonData.contractors[0].code);"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
