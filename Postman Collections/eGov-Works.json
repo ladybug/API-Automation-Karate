@@ -7975,6 +7975,94 @@
                 "description": "Search Notice Generated for the LOA"
               },
               "response": []
+            },
+            {
+              "_postman_id": "1224595f-a523-c51b-5981-c8fc419ee25b",
+              "name": "Login",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "21718a84-7175-4b1c-8b7d-375e9ba24963",
+                    "type": "text/javascript",
+                    "exec": [
+                      "if(environment.url.has(\"http://egov-micro-dev.egovernments.org\")){",
+                      "    postman.setEnvironmentVariable(\"username\",\"clerk\");",
+                      "    postman.setEnvironmentVariable(\"password\",\"12345678\");",
+                      "}",
+                      "",
+                      "if(environment.url.has(\"http://egov-micro-qa.egovernments.org\") && environment.tenantId.has(\"default\")){",
+                      "    postman.setEnvironmentVariable(\"username\",\"10001\");",
+                      "    postman.setEnvironmentVariable(\"password\",\"12345678\");",
+                      "}"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "03cd2595-b7f9-4db6-975b-4de9957acc02",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "postman.setEnvironmentVariable(\"access_token\", jsonData.access_token);",
+                      "",
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "",
+                      "tests[\"Username is valid\"] = jsonData.UserRequest.userName.has(request.data[\"username\"]);",
+                      "",
+                      "postman.setNextRequest(\"UsageMaster Create\");"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Basic ZWdvdi11c2VyLWNsaWVudDplZ292LXVzZXItc2VjcmV0"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "username",
+                      "value": "{{username}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{password}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "password",
+                      "type": "text"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "read",
+                      "type": "text"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "{{url}}/user/oauth/token",
+                "description": null
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
