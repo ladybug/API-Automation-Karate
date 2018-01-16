@@ -6855,7 +6855,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "03cd2595-b7f9-4db6-975b-4de9957acc02",
+                    "id": "5eecd5de-3d52-4b1e-8629-aca020b3a571",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -6866,7 +6866,7 @@
                       "",
                       "tests[\"Username is valid\"] = jsonData.UserRequest.userName.has(request.data[\"username\"]);",
                       "",
-                      "postman.setNextRequest(\"UsageMaster Create\");"
+                      "postman.setNextRequest(\"WorksMdmsData\");"
                     ]
                   }
                 }
