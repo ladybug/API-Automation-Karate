@@ -7874,19 +7874,19 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "b88599bf-9960-4497-9287-dc1359df323b",
+                    "id": "305e32cc-4c8c-4629-bc24-828ffbec756d",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "var projectCode = pm.variables.get(\"sProjectCode\");",
                       "",
                       "if(jsonData.projectCodes.length !== 0){",
-                      "pm.test(\"Project code macthes\", function () {",
+                      "pm.test(\"Project code matches\", function () {",
                       "     pm.expect(jsonData.projectCodes[0].code).to.eql(projectCode);",
                       "});",
                       "}else{",
                       "    pm.test(\"Project code search failed, but status is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
+                      "    pm.response.to.have.status(400);",
                       "});",
                       "}"
                     ]
