@@ -7874,21 +7874,21 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "f29a79d9-3f0f-4120-b0a1-99a8df3a10c3",
+                    "id": "b88599bf-9960-4497-9287-dc1359df323b",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "var projectCode = pm.variables.get(\"sProjectCode\");",
                       "",
-                      "pm.test(\"Project code matches\", function () {",
-                      "    if(jsonData.projectCodes !== null){",
+                      "if(jsonData.projectCodes.length !== 0){",
+                      "pm.test(\"Project code macthes\", function () {",
                       "     pm.expect(jsonData.projectCodes[0].code).to.eql(projectCode);",
-                      "    } else{",
-                      "   pm.test(\"Status code is 400\", function () {",
-                      "    pm.response.to.have.status(400);",
-                      "    });",
-                      "}",
-                      "});"
+                      "});",
+                      "}else{",
+                      "    pm.test(\"Project code search failed, but status is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "}"
                     ]
                   }
                 }
