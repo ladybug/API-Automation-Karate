@@ -1499,12 +1499,12 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "f21820f0-be30-402d-87fc-677aec74e9b2",
+                    "id": "a6040620-2d84-489e-b86c-f0b24c75c451",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "",
-                      "pm.environment.set(\"contractorCode\", jsonData.contractors[0].code);"
+                      "pm.globals.set(\"contractorCode\", jsonData.contractors[0].code);"
                     ]
                   }
                 }
