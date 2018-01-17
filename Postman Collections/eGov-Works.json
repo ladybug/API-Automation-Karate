@@ -7502,7 +7502,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "21718a84-7175-4b1c-8b7d-375e9ba24963",
+                    "id": "1b9b754a-0bb9-4bc1-b15e-81e0c51e660a",
                     "type": "text/javascript",
                     "exec": [
                       "if(environment.url.has(\"http://egov-micro-dev.egovernments.org\")){",
@@ -7511,7 +7511,7 @@
                       "}",
                       "",
                       "if(environment.url.has(\"http://egov-micro-qa.egovernments.org\") && environment.tenantId.has(\"default\")){",
-                      "    postman.setEnvironmentVariable(\"username\",\"10001\");",
+                      "    postman.setEnvironmentVariable(\"username\",\"W001\");",
                       "    postman.setEnvironmentVariable(\"password\",\"12345678\");",
                       "}"
                     ]
