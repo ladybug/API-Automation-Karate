@@ -6808,13 +6808,13 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "66e73e74-d525-425c-993c-462b6b9b4d8f",
+                    "id": "06dbfd32-1638-439c-9078-1eb25aa4482b",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "",
                       "pm.globals.set(\"projectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
-                      "pm.environment.set(\"status\", jsonData.abstractEstimates[0].status);",
+                      "pm.environment.set(\"status\", jsonData.abstractEstimates[0].status.code);",
                       "postman.setNextRequest(\"Search Estimate FS\");"
                     ]
                   }
