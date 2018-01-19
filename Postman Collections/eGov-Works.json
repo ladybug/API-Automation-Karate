@@ -6866,7 +6866,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "2bed91f5-173c-4484-a829-2b04c85fcc86",
+                    "id": "156153ba-6dfc-47e9-9639-815d5aab5f4e",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -6877,7 +6877,7 @@
                       "});",
                       "",
                       "pm.environment.set(\"projectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
-                      "postman.setNextRequest(\"Logout as ACC\");"
+                      "postman.setNextRequest(\"Search Project Code\");"
                     ]
                   }
                 }
@@ -6929,11 +6929,11 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "305e32cc-4c8c-4629-bc24-828ffbec756d",
+                    "id": "920dfe18-69d7-460c-b169-538fd5b933b7",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
-                      "var projectCode = pm.variables.get(\"sProjectCode\");",
+                      "var projectCode = pm.environment.get(\"projectCode\");",
                       "",
                       "if(jsonData.projectCodes.length !== 0){",
                       "pm.test(\"Project code matches\", function () {",
