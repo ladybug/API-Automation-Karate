@@ -6367,7 +6367,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "374ff266-cc28-4f1e-bb8d-f16ba8ed9afb",
+                    "id": "ec9e5548-80f2-4a44-8e62-9c56094a7b9a",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -6375,7 +6375,6 @@
                       "});",
                       "",
                       "var jsonData = JSON.parse(responseBody);",
-                      "pm.environment.set(\"response\", jsonData);",
                       "pm.environment.set(\"AE_id\", jsonData.abstractEstimates[0].id);",
                       "pm.environment.set(\"AEdetails_id\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].id);",
                       "pm.environment.set(\"AE_workflow\", jsonData.abstractEstimates[0].abstractEstimateNumber);",
