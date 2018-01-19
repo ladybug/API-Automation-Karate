@@ -8671,7 +8671,71 @@
           "_postman_id": "c58f7532-553b-19ef-f039-fe2b39b035ac",
           "name": "Letter Of Acceptance",
           "description": "",
-          "item": [],
+          "item": [
+            {
+              "_postman_id": "abea657b-ef99-9b30-a8bd-185a5abe272c",
+              "name": "Create LOA",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "e01b86cf-2f16-47a1-9dfd-f757aa9e4415",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var num1 = Math.floor((Math.random() * 10000) + 1);",
+                      "var name2 = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;",
+                      "var today = new Date();",
+                      "var epoch = Math.round(today.getTime()/1000);",
+                      "var year = today.getFullYear();",
+                      "",
+                      "pm.environment.set(\"loaNumber\", \"LOA-\"+num1);",
+                      "pm.environment.set(\"fileNumber\", \"FN-\"+num1);",
+                      "pm.environment.set(\"loaCRN\", \"CRN-LOA-\"+num1);",
+                      "pm.environment.get(\"sEstimateNum\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "a5d61f00-c595-4550-b8cf-039f2bb3180d",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "pm.environment.set(\"loaId\", jsonData.letterOfAcceptances[0].id);",
+                      "pm.environment.set(\"loaMBSheet1\", jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].loaActivities[0].loaMeasurements[0].id);",
+                      "pm.environment.set(\"loaMBSheet2\", jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].loaActivities[0].loaMeasurements[1].id);",
+                      "pm.environment.set(\"loaMBSheet3\",jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].loaActivities[1].loaMeasurements[0].id);",
+                      "pm.environment.set(\"loaMBSheet4\",jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].loaActivities[1].loaMeasurements[1].id);",
+                      "",
+                      "postman.setNextRequest(\"Search sLOA\");"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.0\",\n    \"ts\": 1511171897140,\n    \"action\": \"create\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \n  \"letterofacceptances\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"contractor\": {\n        \"code\": \"Grade-38\",\n        \"tenantId\": \"{{tenantId}}\"\n      },\n      \"loaDate\": 1483315200000,\n      \"loaNumber\": \"{{loaNumber}}\",\n      \"contractPeriod\": 5,\n      \"emdAmountDeposited\": 200,\n      \"stampPaperAmount\": 100,\n      \"engineerIncharge\": {\n      \t\"code\": \"HOD\"\n      },\n      \"defectLiabilityPeriod\": 10,\n      \"tenderFinalizedPercentage\": 0,\n      \"loaAmount\": 900,\n      \"approvedDate\": 1483315200000,\n      \"fileNumber\": \"{{fileNumber}}\",\n      \"fileDate\": 1483315200000,\n      \"councilResolutionNumber\": \"{{loaCRN}}\",\n      \"councilResolutionDate\": 1483315200000,\n      \"spillOverFlag\": false,\n      \"status\": {\n        \"code\": \"{{status}}\"\n        },\n      \"letterOfAcceptanceEstimates\":[\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"detailedEstimate\": {\n          \"estimateNumber\": \"{{sDENum}}\"\n          },\n          \"workCompletionDate\": 1483315200000,\n          \"loaActivities\": [\n            {\n               \"tenantId\": \"{{tenantId}}\",\n               \"collectionMode\":\"CASH\",\n               \"percentage\": 10,\n               \"amount\": 100\n          }\n          ],\n          \"estimateLOAAmount\": 900\n      }\n      ],\n      \"securityDeposits\": []\n    }\n  ]\n}"
+                },
+                "url": "{{url}}/works-workorder/v1/letterofacceptances/_create",
+                "description": "LOA for the spillover estimates"
+              },
+              "response": []
+            }
+          ],
           "_postman_isSubFolder": true
         }
       ]
