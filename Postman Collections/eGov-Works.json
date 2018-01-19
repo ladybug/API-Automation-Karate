@@ -7201,7 +7201,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "f29fc406-2f5c-4577-9f9d-7143f3fd9a24",
+                    "id": "877b9679-453e-4455-b274-37a9466d480c",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -7216,7 +7216,7 @@
                       "    pm.response.to.have.status(400);",
                       "});",
                       "}",
-                      "postman.setNextRequest(\"Login as Clerk\");"
+                      "postman.setNextRequest(\"Logout as Clerk\");"
                     ]
                   }
                 }
