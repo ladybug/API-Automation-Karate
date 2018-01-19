@@ -6865,7 +6865,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "2bc9b5ed-7a0c-4d85-a396-80c14e26a668",
+                    "id": "2bed91f5-173c-4484-a829-2b04c85fcc86",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -6875,7 +6875,7 @@
                       "    pm.environment.set(\"status\", jsonData.abstractEstimates[0].status.code);",
                       "});",
                       "",
-                      "pm.environment.set(\"projectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode);",
+                      "pm.environment.set(\"projectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
                       "postman.setNextRequest(\"Logout as ACC\");"
                     ]
                   }
