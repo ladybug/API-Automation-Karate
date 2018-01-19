@@ -6587,7 +6587,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "bd621da4-8068-4e1f-9b0b-e57ef6ec8f5d",
+                    "id": "4c69d2c6-328d-4544-ab7d-321e8b5cdf50",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
