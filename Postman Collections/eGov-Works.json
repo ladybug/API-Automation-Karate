@@ -7154,11 +7154,11 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "507dbf39-1833-4684-8d94-d80ce81e7dc5",
+                    "id": "85a98393-53ac-42bb-8501-fe7511c32718",
                     "type": "text/javascript",
                     "exec": [
                       "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "postman.setNextRequest(\"Login as Clerk\");"
+                      "// postman.setNextRequest(\"Login as Clerk\");"
                     ]
                   }
                 }
