@@ -6588,7 +6588,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "4c69d2c6-328d-4544-ab7d-321e8b5cdf50",
+                    "id": "768a0922-99b0-4c95-880a-dda1adb3d9af",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -6597,7 +6597,7 @@
                       "",
                       "var jsonData = JSON.parse(responseBody);",
                       "pm.environment.set(\"status\", jsonData.abstractEstimates[0].status.code);",
-                      "postman.setNextRequest(\"Search Estimate Checked\");"
+                      "postman.setNextRequest(\"Search AE Checked\");"
                     ]
                   }
                 },
