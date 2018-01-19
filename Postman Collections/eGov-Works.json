@@ -6276,7 +6276,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "5ce69027-ab08-447d-83c2-474bd497a937",
+                    "id": "35106fb0-a311-4d11-a980-9b270c668b77",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -6322,7 +6322,7 @@
                       "pm.environment.set(\"modeOfAllotment\", modeOfAllotmentCode.code);",
                       "pm.environment.set(\"natureOfWork\", natureOfWorkCode.name);",
                       "",
-                      "postman.setNextRequest(\"Create sAE\");"
+                      "postman.setNextRequest(\"Create AE\");"
                     ]
                   }
                 }
