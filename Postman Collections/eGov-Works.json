@@ -6520,14 +6520,14 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "ce8af706-54e5-455c-9d89-0c3dda536fae",
+                    "id": "07566acc-5e15-4739-b460-9b8df1fe9592",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "postman.setEnvironmentVariable(\"access_token\", jsonData.access_token);",
                       "",
                       "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "postman.setNextRequest(\"Update Estimate\");",
+                      "postman.setNextRequest(\"Update AE Checked\");",
                       "",
                       ""
                     ]
