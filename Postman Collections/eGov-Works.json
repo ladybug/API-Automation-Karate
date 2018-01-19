@@ -7045,14 +7045,14 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "14574c10-c0e9-478e-a4de-4eede4639783",
+                    "id": "00f39c96-c7a2-49a8-8317-d2e747c67675",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "postman.setEnvironmentVariable(\"access_token\", jsonData.access_token);",
                       "",
                       "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "postman.setNextRequest(\"Update Estimate (AS)\");",
+                      "postman.setNextRequest(\"Update AE (AS)\");",
                       "",
                       ""
                     ]
