@@ -6866,7 +6866,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "156153ba-6dfc-47e9-9639-815d5aab5f4e",
+                    "id": "e6dce7d1-4bc8-4ae9-92f9-3182780cd9e4",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -6877,7 +6877,7 @@
                       "});",
                       "",
                       "pm.environment.set(\"projectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
-                      "postman.setNextRequest(\"Search Project Code\");"
+                      "postman.setNextRequest(\"Logout as ACC\");"
                     ]
                   }
                 }
