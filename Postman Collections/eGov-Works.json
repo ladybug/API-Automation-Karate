@@ -6635,9 +6635,17 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "e1817c88-c14a-48b1-86a7-17bbfe468b51",
+                    "id": "e8dc483b-10e8-4efe-b99d-5cd693e6b63c",
                     "type": "text/javascript",
                     "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "pm.environment.set(\"status\", jsonData.abstractEstimates[0].status.code);",
+                      "",
+                      "pm.test(\"Spillover AE status is Technical Sanctioned\", function () {",
+                      "    pm.expect(\"CHECKED\").to.include(jsonData.abstractEstimates[0].status.code);",
+                      "});",
+                      "",
                       "postman.setNextRequest(\"Logout as HOD\");"
                     ]
                   }
