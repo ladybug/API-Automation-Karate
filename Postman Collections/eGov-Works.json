@@ -6865,12 +6865,12 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "d11d19a2-590d-416a-945f-e7518d007e2e",
+                    "id": "602b47e2-355b-49a7-a173-dd5a02c07b5f",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "",
-                      "pm.test(\"AE status is Checked\", function () {",
+                      "pm.test(\"AE status is Financial Sanctioned\", function () {",
                       "    pm.expect(\"FINANCIAL_SANCTIONED\").to.include(jsonData.abstractEstimates[0].status.code);",
                       "    pm.environment.set(\"status\", jsonData.abstractEstimates[0].status.code);",
                       "    pm.environment.set(\"projectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode);",
