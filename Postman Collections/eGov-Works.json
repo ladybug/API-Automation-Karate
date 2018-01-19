@@ -6208,6 +6208,7 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "cd1fcd17-644d-4b37-a625-8aa58469e23f",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -6216,7 +6217,7 @@
                       "tests[\"Status code is 200\"] = responseCode.code === 200;",
                       "tests[\"Tenant ID is default\"] = jsonData.UserRequest.roles[0].tenantId;",
                       "",
-                      "postman.setNextRequest(\"Create Estimate\");"
+                      "postman.setNextRequest(\"WorksMdmsData\");"
                     ]
                   }
                 }
