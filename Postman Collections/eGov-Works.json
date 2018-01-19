@@ -6748,14 +6748,14 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "8f004581-6c45-4f6d-9b04-0e321ff9e8e9",
+                    "id": "7cd3f470-a22f-494e-b6b6-ee380ffee4c5",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "postman.setEnvironmentVariable(\"access_token\", jsonData.access_token);",
                       "",
                       "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "postman.setNextRequest(\"Update Estimate (FS)\");",
+                      "postman.setNextRequest(\"Update AE (FS)\");",
                       "",
                       ""
                     ]
