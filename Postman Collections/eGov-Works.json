@@ -6929,7 +6929,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "920dfe18-69d7-460c-b169-538fd5b933b7",
+                    "id": "0d6e6f82-d171-4aac-9067-e71d6e69c30b",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -6943,7 +6943,8 @@
                       "    pm.test(\"Project code search failed, but status is 200\", function () {",
                       "    pm.response.to.have.status(400);",
                       "});",
-                      "}"
+                      "}",
+                      "postman.setNextRequest(\"Logout as ACC\");"
                     ]
                   }
                 }
