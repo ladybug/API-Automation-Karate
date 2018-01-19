@@ -6635,14 +6635,14 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "e8dc483b-10e8-4efe-b99d-5cd693e6b63c",
+                    "id": "fee704d7-0d7a-4122-b78a-e40a031b2eab",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "",
                       "pm.environment.set(\"status\", jsonData.abstractEstimates[0].status.code);",
                       "",
-                      "pm.test(\"Spillover AE status is Technical Sanctioned\", function () {",
+                      "pm.test(\"AE status is Checked\", function () {",
                       "    pm.expect(\"CHECKED\").to.include(jsonData.abstractEstimates[0].status.code);",
                       "});",
                       "",
