@@ -6275,7 +6275,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "df92fb51-c1d7-4725-9adb-7b2079e27353",
+                    "id": "5ce69027-ab08-447d-83c2-474bd497a937",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -6315,7 +6315,6 @@
                       "",
                       "pm.environment.set(\"uom\", uomCode.code);",
                       "pm.environment.set(\"dep\", depCode.code);",
-                      "pm.environment.set(\"typeCode\", typeOfWorkCode.code);",
                       "pm.environment.set(\"scheduleCategory\", scheduleCategoryCode.code);",
                       "pm.environment.set(\"referenceType\", referenceTypeCode.code);",
                       "pm.environment.set(\"budgetGroup\", budgetGroupCode.name);",
