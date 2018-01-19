@@ -6816,14 +6816,14 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "3c73b1ff-5d32-4fbc-b3f6-31dd61066e72",
+                    "id": "09e337d1-a5de-4ca5-b12b-d6d51b806757",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "",
                       "// pm.globals.set(\"projectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
                       "pm.environment.set(\"status\", jsonData.abstractEstimates[0].status.code);",
-                      "postman.setNextRequest(\"Search Estimate FS\");"
+                      "postman.setNextRequest(\"Search AE FS\");"
                     ]
                   }
                 },
@@ -6866,7 +6866,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "2bed91f5-173c-4484-a829-2b04c85fcc86",
+                    "id": "156153ba-6dfc-47e9-9639-815d5aab5f4e",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -6877,7 +6877,7 @@
                       "});",
                       "",
                       "pm.environment.set(\"projectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
-                      "postman.setNextRequest(\"Logout as ACC\");"
+                      "postman.setNextRequest(\"Search Project Code\");"
                     ]
                   }
                 }
