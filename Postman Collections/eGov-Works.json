@@ -7200,11 +7200,13 @@
                   "query": [
                     {
                       "key": "tenantId",
-                      "value": "{{tenantId}}"
+                      "value": "{{tenantId}}",
+                      "equals": true
                     },
                     {
                       "key": "ids",
-                      "value": "{{AE_id}}"
+                      "value": "{{AE_id}}",
+                      "equals": true
                     }
                   ]
                 },
