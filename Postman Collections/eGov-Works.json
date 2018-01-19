@@ -6275,7 +6275,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "6a6b4f3c-d1e6-414f-83b1-f9b177f26ecc",
+                    "id": "df92fb51-c1d7-4725-9adb-7b2079e27353",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -6299,7 +6299,7 @@
                       "",
                       "var tW = \"\";",
                       "for(var j=0; j<typeOfWork.length; j++){",
-                      "    if(typeOfWork[j].parent === null){",
+                      "    if(typeOfWork[j].parent == null){",
                       "        pm.environment.set(\"typeOfWork\", typeOfWork[j].code);",
                       "        tW = typeOfWork[j].code;",
                       "        break;",
