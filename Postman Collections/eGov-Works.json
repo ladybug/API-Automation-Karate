@@ -6865,7 +6865,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "602b47e2-355b-49a7-a173-dd5a02c07b5f",
+                    "id": "2bc9b5ed-7a0c-4d85-a396-80c14e26a668",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -6873,9 +6873,9 @@
                       "pm.test(\"AE status is Financial Sanctioned\", function () {",
                       "    pm.expect(\"FINANCIAL_SANCTIONED\").to.include(jsonData.abstractEstimates[0].status.code);",
                       "    pm.environment.set(\"status\", jsonData.abstractEstimates[0].status.code);",
-                      "    pm.environment.set(\"projectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode);",
                       "});",
                       "",
+                      "pm.environment.set(\"projectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode);",
                       "postman.setNextRequest(\"Logout as ACC\");"
                     ]
                   }
