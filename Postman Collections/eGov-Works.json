@@ -7522,7 +7522,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "d5191229-13b9-458c-bb83-59829be28037",
+                    "id": "69fca058-70a5-49aa-b974-18182bb67ca2",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.floor((Math.random() * 10000) + 1);",
@@ -7534,7 +7534,11 @@
                       "pm.environment.set(\"epochDate\", epoch);",
                       "pm.globals.get(\"projectCode\");",
                       "pm.globals.get(\"sorCode\");",
-                      "pm.globals.get(\"sorId\");"
+                      "pm.globals.get(\"sorId\");",
+                      "var aeNum = pm.globals.get(\"AEnumber\");",
+                      "var aeProjectCode = pm.globals.get(\"AEprojectCode\");",
+                      "pm.environment.set(\"aeNum\", aeNum);",
+                      "pm.environment.set(\"aeProjectCode\", aeProjectCode);"
                     ]
                   }
                 }
