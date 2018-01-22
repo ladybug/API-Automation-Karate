@@ -7580,7 +7580,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "85a63fc1-1260-471e-97a8-cdba923b1faa",
+                    "id": "ba2abde5-bc14-4d5c-a867-5d30ca6a85ed",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -7588,12 +7588,13 @@
                       "var ae = aeSearch[Math.floor(aeSearch.length)];",
                       "console.log(ae);",
                       "",
-                      "// for(var i=0; i<aeSearch.length; i++){",
-                      "//     if(aeSearch[i].status.code == \"ADMIN_SANCTIONED\"){",
-                      "//         console.log(aeSearch[i].abstractEstimateNumber);",
-                      "//         pm.environment.set(\"AEnumber\", aeSearch[i].abstractEstimateNumber);   ",
-                      "//     }",
-                      "// }"
+                      "for(var i=0; i<aeSearch.length; i++){",
+                      "    if(aeSearch[i].status.code == \"ADMIN_SANCTIONED\"){",
+                      "        console.log(aeSearch[i].abstractEstimateNumber);",
+                      "        pm.environment.set(\"AEnumber\", aeSearch[i].abstractEstimateNumber);",
+                      "        pm.environment.set(\"AEprojectCode\", aeSearch[i].abstractEstimateDetails[0].projectCode);",
+                      "    }",
+                      "}"
                     ]
                   }
                 }
