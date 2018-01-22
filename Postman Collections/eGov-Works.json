@@ -7099,9 +7099,14 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "4d84996a-e4d0-4770-aade-784ced3c5663",
+                    "id": "6aeb2115-d5c8-407b-ac35-54e7ae9e8569",
                     "type": "text/javascript",
                     "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "pm.globals.set(\"AEnumber\", jsonData.abstractEstimates[0].abstractEstimateNumber);",
+                      "pm.globals.set(\"AEprojectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
+                      "",
                       "postman.setNextRequest(\"Logout as CE\");"
                     ]
                   }
