@@ -7575,7 +7575,7 @@
             },
             {
               "_postman_id": "a28315c8-07b3-27a2-26f4-920f83ac75ac",
-              "name": "Search AE AS",
+              "name": "Search AE",
               "event": [
                 {
                   "listen": "test",
