@@ -7580,7 +7580,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "7ee6f3a7-bb1c-46b1-b973-599d4b1f570c",
+                    "id": "e1e6d30b-7b6c-489b-8a1c-0b8dfb108bd8",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -7590,8 +7590,7 @@
                       "        console.log(aeSearch[i].abstractEstimateNumber);",
                       "        pm.environment.set(\"AEnumber\", aeSearch[i].abstractEstimateNumber);   ",
                       "    }",
-                      "}",
-                      "postman.setNextRequest(\"Logout as CE\");"
+                      "}"
                     ]
                   }
                 }
