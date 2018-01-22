@@ -7580,17 +7580,20 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "e1e6d30b-7b6c-489b-8a1c-0b8dfb108bd8",
+                    "id": "85a63fc1-1260-471e-97a8-cdba923b1faa",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "var aeSearch = jsonData.abstractEstimates;",
-                      "for(var i=0; i<aeSearch.length; i++){",
-                      "    if(aeSearch[i].status.code == \"ADMIN_SANCTIONED\"){",
-                      "        console.log(aeSearch[i].abstractEstimateNumber);",
-                      "        pm.environment.set(\"AEnumber\", aeSearch[i].abstractEstimateNumber);   ",
-                      "    }",
-                      "}"
+                      "var ae = aeSearch[Math.floor(aeSearch.length)];",
+                      "console.log(ae);",
+                      "",
+                      "// for(var i=0; i<aeSearch.length; i++){",
+                      "//     if(aeSearch[i].status.code == \"ADMIN_SANCTIONED\"){",
+                      "//         console.log(aeSearch[i].abstractEstimateNumber);",
+                      "//         pm.environment.set(\"AEnumber\", aeSearch[i].abstractEstimateNumber);   ",
+                      "//     }",
+                      "// }"
                     ]
                   }
                 }
