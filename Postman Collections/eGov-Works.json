@@ -7413,7 +7413,7 @@
                   "raw": "{\r\n\t\"RequestInfo\":{\r\n\t\"apiId\": \"works-masters\",\r\n\t\"ver\": \"1.0\",\r\n\t\"ts\": 0,\r\n\t\"action\": \"search\",\r\n\t\"did\": \"1\",\r\n\t\"key\": \"string\",\r\n\t\"msgId\": \"string\",\r\n\t\"requesterId\": \"clerk\",\r\n\t\"authToken\": \"{{access_token}}\"\r\n\t}\r\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-masters/v1/scheduleofrates/_search?tenantId={{tenantId}}&sorCodes={{sorCode}}",
+                  "raw": "{{url}}/works-masters/v1/scheduleofrates/_search?tenantId={{tenantId}}",
                   "host": [
                     "{{url}}"
                   ],
@@ -7427,11 +7427,6 @@
                     {
                       "key": "tenantId",
                       "value": "{{tenantId}}",
-                      "equals": true
-                    },
-                    {
-                      "key": "sorCodes",
-                      "value": "{{sorCode}}",
                       "equals": true
                     }
                   ]
