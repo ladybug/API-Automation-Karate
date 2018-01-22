@@ -7580,9 +7580,17 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "4d84996a-e4d0-4770-aade-784ced3c5663",
+                    "id": "7ee6f3a7-bb1c-46b1-b973-599d4b1f570c",
                     "type": "text/javascript",
                     "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "var aeSearch = jsonData.abstractEstimates;",
+                      "for(var i=0; i<aeSearch.length; i++){",
+                      "    if(aeSearch[i].status.code == \"ADMIN_SANCTIONED\"){",
+                      "        console.log(aeSearch[i].abstractEstimateNumber);",
+                      "        pm.environment.set(\"AEnumber\", aeSearch[i].abstractEstimateNumber);   ",
+                      "    }",
+                      "}",
                       "postman.setNextRequest(\"Logout as CE\");"
                     ]
                   }
@@ -7601,7 +7609,7 @@
                   "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\"\n  }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-estimate/v1/abstractestimates/_search?tenantId={{tenantId}}",
+                  "raw": "{{url}}/works-estimate/v1/abstractestimates/_search?tenantId={{tenantId}}&statuses=ADMIN_SANCTIONED",
                   "host": [
                     "{{url}}"
                   ],
@@ -7615,6 +7623,11 @@
                     {
                       "key": "tenantId",
                       "value": "{{tenantId}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "ADMIN_SANCTIONED",
                       "equals": true
                     }
                   ]
