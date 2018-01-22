@@ -7601,7 +7601,7 @@
                   "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\"\n  }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-estimate/v1/abstractestimates/_search?tenantId={{tenantId}}&ids={{AE_id}}",
+                  "raw": "{{url}}/works-estimate/v1/abstractestimates/_search?tenantId={{tenantId}}",
                   "host": [
                     "{{url}}"
                   ],
@@ -7615,11 +7615,6 @@
                     {
                       "key": "tenantId",
                       "value": "{{tenantId}}",
-                      "equals": true
-                    },
-                    {
-                      "key": "ids",
-                      "value": "{{AE_id}}",
                       "equals": true
                     }
                   ]
