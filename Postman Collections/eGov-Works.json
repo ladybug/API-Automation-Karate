@@ -7480,10 +7480,17 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "64a533a5-f497-4b42-8074-eee1f6de223e",
+                    "id": "44a668e2-3fb2-49fd-aa6e-1f466572fc18",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
+                      "var de = jsonData.detailedEstimates;",
+                      "",
+                      "if(de[0].status.code === \"CREATED\"){",
+                      "    de[0].status.tenantId = \"{{tenantId}}\";",
+                      "    de[0].status.code = \"CHECKED\";",
+                      "}",
+                      "",
                       "pm.environment.set(\"DEid\", jsonData.detailedEstimates[0].id);",
                       "pm.environment.set(\"DEnumber\", jsonData.detailedEstimates[0].estimateNumber);"
                     ]
