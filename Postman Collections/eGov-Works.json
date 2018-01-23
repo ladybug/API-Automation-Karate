@@ -9038,7 +9038,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "a5d61f00-c595-4550-b8cf-039f2bb3180d",
+                    "id": "7ab48d22-1c82-4f97-9561-1d24f63ef958",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -9051,9 +9051,7 @@
                       "pm.environment.set(\"loaMBSheet1\", jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].loaActivities[0].loaMeasurements[0].id);",
                       "pm.environment.set(\"loaMBSheet2\", jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].loaActivities[0].loaMeasurements[1].id);",
                       "pm.environment.set(\"loaMBSheet3\",jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].loaActivities[1].loaMeasurements[0].id);",
-                      "pm.environment.set(\"loaMBSheet4\",jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].loaActivities[1].loaMeasurements[1].id);",
-                      "",
-                      "postman.setNextRequest(\"Search sLOA\");"
+                      "pm.environment.set(\"loaMBSheet4\",jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].loaActivities[1].loaMeasurements[1].id);"
                     ]
                   }
                 }
