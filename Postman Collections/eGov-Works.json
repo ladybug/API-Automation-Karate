@@ -7581,12 +7581,14 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "b49e72e9-a52d-417b-ac93-900e3ef74e83",
+                    "id": "c65bab13-9417-4341-bc13-05d7edd044ae",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "var deID = pm.environment.get(\"DEid\");",
                       "var deNum = pm.environment.get(\"DEnumber\");",
+                      "",
+                      "pm.environment.set(\"variable_key\", jsonData.detailedEstimates[0]);",
                       "",
                       "pm.test(\"Detailed Estimate matches ID\", function () {",
                       "    pm.expect(deID).to.include(jsonData.detailedEstimates[0].id);",
