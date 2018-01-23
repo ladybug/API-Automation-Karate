@@ -7581,14 +7581,15 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "c65bab13-9417-4341-bc13-05d7edd044ae",
+                    "id": "ad4019e6-8e06-415e-81e3-2e03e9a714c8",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "var deID = pm.environment.get(\"DEid\");",
                       "var deNum = pm.environment.get(\"DEnumber\");",
+                      "var de = jsonData.detailedEstimates;",
                       "",
-                      "pm.environment.set(\"variable_key\", jsonData.detailedEstimates[0]);",
+                      "pm.environment.set(\"detailedEstimates\", JSON.stringify(de));",
                       "",
                       "pm.test(\"Detailed Estimate matches ID\", function () {",
                       "    pm.expect(deID).to.include(jsonData.detailedEstimates[0].id);",
