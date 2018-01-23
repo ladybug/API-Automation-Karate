@@ -7709,19 +7709,19 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "baa35f7b-41dd-49ee-a8a2-c39ae9efb4d9",
+                    "id": "feb5fca4-be3e-41ca-9593-a8cef91dc1ff",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
-                      "var de = jsonData.detailedEstimates;",
                       "var num1 = Math.floor((Math.random() * 10000) + 1);",
                       "var today = new Date();",
                       "var epoch = Math.round(today.getTime()/1000);",
                       "var year = today.getFullYear();",
                       "var tenant = pm.environment.get(\"tenantId\");",
+                      "var de = jsonData.detailedEstimates;",
                       "",
                       "if(de[0].status.code === \"CHECKED\"){",
-                      "    de[0].status.tenantId = \"{{tenantId}}\";",
+                      "    de[0].status.tenantId = tenant;",
                       "    de[0].status.code = \"TECHNICAL_SANCTIONED\";",
                       "    de[0].estimateTechnicalSanctions[0].technicalSanctionNumber = tenant+\"/DE/TS/\"+num1;",
                       "    de[0].estimateTechnicalSanctions[0].technicalSanctionDate = \"1516687566000\";",
