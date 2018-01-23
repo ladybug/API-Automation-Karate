@@ -8699,7 +8699,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "b5acc531-3857-4358-b3cd-5ab4e1cb6320",
+                    "id": "4cf35be4-ec9b-4b29-a9f5-3fbd82713504",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -8729,6 +8729,8 @@
                       "pm.test(\"Detailed Estimate\"+\" TECHNICAL_SANCTIONED \"+\"matches Status\", function () {",
                       "    pm.expect(\"TECHNICAL_SANCTIONED\").to.include(jsonData.detailedEstimates[0].status.code);",
                       "});",
+                      "pm.globals.set(\"DEid\", jsonData.detailedEstimates[0].id);",
+                      "pm.globals.set(\"DEnum\", jsonData.detailedEstimates[0].estimateNumber);",
                       "}"
                     ]
                   }
