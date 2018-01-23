@@ -7764,11 +7764,16 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "2d322659-c662-49bd-b149-1739f4939a9c",
+                    "id": "872b9704-3620-45de-b2c6-7f5d9fb2d87f",
                     "type": "text/javascript",
                     "exec": [
-                      "pm.environment.set(\"DETechSanNum\", \"Spillover/DE/TS/\"+num1);",
-                      "pm.environment.set(\"DEAdnSanNum\", \"Spillover/DE/ADN/\"+num1);"
+                      "var num1 = Math.floor((Math.random() * 10000) + 1);",
+                      "var name2 = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;",
+                      "var today = new Date();",
+                      "var epoch = Math.round(today.getTime()/1000);",
+                      "var year = today.getFullYear();",
+                      "var tenant = pm.environment.get(\"tenantId\");",
+                      "pm.environment.set(\"DETechSanNum\", tenant+\"/DE/TS/\"+num1);"
                     ]
                   }
                 }
