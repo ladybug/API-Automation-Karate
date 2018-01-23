@@ -7581,19 +7581,21 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "b4230b37-fdf6-481b-879d-2b2242cbceae",
+                    "id": "84120513-9710-49aa-9408-432eec026062",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
+                      "var deID = pm.environment.get(\"DEid\");",
+                      "var deNum = pm.environment.get(\"DEnumber\");",
                       "",
                       "pm.test(\"Detailed Estimate matches ID\", function () {",
-                      "    pm.expect(\"DEid\").to.include(jsonData.detailedEstimates[0].id);",
+                      "    pm.expect(deID).to.include(jsonData.detailedEstimates[0].id);",
                       "});",
                       "pm.test(\"Detailed Estimate matches Number\", function () {",
-                      "    pm.expect(\"DEid\").to.include(jsonData.detailedEstimates[0].estimateNumber);",
+                      "    pm.expect(deNum).to.include(jsonData.detailedEstimates[0].estimateNumber);",
                       "});",
                       "pm.test(\"Detailed Estimate\"+\"CREATED\"+\"matches Status\", function () {",
-                      "    pm.expect(\"DEid\").to.include(jsonData.detailedEstimates[0].status.code);",
+                      "    pm.expect(\"CREATED\").to.include(jsonData.detailedEstimates[0].status.code);",
                       "});"
                     ]
                   }
