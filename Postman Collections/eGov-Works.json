@@ -7522,13 +7522,13 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "69fca058-70a5-49aa-b974-18182bb67ca2",
+                    "id": "8cf99440-aa85-46d0-abfa-976cceb0e263",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.floor((Math.random() * 10000) + 1);",
                       "var name2 = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;",
                       "var today = new Date();",
-                      "var epoch = Math.round(today.getTime()/1000);",
+                      "var epoch = today.getTime();",
                       "var year = today.getFullYear();",
                       "",
                       "pm.environment.set(\"epochDate\", epoch);",
