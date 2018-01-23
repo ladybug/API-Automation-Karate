@@ -7543,6 +7543,18 @@
                       "pm.environment.set(\"aeProjectCode\", aeProjectCode);"
                     ]
                   }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "64a533a5-f497-4b42-8074-eee1f6de223e",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "pm.environment.set(\"DEid\", jsonData.detailedEstimates[0].id);",
+                      "pm.environment.set(\"DEnumber\", jsonData.detailedEstimates[0].estimateNumber);"
+                    ]
+                  }
                 }
               ],
               "request": {
