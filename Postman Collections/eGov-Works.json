@@ -7761,6 +7761,55 @@
                 "description": "@clerk login, for creating DE"
               },
               "response": []
+            },
+            {
+              "_postman_id": "8387672e-96f2-c74c-b9dd-288d89af1dee",
+              "name": "Update DE",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "a1ab9641-dfd3-446c-8eea-20adccc81321",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "var jsonData = JSON.parse(responseBody);",
+                      "pm.environment.set(\"status\", jsonData.abstractEstimates[0].status.code);",
+                      "",
+                      "postman.setNextRequest(\"Search AE Checked\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "1403f27e-55f6-4481-93ba-c4ba2768aeed",
+                    "type": "text/javascript",
+                    "exec": [
+                      ""
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"userInfo\": {\n      \"tenantId\": \"{{tenantId}}\",\n      \"userName\": \"WMS002\"\n    }\n  },\n  \"detailedEstimates\": {{detailedEstimates}}\n}"
+                },
+                "url": "{{url}}/works-estimate/v1/detailedestimates/_update",
+                "description": "Update Detailed Estimate"
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
