@@ -7577,6 +7577,28 @@
             {
               "_postman_id": "192a75ce-c7bc-752d-d217-fe1fa164c328",
               "name": "Search DE Normal",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b4230b37-fdf6-481b-879d-2b2242cbceae",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "pm.test(\"Detailed Estimate matches ID\", function () {",
+                      "    pm.expect(\"DEid\").to.include(jsonData.detailedEstimates[0].id);",
+                      "});",
+                      "pm.test(\"Detailed Estimate matches Number\", function () {",
+                      "    pm.expect(\"DEid\").to.include(jsonData.detailedEstimates[0].estimateNumber);",
+                      "});",
+                      "pm.test(\"Detailed Estimate\"+\"CREATED\"+\"matches Status\", function () {",
+                      "    pm.expect(\"DEid\").to.include(jsonData.detailedEstimates[0].status.code);",
+                      "});"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
