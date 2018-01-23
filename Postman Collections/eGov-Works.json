@@ -7709,22 +7709,36 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "5243532e-6edd-43a9-bcb2-ada06fb4d5bb",
+                    "id": "baa35f7b-41dd-49ee-a8a2-c39ae9efb4d9",
                     "type": "text/javascript",
                     "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "var de = jsonData.detailedEstimates;",
+                      "var num1 = Math.floor((Math.random() * 10000) + 1);",
+                      "var today = new Date();",
+                      "var epoch = Math.round(today.getTime()/1000);",
+                      "var year = today.getFullYear();",
+                      "var tenant = pm.environment.get(\"tenantId\");",
+                      "",
+                      "if(de[0].status.code === \"CHECKED\"){",
+                      "    de[0].status.tenantId = \"{{tenantId}}\";",
+                      "    de[0].status.code = \"TECHNICAL_SANCTIONED\";",
+                      "    de[0].estimateTechnicalSanctions[0].technicalSanctionNumber = tenant+\"/DE/TS/\"+num1;",
+                      "    de[0].estimateTechnicalSanctions[0].technicalSanctionDate = \"1516687566000\";",
+                      "    de[0].estimateTechnicalSanctions[0].technicalSanctionBy.userName = \"clerk\";",
+                      "    de[0].estimateTechnicalSanctions[0].technicalSanctionBy.tenantId = tenant;",
+                      "}",
+                      "pm.environment.set(\"detailedEstimates\", JSON.stringify(de));",
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "var jsonData = JSON.parse(responseBody);",
-                      "pm.environment.set(\"status\", jsonData.detailedEstimates[0].status.code);"
+                      "});"
                     ]
                   }
                 },
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "1403f27e-55f6-4481-93ba-c4ba2768aeed",
+                    "id": "5a9f88cb-ef50-4f57-ab77-24ea10adea56",
                     "type": "text/javascript",
                     "exec": [
                       ""
