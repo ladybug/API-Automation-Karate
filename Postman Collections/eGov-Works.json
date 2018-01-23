@@ -7581,7 +7581,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "84120513-9710-49aa-9408-432eec026062",
+                    "id": "b49e72e9-a52d-417b-ac93-900e3ef74e83",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -7594,7 +7594,7 @@
                       "pm.test(\"Detailed Estimate matches Number\", function () {",
                       "    pm.expect(deNum).to.include(jsonData.detailedEstimates[0].estimateNumber);",
                       "});",
-                      "pm.test(\"Detailed Estimate\"+\"CREATED\"+\"matches Status\", function () {",
+                      "pm.test(\"Detailed Estimate\"+\" CREATED \"+\"matches Status\", function () {",
                       "    pm.expect(\"CREATED\").to.include(jsonData.detailedEstimates[0].status.code);",
                       "});"
                     ]
