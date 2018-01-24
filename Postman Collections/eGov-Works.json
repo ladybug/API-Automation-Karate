@@ -7370,6 +7370,26 @@
                 "description": "Search Notice Generated for the LOA"
               },
               "response": []
+            },
+            {
+              "_postman_id": "1eca8936-9788-6db8-996f-274583063b98",
+              "name": "Create bill",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"userInfo\": {\n      \"userName\": \"clerk\",\n      \"tenantId\": \"{{tenantId}}\"\n    }\n  },\n  \"contractorBills\": [\n    {\n        \"tenantId\": \"default\",\n        \"billSequenceNumber\":\"bsn/02\",\n        \"approvedDate\":\"\",\n        \"billDate\":1235467899,\n        \"billAmount\":152,\n        \"billType\":\"sasa\",\n        \"passedAmount\": 5,\n        \"contractorBillAmount\":5,\n        \"approvedBy\": {\n        \t\"userName\":\"approvedBy\"\n        },\n        \"assets\":[{\n            \"tenantId\": \"default\",\n            \"asset\":{\n                \"code\":\"maha/eng/cat/01\"\n            },\n            \"description\":\"Existing asset\",\n            \"amount\":\"150000\"\n        }],\n        \"mbForContractorBill\":[{\n            \"tenantId\": \"default\"\n        }],\n        \"letterOfAcceptanceEstimate\":{\n            \"tenantId\": \"default\",\n            \"id\":\"123\"\n        },\n        \"workFlowDetails\": {\n          \"department\": \"ENG\",\n          \"designation\": \"JE\",\n          \"assignee\": 509,\n        \"action\": \"create\"\n      }\n    }]\n}"
+                },
+                "url": "{{url}}/works-measurementbook/v1/contractorbills/_create",
+                "description": null
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
