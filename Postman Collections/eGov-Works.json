@@ -7088,10 +7088,19 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "fb9c3200-dc46-4bb3-94bd-7e054fb4b400",
+                    "id": "f7eed0f6-0908-4646-9be7-3a26bf9e0693",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
+                      "var mbId = pm.environment.get(\"MBid\");",
+                      "var loaId = pm.environment.get(\"loaId\");",
+                      "",
+                      "pm.test(\"MB id Matches\", function () {",
+                      "    pm.expect(mbId).to.include(jsonData.measurementBooks[0].id);",
+                      "});",
+                      "pm.test(\"LOA number in MB Matches\", function () {",
+                      "    pm.expect(loaId).to.include(jsonData.measurementBooks[0].letterOfAcceptanceEstimate[0].id);",
+                      "});",
                       "",
                       "postman.setNextRequest(\"Logout\");"
                     ]
@@ -7111,7 +7120,7 @@
                   "raw": "{\n  \"RequestInfo\": {\n    \"resMsgId\": \"placeholder\",\n    \"msgId\": \"123\",\n    \"status\": \"200\",\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.1\",\n    \"ts\": \"123456789456\",\n    \"key\": null,\n    \"action\":\"search\",\n    \"authToken\":\"{{access_token}}\"\n    }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-measurementbook/v1/measurementbooks/_search?tenantId={{tenantId}}&ids={{MBid}}",
+                  "raw": "{{url}}/works-measurementbook/v1/measurementbooks/_search?tenantId={{tenantId}}&ids=a0e2fc0e84cf4626a207806c126e5adc",
                   "host": [
                     "{{url}}"
                   ],
@@ -7129,7 +7138,7 @@
                     },
                     {
                       "key": "ids",
-                      "value": "{{MBid}}",
+                      "value": "a0e2fc0e84cf4626a207806c126e5adc",
                       "equals": true
                     }
                   ]
