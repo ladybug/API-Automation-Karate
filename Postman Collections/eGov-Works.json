@@ -7088,9 +7088,11 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "06f4ec09-d385-4509-aa04-ddd1c6535f92",
+                    "id": "fb9c3200-dc46-4bb3-94bd-7e054fb4b400",
                     "type": "text/javascript",
                     "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
                       "postman.setNextRequest(\"Logout\");"
                     ]
                   }
