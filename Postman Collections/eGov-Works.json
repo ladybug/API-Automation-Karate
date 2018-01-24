@@ -7088,7 +7088,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "f7eed0f6-0908-4646-9be7-3a26bf9e0693",
+                    "id": "a05d76d7-2b04-4a29-8dfa-e73d2349dde6",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -7098,7 +7098,7 @@
                       "pm.test(\"MB id Matches\", function () {",
                       "    pm.expect(mbId).to.include(jsonData.measurementBooks[0].id);",
                       "});",
-                      "pm.test(\"LOA number in MB Matches\", function () {",
+                      "pm.test(\"LOA ID in MB Matches\", function () {",
                       "    pm.expect(loaId).to.include(jsonData.measurementBooks[0].letterOfAcceptanceEstimate[0].id);",
                       "});",
                       "",
