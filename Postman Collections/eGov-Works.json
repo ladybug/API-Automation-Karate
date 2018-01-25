@@ -9129,6 +9129,93 @@
                 "description": "LOA for the spillover estimates"
               },
               "response": []
+            },
+            {
+              "_postman_id": "0498fe4e-d2b2-1359-78aa-982638dc9825",
+              "name": "Search LOA",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "a4a3c58f-bf12-4c59-889b-441c49c23980",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "var jsonData = JSON.parse(responseBody);",
+                      "pm.environment.set(\"loaId\", jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].letterOfAcceptance);",
+                      "pm.environment.set(\"loaNumber\", jsonData.letterOfAcceptances[0].loaNumber);",
+                      "pm.environment.set(\"loaStatus\", jsonData.letterOfAcceptances[0].status.code);",
+                      "pm.environment.set(\"loaEstimateId\", jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].id);",
+                      "pm.environment.set(\"loaActId1\", jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].loaActivities[0].id);",
+                      "pm.environment.set(\"loaActId2\", jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].loaActivities[1].id);",
+                      "",
+                      "pm.test(\"LOA ID matches\", function () {",
+                      "pm.expect(pm.environment.get(\"loaId\")).to.include(jsonData.letterOfAcceptances[0].id);",
+                      "});",
+                      "pm.test(\"LOA Number matches\", function () {",
+                      "pm.expect(pm.environment.get(\"loaNumber\")).to.include(jsonData.letterOfAcceptances[0].loaNumber);",
+                      "});",
+                      "if(jsonData.letterOfAcceptances[0].status.code == \"CREATED\"){",
+                      "    pm.test(\"LOA status as Created matches\", function () {",
+                      "    pm.expect(\"CREATED\").to.include(jsonData.letterOfAcceptances[0].status.code);",
+                      "});",
+                      "}",
+                      "if(jsonData.letterOfAcceptances[0].status.code == \"CHECKED\"){",
+                      "    pm.test(\"LOA status as Checked matches\", function () {",
+                      "    pm.expect(\"CHECKED\").to.include(jsonData.letterOfAcceptances[0].status.code);",
+                      "    });",
+                      "}",
+                      "if(jsonData.letterOfAcceptances[0].status.code == \"APPROVED\"){",
+                      "    pm.test(\"LOA status as Approved matches\", function () {",
+                      "    pm.expect(\"APPROVED\").to.include(jsonData.letterOfAcceptances[0].status.code);",
+                      "    });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"resMsgId\": \"placeholder\",\n    \"msgId\": \"123\",\n    \"status\": \"200\",\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.1\",\n    \"ts\": \"123456789456\",\n    \"key\": null,\n    \"action\":\"search\",\n    \"authToken\":\"{{access_token}}\",\n    \"userInfo\":{\n   \t\"tenantId\" : \"{{tenantId}}\",\n   \t\"userName\" : \"clerk\"\n   }\n    }\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/works-workorder/v1/letterofacceptances/_search?tenantId={{tenantId}}&ids={{loaId}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-workorder",
+                    "v1",
+                    "letterofacceptances",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "ids",
+                      "value": "{{loaId}}",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": "Search LOA"
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
