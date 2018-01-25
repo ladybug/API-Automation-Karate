@@ -9302,7 +9302,7 @@
             },
             {
               "_postman_id": "9356c5aa-16b0-f733-c864-008c83d5fa5c",
-              "name": "Search Offline Status copy",
+              "name": "Search WO Offline Status",
               "request": {
                 "method": "POST",
                 "header": [
