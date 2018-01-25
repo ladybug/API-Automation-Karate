@@ -9504,7 +9504,7 @@
                   "raw": "{\n  \"RequestInfo\": {\n    \"resMsgId\": \"placeholder\",\n    \"msgId\": \"123\",\n    \"status\": \"200\",\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.1\",\n    \"ts\": \"123456789456\",\n    \"key\": null,\n    \"action\":\"search\",\n    \"authToken\":\"{{access_token}}\",\n    \"userInfo\":{\n   \t\"tenantId\" : \"{{tenantId}}\",\n   \t\"userName\" : \"clerk\"\n   }\n    }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-services/v1/offlinestatuses/_search?tenantId={{tenantId}}&loaNumbers={{loaNumber}}",
+                  "raw": "{{url}}/works-services/v1/offlinestatuses/_search?tenantId={{tenantId}}&workOrderNumbers={{woNum}}",
                   "host": [
                     "{{url}}"
                   ],
@@ -9521,8 +9521,8 @@
                       "equals": true
                     },
                     {
-                      "key": "loaNumbers",
-                      "value": "{{loaNumber}}",
+                      "key": "workOrderNumbers",
+                      "value": "{{woNum}}",
                       "equals": true
                     }
                   ]
