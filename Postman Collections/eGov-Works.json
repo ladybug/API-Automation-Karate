@@ -9356,7 +9356,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "0bceae66-8aa9-4465-8f1c-3a6b30d9c187",
+                    "id": "61636478-7c70-4a06-80d1-d228ed1066c4",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -9381,7 +9381,7 @@
                       "pm.expect(pm.environment.get(\"loaActId2\")).to.include(jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].loaActivities[1].id);",
                       "});",
                       "pm.test(\"Detailed Estimate ID matches\", function () {",
-                      "pm.expect(pm.environment.get(\"sDEid\")).to.include(jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].detailedEstimate.id);",
+                      "pm.expect(pm.environment.get(\"DEid\")).to.include(jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].detailedEstimate.id);",
                       "});",
                       "",
                       "if(jsonData.workOrders[0].status.code == \"CREATED\"){",
