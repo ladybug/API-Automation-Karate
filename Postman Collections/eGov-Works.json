@@ -9356,7 +9356,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "61636478-7c70-4a06-80d1-d228ed1066c4",
+                    "id": "63587dc4-1943-47d7-8486-7fd71552a187",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -9385,12 +9385,12 @@
                       "});",
                       "",
                       "if(jsonData.workOrders[0].status.code == \"CREATED\"){",
-                      "    pm.test(\"WO status as Approved matches\", function () {",
+                      "    pm.test(\"WO status as Created matches\", function () {",
                       "    pm.expect(\"CREATED\").to.include(jsonData.workOrders[0].status.code);",
                       "    });",
                       "}",
                       "if(jsonData.workOrders[0].status.code == \"CHECKED\"){",
-                      "    pm.test(\"WO status as Approved matches\", function () {",
+                      "    pm.test(\"WO status as Checked matches\", function () {",
                       "    pm.expect(\"CHECKED\").to.include(jsonData.workOrders[0].status.code);",
                       "    });",
                       "}",
