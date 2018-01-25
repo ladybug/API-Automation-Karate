@@ -9301,6 +9301,60 @@
                 "description": null
               },
               "response": []
+            },
+            {
+              "_postman_id": "a855ad78-f2a3-6192-488a-99fc6c7e27ee",
+              "name": "Create WO",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "239540d5-d8d9-4973-ad24-99f80fead0d8",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var num1 = Math.floor((Math.random() * 10000) + 1);",
+                      "var name2 = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;",
+                      "var today = new Date();",
+                      "var epoch = Math.round(today.getTime()/1000);",
+                      "var year = today.getFullYear();",
+                      "pm.environment.set(\"workOrderNumber\", \"WO-\"+num1);",
+                      "pm.environment.get(\"loaId\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b39e24dd-3ca7-4866-a092-296c9f4ff00b",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "var jsonData = JSON.parse(responseBody);",
+                      "pm.environment.set(\"woID\", jsonData.workOrders[0].id);",
+                      "pm.environment.set(\"woNum\", jsonData.workOrders[0].workOrderNumber);",
+                      "postman.setNextRequest(\"Search sWO\");"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.0\",\n    \"ts\": 1511171897140,\n    \"action\": \"create\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"clerk\",\n    \"authToken\": \"{{access_token}}\"\n  },\n  \n  \"workOrders\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"letterOfAcceptance\": {\n        \"id\": \"{{loaId}}\",\n        \"loaNumber\": \"{{loaNumber}}\",\n        \"tenantId\": \"{{tenantId}}\",\n        \"spillOverFlag\": false\n      },\n      \"workOrderDate\": 1516869963610,\n      \"workOrderNumber\": \"{{workOrderNumber}}\",\n      \"status\": {\n        \"code\": \"APPROVED\"\n        },\n      \"workOrderDetails\": [\n        {\n        \"tenantId\": \"{{tenantId}}\",\n        \"remarks\":\"Approval\",\n        \"editable\": true\n        }    ],\n      \"documentDetails\":[]\n    }\n  ]\n}"
+                },
+                "url": "{{url}}/works-workorder/v1/workorders/_create",
+                "description": "Work Order for the spillover work"
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
