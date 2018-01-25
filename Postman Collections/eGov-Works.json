@@ -9522,6 +9522,72 @@
                 "description": null
               },
               "response": []
+            },
+            {
+              "_postman_id": "a155bd59-619d-f580-e37e-66deba2a3c9d",
+              "name": "Search MB",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c9cdaee9-7451-41e6-920c-f1d3e1f15afa",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "var mbId = pm.environment.get(\"MBid\");",
+                      "var loaEstId = pm.environment.get(\"loaEstimateId\");",
+                      "",
+                      "pm.test(\"MB id Matches\", function () {",
+                      "    pm.expect(mbId).to.include(jsonData.measurementBooks[0].id);",
+                      "});",
+                      "pm.test(\"LOA ID in MB Matches\", function () {",
+                      "    pm.expect(loaEstId).to.include(jsonData.measurementBooks[0].letterOfAcceptanceEstimate.id);",
+                      "});",
+                      "",
+                      "postman.setNextRequest(\"Logout\");"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"resMsgId\": \"placeholder\",\n    \"msgId\": \"123\",\n    \"status\": \"200\",\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.1\",\n    \"ts\": \"123456789456\",\n    \"key\": null,\n    \"action\":\"search\",\n    \"authToken\":\"{{access_token}}\"\n    }\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/works-measurementbook/v1/measurementbooks/_search?tenantId={{tenantId}}&ids={{MBid}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-measurementbook",
+                    "v1",
+                    "measurementbooks",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "ids",
+                      "value": "{{MBid}}",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": "Search Regular MB"
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
