@@ -9307,16 +9307,11 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "239540d5-d8d9-4973-ad24-99f80fead0d8",
+                    "id": "4e073025-5f36-471e-a42c-2952b2d19414",
                     "type": "text/javascript",
                     "exec": [
-                      "var num1 = Math.floor((Math.random() * 10000) + 1);",
-                      "var name2 = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;",
-                      "var today = new Date();",
-                      "var epoch = Math.round(today.getTime()/1000);",
-                      "var year = today.getFullYear();",
-                      "pm.environment.set(\"workOrderNumber\", \"WO-\"+num1);",
-                      "pm.environment.get(\"loaId\");"
+                      "pm.environment.get(\"loaId\");",
+                      "pm.environment.get(\"loaNumber\");"
                     ]
                   }
                 },
