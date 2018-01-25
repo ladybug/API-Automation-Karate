@@ -9043,7 +9043,7 @@
             },
             {
               "_postman_id": "91ddc203-b339-ef87-1561-a4ce5573479e",
-              "name": "Create Offline Status",
+              "name": "Create DE Offline Status",
               "request": {
                 "method": "POST",
                 "header": [
