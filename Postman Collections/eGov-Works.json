@@ -7398,7 +7398,7 @@
                   "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"userInfo\": {\n      \"userName\": \"clerk\",\n      \"tenantId\": \"{{tenantId}}\"\n    }\n  },\n  \"contractorBills\": [\n    {\n        \"tenantId\": \"default\",\n        \"billSequenceNumber\":\"Spillover/Bill/001\",\n        \"approvedDate\":\"\",\n        \"billDate\": 1450434548000,\n        \"billAmount\": 900,\n        \"billType\": \"Final\",\n        \"workCompletionDate\": \"1450434548000\",\n        \"passedAmount\": 900,\n        \"contractorBillAmount\": 900,\n        \"approvedBy\": {\n        \t\"userName\":\"clerk\"\n        },\n        \"mbForContractorBill\":[{\n            \"tenantId\": \"{{tenantId}}\",\n            \"id\": \"bf6e5b2e6e144de78621a48d9ac5b17a\"\n        }],\n        \"letterOfAcceptanceEstimate\":{\n            \"tenantId\": \"default\",\n            \"id\":\"893cce699f784412b25e2827b2faf9e6\",\n            \"letterOfAcceptance\": \"b5bfa973f70f40e99a4b3ca80e935b8a\"\n        }\n    }]\n}"
                 },
                 "url": "{{url}}/works-measurementbook/v1/contractorbills/_create",
-                "description": null
+                "description": ""
               },
               "response": []
             }
