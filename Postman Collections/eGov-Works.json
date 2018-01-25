@@ -8795,7 +8795,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "89fea597-7ecc-41f4-b5bd-30ca46d17485",
+                    "id": "0fcf8468-8471-406d-80a2-5be6ae868ad6",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -8814,9 +8814,9 @@
                       "    pm.test(\"Detailed Estimate\"+\" CREATED \"+\"matches Status\", function () {",
                       "    pm.expect(\"CREATED\").to.include(jsonData.detailedEstimates[0].status.code);",
                       "    });",
-                      "    jsonData.detailedEstimates[0].status.tenantId = \"{{tenantId}}\";",
-                      "    jsonData.detailedEstimates[0].status.code = \"CHECKED\";",
-                      "    pm.environment.set(\"detailedEstimates\", de);",
+                      "    // jsonData.detailedEstimates[0].status.tenantId = \"{{tenantId}}\";",
+                      "    // jsonData.detailedEstimates[0].status.code = \"CHECKED\";",
+                      "    // pm.environment.set(\"detailedEstimates\", de);",
                       "",
                       "}",
                       "if(jsonData.detailedEstimates[0].status.code == \"CHECKED\"){",
