@@ -9546,7 +9546,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "0406e931-0eb0-4d9f-a543-ec5f856ed969",
+                    "id": "fbc690b6-b7d2-4ee4-88f0-5158ab9b589a",
                     "type": "text/javascript",
                     "exec": [
                       "var today = new Date();",
@@ -9554,7 +9554,7 @@
                       "var year = today.getFullYear();",
                       "var num1 = Math.floor((Math.random() * 10000) + 1);",
                       "pm.environment.set(\"epochDate\", epoch);",
-                      "pm.environment.set(\"mbRef\", \"MBref-\"+year+num1);"
+                      "pm.environment.set(\"mbRefNo\", \"MBref-\"+year+num1);"
                     ]
                   }
                 },
