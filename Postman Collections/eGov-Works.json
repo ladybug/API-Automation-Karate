@@ -9238,6 +9238,26 @@
                 "description": null
               },
               "response": []
+            },
+            {
+              "_postman_id": "85d947f8-3bcd-0e27-d3a4-a7e43f887bd3",
+              "name": "Create LOA Offline Status",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.0\",\n    \"ts\": 1511171897140,\n    \"action\": \"create\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"offlineStatuses\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"objectNumber\": \"{{DEnumber}}\",\n      \"objectType\": \"DetailedEstimateOffline\",\n      \"status\": {\n        \"code\": \"NOTICEINVITINGTENDERRELEASED\"\n      },\n      \"objectDate\": \"1516860742511\",\n      \"statusDate\": \"1516860742511\"\n    },\n    {\n      \"tenantId\": \"default\",\n      \"objectNumber\": \"defa/DE/ADM/000069/2017-18\",\n      \"objectType\": \"DetailedEstimateOffline\",\n      \"status\": {\n        \"code\": \"TENDER_DOCUMENT_RELEASED\"\n      },\n      \"objectDate\": \"1516860742511\",\n      \"statusDate\": \"1516860742511\"\n    },\n    {\n      \"tenantId\": \"default\",\n      \"objectNumber\": \"defa/DE/ADM/000069/2017-18\",\n      \"objectType\": \"DetailedEstimateOffline\",\n      \"status\": {\n        \"code\": \"TENDER_OPENED\"\n      },\n      \"objectDate\": \"1516860742511\",\n      \"statusDate\": \"1516860742511\"\n    },\n    {\n      \"tenantId\": \"default\",\n      \"objectNumber\": \"defa/DE/ADM/000069/2017-18\",\n      \"objectType\": \"DetailedEstimateOffline\",\n      \"status\": {\n        \"code\": \"TECHNICAL_EVALUATION_DONE\"\n      },\n      \"objectDate\": \"1516860742511\",\n      \"statusDate\": \"1516860742511\"\n    },\n    {\n      \"tenantId\": \"default\",\n      \"objectNumber\": \"defa/DE/ADM/000069/2017-18\",\n      \"objectType\": \"DetailedEstimateOffline\",\n      \"status\": {\n        \"code\": \"COMMERCIAL_EVALUATION_DONE\"\n      },\n      \"objectDate\": \"1516860742511\",\n      \"statusDate\": \"1516860742511\"\n    },\n    {\n      \"tenantId\": \"default\",\n      \"objectNumber\": \"defa/DE/ADM/000069/2017-18\",\n      \"objectType\": \"DetailedEstimateOffline\",\n      \"status\": {\n        \"code\": \"L1_TENDER_FINALIZED\"\n      },\n      \"objectDate\": \"1516860742511\",\n      \"statusDate\": \"1516860742511\"\n    }\n  ]\n}"
+                },
+                "url": "{{url}}/works-services/v1/offlinestatuses/_create",
+                "description": null
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
