@@ -9435,6 +9435,26 @@
                 "description": "Search work order for the spillover"
               },
               "response": []
+            },
+            {
+              "_postman_id": "67a7dba8-82bd-ac21-de67-8446780bfdbf",
+              "name": "Update WO",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"org.egov.pt\",\n    \"ver\": \"1.0\",\n    \"ts\": 1511171897140,\n    \"action\": \"create\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"clerk\",\n    \"authToken\": \"{{access_token}}\"\n  },\n    \"workOrders\": [\n        {\n            \"id\": \"f10c8a86023e48369d4ce762f2f5f5bc\",\n            \"tenantId\": \"default\",\n            \"letterOfAcceptance\": {\n                \"id\": \"e306bdf1d47b466ebec16ce2e0580202\",\n                \"tenantId\": \"default\",\n                \"contractor\": null,\n                \"loaDate\": null,\n                \"loaNumber\": \"defa/LOA//ACC/000009/2017-18\",\n                \"contractPeriod\": null,\n                \"emdAmountDeposited\": null,\n                \"stampPaperAmount\": null,\n                \"engineerIncharge\": null,\n                \"defectLiabilityPeriod\": null,\n                \"loaAmount\": null,\n                \"documentDetails\": null,\n                \"status\": null,\n                \"tenderFinalizedPercentage\": null,\n                \"approvedBy\": null,\n                \"approvedDate\": null,\n                \"fileNumber\": null,\n                \"fileDate\": null,\n                \"parent\": null,\n                \"stateId\": null,\n                \"cancellationReason\": null,\n                \"cancellationRemarks\": null,\n                \"councilResolutionNumber\": null,\n                \"councilResolutionDate\": null,\n                \"spillOverFlag\": false,\n                \"letterOfAcceptanceEstimates\": [],\n                \"securityDeposits\": null,\n                \"workFlowDetails\": null,\n                \"auditDetails\": null,\n                \"deleted\": false\n            },\n            \"workOrderDetails\": [\n                {\n                    \"id\": \"188758ee764a45689045280923d487af\",\n                    \"tenantId\": \"default\",\n                    \"workOrder\": \"f10c8a86023e48369d4ce762f2f5f5bc\",\n                    \"remarks\": \"Approval\",\n                    \"editable\": true,\n                    \"auditDetails\": {\n                        \"createdBy\": \"clerk\",\n                        \"lastModifiedBy\": \"clerk\",\n                        \"createdTime\": 1516875496185,\n                        \"lastModifiedTime\": 1516875496185\n                    },\n                    \"deleted\": false\n                }\n            ],\n            \"workOrderDate\": 1516869963610,\n            \"workOrderNumber\": \"defa/WO//ACC/000002/2017-18\",\n            \"documentDetails\": [],\n            \"workFlowDetails\": null,\n            \"auditDetails\": {\n                \"createdBy\": \"clerk\",\n                \"lastModifiedBy\": \"clerk\",\n                \"createdTime\": 1516875496185,\n                \"lastModifiedTime\": 1516875496185\n            },\n            \"status\": {\n                \"tenantId\": \"{{tenantId}}\",\n                \"code\": \"CHECKED\",\n                \"description\": null,\n                \"moduleType\": null,\n                \"orderNumber\": null\n            },\n            \"stateId\": null,\n            \"deleted\": false,\n            \"remarks\": null,\n            \"approvedBy\": null,\n            \"approvedDate\": null\n        }\n    ]\n}"
+                },
+                "url": "{{url}}/works-workorder/v1/workorders/_update",
+                "description": null
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
