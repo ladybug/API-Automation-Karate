@@ -7615,65 +7615,6 @@
               "response": []
             },
             {
-              "_postman_id": "41d3d9a7-117a-c866-67e6-ec0da40baba8",
-              "name": "Search AE",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "59240b63-3c9f-4099-90a7-519398c498da",
-                    "type": "text/javascript",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "postman.setNextRequest(\"Logout as Clerk\");"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"search\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\"\n  }\n}"
-                },
-                "url": {
-                  "raw": "{{url}}/works-estimate/v1/abstractestimates/_search?tenantId={{tenantId}}&ids={{AE_id}}",
-                  "host": [
-                    "{{url}}"
-                  ],
-                  "path": [
-                    "works-estimate",
-                    "v1",
-                    "abstractestimates",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "{{tenantId}}",
-                      "equals": true
-                    },
-                    {
-                      "key": "ids",
-                      "value": "{{AE_id}}",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": ""
-              },
-              "response": []
-            },
-            {
               "_postman_id": "bb677bee-68e2-e8f6-26dd-364513a5eabe",
               "name": "Logout as Clerk",
               "event": [
