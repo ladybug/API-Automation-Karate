@@ -5989,7 +5989,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "e66e82af-b8d7-4d6b-a73b-de371323bb05",
+                    "id": "c9588ca5-878c-4b9a-8179-a35f91a301fb",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -6000,6 +6000,7 @@
                       "pm.environment.set(\"sAEId\", jsonData.abstractEstimates[0].id);",
                       "pm.environment.set(\"sAEdetailsId\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].id);",
                       "pm.environment.set(\"sAEstatus\", jsonData.abstractEstimates[0].status.code);",
+                      "pm.environment.set(\"sAEamount\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].estimateAmount);",
                       "",
                       "pm.test(\"Abstract Estimate Number generated\", function () {",
                       "pm.expect(pm.environment.get(\"abstractEstimateNumber\")).to.include(jsonData.abstractEstimates[0].abstractEstimateNumber);",
