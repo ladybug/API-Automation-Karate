@@ -6037,7 +6037,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "6c4cab20-fd37-4e81-ba70-a50d50c4a6c3",
+                    "id": "1a794054-86f5-4cf6-a478-c9d0610f6ef4",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -6045,6 +6045,7 @@
                       "});",
                       "",
                       "var jsonData = JSON.parse(responseBody);",
+                      "var amount = pm.environment.get(\"sAEamount\");",
                       "pm.environment.set(\"sEstimateAmount\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].estimateAmount);",
                       "pm.environment.set(\"sProjectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
                       "pm.environment.set(\"sNameOfWork\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].nameOfWork);",
@@ -6058,6 +6059,9 @@
                       "});",
                       "pm.test(\"Abstract Estimate ID matches\", function () {",
                       "pm.expect(pm.environment.get(\"sAEId\")).to.include(jsonData.abstractEstimates[0].id);",
+                      "});",
+                      "pm.test(\"AE amount Matches\", function () {",
+                      "    pm.expect(jsonData.abstractEstimates[0].abstractEstimateDetails[0].estimateAmount).to.eql(amount);",
                       "});",
                       "postman.setNextRequest(\"Create sDE\");"
                     ]
