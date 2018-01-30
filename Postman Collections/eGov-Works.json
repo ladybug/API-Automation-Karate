@@ -7961,6 +7961,75 @@
                 "description": ""
               },
               "response": []
+            },
+            {
+              "_postman_id": "a28315c8-07b3-27a2-26f4-920f83ac75ac",
+              "name": "Search AE",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "50435991-618e-42ea-bc0d-b49260c266d1",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "var aeSearch = jsonData.abstractEstimates;",
+                      "var ae = aeSearch[Math.floor(aeSearch.length)];",
+                      "console.log(ae);",
+                      "",
+                      "for(var i=0; i<aeSearch.length; i++){",
+                      "    if(aeSearch[i].status.code == \"ADMIN_SANCTIONED\"){",
+                      "        console.log(aeSearch[i].abstractEstimateNumber);",
+                      "        pm.environment.set(\"AEnumber\", aeSearch[i].abstractEstimateNumber);",
+                      "        pm.environment.set(\"AEprojectCode\", aeSearch[i].abstractEstimateDetails[0].projectCode);",
+                      "    }",
+                      "}",
+                      "",
+                      "pm.globals.set(\"AEid\", aeSearch[0].id);",
+                      "pm.globals.set(\"AEamount\", aeSearch[0].abstractEstimateDetails[0].estimateAmount);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\"\n  }\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/works-estimate/v1/abstractestimates/_search?tenantId={{tenantId}}&ids={{AE_id}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-estimate",
+                    "v1",
+                    "abstractestimates",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "ids",
+                      "value": "{{AE_id}}",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": "@clerk login, for creating DE"
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
@@ -8109,75 +8178,6 @@
                 },
                 "url": "{{url}}/egov-mdms-service/v1/_search",
                 "description": ""
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "a28315c8-07b3-27a2-26f4-920f83ac75ac",
-              "name": "Search AE",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "50435991-618e-42ea-bc0d-b49260c266d1",
-                    "type": "text/javascript",
-                    "exec": [
-                      "var jsonData = JSON.parse(responseBody);",
-                      "var aeSearch = jsonData.abstractEstimates;",
-                      "var ae = aeSearch[Math.floor(aeSearch.length)];",
-                      "console.log(ae);",
-                      "",
-                      "for(var i=0; i<aeSearch.length; i++){",
-                      "    if(aeSearch[i].status.code == \"ADMIN_SANCTIONED\"){",
-                      "        console.log(aeSearch[i].abstractEstimateNumber);",
-                      "        pm.environment.set(\"AEnumber\", aeSearch[i].abstractEstimateNumber);",
-                      "        pm.environment.set(\"AEprojectCode\", aeSearch[i].abstractEstimateDetails[0].projectCode);",
-                      "    }",
-                      "}",
-                      "",
-                      "pm.globals.set(\"AEid\", aeSearch[0].id);",
-                      "pm.globals.set(\"AEamount\", aeSearch[0].abstractEstimateDetails[0].estimateAmount);"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\"\n  }\n}"
-                },
-                "url": {
-                  "raw": "{{url}}/works-estimate/v1/abstractestimates/_search?tenantId={{tenantId}}&ids={{AE_id}}",
-                  "host": [
-                    "{{url}}"
-                  ],
-                  "path": [
-                    "works-estimate",
-                    "v1",
-                    "abstractestimates",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "{{tenantId}}",
-                      "equals": true
-                    },
-                    {
-                      "key": "ids",
-                      "value": "{{AE_id}}",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": "@clerk login, for creating DE"
               },
               "response": []
             },
