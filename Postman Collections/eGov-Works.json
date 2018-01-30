@@ -6037,7 +6037,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "1a794054-86f5-4cf6-a478-c9d0610f6ef4",
+                    "id": "2e6fcfb5-3624-442b-81f0-49545271e10b",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -6061,7 +6061,7 @@
                       "pm.expect(pm.environment.get(\"sAEId\")).to.include(jsonData.abstractEstimates[0].id);",
                       "});",
                       "pm.test(\"AE amount Matches\", function () {",
-                      "    pm.expect(jsonData.abstractEstimates[0].abstractEstimateDetails[0].estimateAmount).to.eql(amount);",
+                      "    pm.expect(jsonData.abstractEstimates[0].abstractEstimateDetails[0].estimateAmount).to.eql(1000);",
                       "});",
                       "postman.setNextRequest(\"Create sDE\");"
                     ]
