@@ -8884,6 +8884,26 @@
               "response": []
             },
             {
+              "_postman_id": "4a02cdaa-6cbc-87b6-d04f-1961c99dd058",
+              "name": "Create LOA Offline Status copy",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.0\",\n    \"ts\": 1511171897140,\n    \"action\": \"create\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"offlineStatuses\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"objectNumber\": \"{{loaNumber}}\",\n      \"objectType\": \"LetterOfAcceptanceOffline\",\n      \"status\": {\n        \"code\": \"ACCEPTANCE_LETTER_ISSUED\"\n      },\n      \"objectDate\": \"1516860742511\",\n      \"statusDate\": \"1516860742511\"\n    },\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"objectNumber\": \"{{loaNumber}}\",\n      \"objectType\": \"LetterOfAcceptanceOffline\",\n      \"status\": {\n        \"code\": \"ACCEPTANCE_LETTER_ACKNOWLEDGED\"\n      },\n      \"objectDate\": \"1516860742511\",\n      \"statusDate\": \"1516860742511\"\n    },\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"objectNumber\": \"{{loaNumber}}\",\n      \"objectType\": \"LetterOfAcceptanceOffline\",\n      \"status\": {\n        \"code\": \"AGREEMENT_ORDER_SIGNED\"\n      },\n      \"objectDate\": \"1516860742511\",\n      \"statusDate\": \"1516860742511\"\n    }\n  ]\n}"
+                },
+                "url": "{{url}}/works-services/v1/offlinestatuses/_create",
+                "description": null
+              },
+              "response": []
+            },
+            {
               "_postman_id": "0c7e6d78-a744-84d2-cde8-53e484cef137",
               "name": "Search Offline Status",
               "request": {
@@ -9091,26 +9111,6 @@
                 },
                 "url": "{{url}}/works-workorder/v1/workorders/_update",
                 "description": ""
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "4a02cdaa-6cbc-87b6-d04f-1961c99dd058",
-              "name": "Create LOA Offline Status copy",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.0\",\n    \"ts\": 1511171897140,\n    \"action\": \"create\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"offlineStatuses\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"objectNumber\": \"{{loaNumber}}\",\n      \"objectType\": \"LetterOfAcceptanceOffline\",\n      \"status\": {\n        \"code\": \"ACCEPTANCE_LETTER_ISSUED\"\n      },\n      \"objectDate\": \"1516860742511\",\n      \"statusDate\": \"1516860742511\"\n    },\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"objectNumber\": \"{{loaNumber}}\",\n      \"objectType\": \"LetterOfAcceptanceOffline\",\n      \"status\": {\n        \"code\": \"ACCEPTANCE_LETTER_ACKNOWLEDGED\"\n      },\n      \"objectDate\": \"1516860742511\",\n      \"statusDate\": \"1516860742511\"\n    },\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"objectNumber\": \"{{loaNumber}}\",\n      \"objectType\": \"LetterOfAcceptanceOffline\",\n      \"status\": {\n        \"code\": \"AGREEMENT_ORDER_SIGNED\"\n      },\n      \"objectDate\": \"1516860742511\",\n      \"statusDate\": \"1516860742511\"\n    }\n  ]\n}"
-                },
-                "url": "{{url}}/works-services/v1/offlinestatuses/_create",
-                "description": null
               },
               "response": []
             }
