@@ -7336,7 +7336,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "b3a04e06-2c5b-4615-ac33-0c9679017eb7",
+                    "id": "b1b9362c-94c2-4bdf-9cf2-1bd912d947b9",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -7347,7 +7347,7 @@
                       "pm.environment.set(\"AE_id\", jsonData.abstractEstimates[0].id);",
                       "pm.environment.set(\"AEdetails_id\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].id);",
                       "pm.environment.set(\"AE_workflow\", jsonData.abstractEstimates[0].abstractEstimateNumber);",
-                      "pm.globals.set(\"AE_workflow\", jsonData.abstractEstimates[0].abstractEstimateNumber);",
+                      "pm.globals.set(\"devAEnum\", jsonData.abstractEstimates[0].abstractEstimateNumber);",
                       "pm.environment.set(\"status\", jsonData.abstractEstimates[0].status.code);",
                       "pm.environment.set(\"stateId\", jsonData.abstractEstimates[0].stateId);",
                       "",
