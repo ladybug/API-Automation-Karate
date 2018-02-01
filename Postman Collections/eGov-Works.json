@@ -8394,12 +8394,10 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "97c05fd2-ef5c-4778-87ab-846c94d63e09",
+                    "id": "f7564ade-d3e3-4981-affa-9e76c746d8dc",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
-                      "",
-                      "pm.globals.set(\"devAEprojectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
                       "",
                       "postman.setNextRequest(\"Logout as CE\");"
                     ]
