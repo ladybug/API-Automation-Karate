@@ -6707,9 +6707,12 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "64eac0ae-9f01-4ec8-87fe-2f9723f6e52c",
+                    "id": "ab183472-4f38-48ea-9b9a-afe0d3a7dd9d",
                     "type": "text/javascript",
                     "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
                       "postman.setNextRequest(\"Create Notice\");"
                     ]
                   }
