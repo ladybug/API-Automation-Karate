@@ -7970,7 +7970,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "cc51b34f-7813-4b5b-8050-2c7de7a3a855",
+                    "id": "e83ba461-b9db-47cd-9da2-997f3af22237",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -7979,7 +7979,7 @@
                       "",
                       "var jsonData = JSON.parse(responseBody);",
                       "pm.environment.set(\"status\", jsonData.abstractEstimates[0].status.code);",
-                      "postman.setNextRequest(\"Search AE (AS)\");"
+                      "postman.setNextRequest(\"Search AE AS\");"
                     ]
                   }
                 }
