@@ -8443,13 +8443,13 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "e0daa65f-c01b-43aa-85da-4b2ffc1025e0",
+                    "id": "76607aef-9aa0-48a0-89da-42dee0d0f3ef",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "var details = jsonData.abstractEstimates[0].abstractEstimateDetails;",
                       "pm.environment.set(\"adminSanctionDate\", jsonData.abstractEstimates[0].adminSanctionDate);",
-                      "pm.environment.set(\"aeDetails\", JSON.stringify(details));",
+                      "pm.environment.set(\"projectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
                       "postman.setNextRequest(\"Logout as CE\");"
                     ]
                   }
