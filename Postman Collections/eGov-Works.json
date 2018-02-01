@@ -8335,24 +8335,18 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "50435991-618e-42ea-bc0d-b49260c266d1",
+                    "id": "6ae6e67a-874b-49de-b9a5-e76bf46119aa",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "var aeSearch = jsonData.abstractEstimates;",
-                      "var ae = aeSearch[Math.floor(aeSearch.length)];",
-                      "console.log(ae);",
                       "",
                       "for(var i=0; i<aeSearch.length; i++){",
                       "    if(aeSearch[i].status.code == \"ADMIN_SANCTIONED\"){",
-                      "        console.log(aeSearch[i].abstractEstimateNumber);",
                       "        pm.environment.set(\"AEnumber\", aeSearch[i].abstractEstimateNumber);",
                       "        pm.environment.set(\"AEprojectCode\", aeSearch[i].abstractEstimateDetails[0].projectCode);",
                       "    }",
-                      "}",
-                      "",
-                      "pm.globals.set(\"AEid\", aeSearch[0].id);",
-                      "pm.globals.set(\"AEamount\", aeSearch[0].abstractEstimateDetails[0].estimateAmount);"
+                      "}"
                     ]
                   }
                 }
