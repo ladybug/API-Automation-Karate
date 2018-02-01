@@ -6536,11 +6536,13 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "69838232-c2b8-4bd3-87ff-ceedef4c1fb5",
+                    "id": "2e980117-6566-412f-bf62-08d532e7a828",
                     "type": "text/javascript",
                     "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
                       "var jsonData = JSON.parse(responseBody);",
-                      "",
                       "pm.environment.set(\"milestoneId\", jsonData.milestones[0].id);",
                       "pm.environment.set(\"milestoneStatus\", jsonData.milestones[0].status.code);",
                       "pm.environment.set(\"milestoneActivitiyId\", jsonData.milestones[0].milestoneActivities[0].id);",
