@@ -8394,11 +8394,11 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "f7564ade-d3e3-4981-affa-9e76c746d8dc",
+                    "id": "51fb2dcc-bd1d-4644-a7f9-4a70a80c10c7",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
-                      "",
+                      "pm.environment.set(\"adminSanctionDate\", jsonData.abstractEstimates[0].adminSanctionDate);",
                       "postman.setNextRequest(\"Logout as CE\");"
                     ]
                   }
