@@ -8116,7 +8116,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "f185cee3-f8c6-4c38-aa07-126425761e47",
+                    "id": "fcdfde04-3100-4083-b900-ca1e3bbb0033",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -8133,7 +8133,8 @@
                       "}",
                       "",
                       "pm.globals.set(\"devAEid\", aeSearch[0].id);",
-                      "pm.globals.set(\"devAEamount\", aeSearch[0].abstractEstimateDetails[0].estimateAmount);"
+                      "pm.globals.set(\"devAEamount\", aeSearch[0].abstractEstimateDetails[0].estimateAmount);",
+                      "postman.setNextRequest(\"Logout as Clerk\");"
                     ]
                   }
                 }
