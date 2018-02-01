@@ -7970,7 +7970,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "118a84f0-3292-44c3-a096-9682ece95883",
+                    "id": "cc51b34f-7813-4b5b-8050-2c7de7a3a855",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -7979,7 +7979,7 @@
                       "",
                       "var jsonData = JSON.parse(responseBody);",
                       "pm.environment.set(\"status\", jsonData.abstractEstimates[0].status.code);",
-                      "postman.setNextRequest(\"Search AE AS\");"
+                      "postman.setNextRequest(\"Search AE (AS)\");"
                     ]
                   }
                 }
@@ -8175,6 +8175,65 @@
                   ]
                 },
                 "description": "@clerk login, for creating DE"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "a5a3f3a6-5916-d6fe-2d6a-4f40c1b7babb",
+              "name": "Search AE (AS)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "97c05fd2-ef5c-4778-87ab-846c94d63e09",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "pm.globals.set(\"devAEprojectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
+                      "",
+                      "postman.setNextRequest(\"Logout as CE\");"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\"\n  }\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/works-estimate/v1/abstractestimates/_search?tenantId={{tenantId}}&ids={{devAEid}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-estimate",
+                    "v1",
+                    "abstractestimates",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "ids",
+                      "value": "{{devAEid}}",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": "@CE login"
               },
               "response": []
             }
