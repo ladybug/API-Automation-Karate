@@ -6672,12 +6672,13 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "0d646ba9-7349-46f8-97bb-0b7ef186c0b2",
+                    "id": "cae9083f-86d5-441e-99fd-0317c8e35cac",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "",
-                      "pm.environment.set(\"trackId\", jsonData.trackMilestones[0].id);"
+                      "pm.environment.set(\"trackId\", jsonData.trackMilestones[0].id);",
+                      "postman.setNextRequest(\"Search Track Milestone\");"
                     ]
                   }
                 }
