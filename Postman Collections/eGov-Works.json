@@ -6703,6 +6703,18 @@
             {
               "_postman_id": "518d45b3-8a02-e9f7-44b8-f668c9a7f167",
               "name": "Search Track Milestone",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "64eac0ae-9f01-4ec8-87fe-2f9723f6e52c",
+                    "type": "text/javascript",
+                    "exec": [
+                      "postman.setNextRequest(\"Create Notice\");"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
