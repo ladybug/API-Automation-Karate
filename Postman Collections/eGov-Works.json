@@ -8245,11 +8245,10 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "d72a57c7-1e4b-4d6d-9168-ea1114f50096",
+                    "id": "2505c33b-fd35-463f-b6cb-d1d8504c0ddc",
                     "type": "text/javascript",
                     "exec": [
-                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
-                      "postman.setNextRequest(\"Login as ACC\");"
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;"
                     ]
                   }
                 }
