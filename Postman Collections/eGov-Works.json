@@ -8496,11 +8496,11 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "192d4449-2dd7-4bb5-ab9c-657019fe6690",
+                    "id": "3c79ec14-f7ff-4356-9307-43aff7ec170a",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
-                      "pm.environment.set(\"SorCode\", jsonData.scheduleOfRates[0].code);",
+                      "pm.environment.set(\"sorCode\", jsonData.scheduleOfRates[0].code);",
                       "pm.environment.set(\"sorId\", jsonData.scheduleOfRates[0].id);"
                     ]
                   }
