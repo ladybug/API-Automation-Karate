@@ -6765,14 +6765,15 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "12872279-fd54-465b-a956-711f1323f55f",
+                    "id": "49a1c3bd-fc9e-43ea-ae1c-9801eeb0526b",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "",
                       "pm.environment.set(\"noticeId\", jsonData.notices[0].id);",
                       "pm.environment.set(\"noticeNumber\", jsonData.notices[0].noticeNumber);",
-                      "pm.environment.set(\"noticeDetailsId\", jsonData.notices[0].noticeDetails[0].id);"
+                      "pm.environment.set(\"noticeDetailsId\", jsonData.notices[0].noticeDetails[0].id);",
+                      "postman.setNextRequest(\"Search Notice\");"
                     ]
                   }
                 }
