@@ -6922,9 +6922,13 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "c9cdaee9-7451-41e6-920c-f1d3e1f15afa",
+                    "id": "398cb71f-5afa-4486-aaa8-a84d098efd82",
                     "type": "text/javascript",
                     "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
                       "var jsonData = JSON.parse(responseBody);",
                       "var mbId = pm.environment.get(\"MBid\");",
                       "var loaEstId = pm.environment.get(\"loaEstimateId\");",
