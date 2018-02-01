@@ -6677,11 +6677,14 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "cae9083f-86d5-441e-99fd-0317c8e35cac",
+                    "id": "14bd098b-4ad8-4811-8c10-cab3d7d96ad6",
                     "type": "text/javascript",
                     "exec": [
-                      "var jsonData = JSON.parse(responseBody);",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
                       "",
+                      "var jsonData = JSON.parse(responseBody);",
                       "pm.environment.set(\"trackId\", jsonData.trackMilestones[0].id);",
                       "postman.setNextRequest(\"Search Track Milestone\");"
                     ]
