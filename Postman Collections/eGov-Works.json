@@ -7034,6 +7034,18 @@
                       "pm.environment.set(\"stageStatus\", stageStatus);"
                     ]
                   }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "0d646ba9-7349-46f8-97bb-0b7ef186c0b2",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "pm.environment.set(\"trackId\", jsonData.trackMilestones[0].id);"
+                    ]
+                  }
                 }
               ],
               "request": {
