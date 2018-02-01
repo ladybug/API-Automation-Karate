@@ -8394,12 +8394,13 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "b732e4d1-c6fb-41b1-8392-8ef3913934ff",
+                    "id": "e0daa65f-c01b-43aa-85da-4b2ffc1025e0",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
+                      "var details = jsonData.abstractEstimates[0].abstractEstimateDetails;",
                       "pm.environment.set(\"adminSanctionDate\", jsonData.abstractEstimates[0].adminSanctionDate);",
-                      "pm.environment.set(\"aeDetails\", jsonData.abstractEstimates[0].abstractEstimateDetails);",
+                      "pm.environment.set(\"aeDetails\", JSON.stringify(details));",
                       "postman.setNextRequest(\"Logout as CE\");"
                     ]
                   }
