@@ -8394,11 +8394,12 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "51fb2dcc-bd1d-4644-a7f9-4a70a80c10c7",
+                    "id": "b732e4d1-c6fb-41b1-8392-8ef3913934ff",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "pm.environment.set(\"adminSanctionDate\", jsonData.abstractEstimates[0].adminSanctionDate);",
+                      "pm.environment.set(\"aeDetails\", jsonData.abstractEstimates[0].abstractEstimateDetails);",
                       "postman.setNextRequest(\"Logout as CE\");"
                     ]
                   }
