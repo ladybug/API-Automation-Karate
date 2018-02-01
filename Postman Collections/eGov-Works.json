@@ -6773,11 +6773,14 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "49a1c3bd-fc9e-43ea-ae1c-9801eeb0526b",
+                    "id": "66889fc2-556e-41bd-a941-2de585726fc4",
                     "type": "text/javascript",
                     "exec": [
-                      "var jsonData = JSON.parse(responseBody);",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
                       "",
+                      "var jsonData = JSON.parse(responseBody);",
                       "pm.environment.set(\"noticeId\", jsonData.notices[0].id);",
                       "pm.environment.set(\"noticeNumber\", jsonData.notices[0].noticeNumber);",
                       "pm.environment.set(\"noticeDetailsId\", jsonData.notices[0].noticeDetails[0].id);",
