@@ -6573,7 +6573,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "d4e2b34f-240d-4995-8d88-c2be43c78ba0",
+                    "id": "f2515145-0665-46f7-9630-a3aa9578bbaa",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -6606,7 +6606,8 @@
                       "",
                       "pm.test(\"Milestone activities ID matches\", function (){",
                       "   pm.expect(pm.environment.get(\"milestoneActivitiyId\")).to.include(jsonData.milestones[0].milestoneActivities[0].id); ",
-                      "});"
+                      "});",
+                      "postman.setNextRequest(\"Create Track Milestone\");"
                     ]
                   }
                 }
