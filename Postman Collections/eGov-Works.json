@@ -8117,7 +8117,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "50435991-618e-42ea-bc0d-b49260c266d1",
+                    "id": "f185cee3-f8c6-4c38-aa07-126425761e47",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -8133,8 +8133,8 @@
                       "    }",
                       "}",
                       "",
-                      "pm.globals.set(\"AEid\", aeSearch[0].id);",
-                      "pm.globals.set(\"AEamount\", aeSearch[0].abstractEstimateDetails[0].estimateAmount);"
+                      "pm.globals.set(\"devAEid\", aeSearch[0].id);",
+                      "pm.globals.set(\"devAEamount\", aeSearch[0].abstractEstimateDetails[0].estimateAmount);"
                     ]
                   }
                 }
