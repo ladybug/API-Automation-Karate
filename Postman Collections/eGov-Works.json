@@ -8388,69 +8388,6 @@
               "response": []
             },
             {
-              "_postman_id": "66f1a37e-4f99-a80c-2980-60b3243b30d5",
-              "name": "Search AE copy",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "6ae6e67a-874b-49de-b9a5-e76bf46119aa",
-                    "type": "text/javascript",
-                    "exec": [
-                      "var jsonData = JSON.parse(responseBody);",
-                      "var aeSearch = jsonData.abstractEstimates;",
-                      "",
-                      "for(var i=0; i<aeSearch.length; i++){",
-                      "    if(aeSearch[i].status.code == \"ADMIN_SANCTIONED\"){",
-                      "        pm.environment.set(\"AEnumber\", aeSearch[i].abstractEstimateNumber);",
-                      "        pm.environment.set(\"AEprojectCode\", aeSearch[i].abstractEstimateDetails[0].projectCode);",
-                      "    }",
-                      "}"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\"\n  }\n}"
-                },
-                "url": {
-                  "raw": "{{url}}/works-estimate/v1/abstractestimates/_search?tenantId={{tenantId}}&ids={{devAEid}}",
-                  "host": [
-                    "{{url}}"
-                  ],
-                  "path": [
-                    "works-estimate",
-                    "v1",
-                    "abstractestimates",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "{{tenantId}}",
-                      "equals": true
-                    },
-                    {
-                      "key": "ids",
-                      "value": "{{devAEid}}",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": "@clerk login, for creating DE"
-              },
-              "response": []
-            },
-            {
               "_postman_id": "46257d1d-f792-0c05-afa1-b51b8efbe02d",
               "name": "Search Project Code",
               "request": {
