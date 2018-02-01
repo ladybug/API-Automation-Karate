@@ -6798,6 +6798,21 @@
             {
               "_postman_id": "371e3e22-322e-811e-b4e2-9bc5939af785",
               "name": "Search Notice",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "e039058f-2a6a-4ce0-99cb-5b467ca291e4",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "postman.setNextRequest(\"Create sMB\");"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
