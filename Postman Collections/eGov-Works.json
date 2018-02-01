@@ -7017,6 +7017,41 @@
                 "description": ""
               },
               "response": []
+            },
+            {
+              "_postman_id": "4f084565-23e7-eed0-298b-05798f5b3334",
+              "name": "Create Track Milestone",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "e971e6d7-1924-44f9-aa0f-0cfc9a5ec326",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var trackStatus = [\"NOT_YET_STARTED\", \"IN_PROGRESS\", \"COMPLETED\"];",
+                      "",
+                      "var stageStatus = trackStatus[Math.floor(Math.random() * trackStatus.length)];",
+                      "pm.environment.set(\"stageStatus\", stageStatus);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"emp\",\n    \"ver\": \"1.0\",\n    \"ts\": \"10032017\",\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"key\": \"abcdkey\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"authToken\": \"{{access_token}}\",\n    \"userInfo\": {\n      \"tenantId\": \"{{tenantId}}\",\n      \"userName\": \"clerk\"\n    }\n  },\n  \"trackMilestones\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"milestone\": {\n        \"id\": \"{{milestoneId}}\"\n      },\n      \"status\": {\n        \"code\": \"COMPLETED\"\n      },\n      \"totalPercentage\": \"49\",\n      \"projectCompleted\": false,\n      \"trackMilestoneActivities\": [\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"milestoneActivity\": {\n            \"id\": \"{{milestoneActivitiesId1}}\"\n          },\n          \"actualStartDate\": 1514891645000,\n          \"actualEndDate\": 1514978045000,\n          \"percentage\": 100,\n          \"status\": {\n            \"code\": \"COMPLETED\"\n          },\n          \"deleted\": false\n        },\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"milestoneActivity\": {\n            \"id\": \"{{milestoneActivitiesId2}}\"\n          },\n          \"actualStartDate\": 1514978045000,\n          \"actualEndDate\": 1515064445000,\n          \"percentage\": 24.5,\n          \"status\": {\n            \"code\": \"IN_PROGRESS\"\n          },\n          \"deleted\": false\n        },\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"milestoneActivity\": {\n            \"id\": \"{{milestoneActivitiesId3}}\"\n          },\n          \"actualStartDate\": 1515150845000,\n          \"actualEndDate\": 1515237245000,\n          \"percentage\": 100,\n          \"status\": {\n            \"code\": \"IN_PROGRESS\"\n          },\n          \"deleted\": false\n        },\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"milestoneActivity\": {\n            \"id\": \"{{milestoneActivitiesId4}}\"\n          },\n          \"actualStartDate\": 1515323645000,\n          \"actualEndDate\": 1515410045000,\n          \"percentage\": 100,\n          \"status\": {\n            \"code\": \"NOT_YET_STARTED\"\n          },\n          \"deleted\": false\n        }\n      ],\n      \"deleted\": false\n    }\n  ]\n}"
+                },
+                "url": "{{url}}/works-workorder/v1/trackmilestones/_create",
+                "description": null
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
