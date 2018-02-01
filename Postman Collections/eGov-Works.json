@@ -8008,12 +8008,11 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "5e52e4c8-f798-47af-ac04-8fc3924a4b89",
+                    "id": "97c05fd2-ef5c-4778-87ab-846c94d63e09",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "",
-                      "pm.globals.set(\"devAEnumber\", jsonData.abstractEstimates[0].abstractEstimateNumber);",
                       "pm.globals.set(\"devAEprojectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
                       "",
                       "postman.setNextRequest(\"Logout as CE\");"
