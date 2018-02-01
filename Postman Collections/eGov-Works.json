@@ -6882,9 +6882,13 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "6c313bc0-735a-4b20-8aa9-7a814fe130a6",
+                    "id": "e166e3e3-f0d0-413b-b704-59a431e5f523",
                     "type": "text/javascript",
                     "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
                       "var jsonData = JSON.parse(responseBody);",
                       "pm.environment.set(\"MBid\", jsonData.measurementBooks[0].id);",
                       "pm.environment.set(\"MBrefNo\", jsonData.measurementBooks[0].mbRefNo);",
