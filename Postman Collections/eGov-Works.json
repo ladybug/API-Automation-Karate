@@ -6575,9 +6575,12 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "f2515145-0665-46f7-9630-a3aa9578bbaa",
+                    "id": "f96ecb41-bce6-4486-9323-1a5979e41b34",
                     "type": "text/javascript",
                     "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
                       "var jsonData = JSON.parse(responseBody);",
                       "var milestone = jsonData.milestones;",
                       "var milestoneActivities = jsonData.milestones[0].milestoneActivities;",
