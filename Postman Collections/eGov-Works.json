@@ -8180,7 +8180,7 @@
             },
             {
               "_postman_id": "36217680-c970-28e4-ebed-c8d519ee4bb9",
-              "name": "Search AE AS copy",
+              "name": "Search AE",
               "event": [
                 {
                   "listen": "test",
