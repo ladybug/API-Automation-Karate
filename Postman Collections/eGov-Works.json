@@ -8008,13 +8008,13 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "6aeb2115-d5c8-407b-ac35-54e7ae9e8569",
+                    "id": "5e52e4c8-f798-47af-ac04-8fc3924a4b89",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "",
-                      "pm.globals.set(\"AEnumber\", jsonData.abstractEstimates[0].abstractEstimateNumber);",
-                      "pm.globals.set(\"AEprojectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
+                      "pm.globals.set(\"devAEnumber\", jsonData.abstractEstimates[0].abstractEstimateNumber);",
+                      "pm.globals.set(\"devAEprojectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
                       "",
                       "postman.setNextRequest(\"Logout as CE\");"
                     ]
