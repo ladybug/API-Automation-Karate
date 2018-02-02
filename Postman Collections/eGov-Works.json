@@ -6987,7 +6987,7 @@
             },
             {
               "_postman_id": "1eca8936-9788-6db8-996f-274583063b98",
-              "name": "Create bill",
+              "name": "Create Bill",
               "request": {
                 "method": "POST",
                 "header": [
