@@ -6726,6 +6726,19 @@
             {
               "_postman_id": "1eca8936-9788-6db8-996f-274583063b98",
               "name": "Create Bill",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "43e8d3eb-7bd5-469e-8e1a-d953ffc9b129",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var num1 = Math.floor((Math.random() * 10000) + 1);",
+                      "pm.environment.set(\"billSequenceNumber\", \"Spillover/Bill/\"+num1);"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
@@ -6736,7 +6749,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"userInfo\": {\n      \"userName\": \"clerk\",\n      \"tenantId\": \"{{tenantId}}\"\n    }\n  },\n  \"contractorBills\": [\n    {\n        \"tenantId\": \"{{tenantId}}\",\n        \"billSequenceNumber\": \"Spillover/Bill/201\",\n        \"approvedDate\": \"\",\n        \"billDate\" : 1483315200000,\n        \"billAmount\": 900,\n        \"billType\": \"Part\",\n        \"passedAmount\": 450,\n        \"contractorBillAmount\": 450,\n        \"approvedBy\": {\n        \t\"userName\":\"clerk\"\n        },\n        \"assets\":[],\n        \"mbForContractorBill\":[{\n        \t\"measurementBook\" : {\n        \t\t\"tenantId\": \"{{tenantId}}\",\n        \t\t\"id\" : \"{{MBid}}\"\n        \t},\n            \"tenantId\": \"{{tenantId}}\"\n        }],\n        \"letterOfAcceptanceEstimate\":{\n            \"tenantId\": \"{{tenantId}}\",\n            \"id\":\"{{loaEstimateId}}\"\n        },\n        \"workFlowDetails\": null\n    }]\n}"
+                  "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"userInfo\": {\n      \"userName\": \"clerk\",\n      \"tenantId\": \"{{tenantId}}\"\n    }\n  },\n  \"contractorBills\": [\n    {\n        \"tenantId\": \"{{tenantId}}\",\n        \"billSequenceNumber\": \"{{billSequenceNumber}}\",\n        \"approvedDate\": \"\",\n        \"billDate\" : 1483315200000,\n        \"billAmount\": 450,\n        \"billType\": \"Part\",\n        \"passedAmount\": 450,\n        \"contractorBillAmount\": 450,\n        \"approvedBy\": {\n        \t\"userName\":\"clerk\"\n        },\n        \"assets\":[],\n        \"mbForContractorBill\":[{\n        \t\"measurementBook\" : {\n        \t\t\"tenantId\": \"{{tenantId}}\",\n        \t\t\"id\" : \"{{MBid}}\"\n        \t},\n            \"tenantId\": \"{{tenantId}}\"\n        }],\n        \"letterOfAcceptanceEstimate\":{\n            \"tenantId\": \"{{tenantId}}\",\n            \"id\":\"{{loaEstimateId}}\"\n        },\n        \"workFlowDetails\": null\n    }]\n}"
                 },
                 "url": "{{url}}/works-measurementbook/v1/contractorbills/_create",
                 "description": ""
