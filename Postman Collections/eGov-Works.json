@@ -2156,12 +2156,12 @@
               "urlencoded": [
                 {
                   "key": "username",
-                  "value": "HOD",
+                  "value": "{{username}}",
                   "type": "text"
                 },
                 {
                   "key": "password",
-                  "value": "12345678",
+                  "value": "{{password}}",
                   "type": "text"
                 },
                 {
