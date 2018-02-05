@@ -6744,6 +6744,26 @@
               "response": []
             },
             {
+              "_postman_id": "bd61613a-6c22-73e9-32e1-0cd9a5e2a619",
+              "name": "Search Contractor Bill",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"search\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"works master creator\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"userInfo\": {\n      \"userName\": \"clerk\",\n      \"tenantId\": \"{{tenantId}}\"\n    \t}\n\t}\n}"
+                },
+                "url": "{{url}}/works-measurementbook/v1/contractorbills/_search",
+                "description": null
+              },
+              "response": []
+            },
+            {
               "_postman_id": "cb619bd5-b139-9497-0694-f1c3daf5907c",
               "name": "Logout",
               "event": [
@@ -6896,26 +6916,6 @@
                   ]
                 },
                 "description": "Search Notice Generated for the LOA"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "bd61613a-6c22-73e9-32e1-0cd9a5e2a619",
-              "name": "Search Contractor Bill",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"search\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"works master creator\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"userInfo\": {\n      \"userName\": \"clerk\",\n      \"tenantId\": \"{{tenantId}}\"\n    \t}\n\t}\n}"
-                },
-                "url": "{{url}}/works-measurementbook/v1/contractorbills/_search",
-                "description": null
               },
               "response": []
             }
