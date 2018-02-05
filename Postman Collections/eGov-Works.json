@@ -6737,6 +6737,19 @@
                       "pm.environment.set(\"billSequenceNumber\", \"Spillover/Bill/\"+num1);"
                     ]
                   }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "6e79e1b3-e6f4-4f06-b001-562f3f606e8b",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "pm.environment.set(\"billNumber\", jsonData.contractorBills[0].billNumber);",
+                      "pm.environment.set(\"billId\", jsonData.contractorBills[0].id);"
+                    ]
+                  }
                 }
               ],
               "request": {
