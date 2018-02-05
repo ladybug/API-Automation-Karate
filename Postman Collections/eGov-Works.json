@@ -6745,7 +6745,7 @@
             },
             {
               "_postman_id": "bd61613a-6c22-73e9-32e1-0cd9a5e2a619",
-              "name": "Search Contractor Bill",
+              "name": "Search Bill",
               "request": {
                 "method": "POST",
                 "header": [
