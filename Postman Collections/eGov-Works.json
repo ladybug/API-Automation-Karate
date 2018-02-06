@@ -7923,7 +7923,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "fcdfde04-3100-4083-b900-ca1e3bbb0033",
+                    "id": "95b6a8ba-f595-433e-9c61-d03a4d8b2eba",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -7932,7 +7932,7 @@
                       "console.log(ae);",
                       "",
                       "for(var i=0; i<aeSearch.length; i++){",
-                      "    if(aeSearch[i].status.code == \"ADMIN_SANCTIONED\"){",
+                      "    if(aeSearch[i].status.code == \"ADMINISTRATIVE_SANCTIONED\"){",
                       "        console.log(aeSearch[i].abstractEstimateNumber);",
                       "        pm.environment.set(\"AEnumber\", aeSearch[i].abstractEstimateNumber);",
                       "        pm.environment.set(\"AEprojectCode\", aeSearch[i].abstractEstimateDetails[0].projectCode);",
