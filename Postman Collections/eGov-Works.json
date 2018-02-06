@@ -8313,13 +8313,14 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "f7d58cfc-ad3d-459b-9865-6b5ebe65ba19",
+                    "id": "903d72ee-630f-4566-88a8-f4f593826ae2",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
+                      "var pc = pm.globals.get(\"devAEprojectCode\");",
                       "",
-                      "pm.test(\"Body matches string\", function () {",
-                      "    pm.expect(jsonData.projectCodes[0].code).to.include(pm.globals.get(\"devAEprojectCode\"));",
+                      "pm.test(\"Project Code Matches\", function () {",
+                      "    pm.expect(jsonData.projectCodes[0].code).to.include(pc);",
                       "});"
                     ]
                   }
