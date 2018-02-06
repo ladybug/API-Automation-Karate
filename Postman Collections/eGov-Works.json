@@ -8838,6 +8838,49 @@
               "response": []
             },
             {
+              "_postman_id": "83a09104-9414-c788-8d9a-ccc7af764c0d",
+              "name": "Search Active Contractor",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"emp\",\n        \"ver\": \"1.0\",\n        \"ts\": \"10032017\",\n        \"action\": \"search\",\n        \"did\": \"1\",\n        \"key\": \"abcdkey\",\n        \"msgId\": \"20170310130900\",\n        \"requesterId\": \"\",\n        \"authToken\": \"{{access_token}}\"\n    }\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/works-masters/v1/contractors/_search?tenantId={{tenantId}}&statuses=ACTIVE",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-masters",
+                    "v1",
+                    "contractors",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "ACTIVE",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": null
+              },
+              "response": []
+            },
+            {
               "_postman_id": "abea657b-ef99-9b30-a8bd-185a5abe272c",
               "name": "Create LOA",
               "event": [
@@ -9296,49 +9339,6 @@
                     {
                       "key": "access_token",
                       "value": "{{access_token}}",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": null
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "83a09104-9414-c788-8d9a-ccc7af764c0d",
-              "name": "Search Active Contractor",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"emp\",\n        \"ver\": \"1.0\",\n        \"ts\": \"10032017\",\n        \"action\": \"search\",\n        \"did\": \"1\",\n        \"key\": \"abcdkey\",\n        \"msgId\": \"20170310130900\",\n        \"requesterId\": \"\",\n        \"authToken\": \"{{access_token}}\"\n    }\n}"
-                },
-                "url": {
-                  "raw": "{{url}}/works-masters/v1/contractors/_search?tenantId={{tenantId}}&statuses=ACTIVE",
-                  "host": [
-                    "{{url}}"
-                  ],
-                  "path": [
-                    "works-masters",
-                    "v1",
-                    "contractors",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "{{tenantId}}",
-                      "equals": true
-                    },
-                    {
-                      "key": "statuses",
-                      "value": "ACTIVE",
                       "equals": true
                     }
                   ]
