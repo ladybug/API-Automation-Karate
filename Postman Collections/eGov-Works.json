@@ -8844,14 +8844,14 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "11a02c69-9a1d-4b1c-910a-c0f11efc64d1",
+                    "id": "3707a5db-23ba-47a5-b031-70452086aba0",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
-                      "var data1 = jsonData.contractors;",
-                      "console.log(c.length);",
-                      "var data2 = data1[Math.floor(Math.random * data1.length)];",
-                      "console.log(data1.code);"
+                      "var contractors = jsonData.contractors;",
+                      "var activeContractors = contractors[Math.floor(Math.random()) * contractors.length];",
+                      "",
+                      "pm.environment.set(\"contractor\" ,activeContractors.code);"
                     ]
                   }
                 }
