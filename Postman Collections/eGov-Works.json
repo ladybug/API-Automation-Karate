@@ -8250,14 +8250,18 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "76607aef-9aa0-48a0-89da-42dee0d0f3ef",
+                    "id": "1d61abf3-0e0e-427f-8638-ba6b7cfbffed",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "var details = jsonData.abstractEstimates[0].abstractEstimateDetails;",
                       "pm.environment.set(\"adminSanctionDate\", jsonData.abstractEstimates[0].adminSanctionDate);",
                       "pm.environment.set(\"projectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
-                      "postman.setNextRequest(\"Logout as CE\");"
+                      "postman.setNextRequest(\"Logout as CE\");",
+                      "",
+                      "pm.test(\"AE is Administrative Sanctioned\", function () {",
+                      "    pm.expect(\"ADMINISTRATIVE_SANCTIONED\").to.include(jsonData.abstractEstimates[0].status.code);",
+                      "});"
                     ]
                   }
                 }
