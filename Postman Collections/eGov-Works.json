@@ -8309,6 +8309,22 @@
             {
               "_postman_id": "46257d1d-f792-0c05-afa1-b51b8efbe02d",
               "name": "Search Project Code",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "f7d58cfc-ad3d-459b-9865-6b5ebe65ba19",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "pm.test(\"Body matches string\", function () {",
+                      "    pm.expect(jsonData.projectCodes[0].code).to.include(pm.globals.get(\"devAEprojectCode\"));",
+                      "});"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
@@ -8322,7 +8338,7 @@
                   "raw": "{\n  \"RequestInfo\":{\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.0\",\n    \"ts\" : \"12345678\",\n    \"action\": \"search\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\"\n    }\n }"
                 },
                 "url": {
-                  "raw": "{{url}}/works-estimate/v1/projectcodes/_search?tenantId={{tenantId}}&codes={{projectCode}}",
+                  "raw": "{{url}}/works-estimate/v1/projectcodes/_search?tenantId={{tenantId}}&codes={{devAEprojectCode}}",
                   "host": [
                     "{{url}}"
                   ],
@@ -8340,7 +8356,7 @@
                     },
                     {
                       "key": "codes",
-                      "value": "{{projectCode}}",
+                      "value": "{{devAEprojectCode}}",
                       "equals": true
                     }
                   ]
