@@ -2008,10 +2008,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"search\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"HOD\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"works-master\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"userInfo\": {\n      \"userName\": \"HOD\",\n      \"tenantId\" : \"{{tenantId}}\"\n    }\n  }\n}"
+                  "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"search\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"HOD\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"works-master\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"userInfo\": {\n      \"userName\": \"HOD\",\n      \"tenantId\" : \"{{tenantId}}\"\n    }\n  }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}//works-masters/v1/remarks/_search?tenantId={{tenantId}}&ids={{remarksIds}}",
+                  "raw": "{{url}}//works-masters/v1/remarks/_search?tenantId={{tenantId}}",
                   "host": [
                     "{{url}}"
                   ],
@@ -2026,11 +2026,6 @@
                     {
                       "key": "tenantId",
                       "value": "{{tenantId}}",
-                      "equals": true
-                    },
-                    {
-                      "key": "ids",
-                      "value": "{{remarksIds}}",
                       "equals": true
                     }
                   ]
