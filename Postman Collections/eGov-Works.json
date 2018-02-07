@@ -8908,7 +8908,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "77fa89ab-e5a6-4269-8cdb-4c8604ee695f",
+                    "id": "1f8d4d62-ad89-468c-a0f7-31bded03db7b",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.floor((Math.random() * 10000) + 1);",
@@ -8917,6 +8917,8 @@
                       "var epoch = Math.round(today.getTime()/1000);",
                       "var year = today.getFullYear();",
                       "",
+                      "pm.global.get(\"DEid\");",
+                      "pm.global.get(\"DEnum\");",
                       "pm.environment.set(\"fileNumber\", \"FN-\"+num1);",
                       "pm.environment.set(\"loaCRN\", \"CRN-LOA-\"+num1);"
                     ]
