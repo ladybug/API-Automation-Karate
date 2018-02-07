@@ -6542,7 +6542,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"apiId\": \"works-workOrder\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"notices\": [\n  \t{\n  \t\t\"tenantId\": \"{{tenantId}}\",\n  \t\t\"letterOfAcceptance\": {\n  \t\t\t\"id\": \"{{loaId}}\"\n  \t\t},\t\n  \t\t\"noticeDetails\": [\n  \t\t\t{\n  \t\t\t\t\"tenantId\": \"{{tenantId}}\",\n  \t\t\t\t\"remarks\": \"Approval\"\n  \t\t\t}\n  \t\t],\n  \t\t\"closingLine\": \"Closing Line\",\n  \t\t\"daysOfReply\": \"7\",\n  \t\t\"documentDetails\": []\n  \t\t}\n  \t]\n}"
+                  "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"apiId\": \"works-workOrder\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"notices\": [\n  \t{\n  \t\t\"tenantId\": \"{{tenantId}}\",\n  \t\t\"letterOfAcceptance\": {\n  \t\t\t\"id\": \"{{loaId}}\"\n  \t\t},\t\n  \t\t\"noticeDetails\": [\n  \t\t\t{\n  \t\t\t\t\"tenantId\": \"{{tenantId}}\",\n  \t\t\t\t\"remarks\": \"Approval\"\n  \t\t\t}\n  \t\t],\n  \t\t\"closingLine\": \"Closing Line\",\n  \t\t\"daysOfReply\": \"7\",\n  \t\t\"documentDetails\": []\n  \t\t}\n  \t]\n}"
                 },
                 "url": "{{url}}/works-workorder/v1/notices/_create",
                 "description": "Notice generation for the LOA"
