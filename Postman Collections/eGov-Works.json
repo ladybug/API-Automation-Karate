@@ -5700,7 +5700,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "406fc287-7609-405f-9da2-7b26e3a3252a",
+                    "id": "e1bfbefa-0bb8-4a85-8876-1a83d9068fdf",
                     "type": "text/javascript",
                     "exec": [
                       "var num1 = Math.floor((Math.random() * 10000) + 1);",
@@ -5710,17 +5710,16 @@
                       "var year = today.getFullYear();",
                       "var estimateAmount = [1000, 10000, 100000];",
                       "var natureOfWork = pm.environment.get(\"natureOfWork\");",
-                      "var jsonRequest = JSON.parse(request.Data);",
                       "",
                       "if(natureOfWork === \"Repairs\" && natureOfWork === \"Addition\"){",
                       "    pm.environment.set(\"assetCode\", \"default/AT/043/144\");",
                       "    pm.environment.set(\"landAssetRequired\", false);",
                       "    pm.environment.set(\"noOfLands\", \"\");",
-                      "}else",
+                      "}else{",
                       "    pm.environment.set(\"landAssetRequired\", true);",
                       "    pm.environment.set(\"noOfLands\", num1);",
                       "    pm.environment.set(\"assetCode\", \"\");",
-                      "",
+                      "}",
                       "pm.environment.set(\"abstractEstimateNumber\", \"AE/ENG/\"+num1);",
                       "pm.environment.set(\"referenceNumber\", \"RefNum\"+num1);",
                       "pm.environment.set(\"adminSanctionNumber\", \"ADN-\"+year+\"-\"+num1);",
