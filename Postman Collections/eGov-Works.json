@@ -8517,7 +8517,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "0fcf8468-8471-406d-80a2-5be6ae868ad6",
+                    "id": "45e92d8f-70de-4df2-a670-280ab52685f6",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -8560,8 +8560,8 @@
                       "    pm.test(\"Detailed Estimate\"+\" TECHNICAL_SANCTIONED \"+\"matches Status\", function () {",
                       "    pm.expect(\"TECHNICAL_SANCTIONED\").to.include(jsonData.detailedEstimates[0].status.code);",
                       "    });",
-                      "    pm.globals.set(\"DEid\", jsonData.detailedEstimates[0].id);",
-                      "    pm.globals.set(\"DEnum\", jsonData.detailedEstimates[0].estimateNumber);",
+                      "    pm.globals.set(\"devDEid\", jsonData.detailedEstimates[0].id);",
+                      "    pm.globals.set(\"devDEnum\", jsonData.detailedEstimates[0].estimateNumber);",
                       "}"
                     ]
                   }
