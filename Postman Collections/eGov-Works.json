@@ -8478,7 +8478,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "a5970272-e33a-4705-879d-652c41e4df06",
+                    "id": "8aec9273-a5d8-4810-bf70-ff6d03047a1b",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -8486,7 +8486,9 @@
                       "",
                       "pm.environment.set(\"detailedEstimates\", JSON.stringify(de));",
                       "pm.environment.set(\"DEid\", jsonData.detailedEstimates[0].id);",
-                      "pm.environment.set(\"DEnumber\", jsonData.detailedEstimates[0].estimateNumber);"
+                      "pm.environment.set(\"DEnumber\", jsonData.detailedEstimates[0].estimateNumber);",
+                      "pm.globals.set(\"devDEid\", jsonData.detailedEstimates[0].id);",
+                      "pm.globals.set(\"devDEnum\", jsonData.detailedEstimates[0].estimateNumber);"
                     ]
                   }
                 }
