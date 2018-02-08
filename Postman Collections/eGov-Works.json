@@ -8180,7 +8180,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "ed942120-9579-4b13-b441-43f12d7cca19",
+                    "id": "5cf4b252-7712-45a9-b76a-33a27057fbce",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -8192,7 +8192,7 @@
                       "var budgetGroup = jsonData.MdmsRes.works.BudgetGroup;",
                       "var modeOfAllotment = jsonData.MdmsRes.works.ModeOfAllotment;",
                       "var natureOfWork = jsonData.MdmsRes.works.NatureOfWork;",
-                      "var worksStatus = jsonData.MdmsRes.works.WorksStatus;",
+                      "var worksStatus = [\"CHECKED\", \"TECHNICAL_SANCTIONED\", \"REJECTED\", \"RESUBMITTED\", \"CANCELLED\"];",
                       "",
                       "var uomCode = uom[Math.floor(Math.random() * uom.length)];",
                       "var depCode = dep[Math.floor(Math.random() * dep.length)];",
@@ -8219,12 +8219,6 @@
                       "    break;",
                       "    }",
                       "}",
-                      "console.log(worksStatusCode.moduleType);",
-                      "if(worksStatusCode.moduleType === \"DetailedEstimate\"){",
-                      "    console.log(worksStatusCode.code);",
-                      "    // pm.environment.set(\"deStatus\", worksStatusCode.code);",
-                      "}",
-                      "",
                       "pm.environment.set(\"uom\", uomCode.code);",
                       "pm.environment.set(\"dep\", depCode.code);",
                       "pm.environment.set(\"scheduleCategory\", scheduleCategoryCode.code);",
@@ -8232,6 +8226,7 @@
                       "pm.environment.set(\"budgetGroup\", budgetGroupCode.name);",
                       "pm.environment.set(\"modeOfAllotment\", modeOfAllotmentCode.code);",
                       "pm.environment.set(\"natureOfWork\", natureOfWorkCode.name);",
+                      "pm.environment.set(\"deStatus\", worksStatusCode);",
                       "",
                       "postman.setNextRequest(\"Create AE\");"
                     ]
