@@ -8180,7 +8180,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "5cf4b252-7712-45a9-b76a-33a27057fbce",
+                    "id": "36d1b05f-0860-48ed-8065-de406180b275",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -8192,7 +8192,6 @@
                       "var budgetGroup = jsonData.MdmsRes.works.BudgetGroup;",
                       "var modeOfAllotment = jsonData.MdmsRes.works.ModeOfAllotment;",
                       "var natureOfWork = jsonData.MdmsRes.works.NatureOfWork;",
-                      "var worksStatus = [\"CHECKED\", \"TECHNICAL_SANCTIONED\", \"REJECTED\", \"RESUBMITTED\", \"CANCELLED\"];",
                       "",
                       "var uomCode = uom[Math.floor(Math.random() * uom.length)];",
                       "var depCode = dep[Math.floor(Math.random() * dep.length)];",
@@ -8202,7 +8201,6 @@
                       "var budgetGroupCode = budgetGroup[Math.floor(Math.random() * budgetGroup.length)];",
                       "var modeOfAllotmentCode = modeOfAllotment[Math.floor(Math.random() * modeOfAllotment.length)];",
                       "var natureOfWorkCode = natureOfWork[Math.floor(Math.random() * natureOfWork.length)];",
-                      "var worksStatusCode = worksStatus[Math.floor(Math.random() * worksStatus.length)];",
                       "",
                       "var tW = \"\";",
                       "for(var j=0; j<typeOfWork.length; j++){",
@@ -8226,7 +8224,6 @@
                       "pm.environment.set(\"budgetGroup\", budgetGroupCode.name);",
                       "pm.environment.set(\"modeOfAllotment\", modeOfAllotmentCode.code);",
                       "pm.environment.set(\"natureOfWork\", natureOfWorkCode.name);",
-                      "pm.environment.set(\"deStatus\", worksStatusCode);",
                       "",
                       "postman.setNextRequest(\"Create AE\");"
                     ]
