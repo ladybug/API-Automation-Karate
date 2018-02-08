@@ -8644,10 +8644,12 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "5a9f88cb-ef50-4f57-ab77-24ea10adea56",
+                    "id": "09e83c65-10fc-44a9-82a8-11a82c0dae69",
                     "type": "text/javascript",
                     "exec": [
-                      ""
+                      "var worksStatus = [\"CHECKED\", \"TECHNICAL_SANCTIONED\", \"REJECTED\", \"RESUBMITTED\", \"CANCELLED\"];",
+                      "var worksStatusCode = worksStatus[Math.floor(Math.random() * worksStatus.length)];",
+                      "pm.environment.set(\"deStatus\", worksStatusCode);"
                     ]
                   }
                 }
