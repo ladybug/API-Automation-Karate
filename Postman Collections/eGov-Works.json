@@ -8286,12 +8286,12 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "3c79ec14-f7ff-4356-9307-43aff7ec170a",
+                    "id": "d94e45be-2cc6-461d-aee8-7b02f46aa7e9",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
-                      "pm.environment.set(\"sorCode\", jsonData.scheduleOfRates[0].code);",
-                      "pm.environment.set(\"sorId\", jsonData.scheduleOfRates[0].id);"
+                      "pm.environment.set(\"devSorCode\", jsonData.scheduleOfRates[0].code);",
+                      "pm.environment.set(\"devSorId\", jsonData.scheduleOfRates[0].id);"
                     ]
                   }
                 }
