@@ -9283,6 +9283,26 @@
                 "description": null
               },
               "response": []
+            },
+            {
+              "_postman_id": "67554d94-e38d-de2c-eee0-98a85a6a5a6d",
+              "name": "Create WO Offline Status",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.0\",\n    \"ts\": 1511171897140,\n    \"action\": \"create\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"offlineStatuses\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"objectNumber\": \"{{woNum}}\",\n      \"objectType\": \"WorkOrderOffline\",\n      \"status\": {\n        \"code\": \"WORK_ORDER_ACKNOWLEDGED\"\n      },\n      \"objectDate\": \"1516860742511\",\n      \"statusDate\": \"1516860742511\"\n    },\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"objectNumber\": \"{{woNum}}\",\n      \"objectType\": \"WorkOrderOffline\",\n      \"status\": {\n        \"code\": \"SITE_HANDED_OVER\"\n      },\n      \"objectDate\": \"1516860742511\",\n      \"statusDate\": \"1516860742511\"\n    },\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"objectNumber\": \"{{woNum}}\",\n      \"objectType\": \"WorkOrderOffline\",\n      \"status\": {\n        \"code\": \"WORK_COMMENCED\"\n      },\n      \"objectDate\": \"1516860742511\",\n      \"statusDate\": \"1516860742511\"\n    }\n  ]\n}"
+                },
+                "url": "{{url}}/works-services/v1/offlinestatuses/_create",
+                "description": ""
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
@@ -9357,26 +9377,6 @@
                 },
                 "url": "{{url}}/user/oauth/token",
                 "description": null
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "67554d94-e38d-de2c-eee0-98a85a6a5a6d",
-              "name": "Create WO Offline Status",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.0\",\n    \"ts\": 1511171897140,\n    \"action\": \"create\",\n    \"did\": \"4354648646\",\n    \"key\": \"xyz\",\n    \"msgId\": \"654654\",\n    \"requesterId\": \"61\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"offlineStatuses\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"objectNumber\": \"{{woNum}}\",\n      \"objectType\": \"WorkOrderOffline\",\n      \"status\": {\n        \"code\": \"WORK_ORDER_ACKNOWLEDGED\"\n      },\n      \"objectDate\": \"1516860742511\",\n      \"statusDate\": \"1516860742511\"\n    },\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"objectNumber\": \"{{woNum}}\",\n      \"objectType\": \"WorkOrderOffline\",\n      \"status\": {\n        \"code\": \"SITE_HANDED_OVER\"\n      },\n      \"objectDate\": \"1516860742511\",\n      \"statusDate\": \"1516860742511\"\n    },\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"objectNumber\": \"{{woNum}}\",\n      \"objectType\": \"WorkOrderOffline\",\n      \"status\": {\n        \"code\": \"WORK_COMMENCED\"\n      },\n      \"objectDate\": \"1516860742511\",\n      \"statusDate\": \"1516860742511\"\n    }\n  ]\n}"
-                },
-                "url": "{{url}}/works-services/v1/offlinestatuses/_create",
-                "description": ""
               },
               "response": []
             },
