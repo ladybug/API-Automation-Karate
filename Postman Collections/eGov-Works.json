@@ -8162,18 +8162,17 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "1d61abf3-0e0e-427f-8638-ba6b7cfbffed",
+                    "id": "1b6b9be7-1c49-4edd-8c84-ff9e1730b6e7",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "var details = jsonData.abstractEstimates[0].abstractEstimateDetails;",
                       "pm.environment.set(\"adminSanctionDate\", jsonData.abstractEstimates[0].adminSanctionDate);",
-                      "pm.environment.set(\"projectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
-                      "postman.setNextRequest(\"Logout as CE\");",
-                      "",
+                      "// pm.environment.set(\"projectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
                       "pm.test(\"AE is Administrative Sanctioned\", function () {",
                       "    pm.expect(\"ADMINISTRATIVE_SANCTIONED\").to.include(jsonData.abstractEstimates[0].status.code);",
-                      "});"
+                      "});",
+                      "postman.setNextRequest(\"Logout as CE\");"
                     ]
                   }
                 }
