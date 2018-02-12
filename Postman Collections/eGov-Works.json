@@ -9468,6 +9468,45 @@
                 "description": null
               },
               "response": []
+            },
+            {
+              "_postman_id": "9c65fde8-d477-4a26-99b1-82493e765a0b",
+              "name": "Create Milestone",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "2e980117-6566-412f-bf62-08d532e7a828",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "var jsonData = JSON.parse(responseBody);",
+                      "pm.environment.set(\"milestoneId\", jsonData.milestones[0].id);",
+                      "pm.environment.set(\"milestoneStatus\", jsonData.milestones[0].status.code);",
+                      "pm.environment.set(\"milestoneActivitiyId\", jsonData.milestones[0].milestoneActivities[0].id);",
+                      "postman.setNextRequest(\"Search Milestone\");"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"emp\",\n    \"ver\": \"1.0\",\n    \"ts\": \"10032017\",\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"key\": \"abcdkey\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"authToken\": \"{{access_token}}\",\n    \"userInfo\": {\n      \"tenantId\": \"{{tenantId}}\",\n      \"userName\": \"clerk\"\n    }\n  },\n  \"milestones\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"letterOfAcceptanceEstimate\": {\n        \"id\": \"{{loaEstimateId}}\"\n      },\n      \"status\": {\n        \"code\": \"APPROVED\"\n      },\n      \"milestoneActivities\": [\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"scheduleStartDate\": 1514805245000,\n          \"scheduleEndDate\": 1514891645000,\n          \"percentage\": 30,\n          \"description\": \"Evacuation\",\n          \"stageOrderNumber\": \"1\",\n          \"deleted\": false\n        },\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"scheduleStartDate\": 1514978045000,\n          \"scheduleEndDate\": 1515064445000,\n          \"percentage\": 30,\n          \"description\": \"Road Widening\",\n          \"stageOrderNumber\": \"2\",\n          \"deleted\": false\n        },\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"scheduleStartDate\": 1515150845000,\n          \"scheduleEndDate\": 1515237245000,\n          \"percentage\": 30,\n          \"description\": \"Bridge Construction\",\n          \"stageOrderNumber\": \"3\",\n          \"deleted\": false\n        },\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"scheduleStartDate\": 1515323645000,\n          \"scheduleEndDate\": 1515410045000,\n          \"percentage\": 10,\n          \"description\": \"Final\",\n          \"stageOrderNumber\": \"4\",\n          \"deleted\": false\n        }        \n      ],\n      \"deleted\": false\n    }\n  ]\n}"
+                },
+                "url": "{{url}}/works-workorder/v1/milestones/_create",
+                "description": "do a milestone for the work order"
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
