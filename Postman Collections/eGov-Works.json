@@ -9800,6 +9800,49 @@
                 "description": null
               },
               "response": []
+            },
+            {
+              "_postman_id": "da0f0163-e6ce-427e-9b2b-11fe237a77bb",
+              "name": "Search Bill",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"search\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"works master search\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"userInfo\": {\n      \"userName\": \"clerk\",\n      \"tenantId\": \"{{tenantId}}\"\n    \t}\n\t}\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/works-measurementbook/v1/contractorbills/_search?tenantId={{tenantId}}&ids={{billId}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-measurementbook",
+                    "v1",
+                    "contractorbills",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "ids",
+                      "value": "{{billId}}",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": null
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
