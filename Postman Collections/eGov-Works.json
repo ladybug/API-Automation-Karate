@@ -9890,12 +9890,14 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "c9cdaee9-7451-41e6-920c-f1d3e1f15afa",
+                    "id": "d5e24aeb-99b3-4644-a170-ca29af6e7c28",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "var mbId = pm.environment.get(\"MBid\");",
                       "var loaEstId = pm.environment.get(\"loaEstimateId\");",
+                      "",
+                      "pm.environment.set()",
                       "",
                       "pm.test(\"MB id Matches\", function () {",
                       "    pm.expect(mbId).to.include(jsonData.measurementBooks[0].id);",
@@ -9903,8 +9905,7 @@
                       "pm.test(\"LOA ID in MB Matches\", function () {",
                       "    pm.expect(loaEstId).to.include(jsonData.measurementBooks[0].letterOfAcceptanceEstimate.id);",
                       "});",
-                      "",
-                      "postman.setNextRequest(\"Logout\");"
+                      "// postman.setNextRequest(\"Logout\");"
                     ]
                   }
                 }
