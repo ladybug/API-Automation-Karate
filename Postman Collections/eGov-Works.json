@@ -9647,6 +9647,64 @@
                 "description": null
               },
               "response": []
+            },
+            {
+              "_postman_id": "2b05dc6d-5f8c-762b-658b-a99c2b55fc1a",
+              "name": "Search Track Milestone",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab183472-4f38-48ea-9b9a-afe0d3a7dd9d",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "postman.setNextRequest(\"Create Notice\");"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"resMsgId\": \"placeholder\",\n    \"msgId\": \"123\",\n    \"status\": \"200\",\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.1\",\n    \"ts\": \"123456789456\",\n    \"key\": null,\n    \"action\":\"search\",\n    \"authToken\":\"{{access_token}}\",\n    \"userInfo\":{\n     \"tenantId\" : \"{{tenantId}}\",\n     \"userName\" : \"clerk\"\n   }\n    }\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/works-workorder/v1/trackmilestones/_search?tenantId={{tenantId}}&ids={{trackId}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-workorder",
+                    "v1",
+                    "trackmilestones",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "ids",
+                      "value": "{{trackId}}",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": null
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
