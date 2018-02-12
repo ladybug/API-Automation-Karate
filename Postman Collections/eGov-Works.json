@@ -9610,6 +9610,74 @@
                 "description": ""
               },
               "response": []
+            },
+            {
+              "_postman_id": "8a11fa0f-4852-dd45-4898-966e592ef4b5",
+              "name": "Login as Works Approver",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "cd1fcd17-644d-4b37-a625-8aa58469e23f",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "postman.setEnvironmentVariable(\"access_token\", jsonData.access_token);",
+                      "",
+                      "tests[\"Status code is 200\"] = responseCode.code === 200;",
+                      "tests[\"Tenant ID is default\"] = jsonData.UserRequest.roles[0].tenantId;",
+                      "",
+                      "postman.setNextRequest(\"WorksMdmsData\");"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Basic ZWdvdi11c2VyLWNsaWVudDplZ292LXVzZXItc2VjcmV0"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "username",
+                      "value": "HOD",
+                      "type": "text"
+                    },
+                    {
+                      "key": "password",
+                      "value": "12345678",
+                      "type": "text"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "password",
+                      "type": "text"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "read",
+                      "type": "text"
+                    },
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "{{url}}/user/oauth/token",
+                "description": null
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
