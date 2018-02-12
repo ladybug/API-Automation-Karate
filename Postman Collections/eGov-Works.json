@@ -9444,6 +9444,105 @@
               "response": []
             },
             {
+              "_postman_id": "d08a0aaf-5445-debb-9610-ea394d3dba1a",
+              "name": "Search WO",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "63587dc4-1943-47d7-8486-7fd71552a187",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "pm.environment.get(\"loaNumber\");",
+                      "pm.environment.get(\"loaId\");",
+                      "",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "pm.test(\"LOA ID matches\", function () {",
+                      "pm.expect(pm.environment.get(\"loaId\")).to.include(jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].letterOfAcceptance);",
+                      "});",
+                      "pm.test(\"LOA Number matches\", function () {",
+                      "pm.expect(pm.environment.get(\"loaNumber\")).to.include(jsonData.workOrders[0].letterOfAcceptance.loaNumber);",
+                      "});",
+                      "pm.test(\"LOA Estimate ID matches\", function () {",
+                      "pm.expect(pm.environment.get(\"loaEstimateId\")).to.include(jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].id);",
+                      "});",
+                      "pm.test(\"LOA Activity ID matches\", function () {",
+                      "pm.expect(pm.environment.get(\"loaActId1\")).to.include(jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].loaActivities[0].id);",
+                      "pm.expect(pm.environment.get(\"loaActId2\")).to.include(jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].loaActivities[1].id);",
+                      "});",
+                      "pm.test(\"Detailed Estimate ID matches\", function () {",
+                      "pm.expect(pm.environment.get(\"DEid\")).to.include(jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].detailedEstimate.id);",
+                      "});",
+                      "",
+                      "if(jsonData.workOrders[0].status.code == \"CREATED\"){",
+                      "    pm.test(\"WO status as Created matches\", function () {",
+                      "    pm.expect(\"CREATED\").to.include(jsonData.workOrders[0].status.code);",
+                      "    });",
+                      "}",
+                      "if(jsonData.workOrders[0].status.code == \"CHECKED\"){",
+                      "    pm.test(\"WO status as Checked matches\", function () {",
+                      "    pm.expect(\"CHECKED\").to.include(jsonData.workOrders[0].status.code);",
+                      "    });",
+                      "}",
+                      "if(jsonData.workOrders[0].status.code == \"APPROVED\"){",
+                      "    pm.test(\"WO status as Approved matches\", function () {",
+                      "    pm.expect(\"APPROVED\").to.include(jsonData.workOrders[0].status.code);",
+                      "    });",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"search\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n    }\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/works-workorder/v1/workorders/_search?tenantId={{tenantId}}&ids={{woID}}&workOrderNumbers={{woNum}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-workorder",
+                    "v1",
+                    "workorders",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "ids",
+                      "value": "{{woID}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "workOrderNumbers",
+                      "value": "{{woNum}}",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": "Search work order for creating MB"
+              },
+              "response": []
+            },
+            {
               "_postman_id": "58965a81-3aa6-1f06-b6a2-048284c7e4f6",
               "name": "Create MB",
               "event": [
@@ -9608,105 +9707,6 @@
                 },
                 "url": "{{url}}/works-measurementbook/v1/measurementbooks/_update",
                 "description": ""
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "d08a0aaf-5445-debb-9610-ea394d3dba1a",
-              "name": "Search WO",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "63587dc4-1943-47d7-8486-7fd71552a187",
-                    "type": "text/javascript",
-                    "exec": [
-                      "var jsonData = JSON.parse(responseBody);",
-                      "pm.environment.get(\"loaNumber\");",
-                      "pm.environment.get(\"loaId\");",
-                      "",
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "pm.test(\"LOA ID matches\", function () {",
-                      "pm.expect(pm.environment.get(\"loaId\")).to.include(jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].letterOfAcceptance);",
-                      "});",
-                      "pm.test(\"LOA Number matches\", function () {",
-                      "pm.expect(pm.environment.get(\"loaNumber\")).to.include(jsonData.workOrders[0].letterOfAcceptance.loaNumber);",
-                      "});",
-                      "pm.test(\"LOA Estimate ID matches\", function () {",
-                      "pm.expect(pm.environment.get(\"loaEstimateId\")).to.include(jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].id);",
-                      "});",
-                      "pm.test(\"LOA Activity ID matches\", function () {",
-                      "pm.expect(pm.environment.get(\"loaActId1\")).to.include(jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].loaActivities[0].id);",
-                      "pm.expect(pm.environment.get(\"loaActId2\")).to.include(jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].loaActivities[1].id);",
-                      "});",
-                      "pm.test(\"Detailed Estimate ID matches\", function () {",
-                      "pm.expect(pm.environment.get(\"DEid\")).to.include(jsonData.workOrders[0].letterOfAcceptance.letterOfAcceptanceEstimates[0].detailedEstimate.id);",
-                      "});",
-                      "",
-                      "if(jsonData.workOrders[0].status.code == \"CREATED\"){",
-                      "    pm.test(\"WO status as Created matches\", function () {",
-                      "    pm.expect(\"CREATED\").to.include(jsonData.workOrders[0].status.code);",
-                      "    });",
-                      "}",
-                      "if(jsonData.workOrders[0].status.code == \"CHECKED\"){",
-                      "    pm.test(\"WO status as Checked matches\", function () {",
-                      "    pm.expect(\"CHECKED\").to.include(jsonData.workOrders[0].status.code);",
-                      "    });",
-                      "}",
-                      "if(jsonData.workOrders[0].status.code == \"APPROVED\"){",
-                      "    pm.test(\"WO status as Approved matches\", function () {",
-                      "    pm.expect(\"APPROVED\").to.include(jsonData.workOrders[0].status.code);",
-                      "    });",
-                      "}"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"search\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n    }\n}"
-                },
-                "url": {
-                  "raw": "{{url}}/works-workorder/v1/workorders/_search?tenantId={{tenantId}}&ids={{woID}}&workOrderNumbers={{woNum}}",
-                  "host": [
-                    "{{url}}"
-                  ],
-                  "path": [
-                    "works-workorder",
-                    "v1",
-                    "workorders",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "{{tenantId}}",
-                      "equals": true
-                    },
-                    {
-                      "key": "ids",
-                      "value": "{{woID}}",
-                      "equals": true
-                    },
-                    {
-                      "key": "workOrderNumbers",
-                      "value": "{{woNum}}",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": "Search work order for creating MB"
               },
               "response": []
             }
