@@ -8822,7 +8822,7 @@
                   "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"search\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\"\n  }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-estimate/v1/detailedestimates/_search?tenantId={{tenantId}}&ids={{DEid}}",
+                  "raw": "{{url}}/works-estimate/v1/detailedestimates/_search?tenantId={{tenantId}}&ids={{devDEid}}",
                   "host": [
                     "{{url}}"
                   ],
@@ -8840,7 +8840,7 @@
                     },
                     {
                       "key": "ids",
-                      "value": "{{DEid}}",
+                      "value": "{{devDEid}}",
                       "equals": true
                     }
                   ]
