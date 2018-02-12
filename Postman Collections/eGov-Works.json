@@ -8224,7 +8224,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "061780b5-97ec-4e08-8cc4-832cce40b65a",
+                    "id": "1c39c611-4455-4519-83df-c5005adf9a25",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -8234,7 +8234,7 @@
                       "    pm.expect(jsonData.projectCodes[0].code).to.include(pc);",
                       "});",
                       "",
-                      "pm.environment.set(\"projectCode\", jsonData.projectCodes[0].code);"
+                      "// pm.environment.set(\"projectCode\", jsonData.projectCodes[0].code);"
                     ]
                   }
                 }
