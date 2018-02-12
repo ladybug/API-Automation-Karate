@@ -8759,13 +8759,13 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "45e92d8f-70de-4df2-a670-280ab52685f6",
+                    "id": "05cbf339-0fd9-4ebe-b727-d93c04c1dd6e",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
-                      "var deID = pm.environment.get(\"DEid\");",
-                      "var deNum = pm.environment.get(\"DEnumber\");",
-                      "var de = pm.environment.get(\"detailedEstimates\");",
+                      "var deID = pm.globals.get(\"devDEid\");",
+                      "var deNum = pm.globals.get(\"devDEnum\");",
+                      "// var de = pm.environment.get(\"detailedEstimates\");",
                       "",
                       "pm.test(\"Detailed Estimate matches ID\", function () {",
                       "    pm.expect(deID).to.include(jsonData.detailedEstimates[0].id);",
