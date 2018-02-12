@@ -9010,7 +9010,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "3b4c5d2b-560a-4648-9902-b10f3edc2781",
+                    "id": "de3bc736-3124-488e-82e3-7a6cc4b60b8e",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -9019,7 +9019,7 @@
                       "pm.expect(pm.environment.get(\"loaNumber\")).to.include(jsonData.offlineStatuses[2].objectNumber);",
                       "});",
                       "",
-                      "pm.test(\"Workorder agreement signed matches\", function () {",
+                      "pm.test(\"Workorder agreement signed\", function () {",
                       "pm.expect(\"AGREEMENT_ORDER_SIGNED\").to.include(jsonData.offlineStatuses[2].status.code);",
                       "});"
                     ]
