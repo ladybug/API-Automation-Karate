@@ -9307,6 +9307,26 @@
             {
               "_postman_id": "9356c5aa-16b0-f733-c864-008c83d5fa5c",
               "name": "Search WO Offline Status",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "3b5cbd69-2e4f-487e-a859-6ed97dba72b4",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "pm.test(\"LOA Number matches\", function () {",
+                      "pm.expect(pm.environment.get(\"loaNumber\")).to.include(jsonData.offlineStatuses[2].objectNumber);",
+                      "});",
+                      "",
+                      "pm.test(\"Workorder agreement signed\", function () {",
+                      "pm.expect(\"AGREEMENT_ORDER_SIGNED\").to.include(jsonData.offlineStatuses[2].status.code);",
+                      "});"
+                    ]
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
