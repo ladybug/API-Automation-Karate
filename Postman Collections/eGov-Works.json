@@ -8979,7 +8979,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "46513b48-ecee-4b3f-84ed-b22d9bcffa8e",
+                    "id": "abeb1af0-2dc9-4f4e-9d3a-294c904aa9ac",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -9015,6 +9015,12 @@
                       "    pm.test(\"LOA status as Approved matches\", function () {",
                       "    pm.expect(\"APPROVED\").to.include(jsonData.letterOfAcceptances[0].status.code);",
                       "    });",
+                      "    pm.globals.set(\"devLoaNumber\", jsonData.letterOfAcceptances[0].loaNumber);",
+                      "    pm.globals.set(\"devLoaStatus\", jsonData.letterOfAcceptances[0].status.code);",
+                      "    pm.globals.set(\"devLoaEstimateId\", jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].id);",
+                      "    pm.globals.set(\"devLoaActId1\", jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].loaActivities[0].id);",
+                      "    pm.globals.set(\"devLoaActId2\", jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].loaActivities[1].id);",
+                      "    pm.globals.set(\"devLoaDate\", jsonData.letterOfAcceptances[0].loaDate);    ",
                       "}"
                     ]
                   }
