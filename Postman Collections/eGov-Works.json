@@ -9507,6 +9507,95 @@
                 "description": "do a milestone for the work order"
               },
               "response": []
+            },
+            {
+              "_postman_id": "15831421-ca41-35d5-4c60-f1a1963bf639",
+              "name": "Search Milestone",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "f96ecb41-bce6-4486-9323-1a5979e41b34",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "var jsonData = JSON.parse(responseBody);",
+                      "var milestone = jsonData.milestones;",
+                      "var milestoneActivities = jsonData.milestones[0].milestoneActivities;",
+                      "var milestoneActivitiesIds = \"\";",
+                      "",
+                      "for (var i=0; i<milestoneActivities.length; i++){",
+                      "    if(milestoneActivities.length == i+1){",
+                      "        milestoneActivitiesIds += milestoneActivities[i].id;",
+                      "    }",
+                      "}",
+                      "",
+                      "pm.environment.set(\"milestoneActivitiesId1\", jsonData.milestones[0].milestoneActivities[0].id);",
+                      "pm.environment.set(\"milestoneActivitiesId2\", jsonData.milestones[0].milestoneActivities[1].id);",
+                      "pm.environment.set(\"milestoneActivitiesId3\", jsonData.milestones[0].milestoneActivities[2].id);",
+                      "pm.environment.set(\"milestoneActivitiesId4\", jsonData.milestones[0].milestoneActivities[3].id);",
+                      "",
+                      "pm.test(\"tenant ID matches\", function (){",
+                      "   pm.expect(pm.environment.get(\"tenantId\")).to.include(jsonData.milestones[0].tenantId); ",
+                      "});",
+                      "",
+                      "pm.test(\"Milestone ID matches\", function () {",
+                      "pm.expect(pm.environment.get(\"milestoneId\")).to.include(jsonData.milestones[0].id);",
+                      "});",
+                      "",
+                      "pm.test(\"Milestone status matches as Approved\", function (){",
+                      "   pm.expect(pm.environment.get(\"milestoneStatus\")).to.include(jsonData.milestones[0].status.code); ",
+                      "});",
+                      "",
+                      "pm.test(\"Milestone activities ID matches\", function (){",
+                      "   pm.expect(pm.environment.get(\"milestoneActivitiyId\")).to.include(jsonData.milestones[0].milestoneActivities[0].id); ",
+                      "});",
+                      "postman.setNextRequest(\"Create Track Milestone\");"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requestInfo\": {\n    \"resMsgId\": \"placeholder\",\n    \"msgId\": \"123\",\n    \"status\": \"200\",\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.1\",\n    \"ts\": \"123456789456\",\n    \"key\": null,\n    \"action\":\"search\",\n    \"authToken\":\"{{access_token}}\",\n    \"userInfo\":{\n     \"tenantId\" : \"{{tenantId}}\",\n     \"userName\" : \"clerk\"\n   }\n    }\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/works-workorder/v1/milestones/_search?tenantId={{tenantId}}&ids={{milestoneId}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-workorder",
+                    "v1",
+                    "milestones",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "ids",
+                      "value": "{{milestoneId}}",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": "search milestone created for the work order"
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
