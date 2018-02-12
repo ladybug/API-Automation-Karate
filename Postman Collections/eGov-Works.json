@@ -8368,15 +8368,15 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "8aec9273-a5d8-4810-bf70-ff6d03047a1b",
+                    "id": "7a43d8ad-9ea4-46e6-8108-359d17453ff8",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "var de = jsonData.detailedEstimates;",
                       "",
                       "pm.environment.set(\"detailedEstimates\", JSON.stringify(de));",
-                      "pm.environment.set(\"DEid\", jsonData.detailedEstimates[0].id);",
-                      "pm.environment.set(\"DEnumber\", jsonData.detailedEstimates[0].estimateNumber);",
+                      "// pm.environment.set(\"DEid\", jsonData.detailedEstimates[0].id);",
+                      "// pm.environment.set(\"DEnumber\", jsonData.detailedEstimates[0].estimateNumber);",
                       "pm.globals.set(\"devDEid\", jsonData.detailedEstimates[0].id);",
                       "pm.globals.set(\"devDEnum\", jsonData.detailedEstimates[0].estimateNumber);"
                     ]
