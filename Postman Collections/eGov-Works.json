@@ -9364,7 +9364,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "3b5cbd69-2e4f-487e-a859-6ed97dba72b4",
+                    "id": "7d8ae32d-9ffc-4ec7-9dc0-ec170515d5bf",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -9373,8 +9373,9 @@
                       "pm.expect(pm.environment.get(\"loaNumber\")).to.include(jsonData.offlineStatuses[2].objectNumber);",
                       "});",
                       "",
-                      "pm.test(\"Workorder agreement signed\", function () {",
-                      "pm.expect(\"AGREEMENT_ORDER_SIGNED\").to.include(jsonData.offlineStatuses[2].status.code);",
+                      "pm.test(\"WORK COMMENCED\", function () {",
+                      "pm.expect(\"WORK_COMMENCED\").to.include(jsonData.offlineStatuses[2].status.code);",
+                      "pm.environment.set(\"workCommencementDate\", jsonData.offlineStatuses[2].statusDate);",
                       "});"
                     ]
                   }
