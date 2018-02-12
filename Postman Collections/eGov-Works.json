@@ -9366,6 +9366,103 @@
                 "description": ""
               },
               "response": []
+            },
+            {
+              "_postman_id": "7c3ad5fa-a721-cb1c-c44e-f3fc33a4052b",
+              "name": "Search DE",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "45e92d8f-70de-4df2-a670-280ab52685f6",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "var deID = pm.environment.get(\"DEid\");",
+                      "var deNum = pm.environment.get(\"DEnumber\");",
+                      "var de = pm.environment.get(\"detailedEstimates\");",
+                      "",
+                      "pm.test(\"Detailed Estimate matches ID\", function () {",
+                      "    pm.expect(deID).to.include(jsonData.detailedEstimates[0].id);",
+                      "});",
+                      "pm.test(\"Detailed Estimate matches Number\", function () {",
+                      "    pm.expect(deNum).to.include(jsonData.detailedEstimates[0].estimateNumber);",
+                      "});",
+                      "if(jsonData.detailedEstimates[0].status.code == \"CREATED\"){",
+                      "",
+                      "    pm.test(\"Detailed Estimate\"+\" CREATED \"+\"matches Status\", function () {",
+                      "    pm.expect(\"CREATED\").to.include(jsonData.detailedEstimates[0].status.code);",
+                      "    });",
+                      "    // jsonData.detailedEstimates[0].status.tenantId = \"{{tenantId}}\";",
+                      "    // jsonData.detailedEstimates[0].status.code = \"CHECKED\";",
+                      "    // pm.environment.set(\"detailedEstimates\", de);",
+                      "",
+                      "}",
+                      "if(jsonData.detailedEstimates[0].status.code == \"CHECKED\"){",
+                      "    ",
+                      "    pm.test(\"Detailed Estimate\"+\" CHECKED \"+\"matches Status\", function () {",
+                      "    pm.expect(\"CHECKED\").to.include(jsonData.detailedEstimates[0].status.code);",
+                      "    });",
+                      "    // if(de[0].status.code === \"CHECKED\"){",
+                      "    //     de[0].status.tenantId = \"{{tenantId}}\";",
+                      "    //     de[0].status.code = \"TECHNICAL_SANCTIONED\";",
+                      "    //     de[0].estimateTechnicalSanctions = [{}];",
+                      "    //     de[0].estimateTechnicalSanctions[0].tenantId = \"{{tenantId}}\";",
+                      "    //     de[0].estimateTechnicalSanctions[0].technicalSanctionDate = 1516687566000;",
+                      "    //     pm.environment.set(\"detailedEstimates\", de);",
+                      "    // }",
+                      "}",
+                      "if(jsonData.detailedEstimates[0].status.code == \"TECHNICAL_SANCTIONED\"){",
+                      "    ",
+                      "    pm.test(\"Detailed Estimate\"+\" TECHNICAL_SANCTIONED \"+\"matches Status\", function () {",
+                      "    pm.expect(\"TECHNICAL_SANCTIONED\").to.include(jsonData.detailedEstimates[0].status.code);",
+                      "    });",
+                      "    pm.globals.set(\"devDEid\", jsonData.detailedEstimates[0].id);",
+                      "    pm.globals.set(\"devDEnum\", jsonData.detailedEstimates[0].estimateNumber);",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"search\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\"\n  }\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/works-estimate/v1/detailedestimates/_search?tenantId={{tenantId}}&ids={{DEid}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-estimate",
+                    "v1",
+                    "detailedestimates",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "ids",
+                      "value": "{{DEid}}",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": "Search DE to create LOA"
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
