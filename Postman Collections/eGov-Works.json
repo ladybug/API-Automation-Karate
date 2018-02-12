@@ -8407,13 +8407,13 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "45e92d8f-70de-4df2-a670-280ab52685f6",
+                    "id": "5f2ae4b8-5c2e-4234-8262-4e4308951eec",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
-                      "var deID = pm.environment.get(\"DEid\");",
-                      "var deNum = pm.environment.get(\"DEnumber\");",
-                      "var de = pm.environment.get(\"detailedEstimates\");",
+                      "var deID = pm.globals.get(\"devDEid\");",
+                      "var deNum = pm.globals.get(\"devDEnum\");",
+                      "// var de = pm.environment.get(\"detailedEstimates\");",
                       "",
                       "pm.test(\"Detailed Estimate matches ID\", function () {",
                       "    pm.expect(deID).to.include(jsonData.detailedEstimates[0].id);",
@@ -8470,7 +8470,7 @@
                   "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"search\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\"\n  }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-estimate/v1/detailedestimates/_search?tenantId={{tenantId}}&ids={{DEid}}",
+                  "raw": "{{url}}/works-estimate/v1/detailedestimates/_search?tenantId={{tenantId}}&ids={{devDEid}}",
                   "host": [
                     "{{url}}"
                   ],
@@ -8488,7 +8488,7 @@
                     },
                     {
                       "key": "ids",
-                      "value": "{{DEid}}",
+                      "value": "{{devDEid}}",
                       "equals": true
                     }
                   ]
