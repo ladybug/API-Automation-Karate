@@ -8883,7 +8883,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "a4a3c58f-bf12-4c59-889b-441c49c23980",
+                    "id": "46513b48-ecee-4b3f-84ed-b22d9bcffa8e",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -8897,6 +8897,7 @@
                       "pm.environment.set(\"loaEstimateId\", jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].id);",
                       "pm.environment.set(\"loaActId1\", jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].loaActivities[0].id);",
                       "pm.environment.set(\"loaActId2\", jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].loaActivities[1].id);",
+                      "pm.environment.set(\"loaDate\", jsonData.letterOfAcceptances[0].loaDate);",
                       "",
                       "pm.test(\"LOA ID matches\", function () {",
                       "pm.expect(pm.environment.get(\"loaId\")).to.include(jsonData.letterOfAcceptances[0].id);",
