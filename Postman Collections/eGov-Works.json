@@ -6863,49 +6863,6 @@
                 "description": null
               },
               "response": []
-            },
-            {
-              "_postman_id": "601374a3-a520-c586-c5e9-a3eebcab1ba6",
-              "name": "Search Notice using notice number",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"requestInfo\": {\n    \"action\": \"search\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"works master creator\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"userInfo\": {\n      \"userName\": \"clerk\",\n      \"tenantId\": \"{{tenantId}}\"\n    \t}\n\t}\n}"
-                },
-                "url": {
-                  "raw": "{{url}}/works-workorder/v1/notices/_search?tenantId={{tenantId}}&noticeNumbers={{noticeNumber}}",
-                  "host": [
-                    "{{url}}"
-                  ],
-                  "path": [
-                    "works-workorder",
-                    "v1",
-                    "notices",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "{{tenantId}}",
-                      "equals": true
-                    },
-                    {
-                      "key": "noticeNumbers",
-                      "value": "{{noticeNumber}}",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": "Search Notice Generated for the LOA"
-              },
-              "response": []
             }
           ],
           "_postman_isSubFolder": true
