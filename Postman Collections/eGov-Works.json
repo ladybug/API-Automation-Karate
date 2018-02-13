@@ -5779,7 +5779,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "7c09a06e-4fbe-45ba-837b-4af28140a017",
+                    "id": "949688e2-fdfe-4ca9-bd05-5b98123dfdcd",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -5790,6 +5790,7 @@
                       "var amount = pm.environment.get(\"sAEamount\");",
                       "pm.environment.set(\"sEstimateAmount\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].estimateAmount);",
                       "pm.environment.set(\"sAEdate\", jsonData.abstractEstimates[0].dateOfProposal);",
+                      "pm.environment.set(\"adminSanctionDate\", jsonData.abstractEstimates[0].adminSanctionDate);",
                       "pm.environment.set(\"sProjectCode\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].projectCode.code);",
                       "pm.environment.set(\"sNameOfWork\", jsonData.abstractEstimates[0].abstractEstimateDetails[0].nameOfWork);",
                       "",
