@@ -6194,7 +6194,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "cefa0845-096b-4fd5-8aad-075a94f2f3ce",
+                    "id": "18f87b71-283d-4da6-bbd1-05bf35674131",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
@@ -6224,6 +6224,7 @@
                       "pm.test(\"WO status as Approved matches\", function () {",
                       "    pm.expect(\"APPROVED\").to.include(jsonData.workOrders[0].status.code);",
                       "});",
+                      "pm.environment.set(\"workOrderDate\", jsonData.workOrders[0].workOrderDate);",
                       "postman.setNextRequest(\"Create Milestone\");"
                     ]
                   }
