@@ -8410,12 +8410,12 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "5f2ae4b8-5c2e-4234-8262-4e4308951eec",
+                    "id": "822a34d7-ba46-4c6a-b4c7-b98e254ecad8",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
-                      "var deID = pm.globals.get(\"devDEid\");",
-                      "var deNum = pm.globals.get(\"devDEnum\");",
+                      "var deID = pm.environment.get(\"DEid\");",
+                      "var deNum = pm.environment.get(\"DEnumber\");",
                       "// var de = pm.environment.get(\"detailedEstimates\");",
                       "",
                       "pm.test(\"Detailed Estimate matches ID\", function () {",
