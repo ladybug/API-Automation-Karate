@@ -6058,7 +6058,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "532c25a2-440f-431e-9ab0-0e4566355448",
+                    "id": "20c4936d-d54a-4d97-b79f-b692826f1a31",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
@@ -6067,6 +6067,7 @@
                       "",
                       "var jsonData = JSON.parse(responseBody);",
                       "pm.environment.set(\"loaId\", jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].letterOfAcceptance);",
+                      "pm.environment.set(\"loaDate\", jsonData.letterOfAcceptances[0].loaDate);",
                       "pm.environment.set(\"loaNumber\", jsonData.letterOfAcceptances[0].loaNumber);",
                       "pm.environment.set(\"loaStatus\", jsonData.letterOfAcceptances[0].status.code);",
                       "pm.environment.set(\"loaEstimateId\", jsonData.letterOfAcceptances[0].letterOfAcceptanceEstimates[0].id);",
