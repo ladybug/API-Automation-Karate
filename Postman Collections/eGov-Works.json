@@ -6829,49 +6829,6 @@
               "response": []
             },
             {
-              "_postman_id": "bd61613a-6c22-73e9-32e1-0cd9a5e2a619",
-              "name": "Search Bill",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"search\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"works master search\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"userInfo\": {\n      \"userName\": \"clerk\",\n      \"tenantId\": \"{{tenantId}}\"\n    \t}\n\t}\n}"
-                },
-                "url": {
-                  "raw": "{{url}}/works-measurementbook/v1/contractorbills/_search?tenantId={{tenantId}}&ids={{billId}}",
-                  "host": [
-                    "{{url}}"
-                  ],
-                  "path": [
-                    "works-measurementbook",
-                    "v1",
-                    "contractorbills",
-                    "_search"
-                  ],
-                  "query": [
-                    {
-                      "key": "tenantId",
-                      "value": "{{tenantId}}",
-                      "equals": true
-                    },
-                    {
-                      "key": "ids",
-                      "value": "{{billId}}",
-                      "equals": true
-                    }
-                  ]
-                },
-                "description": ""
-              },
-              "response": []
-            },
-            {
               "_postman_id": "bd934c65-35b5-4526-8748-a4361a33bce4",
               "name": "Update Bill",
               "event": [
@@ -6914,6 +6871,49 @@
                 },
                 "url": "{{url}}/works-measurementbook/v1/contractorbills/_update",
                 "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "bd61613a-6c22-73e9-32e1-0cd9a5e2a619",
+              "name": "Search Bill",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"search\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"works master search\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"userInfo\": {\n      \"userName\": \"clerk\",\n      \"tenantId\": \"{{tenantId}}\"\n    \t}\n\t}\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/works-measurementbook/v1/contractorbills/_search?tenantId={{tenantId}}&ids={{billId}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-measurementbook",
+                    "v1",
+                    "contractorbills",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "ids",
+                      "value": "{{billId}}",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": ""
               },
               "response": []
             },
