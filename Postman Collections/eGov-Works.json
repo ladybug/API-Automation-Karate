@@ -6821,6 +6821,52 @@
               "response": []
             },
             {
+              "_postman_id": "bd934c65-35b5-4526-8748-a4361a33bce4",
+              "name": "Update Bill",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "43e8d3eb-7bd5-469e-8e1a-d953ffc9b129",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var num1 = Math.floor((Math.random() * 10000) + 1);",
+                      "pm.environment.set(\"billSequenceNumber\", \"Spillover/Bill/\"+num1);"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "6e79e1b3-e6f4-4f06-b001-562f3f606e8b",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "pm.environment.set(\"billNumber\", jsonData.contractorBills[0].billNumber);",
+                      "pm.environment.set(\"billId\", jsonData.contractorBills[0].id);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"userInfo\": {\n      \"userName\": \"clerk\",\n      \"tenantId\": \"{{tenantId}}\"\n    }\n  },\n  \"contractorBills\": [\n    {\n        \"tenantId\": \"{{tenantId}}\",\n        \"billSequenceNumber\": \"{{billSequenceNumber}}\",\n        \"approvedDate\": \"\",\n        \"billDate\" : 1514978045000,\n        \"billAmount\": 450,\n        \"billType\": \"Part\",\n        \"passedAmount\": 450,\n        \"contractorBillAmount\": 450,\n        \"approvedBy\": {\n        \t\"userName\":\"clerk\"\n        },\n        \"assets\":[],\n        \"mbForContractorBill\":[{\n        \t\"measurementBook\" : {\n        \t\t\"tenantId\": \"{{tenantId}}\",\n        \t\t\"id\" : \"{{MBid}}\"\n        \t},\n            \"tenantId\": \"{{tenantId}}\"\n        }],\n        \"letterOfAcceptanceEstimate\":{\n            \"tenantId\": \"{{tenantId}}\",\n            \"id\":\"{{loaEstimateId}}\"\n        },\n        \"workFlowDetails\": null\n    }]\n}"
+                },
+                "url": "{{url}}/works-measurementbook/v1/contractorbills/_update",
+                "description": null
+              },
+              "response": []
+            },
+            {
               "_postman_id": "cb619bd5-b139-9497-0694-f1c3daf5907c",
               "name": "Logout",
               "event": [
@@ -6863,52 +6909,6 @@
                     }
                   ]
                 },
-                "description": null
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "bd934c65-35b5-4526-8748-a4361a33bce4",
-              "name": "Update Bill",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "43e8d3eb-7bd5-469e-8e1a-d953ffc9b129",
-                    "type": "text/javascript",
-                    "exec": [
-                      "var num1 = Math.floor((Math.random() * 10000) + 1);",
-                      "pm.environment.set(\"billSequenceNumber\", \"Spillover/Bill/\"+num1);"
-                    ]
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "6e79e1b3-e6f4-4f06-b001-562f3f606e8b",
-                    "type": "text/javascript",
-                    "exec": [
-                      "var jsonData = JSON.parse(responseBody);",
-                      "",
-                      "pm.environment.set(\"billNumber\", jsonData.contractorBills[0].billNumber);",
-                      "pm.environment.set(\"billId\", jsonData.contractorBills[0].id);"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"authToken\": \"{{access_token}}\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"userInfo\": {\n      \"userName\": \"clerk\",\n      \"tenantId\": \"{{tenantId}}\"\n    }\n  },\n  \"contractorBills\": [\n    {\n        \"tenantId\": \"{{tenantId}}\",\n        \"billSequenceNumber\": \"{{billSequenceNumber}}\",\n        \"approvedDate\": \"\",\n        \"billDate\" : 1514978045000,\n        \"billAmount\": 450,\n        \"billType\": \"Part\",\n        \"passedAmount\": 450,\n        \"contractorBillAmount\": 450,\n        \"approvedBy\": {\n        \t\"userName\":\"clerk\"\n        },\n        \"assets\":[],\n        \"mbForContractorBill\":[{\n        \t\"measurementBook\" : {\n        \t\t\"tenantId\": \"{{tenantId}}\",\n        \t\t\"id\" : \"{{MBid}}\"\n        \t},\n            \"tenantId\": \"{{tenantId}}\"\n        }],\n        \"letterOfAcceptanceEstimate\":{\n            \"tenantId\": \"{{tenantId}}\",\n            \"id\":\"{{loaEstimateId}}\"\n        },\n        \"workFlowDetails\": null\n    }]\n}"
-                },
-                "url": "{{url}}/works-measurementbook/v1/contractorbills/_update",
                 "description": null
               },
               "response": []
