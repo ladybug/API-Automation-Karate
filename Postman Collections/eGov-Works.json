@@ -6662,6 +6662,57 @@
               "response": []
             },
             {
+              "_postman_id": "0d09c749-1439-411b-6858-cca4205da8a2",
+              "name": "Update sMB",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "e164fb59-8c9d-46fe-95ae-d8e3a77c2016",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var num1 = Math.floor((Math.random() * 10000) + 1);",
+                      "pm.environment.set(\"mbRef\", \"MBref-\"+num1);"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "e166e3e3-f0d0-413b-b704-59a431e5f523",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "var jsonData = JSON.parse(responseBody);",
+                      "pm.environment.set(\"MBid\", jsonData.measurementBooks[0].id);",
+                      "pm.environment.set(\"MBrefNo\", jsonData.measurementBooks[0].mbRefNo);",
+                      "",
+                      "postman.setNextRequest(\"Search sMB\");"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"measurementBooks\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"mbRefNo\": \"{{mbRef}}\",\n      \"contractorComments\": \"Measurement Book\",\n      \"mbDate\": {{loaDate}},\n      \"mbIssuedDate\": {{workOrderDate}},\n      \"mbAbstract\": \"Abstract MB\",\n      \"fromPageNo\": \"1\",\n      \"toPageNo\": \"100\",\n      \"letterOfAcceptanceEstimate\": {\n        \"tenantId\": \"{{tenantId}}\",\n        \"id\": \"{{loaEstimateId}}\",\n        \"letterOfAcceptance\": \"{{loaId}}\",\n        \"detailedEstimate\": {\n          \"id\": \"{{sDEid}}\",\n          \"tenantId\": \"{{tenantId}}\",\n          \"estimateNumber\": \"{{sDENum}}\"\n        }\n      },\n      \"status\": {\n      \t\"tenantId\": \"{{tenantId}}\",\n      \t\"code\": \"APPROVED\"\n      },\n      \"measurementBookDetails\": [\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"quantity\": \"2\",\n          \"rate\": \"450\",\n          \"remarks\": \"Remarks\",\n          \"amount\": 450,\n          \"loaActivity\": {\n            \"id\": \"{{loaActId1}}\"\n          },\n          \"measurementSheets\": [\n            {\n              \"tenantId\": \"{{tenantId}}\",\n              \"remarks\": \"Sheet remarks\",\n              \"number\": 1,\n              \"length\": 1,\n              \"width\": 1,\n              \"depthOrHeight\": 1,\n              \"quantity\": 1,\n              \"loaMeasurementSheet\": {\n                \"id\": \"{{loaMBSheet1}}\"\n              }\n            },\n            {\n              \"tenantId\": \"{{tenantId}}\",\n              \"remarks\": \"Sheet remarks\",\n              \"number\": 1,\n              \"length\": 1,\n              \"width\": 1,\n              \"depthOrHeight\": 1,\n              \"quantity\": 1,\n              \"loaMeasurementSheet\": {\n                \"id\": \"{{loaMBSheet2}}\"\n              }\n            }\n          ]\n        },\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"quantity\": \"2\",\n          \"rate\": \"450\",\n          \"remarks\": \"Remarks\",\n          \"amount\": 450,\n          \"loaActivity\": {\n            \"id\": \"{{loaActId2}}\"\n          },\n          \"measurementSheets\": [\n            {\n              \"tenantId\": \"{{tenantId}}\",\n              \"remarks\": \"Sheet remarks\",\n              \"number\": 1,\n              \"length\": 1,\n              \"width\": 1,\n              \"depthOrHeight\": 1,\n              \"quantity\": 1,\n              \"loaMeasurementSheet\": {\n                \"id\": \"{{loaMBSheet3}}\"\n              }\n            },\n            {\n              \"tenantId\": \"{{tenantId}}\",\n              \"remarks\": \"Sheet remarks\",\n              \"number\": 1,\n              \"length\": 1,\n              \"width\": 1,\n              \"depthOrHeight\": 1,\n              \"quantity\": 1,\n              \"loaMeasurementSheet\": {\n                \"id\": \"{{loaMBSheet4}}\"\n              }\n            }\n          ]\n        }\n      ],\n      \"isLegacyMB\": \"true\",\n      \"mbAmount\": \"900\",\n      \"approvedDate\": 1514978045000,\n      \"documentDetails\": []\n    }\n  ]\n}"
+                },
+                "url": "{{url}}/works-measurementbook/v1/measurementbooks/_update",
+                "description": null
+              },
+              "response": []
+            },
+            {
               "_postman_id": "895d7801-1eec-329c-5810-5523396d2f69",
               "name": "Search sMB",
               "event": [
@@ -6728,57 +6779,6 @@
                   ]
                 },
                 "description": "Search spillover MB"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "0d09c749-1439-411b-6858-cca4205da8a2",
-              "name": "Update sMB",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "e164fb59-8c9d-46fe-95ae-d8e3a77c2016",
-                    "type": "text/javascript",
-                    "exec": [
-                      "var num1 = Math.floor((Math.random() * 10000) + 1);",
-                      "pm.environment.set(\"mbRef\", \"MBref-\"+num1);"
-                    ]
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "e166e3e3-f0d0-413b-b704-59a431e5f523",
-                    "type": "text/javascript",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "var jsonData = JSON.parse(responseBody);",
-                      "pm.environment.set(\"MBid\", jsonData.measurementBooks[0].id);",
-                      "pm.environment.set(\"MBrefNo\", jsonData.measurementBooks[0].mbRefNo);",
-                      "",
-                      "postman.setNextRequest(\"Search sMB\");"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"measurementBooks\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"mbRefNo\": \"{{mbRef}}\",\n      \"contractorComments\": \"Measurement Book\",\n      \"mbDate\": {{loaDate}},\n      \"mbIssuedDate\": {{workOrderDate}},\n      \"mbAbstract\": \"Abstract MB\",\n      \"fromPageNo\": \"1\",\n      \"toPageNo\": \"100\",\n      \"letterOfAcceptanceEstimate\": {\n        \"tenantId\": \"{{tenantId}}\",\n        \"id\": \"{{loaEstimateId}}\",\n        \"letterOfAcceptance\": \"{{loaId}}\",\n        \"detailedEstimate\": {\n          \"id\": \"{{sDEid}}\",\n          \"tenantId\": \"{{tenantId}}\",\n          \"estimateNumber\": \"{{sDENum}}\"\n        }\n      },\n      \"status\": {\n      \t\"tenantId\": \"{{tenantId}}\",\n      \t\"code\": \"APPROVED\"\n      },\n      \"measurementBookDetails\": [\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"quantity\": \"2\",\n          \"rate\": \"450\",\n          \"remarks\": \"Remarks\",\n          \"amount\": 450,\n          \"loaActivity\": {\n            \"id\": \"{{loaActId1}}\"\n          },\n          \"measurementSheets\": [\n            {\n              \"tenantId\": \"{{tenantId}}\",\n              \"remarks\": \"Sheet remarks\",\n              \"number\": 1,\n              \"length\": 1,\n              \"width\": 1,\n              \"depthOrHeight\": 1,\n              \"quantity\": 1,\n              \"loaMeasurementSheet\": {\n                \"id\": \"{{loaMBSheet1}}\"\n              }\n            },\n            {\n              \"tenantId\": \"{{tenantId}}\",\n              \"remarks\": \"Sheet remarks\",\n              \"number\": 1,\n              \"length\": 1,\n              \"width\": 1,\n              \"depthOrHeight\": 1,\n              \"quantity\": 1,\n              \"loaMeasurementSheet\": {\n                \"id\": \"{{loaMBSheet2}}\"\n              }\n            }\n          ]\n        },\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"quantity\": \"2\",\n          \"rate\": \"450\",\n          \"remarks\": \"Remarks\",\n          \"amount\": 450,\n          \"loaActivity\": {\n            \"id\": \"{{loaActId2}}\"\n          },\n          \"measurementSheets\": [\n            {\n              \"tenantId\": \"{{tenantId}}\",\n              \"remarks\": \"Sheet remarks\",\n              \"number\": 1,\n              \"length\": 1,\n              \"width\": 1,\n              \"depthOrHeight\": 1,\n              \"quantity\": 1,\n              \"loaMeasurementSheet\": {\n                \"id\": \"{{loaMBSheet3}}\"\n              }\n            },\n            {\n              \"tenantId\": \"{{tenantId}}\",\n              \"remarks\": \"Sheet remarks\",\n              \"number\": 1,\n              \"length\": 1,\n              \"width\": 1,\n              \"depthOrHeight\": 1,\n              \"quantity\": 1,\n              \"loaMeasurementSheet\": {\n                \"id\": \"{{loaMBSheet4}}\"\n              }\n            }\n          ]\n        }\n      ],\n      \"isLegacyMB\": \"true\",\n      \"mbAmount\": \"900\",\n      \"approvedDate\": 1514978045000,\n      \"documentDetails\": []\n    }\n  ]\n}"
-                },
-                "url": "{{url}}/works-measurementbook/v1/measurementbooks/_update",
-                "description": null
               },
               "response": []
             },
