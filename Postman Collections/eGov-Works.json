@@ -551,6 +551,48 @@
             "description": ""
           },
           "response": []
+        },
+        {
+          "_postman_id": "3c7232b7-50ac-eebf-250d-b01e397898e5",
+          "name": "Document Upload",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/mixed",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "value": null
+                },
+                {
+                  "key": "tenantId",
+                  "value": "default",
+                  "type": "text"
+                },
+                {
+                  "key": "module",
+                  "value": "works",
+                  "type": "text"
+                },
+                {
+                  "key": "tag",
+                  "value": "00040-2017-QR",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "http://egov-micro-dev.egovernments.org/filestore/v1/files",
+            "description": null
+          },
+          "response": []
         }
       ]
     },
