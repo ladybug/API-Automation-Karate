@@ -610,6 +610,41 @@
             "description": null
           },
           "response": []
+        },
+        {
+          "_postman_id": "29c5d809-5a85-b4f9-f466-bda1bc56da03",
+          "name": "Document Upload Search by Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "url": {
+              "raw": "{{url}}/filestore/v1/files/id?tenantId=default&fileStoreId=04b42e69-be5c-4f79-a2a9-a91552b80a57",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "filestore",
+                "v1",
+                "files",
+                "id"
+              ],
+              "query": [
+                {
+                  "key": "tenantId",
+                  "value": "default",
+                  "equals": true
+                },
+                {
+                  "key": "fileStoreId",
+                  "value": "04b42e69-be5c-4f79-a2a9-a91552b80a57",
+                  "equals": true
+                }
+              ]
+            },
+            "description": "Search using Filestore ID"
+          },
+          "response": []
         }
       ]
     },
