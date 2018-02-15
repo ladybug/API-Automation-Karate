@@ -2165,6 +2165,276 @@
           "_postman_isSubFolder": true
         },
         {
+          "_postman_id": "2c9e94f1-c6fc-7b2e-bae1-65f419342f1d",
+          "name": "Milestone Template copy",
+          "description": "",
+          "item": [
+            {
+              "_postman_id": "b812b74d-583a-4660-00e6-b2d089f8ea57",
+              "name": "MT_Create",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "2025a55e-0f02-4eec-a410-2a1ea8ae1fb6",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var num1 = Math.round((Math.random() * 100));",
+                      "",
+                      "pm.environment.set(\"MT_code\", \"MT\"+num1);"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "95f5bdce-b6b9-48cb-b943-3cbccff9d61b",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "pm.environment.set(\"MT_id\", jsonData.milestoneTemplates[0].id);",
+                      "pm.environment.set(\"MT_code\", jsonData.milestoneTemplates[0].code);",
+                      "pm.environment.set(\"MT_activities\",jsonData.milestoneTemplates[0].milestoneTemplateActivities[0].id);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"works-masters\",\n    \"ver\": \"1.0\",\n    \"ts\": \"10032017\",\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"key\": \"abcdkey\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"milestoneTemplates\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"name\": \"Builings Milestone Template\",\n      \"code\": \"{{MT_code}}\",\n      \"active\": true,\n      \"description\": \"Milestone Template for PWD Building works\",\n      \"typeOfWork\": {\n        \"code\": \"Buildings\"\n      },\n      \"milestoneTemplateActivities\": [\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"stageOrderNumber\": 1,\n          \"stageDescription\": \"Phase One\",\n          \"percentage\": 50\n        },\n        {\n          \"tenantId\": \"{{tenantId}}\",\n          \"stageOrderNumber\": 2,\n          \"stageDescription\": \"Phase Two\",\n          \"percentage\": 50\n        }\n      ]\n    }\n  ]\n}"
+                },
+                "url": "{{url}}/works-masters/v1/milestonetemplates/_create",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "acbb0f0d-a4ec-29d5-d587-f1bc47a36004",
+              "name": "MT_Search_byID",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "50e6a50d-8e3d-4edf-98ee-7fbdb6a0be21",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "var mtResponse = jsonData.milestoneTemplates;",
+                      "pm.environment.set(\"milestoneTemplates\", JSON.stringify(mtResponse));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"works-master\",\n        \"ver\": \"1.0\",\n        \"ts\": \"10032017\",\n        \"action\": \"search\",\n        \"did\": \"1\",\n        \"key\": \"abcdkey\",\n        \"msgId\": \"20170310130900\",\n        \"requesterId\": \"clerk\",\n        \"authToken\": \"{{access_token}}\"\n    }\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/works-masters/v1/milestonetemplates/_search?tenantId={{tenantId}}&ids={{MT_id}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-masters",
+                    "v1",
+                    "milestonetemplates",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "ids",
+                      "value": "{{MT_id}}",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "fc731239-e652-7c05-75d3-98f0ab94c799",
+              "name": "MT_Update",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "8ea58898-8045-4f93-b49e-f760a0e39a62",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var mt = pm.environment.get(\"milestoneTemplates\");"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c2318caa-f12e-4717-ae88-84341cea78d0",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "pm.environment.set(\"MT_code\", jsonData.milestoneTemplates[0].code);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"works-master\",\n    \"ver\": \"1.0\",\n    \"ts\": \"10032017\",\n    \"action\": \"update\",\n    \"did\": \"1\",\n    \"key\": \"abcdkey\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"authToken\": \"{{access_token}}\"\n  },\n    \"milestoneTemplates\": [\n        {\n            \"id\": \"b429cf56646043a8bafaddaa6c59f3f2\",\n            \"tenantId\": \"default\",\n            \"name\": \"Builings Milestone Template\",\n            \"code\": \"MT8.1\",\n            \"active\": true,\n            \"description\": \"Milestone Template for PWD Building works\",\n            \"typeOfWork\": {\n                \"code\": \"Buildings\"\n            },\n            \"milestoneTemplateActivities\": [\n                {\n                    \"id\": \"c04c67ad722f4bd48a76098cb87c67b1\",\n                    \"tenantId\": \"default\",\n                    \"milestoneTemplate\": \"b429cf56646043a8bafaddaa6c59f3f2\",\n                    \"stageOrderNumber\": 1,\n                    \"stageDescription\": \"Phase One\",\n                    \"percentage\": 50,\n                    \"auditDetails\": null,\n                    \"deleted\": false\n                },\n                {\n                    \"id\": \"4fdfa318d7b34cf79dd61785ef92e425\",\n                    \"tenantId\": \"default\",\n                    \"milestoneTemplate\": \"b429cf56646043a8bafaddaa6c59f3f2\",\n                    \"stageOrderNumber\": 2,\n                    \"stageDescription\": \"Phase Two\",\n                    \"percentage\": 50,\n                    \"auditDetails\": null,\n                    \"deleted\": false\n                }\n            ],\n            \"auditDetails\": null,\n            \"deleted\": false\n        }\n    ]\n}"
+                },
+                "url": "{{url}}/works-masters/v1/milestonetemplates/_update",
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "50665b6c-16ae-907c-8f7f-bff65ca00c05",
+              "name": "MT_Search_byCode",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "50e6a50d-8e3d-4edf-98ee-7fbdb6a0be21",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var jsonData = JSON.parse(responseBody);",
+                      "var mtResponse = jsonData.milestoneTemplates;",
+                      "pm.environment.set(\"milestoneTemplates\", JSON.stringify(mtResponse));"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"RequestInfo\": {\n        \"apiId\": \"works-master\",\n        \"ver\": \"1.0\",\n        \"ts\": \"10032017\",\n        \"action\": \"search\",\n        \"did\": \"1\",\n        \"key\": \"abcdkey\",\n        \"msgId\": \"20170310130900\",\n        \"requesterId\": \"clerk\",\n        \"authToken\": \"{{access_token}}\"\n    }\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/works-masters/v1/milestonetemplates/_search?tenantId={{tenantId}}&codes={{MT_code}}",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "works-masters",
+                    "v1",
+                    "milestonetemplates",
+                    "_search"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "{{tenantId}}",
+                      "equals": true
+                    },
+                    {
+                      "key": "codes",
+                      "value": "{{MT_code}}",
+                      "equals": true
+                    }
+                  ]
+                },
+                "description": null
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "104b512d-e326-af00-d098-ccb39dd7e64e",
+              "name": "MT_Create_Required",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "b429a7a9-eba8-415d-b6b9-247f830833c2",
+                    "type": "text/javascript",
+                    "exec": [
+                      "var num1 = Math.round((Math.random() * 10));",
+                      "",
+                      "pm.environment.set(\"MT_code\", \"MT\"+num1);"
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "95f5bdce-b6b9-48cb-b943-3cbccff9d61b",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "var jsonData = JSON.parse(responseBody);",
+                      "",
+                      "pm.environment.set(\"MT_id\", jsonData.milestoneTemplates[0].id);",
+                      "pm.environment.set(\"MT_code\", jsonData.milestoneTemplates[0].code);",
+                      "pm.environment.set(\"MT_activities\",jsonData.milestoneTemplates[0].milestoneTemplateActivities[0].id);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"works-masters\",\n    \"ver\": \"1.0\",\n    \"ts\": \"10032017\",\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"key\": \"abcdkey\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"clerk\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\"\n  },\n  \"milestoneTemplates\": [\n    {\n      \"tenantId\": null,\n      \"name\": null,\n      \"code\": null,\n      \"active\": null,\n      \"description\": \"First Phase milestone Template for PWD\",\n      \"typeOfWork\": {\n        \"code\": null\n      },\n      \"milestoneTemplateActivities\": [\n        {\n          \"tenantId\": null,\n          \"stageOrderNumber\": null,\n          \"stageDescription\": null,\n          \"percentage\": null\n        }\n      ]\n    }\n  ]\n}"
+                },
+                "url": "{{url}}/works-masters/v1/milestonetemplates/_create",
+                "description": "tenantId\nname\ncode\nactive\ntypeOfWork{code}\nmilestoneTemplateActivities[tenantId, stageOrderNumber, stageDescription, percentage]"
+              },
+              "response": []
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
           "_postman_id": "8e44f590-9544-3630-aae5-0bce2555710d",
           "name": "ScheduleOfCategory",
           "event": [
