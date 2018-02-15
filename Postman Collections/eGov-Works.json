@@ -8562,13 +8562,13 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "a5b6c52f-b910-48a6-8fd5-425c6cebd3c5",
+                    "id": "5b141aeb-065c-48b5-a976-c9ed6b043404",
                     "type": "text/javascript",
                     "exec": [
                       "var jsonData = JSON.parse(responseBody);",
                       "var de = jsonData.detailedEstimates;",
                       "",
-                      "pm.environment.set(\"detailedEstimates\", JSON.stringify(de));",
+                      "// pm.environment.set(\"detailedEstimates\", JSON.stringify(de));",
                       "pm.environment.set(\"DEid\", jsonData.detailedEstimates[0].id);",
                       "pm.environment.set(\"DEnumber\", jsonData.detailedEstimates[0].estimateNumber);",
                       "// pm.globals.set(\"devDEid\", jsonData.detailedEstimates[0].id);",
