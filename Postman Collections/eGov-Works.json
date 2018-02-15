@@ -597,6 +597,12 @@
                   "key": "tag",
                   "value": "00040-2017-QR",
                   "type": "text"
+                },
+                {
+                  "key": "access_token",
+                  "value": "{{access_token}}",
+                  "description": "",
+                  "type": "text"
                 }
               ]
             },
