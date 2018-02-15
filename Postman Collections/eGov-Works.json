@@ -10360,7 +10360,7 @@
                   "raw": "{\n  \"RequestInfo\": {\n    \"resMsgId\": \"placeholder\",\n    \"msgId\": \"123\",\n    \"status\": \"200\",\n    \"apiId\": \"org.egov.works\",\n    \"ver\": \"1.1\",\n    \"ts\": \"123456789456\",\n    \"key\": null,\n    \"action\":\"search\",\n    \"authToken\":\"{{access_token}}\"\n    }\n}"
                 },
                 "url": {
-                  "raw": "{{url}}/works-measurementbook/v1/measurementbooks/_search?tenantId={{tenantId}}&mbRefNumbers=MBref-2976&statuses=APPROVED",
+                  "raw": "{{url}}/works-measurementbook/v1/measurementbooks/_search?tenantId={{tenantId}}&mbRefNumbers={{MBrefNo}}&statues=APPROVED",
                   "host": [
                     "{{url}}"
                   ],
@@ -10378,11 +10378,11 @@
                     },
                     {
                       "key": "mbRefNumbers",
-                      "value": "MBref-2976",
+                      "value": "{{MBrefNo}}",
                       "equals": true
                     },
                     {
-                      "key": "statuses",
+                      "key": "statues",
                       "value": "APPROVED",
                       "equals": true
                     }
