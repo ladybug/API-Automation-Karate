@@ -9367,7 +9367,7 @@
                   ]
                 },
                 "url": "{{url}}/user/oauth/token",
-                "description": ""
+                "description": null
               },
               "response": []
             },
