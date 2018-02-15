@@ -10399,11 +10399,10 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "43e8d3eb-7bd5-469e-8e1a-d953ffc9b129",
+                    "id": "a9a73372-9525-409c-b840-f15d0b61f102",
                     "type": "text/javascript",
                     "exec": [
-                      "var num1 = Math.floor((Math.random() * 10000) + 1);",
-                      "pm.environment.set(\"billSequenceNumber\", \"Spillover/Bill/\"+num1);"
+                      ""
                     ]
                   }
                 },
@@ -10431,7 +10430,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"userInfo\": {\n      \"userName\": \"clerk\",\n      \"tenantId\": \"{{tenantId}}\"\n    }\n  },\n  \"contractorBills\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"approvedDate\": \"\",\n      \"billDate\": 1518689174475,\n      \"billAmount\": 450,\n      \"billType\": \"Part\",\n      \"passedAmount\": 450,\n      \"contractorBillAmount\": 450,\n      \"approvedBy\": {\n        \"userName\": \"WMS004\"\n      },\n      \"assets\": [],\n      \"mbForContractorBill\": [\n        {\n          \"measurementBook\": {\n            \"tenantId\": \"{{tenantId}}\",\n            \"id\": \"{{MBid}}\"\n          },\n          \"tenantId\": \"{{tenantId}}\"\n        }\n      ],\n      \"letterOfAcceptanceEstimate\": {\n        \"tenantId\": \"{{tenantId}}\",\n        \"id\": \"{{loaEstimateId}}\"\n      },\n      \"workFlowDetails\": {\n        \"assignee\": 25164,\n        \"action\": \"Create\"\n      }\n    }\n  ]\n}"
+                  "raw": "{\n  \"RequestInfo\": {\n    \"action\": \"create\",\n    \"did\": \"1\",\n    \"msgId\": \"20170310130900\",\n    \"requesterId\": \"\",\n    \"apiId\": \"1\",\n    \"ver\": \"1.0\",\n    \"ts\": 1,\n    \"key\": \"abcdkey\",\n    \"authToken\": \"{{access_token}}\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"userInfo\": {\n      \"userName\": \"clerk\",\n      \"tenantId\": \"{{tenantId}}\"\n    }\n  },\n  \"contractorBills\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"approvedDate\": \"\",\n      \"billDate\": {{loaDate}},\n      \"billAmount\": 450,\n      \"billType\": \"Part\",\n      \"passedAmount\": 450,\n      \"contractorBillAmount\": 450,\n      \"approvedBy\": {\n        \"userName\": \"WMS004\"\n      },\n      \"assets\": [],\n      \"mbForContractorBill\": [\n        {\n          \"measurementBook\": {\n            \"tenantId\": \"{{tenantId}}\",\n            \"id\": \"{{MBid}}\"\n          },\n          \"tenantId\": \"{{tenantId}}\"\n        }\n      ],\n      \"letterOfAcceptanceEstimate\": {\n        \"tenantId\": \"{{tenantId}}\",\n        \"id\": \"{{loaEstimateId}}\"\n      },\n      \"workFlowDetails\": {\n        \"assignee\": 25164,\n        \"action\": \"Create\"\n      }\n    }\n  ]\n}"
                 },
                 "url": "{{url}}/works-measurementbook/v1/contractorbills/_create",
                 "description": null
