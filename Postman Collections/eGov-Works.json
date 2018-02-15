@@ -570,7 +570,18 @@
                 {
                   "key": "file",
                   "type": "file",
-                  "value": null
+                  "src": {
+                    "0": {
+                      "name": "Belarc Advisor Computer Profile.pdf",
+                      "path": "C:\\Users\\Manjunath\\Documents\\Belarc Advisor Computer Profile.pdf",
+                      "lastModified": 1510830158573,
+                      "lastModifiedDate": "2017-11-16T11:02:38.573Z",
+                      "webkitRelativePath": "",
+                      "size": 208640,
+                      "type": "application/pdf"
+                    },
+                    "length": 1
+                  }
                 },
                 {
                   "key": "tenantId",
@@ -589,7 +600,7 @@
                 }
               ]
             },
-            "url": "http://egov-micro-dev.egovernments.org/filestore/v1/files",
+            "url": "{{url}}/filestore/v1/files",
             "description": null
           },
           "response": []
